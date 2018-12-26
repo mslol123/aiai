@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jxky.bgxs.dao.NoticeDAO">
+    <resultMap id="NoticeMap" type="com.jxky.bgxs.entity.Notice">
+        <id property="id" column="id"></id>
+        <result property="matter" column="matter"></result>
+        <result property="createtime" column="createtime"></result>
+    </resultMap>
+
+    <insert id="save">
+        INSERT INTO notice (matter,createtime) VALUES (#{matter},#{createtime})
+    </insert>
+
+    <select id="findAllNotice" resultMap="NoticeMap">
+      SELECT * FROM notice
+    </select>
+</mapper>

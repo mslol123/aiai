@@ -1,0 +1,87 @@
+package com.jxky.bgxs.controller.wt;
+
+import com.jxky.bgxs.dao.RedisDAO;
+import com.jxky.bgxs.entity.Chapter;
+import com.jxky.bgxs.service.wt.ChapterService;
+import com.jxky.bgxs.service.wx.BookMessageService;
+import com.jxky.bgxs.util.TimeHelper;
+import org.apache.ibatis.annotations.Param;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import javax.annotation.Resource;
+import java.util.Date;
+import java.util.List;
+import java.util.UUID;
+
+@Controller
+@RequestMapping("/bookMessage/list/chapter")
+public class ChapterController {
+    @Autowired
+    private ChapterService chapterService;
+    @Autowired
+    private BookMessageService bookMessageService;
+    @Resource
+    private TimeHelper timeHelper;
+    @Resource
+    private RedisDAO redisDAO;
+
+
+    @RequestMapping("/list")
+    public String findAllChapter(Model model) {
+        List<Chapter> chapterList = chapterService.findAllChapter();
+        model.addAttribute("chapterList", chapterList);
+        return "author/zhangjie";
+    }
+
+    @RequestMapping("/preUpdate/{id}")
+    public String preUpdate(@PathVariable("id") Integer id, Model model) {
+        Chapter chapter = chapterService.findById(id);
+        model.addAttribute("chap", chapter);
+        return "author/zhangjie";
+    }
+
+    @RequestMapping("/delete/{id}")
+    public String delete(@PathVariable("id") Integer id) {
+        chapterService.delete(id);
+        return "redirect:/author/bookMessage/draft";
+    }
+
+
+    @RequestMapping("/preAdd/{id}")
+    public String preInsert(@PathVariable("id") Integer id, Model model) {
+        List<Chapter> chapters = chapterService.findChapterNameByBookId(id);
+        model.addAttribute("chapters", chapters);
+        return "author/zhangjie";
+    }
+
+    @RequestMapping("/redis")
+    public String useRedis(String content){
+        if (content==null){
+            content="1";
+        }
+//        String jobName= UUID.randomUUID().toString().replace("-","");
+        redisDAO.setKey("lshc",content);
+        System.out.println(redisDAO.getValue("lshc"));
+        return "redirect:/list";
+    }
+
+
+    @RequestMapping("/add")
+    public String insert(Chapter chapter, @Param("content") String content, @Param("time") Date date) {
+//        if (null != date) {
+//            timeHelper.doTimeRun(date);
+//        }
+//        if (null != chapter.getChapterId()) {
+//            chapterService.update(chapter);
+//        }else {
+//            chapterService.insert(chapter, content);
+//        }
+
+        chapterService.insert(chapter,content);
+        return "redirect:/list";
+    }
+}

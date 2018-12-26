@@ -1,0 +1,72 @@
+package com.jxky.bgxs.service.gz;
+
+import com.jxky.bgxs.dao.BookDataDAO;
+import com.jxky.bgxs.entity.BookData;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
+
+@Service
+@Transactional
+public class BookDataService {
+    @Autowired
+    private BookDataDAO bookDataDAO;
+
+    //通过id查询某一个
+    public BookData findByBookId(Integer id) {
+        return bookDataDAO.findByBookId(id);
+    }
+
+    //查询所有
+    public List<BookData> findAll(){
+        return bookDataDAO.findAll();
+    }
+
+    //按总点赞数排序
+    public List<BookData> findByBookClick(){
+        return bookDataDAO.findByBookClick();
+    }
+
+    //按总字数排序
+    public List<BookData> findByBookWords(){
+        return bookDataDAO.findByBookWords();
+    };
+
+    //按总收藏数排序
+    public List<BookData> findByBookCollection(){
+        return bookDataDAO.findByBookCollection();
+    }
+
+    //按照月票数排序1
+    public BookData finByBookTicket1(){
+        return bookDataDAO.finByBookTicket1();
+    }
+    //按照月票数排序2
+    public List<BookData> finByBookTicket2(){  return bookDataDAO.finByBookTicket2();
+    }
+    //按照月票数排序3
+    public List<BookData> finByBookTicket3(){
+        return bookDataDAO.finByBookTicket3();
+    }
+    //按照月票数排序4
+    public List<BookData> finByBookTicket4(){
+        return bookDataDAO.finByBookTicket4();
+    }
+
+    //按照书的销售数排序
+    public List<BookData> findByBookSales(){
+        return bookDataDAO.findByBookSales();
+    }
+
+    //按照书籍金额（每个章节金额的总和）排序
+    public List<BookData> findByBookMoney(){
+        return bookDataDAO.findByBookMoney();
+    }
+
+    //按照书籍订阅数排序
+    public List<BookData> findByBookSubscribe(){
+        return bookDataDAO.findByBookSubscribe();
+    }
+}

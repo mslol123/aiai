@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qiangfeng.oasystem.dao.LeaveDAO">
+
+    <resultMap id="leaveMap" type="com.qiangfeng.oasystem.entity.Leave">
+        <id property="id" column="id"></id>
+        <result property="beginDate" column="begin_date"></result>
+        <result property="createDate" column="create_date"></result>
+        <result property="endDate" column="end_date"></result>
+        <result property="leaveStatus" column="leave_status"></result>
+        <result property="processId" column="process_id"></result>
+        <result property="reason" column="reason"></result>
+    </resultMap>
+
+    <resultMap id="leaveDetailMap" type="com.qiangfeng.oasystem.entity.Leave" extends="leaveMap">
+        <association property="user" column="user_id" select="com.qiangfeng.oasystem.dao.UserDAO.findById"></association>
+    </resultMap>
+
+    <sql id="leaveColumns">
+        id, begin_date, create_date, end_date, leave_status
+         , process_id, reason
+    </sql>
+
+    <select id="findByUserId" resultMap="leaveMap">
+        SELECT
+        <include refid="leaveColumns"></include>
+         FROM oa_leave WHERE user_id = #{id}
+    </select>
+
+    <select id="findById" resultMap="leaveDetailMap">
+        SELECT
+        <include refid="leaveColumns"></include>, user_id
+        FROM oa_leave WHERE id = #{id}
+    </select>
+
+    <select id="findByAllTask" resultMap="leaveMap">
+        SELECT
+        <include refid="leaveColumns"></include>
+        FROM
+        oa_leave
+        WHERE process_id in
+        <foreach collection="list" separator="," close=")" open="(" item="item">
+            #{item.processInstanceId}
+        </foreach>
+    </select>
+
+    <update id="updateStatus">
+        UPDATE oa_leave SET leave_status = #{leaveStatus} WHERE id = #{id}
+    </update>
+
+    <insert id="insert">
+        INSERT INTO oa_leave
+        <trim prefix="(" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="reason != null">
+                reason,
+            </if>
+            <if test="beginDate != null">
+                begin_date,
+            </if>
+            <if test="endDate != null">
+                end_date,
+            </if>
+            <if test="createDate != null">
+                create_date,
+            </if>
+            <if test="user != null and user.id != null">
+                user_id,
+            </if>
+            <if test="processId != null">
+                process_id,
+            </if>
+            <if test="leaveStatus != null">
+                leave_status,
+            </if>
+        </trim>
+        <trim prefix=") VALUES (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id},
+            </if>
+            <if test="reason != null">
+                #{reason},
+            </if>
+            <if test="beginDate != null">
+                #{beginDate},
+            </if>
+            <if test="endDate != null">
+                #{endDate},
+            </if>
+            <if test="createDate != null">
+                #{createDate},
+            </if>
+            <if test="user != null and user.id != null">
+                #{user.id},
+            </if>
+            <if test="processId != null">
+                #{processId},
+            </if>
+            <if test="leaveStatus != null">
+                #{leaveStatus},
+            </if>
+        </trim>
+    </insert>
+</mapper>

@@ -1,0 +1,40 @@
+package com.jxky.bgxs.service.zq;
+
+import com.jxky.bgxs.dao.UserDAO;
+import com.jxky.bgxs.entity.User;
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.authc.AuthenticationToken;
+import org.apache.shiro.authc.UsernamePasswordToken;
+import org.apache.shiro.subject.Subject;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import javax.annotation.Resource;
+
+@Service
+@Transactional
+public class UserService {
+    @Resource
+    private UserDAO userDAO;
+
+    public void login(String tel,String pwd){
+        Subject subject = SecurityUtils.getSubject();
+        AuthenticationToken token =  new UsernamePasswordToken(tel,pwd);
+        subject.login(token);
+    }
+    public User findByTel(String tel){
+        return userDAO.findBytel(tel);
+    }
+    public void save(User user){
+        userDAO.save(user);
+    }
+    public User findByName(String name){
+        return userDAO.findByName(name);
+    }
+    public void update(User user){
+        userDAO.update(user);
+    }
+    public User findByPhone(String phone){
+        return userDAO.findByTel(phone);
+    }
+}

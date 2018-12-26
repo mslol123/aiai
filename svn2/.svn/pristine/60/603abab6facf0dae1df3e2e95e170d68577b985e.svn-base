@@ -1,0 +1,157 @@
+package com.jxky.bgxs.entity;
+
+import java.util.Date;
+/*
+* 书籍详情表
+* */
+public class BookMessage {
+    //书籍id
+    private int bookId;
+    //书籍名称
+    private String bookName;
+    //书籍图片路径
+    private String bookImage;
+    //书籍作者（关联作者id）
+    private Author author;
+    //书籍创建时间
+    private Date bookCreattime;
+    //书籍类型id（关联书籍类型表）
+    private BookType bookType;
+    //书籍编号
+    private String bookNum;
+    //书籍作品首字母
+    private String bookFirstletter;
+    //书籍关键字
+    private String bookKeyword;
+    //书籍内容简介
+    private String bookContent;
+    //书籍作品寄语
+    private String bookWord;
+    //书籍审核状态
+    private String bookExamineStatus;
+    //书籍是否完结
+    private String bookIsEnd;
+
+    @Override
+    public String toString() {
+        return "BookMessage{" +
+                "bookId=" + bookId +
+                ", bookName='" + bookName + '\'' +
+                ", bookImage='" + bookImage + '\'' +
+                ", author=" + author +
+                ", bookCreattime=" + bookCreattime +
+                ", bookType=" + bookType +
+                ", bookNum='" + bookNum + '\'' +
+                ", bookFirstletter='" + bookFirstletter + '\'' +
+                ", bookKeyword='" + bookKeyword + '\'' +
+                ", bookContent='" + bookContent + '\'' +
+                ", bookWord='" + bookWord + '\'' +
+                ", bookExamineStatus='" + bookExamineStatus + '\'' +
+                ", bookIsEnd='" + bookIsEnd + '\'' +
+                '}';
+    }
+
+    public int getBookId() {
+        return bookId;
+    }
+
+    public void setBookId(int bookId) {
+        this.bookId = bookId;
+    }
+
+    public String getBookName() {
+        return bookName;
+    }
+
+    public void setBookName(String bookName) {
+        this.bookName = bookName;
+    }
+
+    public String getBookImage() {
+        return bookImage;
+    }
+
+    public void setBookImage(String bookImage) {
+        this.bookImage = bookImage;
+    }
+
+    public Author getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(Author author) {
+        this.author = author;
+    }
+
+    public Date getBookCreattime() {
+        return bookCreattime;
+    }
+
+    public void setBookCreattime(Date bookCreattime) {
+        this.bookCreattime = bookCreattime;
+    }
+
+    public BookType getBookType() {
+        return bookType;
+    }
+
+    public void setBookType(BookType bookType) {
+        this.bookType = bookType;
+    }
+
+    public String getBookNum() {
+        return bookNum;
+    }
+
+    public void setBookNum(String bookNum) {
+        this.bookNum = bookNum;
+    }
+
+    public String getBookFirstletter() {
+        return bookFirstletter;
+    }
+
+    public void setBookFirstletter(String bookFirstletter) {
+        this.bookFirstletter = bookFirstletter;
+    }
+
+    public String getBookKeyword() {
+        return bookKeyword;
+    }
+
+    public void setBookKeyword(String bookKeyword) {
+        this.bookKeyword = bookKeyword;
+    }
+
+    public String getBookContent() {
+        return bookContent;
+    }
+
+    public void setBookContent(String bookContent) {
+        this.bookContent = bookContent;
+    }
+
+    public String getBookWord() {
+        return bookWord;
+    }
+
+    public void setBookWord(String bookWord) {
+        this.bookWord = bookWord;
+    }
+
+    public String getBookExamineStatus() {
+        return bookExamineStatus;
+    }
+
+    public void setBookExamineStatus(String bookExamineStatus) {
+        this.bookExamineStatus = bookExamineStatus;
+    }
+
+    public String getBookIsEnd() {
+        return bookIsEnd;
+    }
+
+    public void setBookIsEnd(String bookIsEnd) {
+        this.bookIsEnd = bookIsEnd;
+    }
+}

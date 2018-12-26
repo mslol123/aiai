@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jxky.bgxs.dao.ModeratorDAO">
+    <resultMap id="ModeratorMap" type="com.jxky.bgxs.entity.Moderator">
+        <id property="id" column="id"></id>
+        <result property="bookId" column="book_id"></result>
+        <result property="creattime" column="creattime"></result>
+        <association property="user" column="user_id" select="com.jxky.bgxs.dao.UserDAO.findById"></association>
+    </resultMap>
+    <insert id="add">
+        INSERT INTO author_moderator
+        <trim prefix="(" suffixOverrides=",">
+            <if test="bookId != null">
+                book_id,
+            </if>
+            <if test="user != null and user.id!=null">
+                user_id,
+            </if>
+            <if test="creattime != null">
+                creattime,
+            </if>
+        </trim>
+        <trim prefix=") VALUES (" suffix=")" suffixOverrides=",">
+            <if test="bookId != null">
+                #{bookId},
+            </if>
+            <if test="user != null and user.id!=null">
+                #{user.id},
+            </if>
+            <if test="creattime != null">
+                #{creattime},
+            </if>
+        </trim>
+    </insert>
+
+    <delete id="delete">
+        DELETE FROM author_moderator WHERE id = #{id}
+    </delete>
+
+    <select id="findAllBookId" resultMap="ModeratorMap">
+        SELECT id,book_id,user_id,creattime FROM author_moderator WHERE book_id = #{bookId}
+    </select>
+
+
+</mapper>
+
+
+
+

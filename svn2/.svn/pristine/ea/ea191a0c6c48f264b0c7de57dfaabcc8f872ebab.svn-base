@@ -1,0 +1,24 @@
+package com.jxky.bgxs.service.zsy;
+
+import com.jxky.bgxs.dao.LatelyReadDAO;
+import com.jxky.bgxs.entity.LatelyRead;
+import org.springframework.stereotype.Service;
+
+import javax.annotation.Resource;
+
+@Service
+public class LatelyreadService {
+    @Resource
+    private LatelyReadDAO latelyReadDAO;
+
+    public void  latelyRead(Integer userId,Integer chapterId,Integer bookId){
+        //判断用户之前是否阅读过该书籍的章节
+        LatelyRead latelyRead = latelyReadDAO.findByUserIdAndBookId(userId, chapterId, bookId);
+        //如果查询为null，添加一条阅读记录
+        if (latelyRead==null){
+            latelyReadDAO.firstRead(userId,chapterId,bookId);
+        }else {
+            latelyReadDAO.updateRead(userId,chapterId,bookId);
+        }
+    }
+}

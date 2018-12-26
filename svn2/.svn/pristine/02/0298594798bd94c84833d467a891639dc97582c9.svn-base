@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jxky.bgxs.dao.AccountDAO">
+    <resultMap id="AccountMap" type="com.jxky.bgxs.entity.Account">
+        <id property="accountId" column="account_id"></id>
+        <result property="accountNum" column="account_num"></result>
+        <result property="monthticket" column="monthticket"></result>
+        <result property="recomticket" column="recomticket"></result>
+        <result property="accountType" column="account_type"></result>
+        <result property="accountConsume" column="account_consume"></result>
+        <result property="userId" column="user_id" ></result>
+    </resultMap>
+    <sql id="columns">
+        account_id,account_num,monthticket,recomticket,account_type,account_consume,user_id
+    </sql>
+    <select id="findByUserId" resultMap="AccountMap">
+        SELECT
+            <include refid="columns"></include>
+        FROM account WHERE user_id = #{userId}
+    </select>
+</mapper>
+
+
+
+

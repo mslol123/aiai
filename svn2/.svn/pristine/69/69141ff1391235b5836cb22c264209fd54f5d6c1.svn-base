@@ -1,0 +1,298 @@
+
+
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>重置密码</title>
+    <link href="//static.zongheng.com/v2014/style/basic.css" rel="stylesheet" type="text/css"/>
+    <link href="//static.zongheng.com/v2017/style/resetpass.css" rel="stylesheet" type="text/css"/>
+</head>
+<body scriptSign="password" reset="reset" tk="80c8091541672243969" phone="">
+
+<!-- 登录部分 -->
+<div class="logonbox" id="topnavbar">
+    <div class="close" id="hidetbar"></div>
+    <div class="wrap">
+        <div class="default_wrap">
+            <p><a href="#" class="homemark">收藏本站</a>|<a href="http://static.zongheng.com/m/index.html" target="_blank">手机看纵横</a>|<a href="http://www.zongheng.com/">纵横首页</a></p>
+        </div>
+        <div class="searchbar fl">
+            <div class="search">
+                <form name="searchForm" method="get" action="http://search.zongheng.com" target="_blank" id="582455024">
+                    <input name="searchType" type="hidden" value="all">
+                    <span class="select">综合<em></em></span>
+                    <span class="input_text"><input name="keyword" type="text" defaultdatavalue="不败战神" autocomplete="off" disableautocomplete="" value=""></span>
+                    <input type="button" class="sousuo" value="搜&nbsp;索">
+                    <div class="listpanel" style="display: none;">
+                        <ul class="selecttext">
+                            <li><a href="javascript:void(0)" type="all">综合</a></li>
+                            <li><a href="javascript:void(0)" type="bookName">书名</a></li>
+                            <li><a href="javascript:void(0)" type="authorName">作者</a></li>
+                            <li><a href="javascript:void(0)" type="keyword">关键字</a></li>
+                            <li><a href="javascript:void(0)" type="description">描述</a></li>
+                        </ul>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!--已登录部分 结束 -->
+        <div id="ui_top_nav_dialog" class="d_menu_detail" style="display: none;">
+            <div class="con">
+                <h3>站点分类</h3>
+                <p><a class="fred" href="http://www.zongheng.com">纵横首页</a>|<a href="http://big5.zongheng.com">繁体版</a>|<a href="http://m.zongheng.com">手机版</a>|<a href="http://www.mmzh.com">女生</a>|<a href="http://comic.zongheng.com">动漫</a>|<a href="http://game.zongheng.com">游戏中心</a></p>
+                <div class="cl5"></div>
+                <div class="spline"></div>
+                <div class="cl5"></div>
+                <h3>分类频道</h3>
+                <p><a href="http://book.zongheng.com/category/1.html" target="_blank">奇幻·玄幻</a>|<a href="http://book.zongheng.com/category/3.html" target="_blank">武侠·仙侠</a>|<a href="http://book.zongheng.com/category/6.html" target="_blank">历史·军事</a>|<a href="http://book.zongheng.com/category/9.html" target="_blank">都市·娱乐</a>|<a href="http://book.zongheng.com/category/21.html" target="_blank">竞技·同人</a>|<a href="http://book.zongheng.com/category/15.html" target="_blank">科幻·游戏</a>|<a href="http://book.zongheng.com/category/18.html" target="_blank">悬疑·灵异</a>|<a href="http://pub.zongheng.com" target="_blank">图书频道</a></p>
+                <div class="cl5"></div>
+                <div class="spline"></div>
+                <div class="cl5"></div>
+                <h3>互动功能</h3>
+                <p><a class="current" href="http://book.zongheng.com/vip.html" target="_blank" rel="nofollow">会员</a>|<a href="http://book.zongheng.com/store.html" target="_blank">书库</a>|<a href="http://book.zongheng.com/rank.html" target="_blank">排行榜</a>|<a href="http://news.zongheng.com" target="_blank">资讯</a>|<a href="http://bbs.zongheng.com" target="_blank">社区</a>|<a href="http://www.zongheng.com/xiu.html" target="_blank" rel="nofollow">美女秀场</a></p>
+                <p><a class="user_register" href="javascript:void(0)" target="_blank" rel="nofollow">注册帐户</a>|<a class="forgot" href="javascript:void(0)" target="_blank" rel="nofollow">找回密码</a>|<a href="http://www.zongheng.com/help/index.html" target="_blank" rel="nofollow">帮助中心</a></p>
+                <div class="cl10"></div>
+            </div>
+        </div>
+        <div id="topbar_main">
+            <a id="ui_top_nav_button" class="mail d_menu fr" mail_hover="true" href="javascript:void(0);">导航<em class="whitesj"></em></a>
+            <div id="top-user-nav-bar">
+                <div class="right_wrap_unlogin">
+                    <div class="login"><a class="user_login" href="javascript:void(0);">登录</a></div>
+                    <div class="regist"><a class="user_register" href="javascript:void(0);">注册</a></div>
+                </div>
+            </div>
+        </div>
+        <div class="cl0"></div>
+    </div>
+    <div class="blackline"></div>
+</div>
+<!-- 登录部分 结束 -->
+<!--header -->
+<div class="header" id="zh_header">
+    <div class="wrap">
+        <div class="nav_left">
+            <p>&mdash; 纵 横 文 学 旗 下  &mdash;</p>
+            <div><a href="http://www.zongheng.com"><img src="//static.zongheng.com/v2014/images/logo.png"></a></div>
+        </div>
+        <div class="top_gg"><script type="text/javascript" src="//static.zongheng.com/upload/hzds/column/137092332882.js"></script></div>
+        <div class="cl10"></div>
+        <div class="menu">
+            <a href="http://www.zongheng.com" rel="nofollow">首页</a>
+            <a href="http://book.zongheng.com/store.html">书库</a>
+            <a href="http://book.zongheng.com/rank.html">小说排行榜</a>
+            <a href="http://huayu.baidu.com" target="_blank">花语女生</a>
+            <a href="http://beta.author.zongheng.com" target="_blank" rel="nofollow">作者专区</a>
+            <a href="http://home.zongheng.com" target="_blank" rel="nofollow" class="current">个人中心</a>
+            <a class="fred" href="http://www.zongheng.com/vip/charge.html" target="_blank">充值￥</a>
+            <a class="gamecenter fred" href="http://game.zongheng.com/index.html" target="_blank">游戏中心</a>
+            <a class="girl fred" href="http://www.zongheng.com/xiu.html" target="_blank">美女秀场</a>
+        </div>
+        <div class="secondary">
+            <a class="fb" href="http://www.zongheng.com/mianfei/">免费小说</a>
+            <a class="fb" href="http://book.zongheng.com/quanben/c0/c0/b9/u1/p1/v9/s1/t0/ALL.html">全本小说</a>
+            <a href="http://www.zongheng.com/category/1.html">奇幻·玄幻</a>
+            <a href="http://www.zongheng.com/category/3.html">武侠·仙侠</a>
+            <a href="http://www.zongheng.com/category/6.html">历史·军事</a>
+            <a href="http://www.zongheng.com/category/9.html">都市·娱乐</a>
+            <a href="http://www.zongheng.com/category/21.html">竞技·同人</a>
+            <a href="http://www.zongheng.com/category/15.html">科幻·游戏</a>
+            <a href="http://www.zongheng.com/category/18.html">悬疑·灵异</a>
+        </div>
+    </div>
+</div>
+<div class="cl20"></div>
+<!-- 头部 结束 -->
+<!--三栏中间-->
+<div class="wrap">
+    <div class="box resetpassword">
+        <div class="bind-tit">重置密码</div>
+
+        <div class="bind-step">
+            <!--<ul>-->
+                <!--<li class="active">-->
+                    <!--<div class="bind-step-line"></div>-->
+                    <!--<div class="bind-step-step">-->
+                        <!--<div class="bind-step-num">01</div>-->
+                        <!--<div class="bind-step-name">身份验证</div>-->
+                        <!--<div class="pw-icon pw-icon-ok"></div>-->
+                    <!--</div>-->
+                <!--</li>-->
+                <!--<li class="double-child" id="li2">-->
+                    <!--<div class="bind-step-line"></div>-->
+                    <!--<div class="bind-step-step">-->
+                        <!--<div class="bind-step-num">02</div>-->
+                        <!--<div class="bind-step-name">密码重置</div>-->
+                    <!--</div>-->
+                <!--</li>-->
+                <!--<li class="last-child">-->
+                    <!--<div class="bind-step-line"></div>-->
+                    <!--<div class="bind-step-step">-->
+                        <!--<div class="bind-step-num">03</div>-->
+                        <!--<div class="bind-step-name">重置完成</div>-->
+                    <!--</div>-->
+
+                <!--</li>-->
+            <!--</ul>-->
+        </div>
+        <div class="findpw-form" style="display: block;" id="verifyDiv">
+            <ul>
+                <li>
+                    <div class="td-side fl">已绑定手机号：</div>
+                    <div class="td-wide fl"><em class="findpw-phone" th:text="${user.tel}">
+                        <input type="hidden" th:value="${u.tel}" id="inp">
+                    </em></div>
+                    <div class="cl0"></div>
+                </li>
+                <li>
+                    <div class="td-side fl">短信验证码：</div>
+                    <div class="td-wide fl"><input type="text" class="td-iw-w checkyzm" disabled="disabled"></div>
+                    <!--<div class="findpw-getyzm fl" onclick="yzm()">获取验证码</div>-->
+                    <button style="width: 100px;height: 35px;background-color: #b01f2e;color: aliceblue;cursor: pointer" onclick="yzm()" id="yzm1">发送验证码</button>
+                    <div class="cl0"></div>
+                </li>
+                <li>
+                    <div class="td-side fl"></div>
+                    <div class="td-wide fl">
+                        <div class="pw-errortip"><em class="pw-icon pw-icon-no"></em>短信验证码有误，请重新输入</div>
+                        <div class="submit-button next-step" onclick="xyb()"><em class="pw-icon pw-icon-yes"></em>下一步</div>
+                    </div>
+                    <div class="cl0"></div>
+                </li>
+            </ul>
+        </div>
+
+        <!--第二步-->
+        <div class="findpw-form" id="setDiv">
+            <ul>
+                <li>
+                    <div class="td-side fl">新密码：</div>
+                    <div class="td-wide fl"><input type="password" class="td-iw-w password"/></div>
+                    <div class="findpw-pwrule fl">密码6-16位。可包含数字、字母（区分大小写）、非空格字符。</div>
+                    <div class="cl0"></div>
+                </li>
+                <li>
+                    <div class="td-side fl">确认新密码：</div>
+                    <div class="td-wide fl"><input type="password" class="td-iw-w repassword"/></div>
+                    <div class="cl0"></div>
+                </li>
+
+                <li>
+                    <div class="td-side fl"></div>
+                    <div class="td-wide fl">
+                        <div class="pw-errortip"><em class="pw-icon pw-icon-no"></em>手机号码错误，请重新操作</div>
+                        <div class="submit-button next-step"><em class="pw-icon pw-icon-yes"></em>下一步</div>
+                    </div>
+                    <div class="cl0"></div>
+                </li>
+            </ul>
+        </div>
+        <!--第三步-->
+        <div class="findpw-form">
+            <div class="findpw-succ">
+                <div class="findpw-succ-tit">
+                    <em class="pw-icon pw-icon-succ"></em>新密码设置成功，请用新密码登录
+                </div>
+                <p class="findpw-succ-back">5秒后自动返回个人中心</p>
+            </div>
+        </div>
+
+
+
+        <div class="findpw-tips">
+            <div class="findpw-tips-line"><em class="findpw-tips-name">温馨提示</em></div>
+            <p>1. 只支持已绑定手机号用户找回密码；</p>
+            <p>2.未绑定手机号用户找回密码请联系客服， 电话：010-84933768； QQ：965151179</p>
+        </div>
+    </div>
+</div>
+<!--三栏中间 结束-->
+<div class="cl0"></div>
+<!-- 底部 -->
+<div class="cl20"></div>
+
+<div class="wrap foot">
+    <p>
+        <a href="http://www.zongheng.com/company/about.html" target="_blank">关于纵横</a>|
+        <a href="http://www.zongheng.com/company/job.html" target="_blank">诚聘英才</a>|
+        <a href="http://www.zongheng.com/company/business.html" target="_blank">商务合作</a>|
+        <a href="http://www.zongheng.com/company/copyright.html" target="_blank">法律声明</a>|
+        <a href="http://www.zongheng.com/help/help.html" target="_blank">帮助中心</a>|
+        <a href="http://author.zongheng.com/login.html" target="_blank">作者投稿</a>|
+        <a href="http://www.zongheng.com/company/contact.html" target="_blank">联系我们</a>|
+        <a href="http://www.zongheng.com/company/link.html" target="_blank">友情链接</a>|
+        <a href="http://www.zongheng.com/help/service.html" target="_blank">客服中心</a>|
+        <a href="http://news.zongheng.com/zhuanti/wlqz/index.html" target="_blank">谨防诈骗</a>|
+        <a href="http://www.zongheng.com/sitemap.html" target="_blank">网站地图</a>
+    </p>
+    <p>Copyright&copy;&nbsp;2008-2010 <a class="f66" href="http://www.zongheng.com">www.zongheng.com</a></p>
+    <p>All Rights Reserved 版权所有 北京幻想纵横网络技术有限公司</p>
+    <p>京ICP证：080527号 《网络文化经营许可证》 京ICP备11009265号 京网文[2015]2368-459号 京公网安备110105005190号</p>
+    <p>作者发布作品时，请遵守国家互联网信息管理办法规定。本站所收录作品、社区话题、书库评论均属其个人行为，不代表本站立场。</p>
+    <em class="l_logo"></em>
+</div>
+<script type="text/javascript" src="http://cdn-hangzhou.goeasy.io/goeasy.js"></script>
+<!--<script type="text/javascript" src="//static.zongheng.com/v2014/js/lib/jquery.min.js"></script>-->
+<!--<script type="text/javascript" src="//static.zongheng.com/v2014/js/lib/require.min.js" defer async data-main="//static.zongheng.com/v2014/js/map"></script>-->
+<script type="text/javascript" src="/js/jquery-2.1.0.js"></script>
+<script type="text/javascript">
+    var goEasy = new GoEasy({
+        appkey: 'BC-58a22e706d3342ecafd6bd784c07d335'
+    });
+    goEasy.subscribe({
+        channel:'seckill',
+        onMessage: function(message){
+            alert('收到：'+message.content);
+        }
+    });
+</script>
+<script type="text/javascript">
+    var i = true;
+    var safetyResult = "15595458322424524";
+    var phone = document.getElementById("inp").value;
+    function yzm() {
+        if(i){
+            i = false;
+            alert(phone)
+//            $.post("dxyz",{phone:phone},function (data) {
+//                safetyResult = data;
+//            });
+            document.getElementById("yzm1").style.backgroundColor = "Gray";
+            document.getElementById("yzm1").innerHTML = 60+"s";
+            var j=parseInt(document.getElementById("yzm1").innerHTML);
+            var t1=setInterval(function() {
+                if (j > 1) {
+                    j--;
+                    document.getElementById("yzm1").innerHTML=j+"s";}
+                else {
+                    clearInterval(t1);
+                    document.getElementById("yzm1").style.backgroundColor = "#b01f2e";
+                    document.getElementById("yzm1").innerHTML="发送验证码";
+                    i = true;
+                }
+            }, 1000);
+        }
+    }
+    function xyb() {
+//        //var yam = document.getElementById("msgyzm").value;
+//        //if(safetyResult == yam){
+//            $("#verifyDiv").hide();
+//            $("#setDiv").show();
+//        alert(123123)
+//            $("#li2").removeClass();
+//            $("#li2").attr('class','double-child');
+//        //}else if(yam!="" && safetyResult != yam){
+//            alert("验证码不正确");
+//        //}else if(yam == "" || yam.length<5){
+//            //alert("验证码为空或者格式不对，正确格式为6位数字")
+//        //}
+        
+    }
+</script>
+</body>
+</html>

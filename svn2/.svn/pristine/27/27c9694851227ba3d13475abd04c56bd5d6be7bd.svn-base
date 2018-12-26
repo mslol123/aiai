@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jxky.bgxs.dao.TicketDAO">
+    <resultMap id="ticketMap" type="com.jxky.bgxs.entity.Ticket">
+       <id property="ticketId" column="ticket_id"></id>
+       <result property="userId" column="user_id" ></result>
+        <result property="bookId" column="book_id" ></result>
+        <result property="ticketNum" column="ticket_num" ></result>
+       <result property="creattime" column="creattime" ></result>
+
+    </resultMap>
+
+    <select id="findByUserId" resultMap="ticketMap">
+        SELECT ticket_id,
+        user_id,
+        book_id,
+        ticket_num,
+        creattime FROM user_ticket WHERE user_id=#{userId}
+    </select>
+
+    <insert id="insert">
+        INSERT INTO user_ticket
+        <trim prefix="(" suffixOverrides=",">
+            <if test="userId !=null">
+                user_id,
+            </if>
+            <if test="bookId !=null">
+                book_id,
+            </if>
+            <if test="ticketNum !=null">
+                ticket_num,
+            </if>
+            <if test="creattime !=null">
+                creattime,
+            </if>
+        </trim>
+        <trim prefix=")values(" suffixOverrides="," suffix=")">
+            <if test="userId !=null">
+                #{userId},
+            </if>
+            <if test="bookId !=null">
+                #{bookId},
+            </if>
+            <if test="ticketNum !=null">
+                #{ticketNum},
+            </if>
+            <if test="creattime !=null">
+                #{creattime},
+            </if>
+        </trim>
+    </insert>
+</mapper>

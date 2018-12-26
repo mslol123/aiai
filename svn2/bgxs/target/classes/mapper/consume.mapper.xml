@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jxky.bgxs.dao.ConsumeDAO">
+    <resultMap id="consumeMap" type="com.jxky.bgxs.entity.Consume">
+       <id property="consumeId" column="consume_id"></id>
+        <result property="userId" column="user_id"></result>
+        <result property="consumeType" column="consume_type_id"></result>
+        <result property="consumeTime" column="consume_time"></result>
+        <result property="consumeMode" column="consume_mode"></result>
+        <result property="consumeMoney" column="consume_money"></result>
+    </resultMap>
+
+    <select id="findByUserId" resultMap="consumeMap">
+        SELECT consume_id,
+        user_id,
+           consume_type_id,
+           consume_time,
+           consume_mode,
+           consume_money FROM consume WHERE user_id =#{id}
+    </select>
+</mapper>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+</head>
+<body scriptSign="index" _pgid="1">
+    <script type="text/javascript" src="http://cdn-hangzhou.goeasy.io/goeasy.js"></script>
+    <script type="text/javascript" src="/js/jquery-2.1.0.js"></script>
+    <script type="text/javascript">
+        var goEasy = new GoEasy({
+            appkey: 'BC-58a22e706d3342ecafd6bd784c07d335'
+        });
+        goEasy.subscribe({
+            channel:'seckill',
+            onMessage: function(message){
+                var content = message.content;
+                var num = content.replace(/[^0-9]/ig,"");
+                $.post("/seckill/commodity",{content:content,num:num},function () {
+                });
+            }
+        });
+    </script>
+秒杀秒杀秒杀秒杀秒杀秒杀秒杀秒杀秒杀秒杀秒杀秒杀秒杀秒杀秒杀秒杀秒杀秒杀秒杀秒杀秒杀秒杀秒杀秒杀
+</body>
+</html>

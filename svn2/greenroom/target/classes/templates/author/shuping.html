@@ -1,0 +1,309 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<title>作者专区-书评管理</title>
+<link rel="stylesheet" type="text/css" charset="utf-8" href="http://static.zongheng.com/author/v2015/style/public.css"/>
+</head>
+<body bookId = 737631>
+
+
+
+
+
+
+
+
+
+
+
+<div class="au_nav">
+	<div class="au_box" id="loginSign">
+	 <div class="au_nav_a">
+		<a href="http://www.zongheng.com"  target="_blank">纵横首页</a>|
+		<a href="/nzh/editors"  target="_blank">编辑介绍</a>|
+		<a href="http://www.zongheng.com/company/author.html"  target="_blank"  class="goodluck">作者福利</a>
+		
+		        |<span>尼奥</span>|
+		        <a  href="http://author.zongheng.com/loginout">退出</a>
+		   
+	 </div>
+	 <a href="http://author.zongheng.com" class="au_logo"></a>
+	 <script src="http://author.zongheng.com/nzh/header/notice"></script>
+
+	</div>
+  </div>
+ 
+
+<div class="au_box">
+	<div class="au_bm comm_box">
+    	<div class="comm_tit">
+        	<a href="javascript:;" class="backup">返回<em>>></em></a><em class="ico_bm"></em>书评管理
+        </div>
+    	<div class="comm_nav">
+        	<span class="focus">副版主</span><span>书评禁言</span><span>圈主管理</span><span>圈子禁言</span>
+        </div>
+        <div class="comm_hide">
+        	<div class="comm_show clear">
+                <div class="comm_table">
+                	<div class="bm_nav">
+                    	<div class="bm_tit fl"><em class="pub_ico ico_fbm"></em>副版主</div>
+                        <p><em class="cor_gary">|</em>本周可添加的精华数：<em class="cor_green">10</em><em class="cor_gary">|</em>本周已添加的精华：<em class="cor_green">0</em></p>
+                        <div class="fbm_tip">
+                        	<div class="tip_cover"><em>◇</em></div>
+                        	<p>精华数量的具体规则：</p>
+                            <p>1.上周内“有新增章节”的作品，作品本周加精数=30+（上周本书点击次数/1000）+（上周本书红票数/100）</p>
+                            <p>2.上周内“没有新增章节”的作品，作品本周加精数=10+（上周本书点击次数/1000）+（上周本书红票数/100）</p>
+                            <p>副版主</p>
+                            <p>1.系统默认作者为该书版主，副版主的提拔和撤销权力归作者所有，每本书最多可设三个副版主，也可以不设。</p>
+                            <p>2.作者应担负起对副版主审核和监督的职责，副版主应遵守纵横中文网发表书评的相关规定，并对书评区评论进行及时有效地管理，积极登录书评区，在书评内容建设上、言论导向上应起模范带头的良性作用，对广告贴、垃圾帖、不健康文明贴应及时处理。</p>
+                            <p>3.此外，作者取消某位副版主应慎重考虑，否则易引起用户投诉和抵触心理。</p>
+                        </div>
+                    </div>
+                    <div class="bm_con">
+                    	<!--<div class="bm_has">
+                        	<div class="update_tit"><em>·</em>现任副版主</div>
+                        	<table>
+                                <tr class="td_tit">
+                                    <td>用户昵称</td>
+                                    <td>邀请时间</td>
+                                    <td>上任时间</td>
+                                    <td>操作</td>
+                                </tr>
+                                <tr>
+                                    <td>想起菱角</td>
+                                    <td>2015-12-18</td>
+                                    <td>2015-12-21</td>
+                                    <td><em class="cancelbm td_del">取消版主</em></td>
+                                </tr>
+                               <tr>
+                                    <td>想起菱角</td>
+                                    <td>2015-12-18</td>
+                                    <td>2015-12-21</td>
+                                    <td><em class="cancelbm td_del">取消版主</em></td>
+                                </tr>
+                            </table>
+                        </div>-->
+                    	<!--<div class="bm_no">您当前暂无副版主 、邀请记录  ( ´◔ ‸◔` ) <a href="javascript:;" class="joinus">去邀请</a></div>-->
+                        <div class="joinbox">
+                        	<div class="join_user" style="display:none;">
+                                <div class="join_btn">
+                                    <a href="javascript:;" class="statc"><em class="btn_bg">添加邀请</em><em class="pub_ico quest"></em></a>
+                                </div>
+                                <div class="join_area marb70">
+                                    <p>
+                                        <span class="td_r fl">用户昵称：</span>
+                                        <input type="text" class="nickname" placeholder="请输入用户昵称"/>
+                                    </p>
+                                    <p>
+                                        <span class="td_r fl">理由：</span>
+                                        <textarea class="des" maxlength="240" placeholder="请输入邀请理由"></textarea>
+                                        <em class="count">0/240</em>
+                                    </p>
+                                    <p>
+                                        <span class="td_r fl"></span>
+                                        <a href="javascript:;" class="bm_btn_submit btn_bg" type="join">确认提交</a>
+                                        <a href="javascript:;" class="bm_btn_cancel">取消</a>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="join_list">
+                                <div class="update_tit mar0"><em>·</em>邀请记录</div>
+                                <!--<table>
+                                    <tr class="td_tit">
+                                        <td>用户昵称</td>
+                                        <td>邀请时间</td>
+                                        <td>状态</td>
+                                        <td>回复时间</td>
+                                    </tr>
+                                    <tr>
+                                        <td>想起菱角</td>
+                                        <td>2015-12-18</td>
+                                        <td><em class="agreen">同意</em></td>
+                                        <td>2015-12-21</td>
+                                    </tr>
+                                    <tr>
+                                        <td>想起菱角</td>
+                                        <td>2015-12-18</td>
+                                        <td>等待回应<em class="td_del uninvit">取消邀请</em></td>
+                                        <td>2015-12-21</td>
+                                    </tr>
+                                    <tr>
+                                        <td>想起菱角</td>
+                                        <td>2015-12-18</td>
+                                        <td>等待回应<em class="td_del uninvit">取消邀请</em></td>
+                                        <td>已作废</td>
+                                    </tr>
+                                </table>-->
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="comm_table">
+                	<div class="join_user">
+                        <div class="join_btn clear">
+                            <a href="javascript:;" class="statc fr"><em class="btn_bg">添加禁言</em><em class="pub_ico quest"></em></a>
+                        </div>
+                        <div class="join_area marb70">
+                            <p>
+                                <span class="td_r fl">用户昵称：</span>
+                                <input type="text" class="nickname" placeholder="请输入用户昵称"/>
+                            </p>
+                            <p>
+                            	<span class="td_r fl">禁言时间：</span>
+                                <!--<input placeholder="请选择开始时间" readonly class="laydate-icon laytime" id="start_date">--><input placeholder="请选择结束时间" readonly class="laytime laydate-icon chooseTime" id="end_date">
+                            </p>
+                            <!--<p><span class="td_r fl">禁言平台：</span><span class="checkbox checked"><em class="pub_ico au_pointer"></em>书评</span><span class="checkbox"><em class="pub_ico au_pointer"></em>圈子</span>
+                            </p>-->
+                            <p>
+                                <span class="td_r fl">理由：</span>
+                                <textarea class="des" maxlength="240" placeholder="请输入禁言理由"></textarea>
+                                <em class="count">0/240</em>
+                            </p>
+                            <p>
+                                <span class="td_r fl"></span>
+                                <a href="javascript:;" class="bm_btn_submit btn_bg" type="not">确认提交</a>
+                                <a href="javascript:;" class="bm_btn_cancel">取消</a>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="userlist">
+                    	<!--<div class="update_tit"><em>·</em>禁言列表</div>
+                    	<table>
+                            <tr class="td_tit">
+                                <td>用户昵称</td>
+                                <td>禁言理由</td>
+                                <td>禁言开始日期</td>
+                                <td>禁言结束日期</td>
+                                <td>管理禁言</td>
+                            </tr>
+                            <tr>
+                                <td>想起菱角</td>
+                                <td class="how">书评太犀利书评太犀利书评太犀利书评太犀利书评太犀利书评太犀利</td>
+                                <td>2015-12-18</td>
+                                <td>2015-12-21</td>
+                                <td><em class="unuse btn_bg">解除禁言</em></td>
+                            </tr>
+                             <tr>
+                                <td>想起菱角</td>
+                                <td class="how">书评太犀利书评太犀利书评太犀利书评太犀利书评太犀利书评太犀利</td>
+                                <td>2015-12-18</td>
+                                <td>2015-12-21</td>
+                                <td><em class="unuse btn_bg">解除禁言</em></td>
+                        </table>-->
+                    </div>
+                </div>
+                <div class="comm_table">
+                	<div class="join_user">
+                        <div class="join_btn clear">
+                            <a href="javascript:;" class="statc fr"><em class="btn_bg">添加圈主</em><em class="pub_ico quest"></em></a>
+                        </div>
+                        <div class="join_area marb70">
+                            <p>
+                                <span class="td_r fl">用户昵称：</span>
+                                <input type="text" class="nickname" placeholder="请输入用户昵称"/>
+                            </p>
+                            <p>
+                                <span class="td_r fl"></span>
+                                <a href="javascript:;" class="bm_btn_submit btn_bg" type="ring">确认提交</a>
+                                <a href="javascript:;" class="bm_btn_cancel">取消</a>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="userlist ringlist">
+                    	<!--<div class="update_tit"><em>·</em>圈主列表</div>
+                    	<table>
+                            <tr class="td_tit">
+                                <td>圈主昵称</td>
+                                <td>添加时间</td>
+                                <td>操作</td>
+                            </tr>
+                            <tr>
+                                <td>想起菱角</td>
+                                <td>2015-12-21</td>
+                                <td><em class="unuse btn_bg">取消圈主</em></td>
+                            </tr>
+                            <tr>
+                                <td>想起菱角</td>
+                                <td>2015-12-21</td>
+                                <td><em class="unuse btn_bg">取消圈主</em></td>
+                            </tr>
+                        </table>-->
+                    </div>
+                </div>
+                <div class="comm_table">
+                	<div class="join_user">
+                        <div class="join_btn clear">
+                            <a href="javascript:;" class="statc fr"><em class="btn_bg">添加禁言</em><em class="pub_ico quest"></em></a>
+                        </div>
+                        <div class="join_area marb70">
+                            <p>
+                                <span class="td_r fl">用户昵称：</span>
+                                <input type="text" class="nickname" placeholder="请输入用户昵称"/>
+                            </p>
+                            <p>
+                            	<span class="td_r fl">禁言时间：</span>
+                                <!--<input placeholder="请选择开始时间" readonly class="laydate-icon laytime" id="start_date">--><input placeholder="请选择结束时间" readonly class="laytime laydate-icon chooseTime" id="end_date_ring">
+                            </p>
+                            <!--<p><span class="td_r fl">禁言平台：</span><span class="checkbox checked"><em class="pub_ico au_pointer"></em>书评</span><span class="checkbox"><em class="pub_ico au_pointer"></em>圈子</span>
+                            </p>-->
+                            <p>
+                                <span class="td_r fl">理由：</span>
+                                <textarea class="des" maxlength="240" placeholder="请输入禁言理由"></textarea>
+                                <em class="count">0/240</em>
+                            </p>
+                            <p>
+                                <span class="td_r fl"></span>
+                                <a href="javascript:;" class="bm_btn_submit btn_bg" type="notring">确认提交</a>
+                                <a href="javascript:;" class="bm_btn_cancel">取消</a>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="userlist">
+                    	<!--<div class="update_tit"><em>·</em>禁言列表</div>
+                    	<table>
+                            <tr class="td_tit">
+                                <td>用户昵称</td>
+                                <td>禁言理由</td>
+                                <td>禁言开始日期</td>
+                                <td>禁言结束日期</td>
+                                <td>管理禁言</td>
+                            </tr>
+                            <tr>
+                                <td>想起菱角</td>
+                                <td class="how">书评太犀利书评太犀利书评太犀利书评太犀利书评太犀利书评太犀利</td>
+                                <td>2015-12-18</td>
+                                <td>2015-12-21</td>
+                                <td><em class="unuse btn_bg">解除禁言</em></td>
+                            </tr>
+                             <tr>
+                                <td>想起菱角</td>
+                                <td class="how">书评太犀利书评太犀利书评太犀利书评太犀利书评太犀利书评太犀利</td>
+                                <td>2015-12-18</td>
+                                <td>2015-12-21</td>
+                                <td><em class="unuse btn_bg">解除禁言</em></td>
+                        </table>-->
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="http://static.zongheng.com/author/v2015/js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="http://static.zongheng.com/author/v2015/js/laydate/laydate.js"></script>
+<script type="text/javascript" src="http://static.zongheng.com/author/v2015/js/book.review.js"></script>
+</body>
+
+<div class="footer">
+	<div class="au_box">
+		<p>
+			Copyright<em>©</em>2008-2010 www.zongheng.com All Rights Reserved
+		</p>
+		<p>版权所有 北京幻想纵横网络技术有限公司</p>
+	</div>
+</div>
+<script  type="text/javascript"  src="http://static.zongheng.com/v2_0/js/tongji.js"></script>
+
+</html>

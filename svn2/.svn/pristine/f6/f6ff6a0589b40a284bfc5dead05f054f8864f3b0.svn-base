@@ -1,0 +1,951 @@
+﻿
+
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:shiro="http://www.pollix.at/thymeleaf/shiro"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="copyright" content="本页版权 www.zongheng.com 纵横中文网所有。All Rights Reserved">
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<link rel="shortcut icon" href="https://static.zongheng.com/favicon.ico" />
+<title>小说排行榜，最新热门小说排行榜，各类原创小说排行榜，纵横中文小说网</title>
+<meta name="keywords" content="小说,小说网,免费小说,纵横中文网">
+<meta name="description" content="纵横中文网,最热门的免费小说网站,提供玄幻小说、网游小说、言情小说、穿越小说、都市小说等免费小说在线阅读与下载。大神作品齐聚纵横,最新章节每日更新。">
+<link rel="stylesheet" href="http://rcode.zongheng.com/v2018/css/basic.min.css" />
+<link rel="stylesheet" href="http://rcode.zongheng.com/v2018/css/rank.min.css" />
+</head>
+<body scriptSign="rank" listType="1" curYear="2018" curMonth="11" rankType="1" donateRate="1">
+
+<div class="head-fixed head-simple">
+   
+
+<div class="wrap">
+       <div class="head-top clearfix">
+           <div class="logo imgbox fl"><a href=""><img src="http://rcode.zongheng.com/v2018/images/logo.png" alt="logo"></a></div>
+        <form name="searchForm" method="get" action="http://search.zongheng.com/s" target="_blank">
+           <div class="search-box">
+          <input class="search-text fl" name="keyword" type="text" placeholder="雪中悍刀行" autocomplete="off" disableautocomplete value="">
+          <input type="submit" class="search-btn fr" >
+           </div>
+        </form>
+           <div class="pay fr"><a class="user_pay" href="http://pay.zongheng.com" target="_blank">充值</a></div>
+           <div class="menu clearfix">
+               <a href="">首页</a>
+               <div class="cate tabA">
+                   <a href="##">分类<em class="icon"></em></a>
+                   <div class="tabA-float cate-cell">
+                       <ul>
+                       	<li><a href="category/1.html">奇幻玄幻</a></li>
+                        <li><a href="category/3.html">武侠仙侠</a></li>
+                        <li><a href="category/6.html">历史军事</a></li>
+                        <li><a href="category/9.html">都市娱乐</a></li>
+                        <li><a href="category/21.html">竞技同人</a></li>
+                        <li><a href="category/15.html">科幻游戏</a></li>
+                        <li><a href="category/18.html">悬疑灵异</a></li>
+                        <li><a href="category/40.html">二次元</a></li>
+                       </ul>
+                   </div>
+               </div>
+               <a href="rank.html">排行</a>
+               <a href="store.html" >书库</a>
+               <a href="store/c0/c0/b0/u0/p1/v9/s1/t0/u0/i1/ALL.html">完本</a>
+               <a href="http://author.zongheng.com" target="_blank">作者专区</a>
+           </div>
+            
+<div class="right-wrap-login ud_userTox">
+    <div class="login fl">
+        <shiro:guest>
+            <a href="/user/log">登录</a>
+            <a class="user_register" href="user/preadd">注册</a>
+        </shiro:guest>
+        <shiro:user>
+            <a href="/user/book"><shiro:principal property="nickname"/></a>
+        </shiro:user>
+    </div>
+    <div class="logon ud_loged clearfix" style="display:none;">
+        <div class="user tabA imgbox">
+        <img  class="ud_avatar ud_goUsrCenter" src="http://rcode.zongheng.com/v2018/images/book.png" alt="" target="_blank">
+            <div class="user-blank tabA-float">
+                <a href="javascript:void(0);" class="quit ud_logout">退出</a>
+                <div class="user-name ud_goUsrCenter"><span class="ud_nickName"></span><em class="icon"></em></div>
+                <div class="user-info clearfix">
+                    <div class="user-info-cell ud_money">
+                        <span class="item_loading"></span>
+                    </div>
+                    <div class="user-info-cell ud_ticket">
+                        <span class="item_loading"></span>
+                    </div>
+                    <div class="user-info-cell ud_mticket">
+                        <span class="item_loading"></span>
+                    </div>
+                </div>
+                <a href="http://pay.zongheng.com" class="btn" target="_blank">立即充值</a>
+            </div>
+        </div>
+        <div class="message">
+            <a href="http://home.zongheng.com/msgIn.do" class="mes" target="_blank">消息(<span class="ud_umessage"></span>)</a>
+        </div>
+        <div class="shelf"><a href="http://home.zongheng.com/favoritesBook.do" target="_blank">书架</a></div>
+        <div class="foot-mark tabA">
+            <span class="mark clearfix">历史<em class="icon"></em></span>
+            <div class="tabA-float float-mark clearfix">
+                <!-- loading -->
+                <div class="ud_hisloading">
+                        <span class="item_loading"></span>
+                </div>
+                <!-- 没有记录 -->
+                <div class="ud_noHistory" style="display: none">
+                  <h2>亲爱的书友，您暂时没有阅读记录~</h2>
+                  <div class="tips">阅读记录只保存最近阅读的5本小说</div>
+                  <div class="enter"><a href="http://home.zongheng.com/favoritesBook.do" target="_blank">进入我的书架</a></div>
+                </div>
+                <!-- 有记录 -->
+                <div class="ud_hasHistory" style="display: none"><ul class="mark-list"></ul></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+        </div>
+    </div>
+</div>
+<div class="wrap">
+	
+
+<div class="head">
+	<div class="head-top clearfix">
+		<div class="logo imgbox fl">
+			<a href=""><img
+				src="http://rcode.zongheng.com/v2018/images/logo.png" alt="logo"></a>
+		</div>
+		<form id="commSearch" name="searchForm" method="get"
+			action="http://search.zongheng.com/s" target="_blank">
+			<div class="search-box fl" data-hook="searchSuggest">
+				<input class="search-text fl" name="keyword" type="text"
+					placeholder="雪中悍刀行" autocomplete="off" disableautocomplete /> <input
+					type="submit" class="search-btn fr" />
+			</div>
+		</form>
+		<div class="pay fr">
+			<a class="user_pay" href="http://pay.zongheng.com" target="_blank">充值</a>
+		</div>
+		
+<div class="right-wrap-login ud_userTox">
+    <div class="unlogin ud_unlogin clearfix">
+        <div class="login fl"><a class="user_login" href="https://passport.zongheng.com">登录</a></div>
+        <div class="regist fl"><a class="user_register" href="https://passport.zongheng.com/webreg">注册</a></div>
+    </div>
+    <div class="logon ud_loged clearfix" style="display:none;">
+        <div class="user tabA imgbox">
+        <img  class="ud_avatar ud_goUsrCenter" src="http://rcode.zongheng.com/v2018/images/book.png" alt="" target="_blank">
+            <div class="user-blank tabA-float">
+                <a href="javascript:void(0);" class="quit ud_logout">退出</a>
+                <div class="user-name ud_goUsrCenter"><span class="ud_nickName"></span><em class="icon"></em></div>
+                <div class="user-info clearfix">
+                    <div class="user-info-cell ud_money">
+                        <span class="item_loading"></span>
+                    </div>
+                    <div class="user-info-cell ud_ticket">
+                        <span class="item_loading"></span>
+                    </div>
+                    <div class="user-info-cell ud_mticket">
+                        <span class="item_loading"></span>
+                    </div>
+                </div>
+                <a href="http://pay.zongheng.com" class="btn" target="_blank">立即充值</a>
+            </div>
+        </div>
+        <div class="message">
+            <a href="http://home.zongheng.com/msgIn.do" class="mes" target="_blank">消息(<span class="ud_umessage"></span>)</a>
+        </div>
+        <div class="shelf"><a href="http://home.zongheng.com/favoritesBook.do" target="_blank">书架</a></div>
+        <div class="foot-mark tabA">
+            <span class="mark clearfix">历史<em class="icon"></em></span>
+            <div class="tabA-float float-mark clearfix">
+                <!-- loading -->
+                <div class="ud_hisloading">
+                        <span class="item_loading"></span>
+                </div>
+                <!-- 没有记录 -->
+                <div class="ud_noHistory" style="display: none">
+                  <h2>亲爱的书友，您暂时没有阅读记录~</h2>
+                  <div class="tips">阅读记录只保存最近阅读的5本小说</div>
+                  <div class="enter"><a href="http://home.zongheng.com/favoritesBook.do" target="_blank">进入我的书架</a></div>
+                </div>
+                <!-- 有记录 -->
+                <div class="ud_hasHistory" style="display: none"><ul class="mark-list"></ul></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+	</div>
+	<div class="nav clearfix">
+		<div class="menu-left fl">
+			<a 
+				href="">首页<em></em></a> <a
+				
+				href="http://book.zongheng.com/store.html">书库<em></em></a> <a
+				class="active"
+				href="http://book.zongheng.com/rank.html">排行<em></em></a> <a
+				
+				href="http://book.zongheng.com/store/c0/c0/b0/u0/p1/v9/s1/t0/u0/i1/ALL.html">完本<em></em></a>
+			<a href="http://huayu.baidu.com" target="_blank">花语女生网<em></em></a>
+			<a href="comic.html" target="_blank">漫画<em></em></a>
+			<div class="app-menu tabA">
+				<a href="" class="phone">移动端</a>
+				<div class="app-float tabA-float">
+					<div class="tit">纵横小说 原创精品</div>
+					<div class="imgbox tabC_wap">
+						<div class="tabC" style="display: block;">
+							<img src="http://rcode.zongheng.com/v2018/images/ad-float.png"
+								alt="">
+						</div>
+						<div class="tabC">
+							<img src="http://rcode.zongheng.com/v2018/images/ios-float.png"
+								alt="">
+						</div>
+						<div class="tabC">
+							<img src="http://rcode.zongheng.com/v2018/images/wx-float.png"
+								alt="">
+						</div>
+					</div>
+					<div class="tabT_wap app-down">
+						<span class="tabT ad active"></span> <span class="tabT ios"></span>
+						<span class="tabT wx"></span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="menu-right fr">
+			<a href="http://author.zongheng.com" class="author_zone" target="_blank">作者专区<em></em></a>
+			<a href="http://game.zongheng.com" class="game_center" target="_blank">游戏中心<em></em></a>
+		</div>
+	</div>
+</div>
+	<!-- 1.	排行头部广告位 -->
+	
+<div class="com-recbox">
+	<script type="text/javascript"src="http://static.zongheng.com/upload/hzds/column/240517642431.js"></script>
+</div>
+<div class="h15-blank"></div>
+	<div class="rank_wrap">
+		
+
+<div class="rank_menu"> 
+    <div class="borderE6 rank_side">
+        <h3><a href="rank.html" >人气榜单</a></h3>
+        <div class="borderB_e6"></div>
+        <h3>作品榜单</h3>
+        <p><a href="rank/details.html?rt=1&d=1&i=2" class="rank_active">月票榜</a></p>
+        <p><a href="rank/details.html?rt=3&d=1" >24小时畅销榜</a></p>
+        <p><a href="rank/details.html?rt=4&d=1" >新书榜</a></p>
+        <p><a href="rank/details.html?rt=5&d=1" >点击榜</a></p>
+        <p><a href="rank/details.html?rt=6&d=1" >推荐榜</a></p>
+        <p><a href="rank/details.html?rt=7&d=1" >捧场榜</a></p>
+        <p><a href="rank/details.html?rt=8&d=1" >完结榜</a></p>
+        <p><a href="rank/details.html?rt=9&d=1" >新书订阅榜</a></p>
+        <p><a href="rank/details.html?rt=10&d=1" >24小时更新榜</a></p>   
+        <div class="borderB_e6 margin_t10_b5"></div>    
+        <h3>用户榜单</h3>
+        <p><a href="rank/details.html?rt=11" >读者消费榜</a></p>  
+        <div class="borderB_e6 margin_t9_b1"></div>   
+        <h3>作者榜单</h3>
+        <p><a href="rank/details.html?rt=12" >作者人气榜</a></p>   
+    </div>
+    <div class="borderE6 margin_t9_b40">
+        <a href="http://news.zongheng.com/subject/mt/index" target="_blank" class="rank_a_crown"><em class=" rank_ico_crown"></em>月票冠军 · 新星作品</a>
+    </div>
+    <!-- 2.	排行左侧导航下方广告位：此处广告位置宽度固定，但是不限制广告样式的高度 -->
+</div>
+
+		<div class="rank_main">
+			<div class="rank_banner">
+                <div class="rank_i_title_name fl">
+                	
+                    <a href="javascript:;" class="active">月票榜</a>
+                    
+                </div>
+                <div class="dropbox">
+                    <div class="select_module_con data-year" data-val="2018">         
+                        <div class="sel"><span class="drop_tit">2018年</span><em class="dparr"></em></div>          
+                        <ul class="select_item"></ul>
+                    </div> 
+                    <div class="select_module_con data-month" data-val="11">          
+                        <div class="sel"><span class="drop_tit">11月</span><em class="dparr"></em></div>          
+                        <ul class="select_item"></ul>        
+                    </div>
+                    <a href="javascript:void(0);" class="dropgo" data-hook="monthRank">GO</a>
+                </div>
+                <div class="listtype">
+                    <a href="rank/details.html?rt=1&d=0&r=" class="rank_d_icon rank_d_ico_row fr "></a>
+                    <a href="rank/details.html?rt=1&d=1&r=" class="rank_d_icon rank_d_ico_column fr active"></a>
+                </div>
+            </div>
+            <div class="rankpage_box">
+            
+	                <div class="rank_d_list borderB_c_dsh clearfix" bookName = "剑来" bookId="672340" th:each="d:${bookDataList}">
+	                    <div class="rank_d_book_img fl">
+	                        <a href="http://book.zongheng.com/book/672340.html" target="_blank"><img th:src="@{/show/{Path}(Path=${d.bookMessage.bookImage})}"></a>
+	                    </div>
+	                    <div class="rank_d_book_intro fl">
+	                        <div class="rank_d_b_name" title="剑来">
+	                            <a href="http://book.zongheng.com/book/672340.html" target="_blank"><span th:text="${d.bookMessage.bookName}"></span></a>
+	                        </div>
+	                        <div class="rank_d_b_cate" title="烽火戏诸侯">
+	                            <a href="http://home.zongheng.com/show/userInfo/166130.html" target="_blank" th:text="${d.bookMessage.author.user.nickname}"></a>|<a  target="_blank" th:text="${d.bookMessage.bookType.typeName}"></a>|<a target="_blank" th:text="${d.bookMessage.bookIsEnd}"></a>
+	                        </div>
+	                        <div class="rank_d_b_info" th:text="${d.bookMessage.bookContent}"></div>
+	                        <div class="rank_d_b_last" title="第四百三十四章 青衣姑娘吃着糕点">
+	                            <a href="http://book.zongheng.com//chapter/672340/44180608.html" class="fl" target="_blank"><span class="rank_d_lastchapter">最新章节</span></a>
+	                            <span class="rank_d_b_time" th:text="${d.bookMessage.bookCreattime}"></span>
+	                        </div>
+	                    </div>
+	                    <div class="rank_d_book_manage fr">
+	                        <div class="rank_d_b_rank">
+	                            <div class="rank_d_icon rank_d_b_num rank_d_b_num1 fr">1</div>
+	                            <div class="rank_d_b_ticket" th:text="${d.bookTicket}"><span>月票</span></div>
+	                        </div>
+	                        <span class="rank_d_btn_donate">投票</span>
+	                        <button type="button" class="rank_d_btn_favor" >加入书架</button>
+	                    </div>
+	                </div>
+                
+	                <!--<div class="rank_d_list borderB_c_dsh clearfix" bookName = "长宁帝军" bookId="751819">-->
+	                    <!--<div class="rank_d_book_img fl">-->
+	                        <!--<a href="http://book.zongheng.com/book/751819.html" target="_blank"><img src="http://static.zongheng.com/upload/cover/da/df/dadf3f130bdc7d9dc666fb20622902bb.jpeg" alt="长宁帝军"></a>-->
+	                    <!--</div>-->
+	                    <!--<div class="rank_d_book_intro fl">-->
+	                        <!--<div class="rank_d_b_name" title="长宁帝军">-->
+	                            <!--<a href="http://book.zongheng.com/book/751819.html" target="_blank">长宁帝军</a>-->
+	                        <!--</div>-->
+	                        <!--<div class="rank_d_b_cate" title="知白">-->
+	                            <!--<a href="http://home.zongheng.com/show/userInfo/1185346.html" target="_blank">知白</a>|<a  target="_blank">架空</a>|<a target="_blank">连载</a>-->
+	                        <!--</div>-->
+	                        <!--<div class="rank_d_b_info">这个天下大大小小数百国，说到陆地武功宁国近乎无敌，有四疆四库的虎狼横扫六合，陆地延伸到哪儿，宁军就能把战旗插到哪儿，可是海疆之外虎狼不及之处总有些人不服气，于是就有了那少年带刀扬戟，一苇渡江。</div>-->
+	                        <!--<div class="rank_d_b_last" title="第三百三十六章 熬">-->
+	                            <!--<a href="http://book.zongheng.com//chapter/751819/44179756.html" class="fl" target="_blank"><span class="rank_d_lastchapter">最新章节</span>第三百三十六章 熬</a>-->
+	                            <!--<span class="rank_d_b_time">11-11 17:39</span>-->
+	                        <!--</div>-->
+	                    <!--</div>-->
+	                    <!--<div class="rank_d_book_manage fr">-->
+	                        <!--<div class="rank_d_b_rank">-->
+	                            <!--<div class="rank_d_icon rank_d_b_num rank_d_b_num2 fr">2</div>-->
+	                            <!--<div class="rank_d_b_ticket">18267<span>月票</span></div>-->
+	                        <!--</div>-->
+	                        <!--<span class="rank_d_btn_donate">投票</span>-->
+	                        <!--<button type="button" class="rank_d_btn_favor" >加入书架</button>-->
+	                    <!--</div>-->
+	                <!--</div>-->
+                <!---->
+	                <!--<div class="rank_d_list borderB_c_dsh clearfix" bookName = "绝命毒尸" bookId="714691">-->
+	                    <!--<div class="rank_d_book_img fl">-->
+	                        <!--<a href="http://book.zongheng.com/book/714691.html" target="_blank"><img src="http://static.zongheng.com/upload/cover/50/9c/509cca03a076f678c3f9c20fe19509ef.jpeg" alt="绝命毒尸"></a>-->
+	                    <!--</div>-->
+	                    <!--<div class="rank_d_book_intro fl">-->
+	                        <!--<div class="rank_d_b_name" title="绝命毒尸">-->
+	                            <!--<a href="http://book.zongheng.com/book/714691.html" target="_blank">绝命毒尸</a>-->
+	                        <!--</div>-->
+	                        <!--<div class="rank_d_b_cate" title="十阶浮屠">-->
+	                            <!--<a href="http://home.zongheng.com/show/userInfo/9165211.html" target="_blank">十阶浮屠</a>|<a  target="_blank">都市</a>|<a target="_blank">连载</a>-->
+	                        <!--</div>-->
+	                        <!--<div class="rank_d_b_info">黑夜给了我一双黑色的眼睛，我却用它在黑暗中寻找姑娘！校花！警花！厂花！以及姐妹花！全都躲在角落里瑟瑟发抖，阻挡末日是我的信念，温暖她们是我的责任，我就是夏不二，末日的阻挡者……-->
+<!--（末日专业户出品，必属精品！关注“十阶浮屠”公众号，可免费领取《末日之城》全本！）</div>-->
+	                        <!--<div class="rank_d_b_last" title="0734  万尸坑（上）">-->
+	                            <!--<a href="http://book.zongheng.com//chapter/714691/44183737.html" class="fl" target="_blank"><span class="rank_d_lastchapter">最新章节</span>0734  万尸坑（上）</a>-->
+	                            <!--<span class="rank_d_b_time">11-12 08:59</span>-->
+	                        <!--</div>-->
+	                    <!--</div>-->
+	                    <!--<div class="rank_d_book_manage fr">-->
+	                        <!--<div class="rank_d_b_rank">-->
+	                            <!--<div class="rank_d_icon rank_d_b_num rank_d_b_num3 fr">3</div>-->
+	                            <!--<div class="rank_d_b_ticket">8468<span>月票</span></div>-->
+	                        <!--</div>-->
+	                        <!--<span class="rank_d_btn_donate">投票</span>-->
+	                        <!--<button type="button" class="rank_d_btn_favor" >加入书架</button>-->
+	                    <!--</div>-->
+	                <!--</div>-->
+                <!---->
+	                <!--<div class="rank_d_list borderB_c_dsh clearfix" bookName = "锦衣春秋" bookId="510426">-->
+	                    <!--<div class="rank_d_book_img fl">-->
+	                        <!--<a href="http://book.zongheng.com/book/510426.html" target="_blank"><img src="http://static.zongheng.com/upload/cover/2017/07/1500961969649.jpg" alt="锦衣春秋"></a>-->
+	                    <!--</div>-->
+	                    <!--<div class="rank_d_book_intro fl">-->
+	                        <!--<div class="rank_d_b_name" title="锦衣春秋">-->
+	                            <!--<a href="http://book.zongheng.com/book/510426.html" target="_blank">锦衣春秋</a>-->
+	                        <!--</div>-->
+	                        <!--<div class="rank_d_b_cate" title="沙漠">-->
+	                            <!--<a href="http://home.zongheng.com/show/userInfo/75892.html" target="_blank">沙漠</a>|<a  target="_blank">架空</a>|<a target="_blank">连载</a>-->
+	                        <!--</div>-->
+	                        <!--<div class="rank_d_b_info">安忍不动如大地，静虑深密如秘藏！-->
+
+<!--地藏卷轴突现世间，黄金凤凰再临天地，南北争雄，密云重重。深宫诡虞，疆场喋血。-->
+
+<!--以天地为棋盘，众生为弈子，英雄豪杰，风月美人，演一出旷世棋局！-->
+
+<!--本书官方群：70016082 微信公众号：锦衣沙漠-->
+
+<!--</div>-->
+	                        <!--<div class="rank_d_b_last" title="第一一五二章   真正的陷阱">-->
+	                            <!--<a href="http://book.zongheng.com//chapter/510426/44171778.html" class="fl" target="_blank"><span class="rank_d_lastchapter">最新章节</span>第一一五二章   真正的陷阱</a>-->
+	                            <!--<span class="rank_d_b_time">11-10 10:46</span>-->
+	                        <!--</div>-->
+	                    <!--</div>-->
+	                    <!--<div class="rank_d_book_manage fr">-->
+	                        <!--<div class="rank_d_b_rank">-->
+	                            <!--<div class="rank_d_icon rank_d_b_num rank_d_b_num-1 fr">4</div>-->
+	                            <!--<div class="rank_d_b_ticket">6622<span>月票</span></div>-->
+	                        <!--</div>-->
+	                        <!--<span class="rank_d_btn_donate">投票</span>-->
+	                        <!--<button type="button" class="rank_d_btn_favor" >加入书架</button>-->
+	                    <!--</div>-->
+	                <!--</div>-->
+                <!---->
+	                <!--<div class="rank_d_list borderB_c_dsh clearfix" bookName = "天骄战纪" bookId="547156">-->
+	                    <!--<div class="rank_d_book_img fl">-->
+	                        <!--<a href="http://book.zongheng.com/book/547156.html" target="_blank"><img src="http://static.zongheng.com/upload/cover/5a/51/5a514b62f0cceae57c5b394a74685126.jpeg" alt="天骄战纪"></a>-->
+	                    <!--</div>-->
+	                    <!--<div class="rank_d_book_intro fl">-->
+	                        <!--<div class="rank_d_b_name" title="天骄战纪">-->
+	                            <!--<a href="http://book.zongheng.com/book/547156.html" target="_blank">天骄战纪</a>-->
+	                        <!--</div>-->
+	                        <!--<div class="rank_d_b_cate" title="萧瑾瑜">-->
+	                            <!--<a href="http://home.zongheng.com/show/userInfo/1065116.html" target="_blank">萧瑾瑜</a>|<a  target="_blank">玄幻</a>|<a target="_blank">连载</a>-->
+	                        <!--</div>-->
+	                        <!--<div class="rank_d_b_info">林寻独自从矿山牢狱中走出，掌御灵纹，心通万古，踏上了一条古今未有的传奇之路［微信公众号：xiaojinyu233］搜索公众号“萧瑾瑜”也可以添加。</div>-->
+	                        <!--<div class="rank_d_b_last" title="第2195章 无执者 同天地寿">-->
+	                            <!--<a href="http://book.zongheng.com//chapter/547156/44181166.html" class="fl" target="_blank"><span class="rank_d_lastchapter">最新章节</span>第2195章 无执者 同天地寿</a>-->
+	                            <!--<span class="rank_d_b_time">11-11 21:28</span>-->
+	                        <!--</div>-->
+	                    <!--</div>-->
+	                    <!--<div class="rank_d_book_manage fr">-->
+	                        <!--<div class="rank_d_b_rank">-->
+	                            <!--<div class="rank_d_icon rank_d_b_num rank_d_b_num-1 fr">5</div>-->
+	                            <!--<div class="rank_d_b_ticket">5983<span>月票</span></div>-->
+	                        <!--</div>-->
+	                        <!--<span class="rank_d_btn_donate">投票</span>-->
+	                        <!--<button type="button" class="rank_d_btn_favor" >加入书架</button>-->
+	                    <!--</div>-->
+	                <!--</div>-->
+                <!---->
+	                <!--<div class="rank_d_list borderB_c_dsh clearfix" bookName = "医品宗师" bookId="635570">-->
+	                    <!--<div class="rank_d_book_img fl">-->
+	                        <!--<a href="http://book.zongheng.com/book/635570.html" target="_blank"><img src="http://static.zongheng.com/upload/cover/2016/12/1482972103534.jpg" alt="医品宗师"></a>-->
+	                    <!--</div>-->
+	                    <!--<div class="rank_d_book_intro fl">-->
+	                        <!--<div class="rank_d_b_name" title="医品宗师">-->
+	                            <!--<a href="http://book.zongheng.com/book/635570.html" target="_blank">医品宗师</a>-->
+	                        <!--</div>-->
+	                        <!--<div class="rank_d_b_cate" title="步行天下">-->
+	                            <!--<a href="http://home.zongheng.com/show/userInfo/1005540.html" target="_blank">步行天下</a>|<a  target="_blank">都市</a>|<a target="_blank">连载</a>-->
+	                        <!--</div>-->
+	                        <!--<div class="rank_d_b_info">他是武林中最年轻的武学宗师，拥有神秘的绝对手感，可他现在却是一名普通的中医大学的大一新生，本想低调的学学医，看看病，恋恋爱，可在一次中秋晚会被迫表演中震惊了全场，注定闪耀的美好大学生活从此开始了【欢迎关注小步的微信公众号：bxtx521,想看方丘小时候熊孩子方小丘的机智犯二故事的欢迎来看】（也可以直接搜索“作者步行天下”添加）友群：121883239</div>-->
+	                        <!--<div class="rank_d_b_last" title="第二百章 我华夏，同阶无敌！">-->
+	                            <!--<a href="http://book.zongheng.com//chapter/635570/44180274.html" class="fl" target="_blank"><span class="rank_d_lastchapter">最新章节</span>第二百章 我华夏，同阶无敌！</a>-->
+	                            <!--<span class="rank_d_b_time">11-11 19:10</span>-->
+	                        <!--</div>-->
+	                    <!--</div>-->
+	                    <!--<div class="rank_d_book_manage fr">-->
+	                        <!--<div class="rank_d_b_rank">-->
+	                            <!--<div class="rank_d_icon rank_d_b_num rank_d_b_num-1 fr">6</div>-->
+	                            <!--<div class="rank_d_b_ticket">5566<span>月票</span></div>-->
+	                        <!--</div>-->
+	                        <!--<span class="rank_d_btn_donate">投票</span>-->
+	                        <!--<button type="button" class="rank_d_btn_favor" >加入书架</button>-->
+	                    <!--</div>-->
+	                <!--</div>-->
+                <!---->
+	                <!--<div class="rank_d_list borderB_c_dsh clearfix" bookName = "医流武神" bookId="780601">-->
+	                    <!--<div class="rank_d_book_img fl">-->
+	                        <!--<a href="http://book.zongheng.com/book/780601.html" target="_blank"><img src="http://static.zongheng.com/upload/cover/af/b0/afb04d8565fc825fb88725223b618abc.jpeg" alt="医流武神"></a>-->
+	                    <!--</div>-->
+	                    <!--<div class="rank_d_book_intro fl">-->
+	                        <!--<div class="rank_d_b_name" title="医流武神">-->
+	                            <!--<a href="http://book.zongheng.com/book/780601.html" target="_blank">医流武神</a>-->
+	                        <!--</div>-->
+	                        <!--<div class="rank_d_b_cate" title="潇铭">-->
+	                            <!--<a href="http://home.zongheng.com/show/userInfo/14409668.html" target="_blank">潇铭</a>|<a  target="_blank">都市</a>|<a target="_blank">连载</a>-->
+	                        <!--</div>-->
+	                        <!--<div class="rank_d_b_info">一代魔君，逆天重生！为复血海深仇，重回都市，掀起血雨腥风！当其锋芒展露的刹那，美女院长，萌呆萝莉，清纯校花，冷艳总裁……纷至沓来！</div>-->
+	                        <!--<div class="rank_d_b_last" title="第37章  保安的逆袭！">-->
+	                            <!--<a href="http://book.zongheng.com//chapter/780601/44183587.html" class="fl" target="_blank"><span class="rank_d_lastchapter">最新章节</span>第37章  保安的逆袭！</a>-->
+	                            <!--<span class="rank_d_b_time">11-12 08:01</span>-->
+	                        <!--</div>-->
+	                    <!--</div>-->
+	                    <!--<div class="rank_d_book_manage fr">-->
+	                        <!--<div class="rank_d_b_rank">-->
+	                            <!--<div class="rank_d_icon rank_d_b_num rank_d_b_num-1 fr">7</div>-->
+	                            <!--<div class="rank_d_b_ticket">3338<span>月票</span></div>-->
+	                        <!--</div>-->
+	                        <!--<span class="rank_d_btn_donate">投票</span>-->
+	                        <!--<button type="button" class="rank_d_btn_favor" >加入书架</button>-->
+	                    <!--</div>-->
+	                <!--</div>-->
+                <!---->
+	                <!--<div class="rank_d_list borderB_c_dsh clearfix" bookName = "剑骨" bookId="775517">-->
+	                    <!--<div class="rank_d_book_img fl">-->
+	                        <!--<a href="http://book.zongheng.com/book/775517.html" target="_blank"><img src="http://static.zongheng.com/upload/cover/ae/fc/aefc1d00556c88bc6dd5d7d09117dec0.jpeg" alt="剑骨"></a>-->
+	                    <!--</div>-->
+	                    <!--<div class="rank_d_book_intro fl">-->
+	                        <!--<div class="rank_d_b_name" title="剑骨">-->
+	                            <!--<a href="http://book.zongheng.com/book/775517.html" target="_blank">剑骨</a>-->
+	                        <!--</div>-->
+	                        <!--<div class="rank_d_b_cate" title="会摔跤的熊猫">-->
+	                            <!--<a href="http://home.zongheng.com/show/userInfo/36487472.html" target="_blank">会摔跤的熊猫</a>|<a  target="_blank">玄幻</a>|<a target="_blank">连载</a>-->
+	                        <!--</div>-->
+	                        <!--<div class="rank_d_b_info">霜杀百草的年代，少年走出菩萨庙，接过全天下最重的剑，向着人世间，斩开了一线光明。-->
+<!--……-->
+<!--……-->
+<!--VIP群【莲阁】：549974786。（进群需要提供粉丝星值截图。）-->
+<!--一群：深水巨兽群：559826111。（已满）-->
+<!--二群：剑骨聊天群：903405682。（妹子群主，欢迎灌水。）</div>-->
+	                        <!--<div class="rank_d_b_last" title="第五十八章 死去的王">-->
+	                            <!--<a href="http://book.zongheng.com//chapter/775517/44184234.html" class="fl" target="_blank"><span class="rank_d_lastchapter">最新章节</span>第五十八章 死去的王</a>-->
+	                            <!--<span class="rank_d_b_time">11-12 10:00</span>-->
+	                        <!--</div>-->
+	                    <!--</div>-->
+	                    <!--<div class="rank_d_book_manage fr">-->
+	                        <!--<div class="rank_d_b_rank">-->
+	                            <!--<div class="rank_d_icon rank_d_b_num rank_d_b_num-1 fr">8</div>-->
+	                            <!--<div class="rank_d_b_ticket">2930<span>月票</span></div>-->
+	                        <!--</div>-->
+	                        <!--<span class="rank_d_btn_donate">投票</span>-->
+	                        <!--<button type="button" class="rank_d_btn_favor" >加入书架</button>-->
+	                    <!--</div>-->
+	                <!--</div>-->
+                <!---->
+	                <!--<div class="rank_d_list borderB_c_dsh clearfix" bookName = "狂暴逆袭" bookId="734818">-->
+	                    <!--<div class="rank_d_book_img fl">-->
+	                        <!--<a href="http://book.zongheng.com/book/734818.html" target="_blank"><img src="http://static.zongheng.com/upload/cover/8e/f0/8ef0fa37c6aa6948a5cddcad8d801f82.jpeg" alt="狂暴逆袭"></a>-->
+	                    <!--</div>-->
+	                    <!--<div class="rank_d_book_intro fl">-->
+	                        <!--<div class="rank_d_b_name" title="狂暴逆袭">-->
+	                            <!--<a href="http://book.zongheng.com/book/734818.html" target="_blank">狂暴逆袭</a>-->
+	                        <!--</div>-->
+	                        <!--<div class="rank_d_b_cate" title="罗玛">-->
+	                            <!--<a href="http://home.zongheng.com/show/userInfo/11900197.html" target="_blank">罗玛</a>|<a  target="_blank">玄幻</a>|<a target="_blank">连载</a>-->
+	                        <!--</div>-->
+	                        <!--<div class="rank_d_b_info">吃饱吃好，神仙干倒；诸天风云，因我呼啸！</div>-->
+	                        <!--<div class="rank_d_b_last" title="第三八三章  元神层次跌落">-->
+	                            <!--<a href="http://book.zongheng.com//chapter/734818/44179956.html" class="fl" target="_blank"><span class="rank_d_lastchapter">最新章节</span>第三八三章  元神层次跌落</a>-->
+	                            <!--<span class="rank_d_b_time">11-11 18:03</span>-->
+	                        <!--</div>-->
+	                    <!--</div>-->
+	                    <!--<div class="rank_d_book_manage fr">-->
+	                        <!--<div class="rank_d_b_rank">-->
+	                            <!--<div class="rank_d_icon rank_d_b_num rank_d_b_num-1 fr">9</div>-->
+	                            <!--<div class="rank_d_b_ticket">2291<span>月票</span></div>-->
+	                        <!--</div>-->
+	                        <!--<span class="rank_d_btn_donate">投票</span>-->
+	                        <!--<button type="button" class="rank_d_btn_favor" >加入书架</button>-->
+	                    <!--</div>-->
+	                <!--</div>-->
+                <!---->
+	                <!--<div class="rank_d_list borderB_c_dsh clearfix" bookName = "妙医鸿途" bookId="603738">-->
+	                    <!--<div class="rank_d_book_img fl">-->
+	                        <!--<a href="http://book.zongheng.com/book/603738.html" target="_blank"><img src="http://static.zongheng.com/upload/cover/ee/13/ee1388baecabce8b4ff2bc669bda3246.jpeg" alt="妙医鸿途"></a>-->
+	                    <!--</div>-->
+	                    <!--<div class="rank_d_book_intro fl">-->
+	                        <!--<div class="rank_d_b_name" title="妙医鸿途">-->
+	                            <!--<a href="http://book.zongheng.com/book/603738.html" target="_blank">妙医鸿途</a>-->
+	                        <!--</div>-->
+	                        <!--<div class="rank_d_b_cate" title="烟斗老哥">-->
+	                            <!--<a href="http://home.zongheng.com/show/userInfo/2263464.html" target="_blank">烟斗老哥</a>|<a  target="_blank">都市</a>|<a target="_blank">连载</a>-->
+	                        <!--</div>-->
+	                        <!--<div class="rank_d_b_info">年轻的中医苏韬，在接管祖传的医馆后，遇到了各种各样的病人，因而发生一个个妙趣横生的故事。起初只是想要守护身边的人，随后无法自拔地踏入世事洪流，小中医不得不运筹帷幄、野心勃勃地开始运营一座中医之城。惊才绝艳的人生鸿途徐徐展开画卷……欢迎关注微信公众号：烟斗老哥或者搜索ydlg1985。</div>-->
+	                        <!--<div class="rank_d_b_last" title="第1754章 安德森家聚会">-->
+	                            <!--<a href="http://book.zongheng.com//chapter/603738/44180527.html" class="fl" target="_blank"><span class="rank_d_lastchapter">最新章节</span>第1754章 安德森家聚会</a>-->
+	                            <!--<span class="rank_d_b_time">11-11 19:55</span>-->
+	                        <!--</div>-->
+	                    <!--</div>-->
+	                    <!--<div class="rank_d_book_manage fr">-->
+	                        <!--<div class="rank_d_b_rank">-->
+	                            <!--<div class="rank_d_icon rank_d_b_num rank_d_b_num-1 fr">10</div>-->
+	                            <!--<div class="rank_d_b_ticket">2250<span>月票</span></div>-->
+	                        <!--</div>-->
+	                        <!--<span class="rank_d_btn_donate">投票</span>-->
+	                        <!--<button type="button" class="rank_d_btn_favor" >加入书架</button>-->
+	                    <!--</div>-->
+	                <!--</div>-->
+                <!---->
+	                <!--<div class="rank_d_list borderB_c_dsh clearfix" bookName = "一剑独尊" bookId="777234">-->
+	                    <!--<div class="rank_d_book_img fl">-->
+	                        <!--<a href="http://book.zongheng.com/book/777234.html" target="_blank"><img src="http://static.zongheng.com/upload/cover/8e/cd/8ecd23313b528738b8915ac8c01325bb.jpeg" alt="一剑独尊"></a>-->
+	                    <!--</div>-->
+	                    <!--<div class="rank_d_book_intro fl">-->
+	                        <!--<div class="rank_d_b_name" title="一剑独尊">-->
+	                            <!--<a href="http://book.zongheng.com/book/777234.html" target="_blank">一剑独尊</a>-->
+	                        <!--</div>-->
+	                        <!--<div class="rank_d_b_cate" title="青鸾峰上">-->
+	                            <!--<a href="http://home.zongheng.com/show/userInfo/12763884.html" target="_blank">青鸾峰上</a>|<a  target="_blank">玄幻</a>|<a target="_blank">连载</a>-->
+	                        <!--</div>-->
+	                        <!--<div class="rank_d_b_info">生死看淡，不服就干。-->
+<!--诸天神佛仙，不过一剑间！</div>-->
+	                        <!--<div class="rank_d_b_last" title="第七十一章：怎么，都萎了？">-->
+	                            <!--<a href="http://book.zongheng.com//chapter/777234/44183683.html" class="fl" target="_blank"><span class="rank_d_lastchapter">最新章节</span>第七十一章：怎么，都萎了？</a>-->
+	                            <!--<span class="rank_d_b_time">11-12 08:37</span>-->
+	                        <!--</div>-->
+	                    <!--</div>-->
+	                    <!--<div class="rank_d_book_manage fr">-->
+	                        <!--<div class="rank_d_b_rank">-->
+	                            <!--<div class="rank_d_icon rank_d_b_num rank_d_b_num-1 fr">11</div>-->
+	                            <!--<div class="rank_d_b_ticket">1422<span>月票</span></div>-->
+	                        <!--</div>-->
+	                        <!--<span class="rank_d_btn_donate">投票</span>-->
+	                        <!--<button type="button" class="rank_d_btn_favor" >加入书架</button>-->
+	                    <!--</div>-->
+	                <!--</div>-->
+                <!---->
+	                <!--<div class="rank_d_list borderB_c_dsh clearfix" bookName = "至尊邪神" bookId="385214">-->
+	                    <!--<div class="rank_d_book_img fl">-->
+	                        <!--<a href="http://book.zongheng.com/book/385214.html" target="_blank"><img src="http://static.zongheng.com/upload/cover/ea/49/ea4912e1868d2e64fd702d6070baf165.jpeg" alt="至尊邪神"></a>-->
+	                    <!--</div>-->
+	                    <!--<div class="rank_d_book_intro fl">-->
+	                        <!--<div class="rank_d_b_name" title="至尊邪神">-->
+	                            <!--<a href="http://book.zongheng.com/book/385214.html" target="_blank">至尊邪神</a>-->
+	                        <!--</div>-->
+	                        <!--<div class="rank_d_b_cate" title="老黑">-->
+	                            <!--<a href="http://home.zongheng.com/show/userInfo/12775381.html" target="_blank">老黑</a>|<a  target="_blank">玄幻</a>|<a target="_blank">连载</a>-->
+	                        <!--</div>-->
+	                        <!--<div class="rank_d_b_info">燕无边，五次觉醒，五次得无属性废物宝典。第六次，一个意外，偶获《九圣宝鉴》。九圣宝鉴，九种属性，让他脱胎换骨，功力大涨！从此逆天命，邪神霸乾坤！</div>-->
+	                        <!--<div class="rank_d_b_last" title="第3039章 合作？">-->
+	                            <!--<a href="http://book.zongheng.com//chapter/385214/44105701.html" class="fl" target="_blank"><span class="rank_d_lastchapter">最新章节</span>第3039章 合作？</a>-->
+	                            <!--<span class="rank_d_b_time">11-06 22:50</span>-->
+	                        <!--</div>-->
+	                    <!--</div>-->
+	                    <!--<div class="rank_d_book_manage fr">-->
+	                        <!--<div class="rank_d_b_rank">-->
+	                            <!--<div class="rank_d_icon rank_d_b_num rank_d_b_num-1 fr">12</div>-->
+	                            <!--<div class="rank_d_b_ticket">1210<span>月票</span></div>-->
+	                        <!--</div>-->
+	                        <!--<span class="rank_d_btn_donate">投票</span>-->
+	                        <!--<button type="button" class="rank_d_btn_favor" >加入书架</button>-->
+	                    <!--</div>-->
+	                <!--</div>-->
+                <!---->
+	                <!--<div class="rank_d_list borderB_c_dsh clearfix" bookName = "最强狂兵" bookId="411993">-->
+	                    <!--<div class="rank_d_book_img fl">-->
+	                        <!--<a href="http://book.zongheng.com/book/411993.html" target="_blank"><img src="http://static.zongheng.com/upload/cover/2015/06/1434416579785.jpg" alt="最强狂兵"></a>-->
+	                    <!--</div>-->
+	                    <!--<div class="rank_d_book_intro fl">-->
+	                        <!--<div class="rank_d_b_name" title="最强狂兵">-->
+	                            <!--<a href="http://book.zongheng.com/book/411993.html" target="_blank">最强狂兵</a>-->
+	                        <!--</div>-->
+	                        <!--<div class="rank_d_b_cate" title="烈焰滔滔">-->
+	                            <!--<a href="http://home.zongheng.com/show/userInfo/331413.html" target="_blank">烈焰滔滔</a>|<a  target="_blank">都市</a>|<a target="_blank">连载</a>-->
+	                        <!--</div>-->
+	                        <!--<div class="rank_d_b_info">一代兵王含恨离开部队，销声匿迹几年后，逆天强者强势回归都市，再度掀起血雨腥风！简单粗暴是我的行事艺术，不服就干是我的生活态度！看顶级狂少如何纵横都市，书写属于他的天王传奇！依旧极爽极热血！（微信公众平台：烈焰滔滔）</div>-->
+	                        <!--<div class="rank_d_b_last" title="第3305章 来自灵魂的颤栗！">-->
+	                            <!--<a href="http://book.zongheng.com//chapter/411993/44181933.html" class="fl" target="_blank"><span class="rank_d_lastchapter">最新章节</span>第3305章 来自灵魂的颤栗！</a>-->
+	                            <!--<span class="rank_d_b_time">11-11 23:16</span>-->
+	                        <!--</div>-->
+	                    <!--</div>-->
+	                    <!--<div class="rank_d_book_manage fr">-->
+	                        <!--<div class="rank_d_b_rank">-->
+	                            <!--<div class="rank_d_icon rank_d_b_num rank_d_b_num-1 fr">13</div>-->
+	                            <!--<div class="rank_d_b_ticket">1206<span>月票</span></div>-->
+	                        <!--</div>-->
+	                        <!--<span class="rank_d_btn_donate">投票</span>-->
+	                        <!--<button type="button" class="rank_d_btn_favor" >加入书架</button>-->
+	                    <!--</div>-->
+	                <!--</div>-->
+                <!---->
+	                <!--<div class="rank_d_list borderB_c_dsh clearfix" bookName = "特战之王" bookId="676518">-->
+	                    <!--<div class="rank_d_book_img fl">-->
+	                        <!--<a href="http://book.zongheng.com/book/676518.html" target="_blank"><img src="http://static.zongheng.com/upload/cover/08/4c/084ca9059c2304f60b3103c2189da5d0.jpeg" alt="特战之王"></a>-->
+	                    <!--</div>-->
+	                    <!--<div class="rank_d_book_intro fl">-->
+	                        <!--<div class="rank_d_b_name" title="特战之王">-->
+	                            <!--<a href="http://book.zongheng.com/book/676518.html" target="_blank">特战之王</a>-->
+	                        <!--</div>-->
+	                        <!--<div class="rank_d_b_cate" title="小舞">-->
+	                            <!--<a href="http://home.zongheng.com/show/userInfo/1474181.html" target="_blank">小舞</a>|<a  target="_blank">都市</a>|<a target="_blank">连载</a>-->
+	                        <!--</div>-->
+	                        <!--<div class="rank_d_b_info">从落魄中崛起，在辉煌中永恒。-->
+<!--拥最美的美人，杀最强的对手。-->
+<!--翻云覆雨，只手遮天。-->
+<!--纵横天下，举世无敌。-->
+<!--平战乱，震世间，对于这个时代而言，他是黑暗世界唯一的王者。-->
+<!--人生在世，当如天骄。</div>-->
+	                        <!--<div class="rank_d_b_last" title="第八十四章：唯一的世界">-->
+	                            <!--<a href="http://book.zongheng.com//chapter/676518/44182238.html" class="fl" target="_blank"><span class="rank_d_lastchapter">最新章节</span>第八十四章：唯一的世界</a>-->
+	                            <!--<span class="rank_d_b_time">11-11 23:52</span>-->
+	                        <!--</div>-->
+	                    <!--</div>-->
+	                    <!--<div class="rank_d_book_manage fr">-->
+	                        <!--<div class="rank_d_b_rank">-->
+	                            <!--<div class="rank_d_icon rank_d_b_num rank_d_b_num-1 fr">14</div>-->
+	                            <!--<div class="rank_d_b_ticket">992<span>月票</span></div>-->
+	                        <!--</div>-->
+	                        <!--<span class="rank_d_btn_donate">投票</span>-->
+	                        <!--<button type="button" class="rank_d_btn_favor" >加入书架</button>-->
+	                    <!--</div>-->
+	                <!--</div>-->
+                <!---->
+	                <!--<div class="rank_d_list borderB_c_dsh clearfix" bookName = "楚臣" bookId="747843">-->
+	                    <!--<div class="rank_d_book_img fl">-->
+	                        <!--<a href="http://book.zongheng.com/book/747843.html" target="_blank"><img src="http://static.zongheng.com/upload/cover/7d/cf/7dcf8c5702a4f58d795340fca202edf6.jpeg" alt="楚臣"></a>-->
+	                    <!--</div>-->
+	                    <!--<div class="rank_d_book_intro fl">-->
+	                        <!--<div class="rank_d_b_name" title="楚臣">-->
+	                            <!--<a href="http://book.zongheng.com/book/747843.html" target="_blank">楚臣</a>-->
+	                        <!--</div>-->
+	                        <!--<div class="rank_d_b_cate" title="更俗">-->
+	                            <!--<a href="http://home.zongheng.com/show/userInfo/3185.html" target="_blank">更俗</a>|<a  target="_blank">架空</a>|<a target="_blank">连载</a>-->
+	                        <!--</div>-->
+	                        <!--<div class="rank_d_b_info">唐季既没，诸侯崛起，天佑帝起于草莽之间，于江淮地区创立楚国已经十二年，与占据中原的梁国以及占据河东、幽燕地区的晋国，成为当世最为强大的三大霸主，天下征战不休、民不聊生……-->
+<!--【楚臣书迷群，ＱＱ群号：808859328，微信公众号：gengsu1979】</div>-->
+	                        <!--<div class="rank_d_b_last" title="第三百三十七章  秘令">-->
+	                            <!--<a href="http://book.zongheng.com//chapter/747843/44178550.html" class="fl" target="_blank"><span class="rank_d_lastchapter">最新章节</span>第三百三十七章  秘令</a>-->
+	                            <!--<span class="rank_d_b_time">11-11 12:19</span>-->
+	                        <!--</div>-->
+	                    <!--</div>-->
+	                    <!--<div class="rank_d_book_manage fr">-->
+	                        <!--<div class="rank_d_b_rank">-->
+	                            <!--<div class="rank_d_icon rank_d_b_num rank_d_b_num-1 fr">15</div>-->
+	                            <!--<div class="rank_d_b_ticket">983<span>月票</span></div>-->
+	                        <!--</div>-->
+	                        <!--<span class="rank_d_btn_donate">投票</span>-->
+	                        <!--<button type="button" class="rank_d_btn_favor" >加入书架</button>-->
+	                    <!--</div>-->
+	                <!--</div>-->
+                <!---->
+	                <!--<div class="rank_d_list borderB_c_dsh clearfix" bookName = "逆天邪神" bookId="408586">-->
+	                    <!--<div class="rank_d_book_img fl">-->
+	                        <!--<a href="http://book.zongheng.com/book/408586.html" target="_blank"><img src="http://static.zongheng.com/upload/cover/2014/11/1416425191645.jpg" alt="逆天邪神"></a>-->
+	                    <!--</div>-->
+	                    <!--<div class="rank_d_book_intro fl">-->
+	                        <!--<div class="rank_d_b_name" title="逆天邪神">-->
+	                            <!--<a href="http://book.zongheng.com/book/408586.html" target="_blank">逆天邪神</a>-->
+	                        <!--</div>-->
+	                        <!--<div class="rank_d_b_cate" title="火星引力">-->
+	                            <!--<a href="http://home.zongheng.com/show/userInfo/188726.html" target="_blank">火星引力</a>|<a  target="_blank">玄幻</a>|<a target="_blank">连载</a>-->
+	                        <!--</div>-->
+	                        <!--<div class="rank_d_b_info">掌天毒之珠，承邪神之血，修逆天之力，一代邪神，君临天下！-->
+
+
+<!--【添加微信公众号：火星引力】</div>-->
+	                        <!--<div class="rank_d_b_last" title="第1255章 封神落幕">-->
+	                            <!--<a href="http://book.zongheng.com//chapter/408586/44131132.html" class="fl" target="_blank"><span class="rank_d_lastchapter">最新章节</span>第1255章 封神落幕</a>-->
+	                            <!--<span class="rank_d_b_time">11-09 16:55</span>-->
+	                        <!--</div>-->
+	                    <!--</div>-->
+	                    <!--<div class="rank_d_book_manage fr">-->
+	                        <!--<div class="rank_d_b_rank">-->
+	                            <!--<div class="rank_d_icon rank_d_b_num rank_d_b_num-1 fr">16</div>-->
+	                            <!--<div class="rank_d_b_ticket">739<span>月票</span></div>-->
+	                        <!--</div>-->
+	                        <!--<span class="rank_d_btn_donate">投票</span>-->
+	                        <!--<button type="button" class="rank_d_btn_favor" >加入书架</button>-->
+	                    <!--</div>-->
+	                <!--</div>-->
+                <!---->
+	                <!--<div class="rank_d_list borderB_c_dsh clearfix" bookName = "超品仙医" bookId="676190">-->
+	                    <!--<div class="rank_d_book_img fl">-->
+	                        <!--<a href="http://book.zongheng.com/book/676190.html" target="_blank"><img src="http://static.zongheng.com/upload/cover/7a/74/7a74f839fdf05c1adab61d6f7faf14b1.jpeg" alt="超品仙医"></a>-->
+	                    <!--</div>-->
+	                    <!--<div class="rank_d_book_intro fl">-->
+	                        <!--<div class="rank_d_b_name" title="超品仙医">-->
+	                            <!--<a href="http://book.zongheng.com/book/676190.html" target="_blank">超品仙医</a>-->
+	                        <!--</div>-->
+	                        <!--<div class="rank_d_b_cate" title="绝品杜少">-->
+	                            <!--<a href="http://home.zongheng.com/show/userInfo/18532185.html" target="_blank">绝品杜少</a>|<a  target="_blank">都市</a>|<a target="_blank">连载</a>-->
+	                        <!--</div>-->
+	                        <!--<div class="rank_d_b_info">他是华夏魂王，也是地下世界的宙斯。他医术逆天，一针生，一针死。 -->
+<!--当一代兵魂踏入花花都市，新的传奇就此开始。-->
+<!--《超品仙医》VIP书友群：210914066（仙医军团）</div>-->
+	                        <!--<div class="rank_d_b_last" title="第九百三十六章  死神张启天">-->
+	                            <!--<a href="http://book.zongheng.com//chapter/676190/44175709.html" class="fl" target="_blank"><span class="rank_d_lastchapter">最新章节</span>第九百三十六章  死神张启天</a>-->
+	                            <!--<span class="rank_d_b_time">11-10 23:39</span>-->
+	                        <!--</div>-->
+	                    <!--</div>-->
+	                    <!--<div class="rank_d_book_manage fr">-->
+	                        <!--<div class="rank_d_b_rank">-->
+	                            <!--<div class="rank_d_icon rank_d_b_num rank_d_b_num-1 fr">17</div>-->
+	                            <!--<div class="rank_d_b_ticket">674<span>月票</span></div>-->
+	                        <!--</div>-->
+	                        <!--<span class="rank_d_btn_donate">投票</span>-->
+	                        <!--<button type="button" class="rank_d_btn_favor" >加入书架</button>-->
+	                    <!--</div>-->
+	                <!--</div>-->
+                <!---->
+	                <!--<div class="rank_d_list borderB_c_dsh clearfix" bookName = "大明春色" bookId="683061">-->
+	                    <!--<div class="rank_d_book_img fl">-->
+	                        <!--<a href="http://book.zongheng.com/book/683061.html" target="_blank"><img src="http://static.zongheng.com/upload/cover/92/2b/922b69046fced899a04d50e1bf65749e.jpeg" alt="大明春色"></a>-->
+	                    <!--</div>-->
+	                    <!--<div class="rank_d_book_intro fl">-->
+	                        <!--<div class="rank_d_b_name" title="大明春色">-->
+	                            <!--<a href="http://book.zongheng.com/book/683061.html" target="_blank">大明春色</a>-->
+	                        <!--</div>-->
+	                        <!--<div class="rank_d_b_cate" title="西风紧">-->
+	                            <!--<a href="http://home.zongheng.com/show/userInfo/11770.html" target="_blank">西风紧</a>|<a  target="_blank">历史</a>|<a target="_blank">连载</a>-->
+	                        <!--</div>-->
+	                        <!--<div class="rank_d_b_info">大明初年风云激荡，注定要身败名裂、被活活烧死的王，必须要走上叛天之路。恩怨爱恨，功过成败，一切将会如何重演？-->
+<!--（群：623220487）</div>-->
+	                        <!--<div class="rank_d_b_last" title="第六百七十四章 狡猾之人">-->
+	                            <!--<a href="http://book.zongheng.com//chapter/683061/44181343.html" class="fl" target="_blank"><span class="rank_d_lastchapter">最新章节</span>第六百七十四章 狡猾之人</a>-->
+	                            <!--<span class="rank_d_b_time">11-11 21:51</span>-->
+	                        <!--</div>-->
+	                    <!--</div>-->
+	                    <!--<div class="rank_d_book_manage fr">-->
+	                        <!--<div class="rank_d_b_rank">-->
+	                            <!--<div class="rank_d_icon rank_d_b_num rank_d_b_num-1 fr">18</div>-->
+	                            <!--<div class="rank_d_b_ticket">459<span>月票</span></div>-->
+	                        <!--</div>-->
+	                        <!--<span class="rank_d_btn_donate">投票</span>-->
+	                        <!--<button type="button" class="rank_d_btn_favor" >加入书架</button>-->
+	                    <!--</div>-->
+	                <!--</div>-->
+                <!---->
+	                <!--<div class="rank_d_list borderB_c_dsh clearfix" bookName = "天刑纪" bookId="499738">-->
+	                    <!--<div class="rank_d_book_img fl">-->
+	                        <!--<a href="http://book.zongheng.com/book/499738.html" target="_blank"><img src="http://static.zongheng.com/upload/cover/2015/09/1441699844976.jpg" alt="天刑纪"></a>-->
+	                    <!--</div>-->
+	                    <!--<div class="rank_d_book_intro fl">-->
+	                        <!--<div class="rank_d_b_name" title="天刑纪">-->
+	                            <!--<a href="http://book.zongheng.com/book/499738.html" target="_blank">天刑纪</a>-->
+	                        <!--</div>-->
+	                        <!--<div class="rank_d_b_cate" title="曳光">-->
+	                            <!--<a href="http://home.zongheng.com/show/userInfo/4973667.html" target="_blank">曳光</a>|<a  target="_blank">修真</a>|<a target="_blank">连载</a>-->
+	                        <!--</div>-->
+	                        <!--<div class="rank_d_b_info">今朝修仙不为仙，只为春色花满园;-->
+<!--来日九星冲牛斗，且看天刑开纪元。-->
+<!--——光明阁vip群：423807160光明阁聊天群：209710200</div>-->
+	                        <!--<div class="rank_d_b_last" title="第一千一百五十章 你坏透了">-->
+	                            <!--<a href="http://book.zongheng.com//chapter/499738/44181670.html" class="fl" target="_blank"><span class="rank_d_lastchapter">最新章节</span>第一千一百五十章 你坏透了</a>-->
+	                            <!--<span class="rank_d_b_time">11-11 22:35</span>-->
+	                        <!--</div>-->
+	                    <!--</div>-->
+	                    <!--<div class="rank_d_book_manage fr">-->
+	                        <!--<div class="rank_d_b_rank">-->
+	                            <!--<div class="rank_d_icon rank_d_b_num rank_d_b_num-1 fr">19</div>-->
+	                            <!--<div class="rank_d_b_ticket">349<span>月票</span></div>-->
+	                        <!--</div>-->
+	                        <!--<span class="rank_d_btn_donate">投票</span>-->
+	                        <!--<button type="button" class="rank_d_btn_favor" >加入书架</button>-->
+	                    <!--</div>-->
+	                <!--</div>-->
+                <!---->
+	                <!--<div class="rank_d_list borderB_c_dsh clearfix" bookName = "全音阶狂潮" bookId="97871">-->
+	                    <!--<div class="rank_d_book_img fl">-->
+	                        <!--<a href="http://book.zongheng.com/book/97871.html" target="_blank"><img src="http://static.zongheng.com/upload/cover/13/26/1326980ba20b732e8840226584de48e1.jpeg" alt="全音阶狂潮"></a>-->
+	                    <!--</div>-->
+	                    <!--<div class="rank_d_book_intro fl">-->
+	                        <!--<div class="rank_d_b_name" title="全音阶狂潮">-->
+	                            <!--<a href="http://book.zongheng.com/book/97871.html" target="_blank">全音阶狂潮</a>-->
+	                        <!--</div>-->
+	                        <!--<div class="rank_d_b_cate" title="灵宇">-->
+	                            <!--<a href="http://home.zongheng.com/show/userInfo/372141.html" target="_blank">灵宇</a>|<a  target="_blank">都市</a>|<a target="_blank">连载</a>-->
+	                        <!--</div>-->
+	                        <!--<div class="rank_d_b_info">凭借超凡音乐天赋，杨景行奋勇前行，从一个平凡学生成长为一代宗师，一路上留下的故事和传奇，有慷慨热血，有隐忍以行；有温暖动人，有冷血无情；有金钱名利，有梅兰竹菊；更有繁花似锦！</div>-->
+	                        <!--<div class="rank_d_b_last" title="第一三一零章  八婆">-->
+	                            <!--<a href="http://book.zongheng.com//chapter/97871/44177267.html" class="fl" target="_blank"><span class="rank_d_lastchapter">最新章节</span>第一三一零章  八婆</a>-->
+	                            <!--<span class="rank_d_b_time">11-11 08:00</span>-->
+	                        <!--</div>-->
+	                    <!--</div>-->
+	                    <!--<div class="rank_d_book_manage fr">-->
+	                        <!--<div class="rank_d_b_rank">-->
+	                            <!--<div class="rank_d_icon rank_d_b_num rank_d_b_num-1 fr">20</div>-->
+	                            <!--<div class="rank_d_b_ticket">336<span>月票</span></div>-->
+	                        <!--</div>-->
+	                        <!--<span class="rank_d_btn_donate">投票</span>-->
+	                        <!--<button type="button" class="rank_d_btn_favor" >加入书架</button>-->
+	                    <!--</div>-->
+	                <!--</div>-->
+                
+                <div class="h20-blank"></div>
+                <div class="rank_d_pagesize pagebar" page="1" count="10" total="200"><a class="active scrollpage" href="javascript:void(0)" page="1">1</a><a class="scrollpage" href="javascript:void(0)" page="2">2</a><a class="scrollpage" href="javascript:void(0)" page="3">3</a><a class="scrollpage" href="javascript:void(0)" page="4">4</a><a class="scrollpage" href="javascript:void(0)" page="5">5</a><a class="scrollpage" href="javascript:void(0)" page="6">6</a><em>...</em><a class="scrollpage" href="javascript:void(0)" page="10">10</a><a href="javascript:void(0)" class="block scrollpage" page="2" title="下一页">&gt;</a>跳转到：<input type="text" class="text scrollpage rank_d_page_value" value="1">/10页<input type="button" class="scrollpage rank_d_page_submit" value="跳转"></div>
+            </div>
+            </div>
+		</div>
+	</div>
+</div>
+<div class="h40-blank"></div>
+<div class="footer">
+
+
+<div class="partlink">
+    <div class="wrap">
+        <div class="title">出版合作联系</div>
+        <div class="clearfix">
+            <div class="mail fl">
+                
+                <div>版权合作联系人：许先生<a href="mailto:xubin@zongheng.com">xubin@zongheng.com</a></div>
+                
+                <div>广告合作联系人 : 张女士<a href="mailto:zhangwen@zongheng.com">zhangwen@zongheng.com</a></div>
+                
+            </div>
+           
+            <div class="help-btn">
+                <a class="btn" href="help/index.html" target="_blank">帮助中心</a>
+                <p>服务时间：24小时</p>
+            </div>
+            
+            <div class="b1 foot-cell">
+                <div class="tit">客服</div>
+                <div class="qq">965151179</div>
+                <div class="email"><a href="mailto:zhkf@zongheng.com">zhkf@zongheng.com</a></div>
+            </div>
+            <div class="b2 foot-cell">
+                <div class="tit">举报</div>
+                <div class="tel">4006289988</div>
+                <div class="email"><a href="mailto:jubao@zongheng.com">jubao@zongheng.com</a></div>
+            </div>
+           
+            <div class="app foot-blank">
+                <div class="imgbox fl">
+                    <img src="http://rcode.zongheng.com/v2018/images/app.png" alt="">
+                </div>
+                <p>客户端下载</p>
+            </div>
+            
+            <div class="wchat foot-blank">
+                <div class="imgbox fl">
+                    <img src="http://rcode.zongheng.com/v2018/images/wx.png" alt="">
+                </div>
+                <p>微信公众号</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="copyright">
+    <div class="links"><a href="company/about.html" target="_blank">关于纵横</a>|<a href="http://www.zhwenxue.com/join" target="_blank">诚聘英才</a>|<a href="company/business.html" target="_blank">商务合作</a>|<a href="company/copyright.html" target="_blank">法律声明</a>|<a href="help/index.html" target="_blank">帮助中心</a>|<a href="http://author.zongheng.com" target="_blank">作者投稿</a>|<a href="company/contact.html" target="_blank">联系我们</a>|<a href="company/link.html" target="_blank">友情链接</a>|<a href="http://news.zongheng.com/zhuanti/wlqz/index.html" target="_blank">谨防诈骗</a>|<a href="company/sitemap.html" target="_blank">网站地图</a></div>
+    <p>Copyright©<a href="" target="_blank">www.zongheng.com</a>All Rights Reserved 版权所有 北京幻想纵横网络技术有限公司   京ICP证：080527号《网络文化经营许可证》   <a href="http://static.zongheng.com/images/license/publication-license.jpg" target="_blank">京ICP备11009265号</a>   <a href="http://static.zongheng.com/images/license/business-license.jpg" target="_blank">京网文[2015]2368-459号</a></p>
+    <p>新出发京零字第朝130010号  丨  统一社会信用代码91110105678221683F  丨 <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502030124" target="_blank">京公网安备  	11010502030124号</a>  丨 <a href="http://www.cyberpolice.cn/wfjb/" target="_blank">公安部网络违法犯罪举报网站</a></p>
+    <p><a href="" target="_blank">纵横小说网</a>,提供<a href="category/1.html" target="_blank">玄幻小说</a>,<a href="category/9.html" target="_blank">都市小说</a>,<a href="http://huayu.baidu.com" target="_blank">言情小说</a>等<a href="http://book.zongheng.com/store/c0/c0/b0/u0/p1/v0/s9/t0/u0/i1/ALL.html" target="_blank">免费小说</a>阅读。作者发布小说作品时，请遵守国家互联网信息管理办法规定。</p>
+    <p>本站所收录小说作品、社区话题、书库评论均属其个人行为，不代表本站立场。</p>
+    <form action="/seckill/seckill" method="post" id="form1">
+        <input type="hidden" id="inp" value="" name="content">
+    </form>
+    <form action="/user/log" method="post" id="form2"></form>
+</div>
+	<script type="text/javascript" src="http://cdn-hangzhou.goeasy.io/goeasy.js"></script>
+<script type="text/javascript" src="http://rcode.zongheng.com/v2018/js/lib/require.min.js" defer async data-main="http://rcode.zongheng.com/v2018/js/map.min"></script>
+	<script type="text/javascript">
+        var goEasy = new GoEasy({
+            appkey: 'BC-58a22e706d3342ecafd6bd784c07d335'
+        });
+        goEasy.subscribe({
+            channel:'seckill',
+            onMessage: function(message){
+                var content = message.content;
+                if(confirm(content)==true){
+                    document.getElementById("inp").value = content;
+                    $.post("/seckill/preseckill",{},function (data) {
+                        if(data == "000"){
+                            $("#form1").submit();
+                        }else {
+                            $("#form2").submit();
+                        }
+                    });
+                }
+            }
+        });
+	</script>
+</div>
+</body>
+</head>

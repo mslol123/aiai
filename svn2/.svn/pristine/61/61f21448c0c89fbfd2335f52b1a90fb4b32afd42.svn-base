@@ -1,0 +1,48 @@
+package com.jxky.bgxs.controller;
+
+import com.jxky.bgxs.util.CommonHelper;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import javax.servlet.ServletOutputStream;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
+import java.net.URLConnection;
+
+@Controller
+public class UtilController {
+    @Autowired
+    private CommonHelper commonHelper;
+
+    @RequestMapping("/show/{Path}")
+    public void show(@PathVariable("Path") String imgPath, HttpServletResponse response) {
+        String path = commonHelper.getImageDirectory() + imgPath;
+        ServletOutputStream outputStream = null;
+        try {
+            URL url = new URL(path);
+            URLConnection conn = url.openConnection();
+            outputStream = response.getOutputStream();
+            InputStream inputStream = conn.getInputStream();
+            byte[] b = new byte[1024];
+            int len = 0;
+            while ((len = inputStream.read(b)) > -1) {
+                outputStream.write(b, 0, len);
+                outputStream.flush();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            if (outputStream != null) {
+                try {
+                    outputStream.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+}

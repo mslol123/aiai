@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jxky.bgxs.dao.UserDAO">
+    <resultMap id="UserMap" type="com.jxky.bgxs.entity.User">
+        <id property="id" column="login_id"></id>
+        <result property="tel" column="login_tel"></result>
+        <result property="pwd" column="login_pwd"></result>
+        <result property="nickname" column="login_nickname"></result>
+        <result property="onlynum" column="login_onlynum"></result>
+    </resultMap>
+    <select id="findByNP" resultMap="UserMap">
+        SELECT * FROM user_login WHERE login_tel = #{tel}
+    </select>
+    <select id="findById" resultMap="UserMap">
+        SELECT * FROM user_login WHERE login_id = #{id}
+    </select>
+</mapper>
+

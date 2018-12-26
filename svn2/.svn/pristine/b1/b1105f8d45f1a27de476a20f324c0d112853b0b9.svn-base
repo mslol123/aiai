@@ -1,0 +1,54 @@
+package com.jxky.bgxs.configuration;
+import com.jxky.bgxs.util.AuthsMySQLRealm;
+import org.apache.shiro.mgt.SecurityManager;
+import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
+import org.apache.shiro.web.mgt.DefaultWebSecurityManager;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+import java.util.LinkedHashMap;
+
+@Configuration
+public class ShiroConfig {
+
+//    @Bean
+//    public ShiroDialect shiroDialect(){
+//        return new ShiroDialect();
+//    }
+
+    @Bean
+    public AuthsMySQLRealm mySQLRealm(){
+        AuthsMySQLRealm mySQLRealm = new AuthsMySQLRealm();
+        return mySQLRealm;
+    }
+
+
+    @Bean
+    public SecurityManager provideSecurityManager(){
+        DefaultWebSecurityManager securityManager = new DefaultWebSecurityManager();
+        securityManager.setRealm(mySQLRealm());
+        return securityManager;
+    }
+
+    /**
+     * shiro过滤器
+     * @return
+     */
+    @Bean
+    public ShiroFilterFactoryBean provideShiroFilter(SecurityManager securityManager){
+        ShiroFilterFactoryBean shiroFilterFactoryBean = new ShiroFilterFactoryBean();
+        //securityManager
+        shiroFilterFactoryBean.setSecurityManager(securityManager);
+        //指定登录页面
+        shiroFilterFactoryBean.setLoginUrl("/user/login");
+        //过滤条件-----
+        LinkedHashMap<String, String> linkedHashMap = new LinkedHashMap<>();
+        linkedHashMap.put("/**","anon");
+//        linkedHashMap.put("/**","authc");
+
+        shiroFilterFactoryBean.setFilterChainDefinitionMap(linkedHashMap);
+
+        return shiroFilterFactoryBean;
+
+    }
+}

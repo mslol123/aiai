@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jxky.bgxs.dao.MessageDAO">
+    <resultMap id="MessageMap" type="com.jxky.bgxs.entity.Message">
+        <id property="messageId" column="message_id"></id>
+        <result property="mesageTheme" column="mesage_theme"></result>
+        <result property="messageContent" column="message_content"></result>
+        <collection property="messageType" column="message_type_id" select="com.jxky.bgxs.dao.MessageTypeDAO.findById"></collection>
+        <collection property="sendUser" column="senduser" select="com.jxky.bgxs.dao.UserDAO.findById"></collection>
+        <collection property="acceptUser" column="acceptuser" select="com.jxky.bgxs.dao.UserDAO.findById"></collection>
+    </resultMap>
+    <insert id="insert">
+        INSERT INTO message
+        <trim prefix="(" suffixOverrides=",">
+            <if test="messageTheme != null">
+                mesage_theme,
+            </if>
+            <if test="messageContent != null">
+                message_content,
+            </if>
+            <if test="messageType != null and messageType.typeId != null">
+                message_type_id,
+            </if>
+            <if test="sendUser != null and sendUser.id != null">
+                senduser,
+            </if>
+            <if test="acceptUser != null and acceptUser.id != null">
+                acceptuser,
+            </if>
+        </trim>
+        <trim prefix=") VALUES (" suffixOverrides="," suffix=")">
+            <if test="messageTheme != null">
+                #{messageTheme},
+            </if>
+            <if test="messageContent != null">
+                #{messageContent},
+            </if>
+            <if test="messageType != null and messageType.typeId != null">
+                #{messageTypeId},
+            </if>
+            <if test="sendUser != null and sendUser.id != null">
+                #{sendUser},
+            </if>
+            <if test="acceptUser != null and acceptUser.id != null">
+                #{acceptUser},
+            </if>
+        </trim>
+    </insert>
+    <select id="findBySendUserId" resultMap="MessageMap">
+        SELECT * FROM message WHERE senduser = #{sendUser}
+    </select>
+
+</mapper>
+
+
+
+
+
+
+
+
+
+
+

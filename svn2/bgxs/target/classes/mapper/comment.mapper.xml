@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jxky.bgxs.dao.CommentDAO">
+    <resultMap id="commentMap" type="com.jxky.bgxs.entity.Comment">
+        <id property="commentId" column="comment_id"></id>
+        <result property="userId" column="user_id"></result>
+        <result property="bookMessageId" column="book_id"></result>
+        <result property="commentContent" column="comment_content"></result>
+        <result property="commentTheme" column="comment_theme"></result>
+        <result property="creattime" column="creattime"></result>
+    </resultMap>
+    <select id="findByBookId" resultMap="commentMap">
+        SELECT
+`comment`.comment_id,
+`comment`.user_id,
+`comment`.book_id,
+`comment`.comment_content,
+`comment`.creattime,
+`comment`.comment_theme
+FROM
+`comment`
+WHERE
+book_id = #{bookId}
+    </select>
+
+    <select id="findByUserId" resultMap="commentMap">
+        SELECT
+`comment`.comment_id,
+`comment`.user_id,
+`comment`.book_id,
+`comment`.comment_content,
+`comment`.creattime,
+`comment`.comment_theme
+FROM
+`comment`
+WHERE
+user_id = #{UserId}
+    </select>
+
+
+    <insert id="add">
+        INSERT INTO comment
+        <trim prefix="(" suffixOverrides=",">
+            <if test="commentId != null">
+                comment_id,
+            </if>
+            <if test="userId != null">
+                user_id,
+            </if>
+            <if test="bookMessageId != null">
+                book_id,
+            </if>
+            <if test="commentContent != null">
+                comment_content,
+            </if>
+            <if test="creattime != null">
+                creattime,
+            </if>
+            <if test="commentTheme!=null">
+                comment_theme,
+            </if>
+        </trim>
+        <trim prefix=") VALUES (" suffix=")" suffixOverrides=",">
+            <if test="commentId != null">
+                #{commentId},
+            </if>
+            <if test="userId != null">
+                #{userId},
+            </if>
+            <if test="bookMessageId != null">
+                #{bookMessageId},
+            </if>
+            <if test="commentContent != null">
+                #{commentContent},
+            </if>
+            <if test="creattime != null">
+                #{creattime},
+            </if>
+            <if test="commentTheme!=null">
+                #{commentTheme},
+            </if>
+        </trim>
+    </insert>
+</mapper>

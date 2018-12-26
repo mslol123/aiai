@@ -1,0 +1,125 @@
+package com.jxky.bgxs.service.wt;
+
+import com.jxky.bgxs.dao.BookMessageDAO;
+import com.jxky.bgxs.dao.ChapterDAO;
+import com.jxky.bgxs.dao.RedisDAO;
+import com.jxky.bgxs.entity.BookMessage;
+import com.jxky.bgxs.entity.Chapter;
+import com.jxky.bgxs.util.MyJob;
+import com.sun.xml.internal.stream.writers.UTF8OutputStreamWriter;
+import org.apache.commons.net.ftp.FTPClient;
+import org.quartz.*;
+import org.quartz.impl.StdSchedulerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.BoundValueOperations;
+import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
+
+@Service
+@Transactional
+public class ChapterService {
+    @Autowired
+    private RedisTemplate<String,String> redisTemplate;
+    @Autowired
+    private ChapterDAO chapterDAO;
+    @Autowired
+    private BookMessageDAO bookMessageDAO;
+    @Autowired
+    private RedisDAO redisDAO;
+
+    public List<Chapter> findAllChapter(){
+        return chapterDAO.findAllChapter();
+    }
+
+    public List<Chapter> findChapterNameByBookId(Integer id){
+        return chapterDAO.findChapterByBookId(id);
+    }
+
+    public void useRedis(String content){
+//        String jobName= UUID.randomUUID().toString().replace("-","");
+        redisDAO.setKey("lshc",content);
+        System.out.println(redisDAO.getValue("lshc"));
+    }
+
+    public void update(Chapter chapter){
+        chapterDAO.update(chapter);
+    }
+
+    public void delete(Integer id){
+        chapterDAO.delete(id);
+    }
+
+
+    public List<Chapter> findChapterByBookId(Integer id){
+        List<Chapter> chapterList = chapterDAO.findChapterByBookId(id);
+        List<Chapter> list = new ArrayList<>();
+        for (Chapter chapter:chapterList){
+            if (chapter.getChapterReleaseMode().equals("0")){
+                list.add(chapter);
+            }
+        }
+        return list;
+    }
+
+    public void insert(Chapter chapter,String content){
+        BookMessage bookMessage=bookMessageDAO.findById(chapter.getChapterBookId());
+        try {
+            if (!content.isEmpty()) {
+                try{
+                    FTPClient ftpClient=new FTPClient();
+                    ftpClient.connect("192.168.54.5",21);
+                    ftpClient.login("anonymous","1061012815@qq.com");
+                    ftpClient.makeDirectory(bookMessage.getBookName());
+                    ftpClient.changeWorkingDirectory(bookMessage.getBookName());
+                    UTF8OutputStreamWriter ow=new UTF8OutputStreamWriter(ftpClient.storeFileStream(chapter.getChapterName()+".txt"));
+                    ow.write(content);
+                    ow.flush();
+                    ow.close();
+                }catch(IOException e){
+                    e.printStackTrace();
+                }
+            }
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
+        chapter.setChapterWords(content.trim().length());
+        chapterDAO.insert(chapter);
+    }
+
+    public void quarzToRedis(Integer id,String content){
+        String bookName=bookMessageDAO.findById(id).getBookName();
+        try {
+            StdSchedulerFactory stdSchedulerFactory = new StdSchedulerFactory();
+            //任务执行者
+            Scheduler scheduler = stdSchedulerFactory.getScheduler();
+            //任务（配置待执行的job，withIdentity给job指定一个ID）
+            JobBuilder name1 = JobBuilder.newJob().ofType(MyJob.class).withIdentity("name1")
+                    .usingJobData("content",content)
+                    .usingJobData("bookName",bookName);
+            SimpleTrigger simpleTrigger = TriggerBuilder.newTrigger()
+                    .withIdentity(bookName, "group1")
+                    .withSchedule(
+                            SimpleScheduleBuilder.simpleSchedule()
+                                    .withIntervalInSeconds(3))//每300秒执行一次
+                    .build();
+            scheduler.scheduleJob(name1.build(), simpleTrigger);
+//            scheduler.getContext().put("content",content);
+            scheduler.start();
+        } catch (SchedulerException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    public Chapter findById(Integer id){
+        return chapterDAO.findById(id);
+    }
+
+}
+

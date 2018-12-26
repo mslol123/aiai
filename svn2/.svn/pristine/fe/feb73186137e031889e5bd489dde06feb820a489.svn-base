@@ -1,0 +1,270 @@
+<!doctype html>
+<!--<html xmlns:th="http://www.thymeleaf.org">-->
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>作品专区-管理章节</title>
+
+<meta name="renderer" content="webkit">
+<!--<link rel="stylesheet" type="text/css" charset="UTF-8" href="../css/public.css">-->
+<!--<link rel="stylesheet" type="text/css" charset="utf-8" href="http://static.zongheng.com/author/v2015/style/manage.css">-->
+    <link rel="stylesheet" type="text/css" th:href=@{/js/jquery.datetimepicker.css}>
+</head>
+<body bookId="737631" authorization="3" level="0"  
+       serialStatus="0"  draftId=""  isfemale="0">
+<div class="pub_nav_bg creat_add">
+	<div class="au_box">
+    	<div class="mod_tit">
+        	<span class="bookname">古月奇谈</span>
+            <a href="" class="btn_bg bookstore">作品库</a>
+        </div>
+    </div>
+</div>
+<!--<div class="pub_con_bg">-->
+	<!--<div class="manage">-->
+    	<!--<div id="listerrbg"></div>-->
+        <!--<div class="errlist" id="listerr">-->
+            <!--<div class="larw"><input type="text" maxlength="20" class="errcopy"/></div>-->
+            <!--<div class="errbtns">-->
+                <!--<a href="javascript:;" class="err_save btn_bg">保存</a>-->
+                <!--<a href="javascript:;" class="err_cancel btn_fg">取消</a>-->
+                <!--<a href="javascript:;" class="err_del">删除本卷</a>-->
+            <!--</div>-->
+        <!--</div>-->
+    	<!--<div class="side">-->
+            <!--<div class="side_tit">-->
+                <!--<h2 class="booktome">目录</h2>-->
+            <!--</div>-->
+            <!--<div class="articelist" id="artList"></div>-->
+
+        <!--</div>-->
+        <!--<div class="wide" style="display:none;">-->
+        	<!--<div class="wide_arr">-->
+            	<!--<a href="javascript:;" class="pub_ico arr_left"></a>-->
+            <!--</div>-->
+            <!--<div class="sensitive">-->
+            	<!--<div class="senspad">-->
+                    <!--<p><em class="pub_ico ico_err"></em>您输入的内容中包含违禁词: <span class="strong"></span></p>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div class="bookend">-->
+            	<!--<div class="book_tome"></div>-->
+                <!--<h2 class="book_chapter"></h2>-->
+                <!--<div class="book_content"></div>-->
+                <!--<div class="book_summary"></div>-->
+                <!--<div class="book_authorsay"></div>-->
+            <!--</div>-->
+            <!--<div class="coding">-->
+                <!--<div class="w_list clear">-->
+                    <!--<div class="minstar fl">*</div>-->
+                    <!--<div class="w_con">-->
+                        <!--<div class="select1 select_dom">-->
+                            <!--<span class="au_input select select_nav"><em class="arr_select pub_ico fr"></em><em class="font_c_gray">所在分卷</em><em class="sel_con">作品相关</em></span>-->
+                            <!--<div class="option">-->
+                                <!--<ul class="choicetome">-->
+                                    <!--<li>作品相关</li>-->
+                                <!--</ul>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--<div class="select1 noselect">-->
+                            <!--<span class="au_input select select_nav"><em class="font_c_gray">所在分卷</em><em class="sel_con">作品相关</em></span>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="w_list clear">-->
+                    <!--<div class="minstar fl">*</div>-->
+                    <!--<div class="w_con">-->
+                        <!--<div class="au_input art_name"><em class="font_c_gray">章节名</em><input type="text" maxlength="20" value="" placeholder="请输入章节名20字以内" class="df_input chapter_name"/></div>-->
+                        <!--<p class="value_error"><em class="ico_err pub_ico"></em><em class="error_con">您输入的格式不对</em></p>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="w_list clear">-->
+                    <!--<div class="minstar fl">*</div>-->
+                    <!--<div class="w_con">-->
+                        <!--<div class="textarea">-->
+                            <!--<textarea placeholder="请输入章节内容50000字以内" class="des chapter_content"></textarea>-->
+                            <!--<p class="setfont"><em>0</em> / 50000</p>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="w_list clear remark">-->
+                    <!--<div class="minstar fl"></div>-->
+                    <!--<div class="w_con">-->
+                        <!--<div class="authorsay">-->
+                            <!--<p class="au_input"><em class="pub_ico arr_drop dropout fr"></em><em class="font_c_gray">章节摘要</em></p>-->
+                            <!--<div class="toread"><textarea placeholder="请输入章节摘要20字以内" class="summary" maxlength="20"></textarea></div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="w_list clear">-->
+                    <!--<div class="minstar fl"></div>-->
+                    <!--<div class="w_con">-->
+                        <!--<div class="authorsay">-->
+                            <!--<p class="au_input"><em class="pub_ico arr_drop dropout fr"></em><em class="font_c_gray">作者有话说（同步圈子和粉丝交流）</em></p>-->
+                            <!--<div class="toread"><textarea placeholder="在这里输入对读者说的话5000字以内" class="write" maxlength="5000"></textarea></div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="w_list clear submit_model">-->
+                    <!--<div class="minstar fl">*</div>-->
+                    <!--<div class="w_con">-->
+                        <!--<div class="au_input publish_m radio_dom"><em class="font_c_gray">发布模式：</em><span class="label" level="1"><em class="pub_ico mn_radio"></em>VIP</span><span class="label" level="0"><em class="pub_ico mn_radio"></em>免费</span></div>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="w_list clear submit_style">-->
+                    <!--<div class="minstar fl">*</div>-->
+                    <!--<div class="w_con">-->
+                        <!--<div class="au_input publish_s radio_dom"><em class="font_c_gray">发布方式：</em><span class="label" mode="2"><em class="pub_ico mn_radio"></em>暂存草稿</span><span class="label focus" mode="1"><em class="pub_ico mn_radio"></em>立即发布</span><span class="label" show="show" mode="3"><label class="settime"><em class="pub_ico mn_radio"></em>定时发布</label><em class="publish_t"><input type="text" placeholder="YYYY-MM-DD hh:mm" class="publish_t_v laydate-icon" readonly/></em></span></div>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="w_list clear">-->
+                    <!--<div class="minstar fl"></div>-->
+                    <!--<div class="w_con">-->
+                        <!--<a href="javascript:;" class="upload_c btn_bg">上传章节</a>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="w_list clear">-->
+                    <!--<div class="minstar fl"></div>-->
+                    <!--<div class="w_con">-->
+                        <!--<div class="upload_warn">-->
+                            <!--<p class="warn_p"><em class="pub_ico ico_err" style="margin-left:0;"></em>上传章节说明 </p>-->
+                            <!--<p>1、编辑、移动、删除章节在作品库中的作品列表里该作品的【章节管理】里。</p>-->
+                            <!--<p>2、分卷不能移动，创建分卷、章节的顺序即为分卷、章节在目录中的展示顺序，也就是书的顺序。</p>-->
+                            <!--<p>3、程序能处理绝大多数文本格式的排版，但请不要录入带硬回车换行的作品</p>-->
+                            <!--<p>4、添加的章节会被程序识别为作品或当前卷的最新一章，请注意选择章节所在卷。章节请按顺序输入，不要颠倒。</p>-->
+                            <!--<p>5、章节名字应与内容相符，不具有文学性、故意夸大其词的广告性、政治性以及恶搞性章节名将会被删除。</p>-->
+                            <!--<p>6、上传的章节内容必须与符合纵横收录标准，不符合收录标准的作品将被禁阅或删除。</p>-->
+                            <!--<p>7、凡是六小时内重复上传新章节、单章字数低于2000字将不在首页更新列表，以及分类更新列表内显示更新情况(漫画作品除外)</p>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->
+<div>
+    <p>1</p>
+    <p>1</p>
+    <p>1</p>
+    <p>1</p>
+    <div>
+        <ul th:each="chapter:${chapters}">
+            <li th:text="${chapter.chapterName}"></li>
+        </ul>
+    </div>
+    <form id="form" method="post" enctype="multipart/form-data" action="/bookMessage/list/chapter/add">
+        <input type="hidden" id="chapterBookId" name="chapterBookId" th:value="${bookMessage.bookId}"/>
+        <input type="hidden" id="chapterAuthorId" name="chapterAuthorId" th:value="${bookMessage.Author.authorId}"/>
+        <!--<input type="hidden" id="chapterId" name="chapterId" th:value="${bookMessage.bookId}"/>-->
+        <input type="text" id="chapterName" name="chapterName" placeholder="章节名"><br/>
+        <textarea id="content" name="content" placeholder="编辑内容"></textarea><br/>
+        <textarea id="chapterMessage" name="chapterMessage" placeholder="作者有话说"></textarea><br/>
+        <input type="radio" id="r1" name="chapterReleaseModel" value="0">免费
+        <input type="radio" id="r2" name="chapterReleaseModel" value="1">VIP<br/>
+        <input type="radio" id="r3" name="chapterReleaseMode" onclick="fn2()" value="0">暂存草稿
+        <input type="radio" id="r4" name="chapterReleaseMode" onclick="fn2()" value="1">立即发布
+        <input type="radio" id="r5" name="chapterReleaseMode" onclick="fn1()" value="2">定时发布<br/>
+        <div style="display: none;" id="divTime">
+            <!--<input type="datetime-local" name="time">-->
+            <input type="text" name="date" id="datepicker">
+            <input type="time" name="time">
+        </div>
+        <!--<input type="submit"  value="上传章节">-->
+        <!--<input type="button" id="bt1" name="bt1" onclick="b()">-->
+        <input type="button" id="bt" name="bt" value="上传章节" onclick="c()">
+    </form>
+</div>
+<script type="text/javascript" src="http://cdn-hangzhou.goeasy.io/goeasy.js"></script>
+<!--<script type="text/javascript" src="../js/jquery-1.8.3.min.js"></script>-->
+<!--<script type="text/javascript" src="../js/public.dialog.js"></script>-->
+<!--<script type="text/javascript" src="../js/public.js"></script>-->
+<!--<script type="text/javascript" src="../js/laydate.js"></script>-->
+<!--<script type="text/javascript" src="../js/editor.js"></script>-->
+<!--<script type="text/javascript" src="../js/tongji.js"></script>-->
+<script type=text/javascript th:src="@{/js/jquery-2.1.0.js}"></script>
+</body>
+</html>
+<script type="text/javascript">
+    var goEasy = new GoEasy({
+        appkey: 'BC-58a22e706d3342ecafd6bd784c07d335'
+    });
+    goEasy.subscribe({
+        channel:'seckill',
+        onMessage: function(message){
+            alert('收到：'+message.content);
+        }
+    });
+</script>
+<script type="text/javascript">
+window.onload=function () {
+    setTimeout(b,300000)
+}
+
+    function fn1() {
+        $("#divTime").show();
+    }
+
+    function fn2() {
+        var element = document.getElementById("datepicker");
+        element.value="Tue Nov 13 2018";
+        $("#divTime").hide();
+//        $("#datepicker").value="Tue Nov 13 2018";
+    }
+
+    function a() {
+        var content = $("#content").val();
+//        alert(content);
+        $.post("/bookMessage/list/chapter/redis",{content:content},function () {
+//            window.location.href="index4.html";
+        });
+    }
+    function b() {
+        setInterval(a,300000);
+    }
+
+    
+    function c() {
+        var content =$("#content").val();
+        var bt=document.getElementById("bt");
+        $.post("/bookMessage/list/chapter/jiance",{content:content},function (data) {
+            if (data==1) {
+                var message=confirm("包含非法字符,是否继续提交？");
+                if(message==true){
+                    $("#form").submit();
+                }else {
+                    return false;
+                }
+            }else{
+                $("#form").submit();
+            }
+        });
+    }
+
+</script>
+
+<link rel="stylesheet" href="http://dbushell.github.com/Pikaday/css/pikaday.css">
+<script src="http://dbushell.github.com/Pikaday/pikaday.js"></script>
+<script>
+    var picker = new Pikaday({ field: $('#datepicker')[0] });
+</script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        var i18n = { // 本地化
+            previousMonth: '上个月',
+            nextMonth: '下个月',
+            months: ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'],
+            weekdays: ['周日', '周一', '周二', '周三', '周四', '周五', '周六'],
+            weekdaysShort: ['日', '一', '二', '三', '四', '五', '六']
+        }
+        var datepicker = new Pikaday({
+            field: jQuery('#datetimepicker')[0],
+            minDate: new Date('2000-01-01 00:00:00'),
+            maxDate: new Date('2020-12-31 00:00:00'),
+            yearRange: [2000, 2025],
+            i18n: i18n,
+            onSelect: function() {
+                var date = document.createTextNode(this.format('YYYY-MM-DD HH:mm:ss') + ' '); //生成的时间格式化成 2013-09-25
+                $('#datepicker').appendChild(date);
+            }
+        });
+    }); </script>

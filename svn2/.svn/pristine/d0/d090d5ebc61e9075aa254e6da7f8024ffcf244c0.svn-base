@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jxky.bgxs.dao.BookMessageDAO">
+    <resultMap id="BookMessageMap" type="com.jxky.bgxs.entity.BookMessage">
+        <id property="bookId" column="book_id"></id>
+        <result property="bookName" column="book_name"></result>
+        <result property="bookImage" column="book_image"></result>
+        <result property="bookCreattime" column="book_creattime"></result>
+        <result property="bookNum" column="book_num"></result>
+        <result property="bookFirstletter" column="book_firstletter"></result>
+        <result property="bookKeyword" column="book_keyword"></result>
+        <result property="bookContent" column="book_content"></result>
+        <result property="bookWord" column="book_word"></result>
+        <result property="bookExamineStatus" column="book_examine_status"></result>
+        <result property="bookIsEnd" column="book_is_end"></result>
+        <result property="bookPay" column="book_pay"></result>
+        <result property="refuseWord" column="refuse_word"></result>
+        <result property="examineTime" column="book_examine_time"></result>
+        <result property="watch" column="book_message_watch"></result>
+        <association property="author" column="book_author" select="com.jxky.bgxs.dao.AuthorDAO.findById"></association>
+        <association property="bookType" column="book_type_id" select="com.jxky.bgxs.dao.BookTypeDAO.findById"></association>
+    </resultMap>
+
+    <sql id="bookColmun">
+        book_id,book_name,book_image,book_author,book_creattime,book_type_id,book_num,book_firstletter,book_keyword,book_content,book_word,book_examine_status,book_is_end,book_pay
+    </sql>
+    <select id="findAll" resultMap="BookMessageMap">
+        SELECT
+        <include refid="bookColmun"></include>
+        FROM book_message
+    </select>
+
+    <select id="findRefuseById" resultMap="BookMessageMap">
+      SELECT book_id,book_examine_time,refuse_word,book_examine_status,book_message_watch FROM book_message
+      WHERE book_author = #{author.authorId}
+    </select>
+
+
+
+    <select id="findById" resultMap="BookMessageMap">
+        SELECT
+        <include refid="bookColmun"></include>
+        FROM book_message WHERE book_id = #{bookId}
+    </select>
+
+    <select id="findBookByUserId" resultMap="BookMessageMap">
+        SELECT b.book_id,b.book_name, b.book_image, b.book_author, b.book_creattime, b.book_num, b.book_content, b.book_word
+        FROM user_login u INNER JOIN book_message b
+        INNER JOIN bookshelf bs ON bs.user_id = u.login_id AND bs.book_id = b.book_id
+        WHERE u.login_id = #{id}
+    </select>
+    <select id="findAllByAuthorId" resultMap="BookMessageMap">
+        SELECT <include refid="bookColmun"></include>
+        FROM book_message WHERE book_author = #{authorId}
+    </select>
+    <delete id="delete">
+        DELETE FROM book_message WHERE book_id = #{bookId}
+    </delete>
+    <update id="updateBookMessage">
+        UPDATE book_message
+        <set>
+            <if test="bookId != null">
+                book_id = #{bookId},
+            </if>
+            <if test="bookName != null">
+                book_name = #{bookName},
+            </if>
+            <if test="bookImage != null">
+                book_image = #{bookImage},
+            </if>
+            <if test="author != null and author.authorId != null">
+                book_author = #{author.authorId},
+            </if>
+            <if test="bookCreattime != null">
+                book_creattime = #{bookCreattime},
+            </if>
+            <if test="bookType != null and bookType.typeId != null">
+                book_type_id = #{bookType.typeId},
+            </if>
+            <if test="bookNum != null">
+                book_num = #{bookNum},
+            </if>
+            <if test="bookFirstletter != null">
+                book_firstletter = #{bookFirstletter},
+            </if>
+            <if test="bookKeyword != null">
+                book_keyword = #{bookKeyword},
+            </if>
+            <if test="bookContent != null">
+                book_content = #{bookContent},
+            </if>
+            <if test="bookWord != null">
+                book_word = #{bookWord},
+            </if>
+            <if test="bookExamineStatus != null">
+                book_examine_status = #{bookExamineStatus},
+            </if>
+            <if test="bookIsEnd != null">
+                book_is_end = #{bookIsEnd},
+            </if>
+            <if test="bookPay != null">
+                book_pay = #{bookPay},
+            </if>
+            <if test="watch != null">
+                book_message_watch = #{watch},
+            </if>
+        </set>
+        WHERE book_id = #{bookId}
+    </update>
+
+    <insert id="insert">
+        INSERT INTO book_message
+        <trim prefix="(" suffixOverrides=",">
+            <if test="bookId != null">
+                book_id,
+            </if>
+            <if test="bookName != null">
+                book_name,
+            </if>
+            <if test="bookImage != null">
+                book_image,
+            </if>
+            <if test="author != null and author.authorId != null">
+                book_author,
+            </if>
+            <if test="bookCreattime != null">
+                book_creattime,
+            </if>
+            <if test="bookType != null and bookType.typeId != null">
+                book_type_id,
+            </if>
+            <if test="bookNum != null">
+                book_num,
+            </if>
+            <if test="bookFirstletter != null">
+                book_firstletter,
+            </if>
+            <if test="bookKeyword != null">
+                book_keyword,
+            </if>
+            <if test="bookContent != null">
+                book_content,
+            </if>
+            <if test="bookWord != null">
+                book_word,
+            </if>
+            <if test="bookExamineStatus != null">
+                book_examine_status,
+            </if>
+            <if test="bookIsEnd != null">
+                book_is_end,
+            </if>
+        </trim>
+        <trim prefix=") VALUES (" suffix=")" suffixOverrides=",">
+            <if test="bookId != null">
+                #{bookId},
+            </if>
+            <if test="bookName != null">
+                #{bookName},
+            </if>
+            <if test="bookImage != null">
+                #{bookImage},
+            </if>
+            <if test="author != null and author.authorId != null">
+                #{author.authorId},
+            </if>
+            <if test="bookCreattime != null">
+                #{bookCreattime},
+            </if>
+            <if test="bookType != null and bookType.typeId != null">
+                #{bookType.typeId},
+            </if>
+            <if test="bookNum != null">
+                #{bookNum},
+            </if>
+            <if test="bookFirstletter != null">
+                #{bookFirstletter},
+            </if>
+            <if test="bookKeyword != null">
+                #{bookKeyword},
+            </if>
+            <if test="bookContent != null">
+                #{bookContent},
+            </if>
+            <if test="bookWord != null">
+                #{bookWord},
+            </if>
+            <if test="bookExamineStatus != null">
+                #{bookExamineStatus},
+            </if>
+            <if test="bookIsEnd != null">
+                #{bookIsEnd},
+            </if>
+        </trim>
+    </insert>
+</mapper>
+
+
+
+

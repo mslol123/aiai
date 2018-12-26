@@ -1,0 +1,21 @@
+package com.jxky.bgxs.dao;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.core.ValueOperations;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public class RedisDAO {
+    @Autowired
+    private RedisTemplate<String,String> redisTemplate;
+
+    public  void setKey(String key,String value){
+        ValueOperations<String, String> ops = redisTemplate.opsForValue();
+        ops.set(key,value);
+    }
+    public  String getValue(String key){
+        ValueOperations<String, String> ops = redisTemplate.opsForValue();
+        return ops.get(key);
+    }
+}

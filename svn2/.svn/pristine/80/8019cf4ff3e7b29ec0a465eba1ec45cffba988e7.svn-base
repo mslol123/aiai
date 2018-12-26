@@ -1,0 +1,358 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<script charset="utf-8" src="http://datax.baidu.com/x.js?si=c202865d524849216eea846069349eb9&amp;dm=zongheng.com"></script>
+	<script type="text/javascript" async="" charset="utf-8" src="http://c.cnzz.com/core.php?web_id=30037065&amp;t=q"></script>
+	<script src="//hm.baidu.com/hm.js?c202865d524849216eea846069349eb9"></script>
+	<script type="text/javascript" src="./js/jquery-2.1.0.js"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="copyright" content="本页版权 www.zongheng.com 纵横中文网所有。All Rights Reserved">
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="shortcut icon" href="https://static.zongheng.com/favicon.ico">
+	<title>巴哥小说中文网</title>
+		<link rel="stylesheet" href="http://rcode.zongheng.com/v2018/css/basic.min.css">
+		<link rel="stylesheet" href="http://rcode.zongheng.com/v2018/css/reader.min.css">
+	<!--<script>function rSetDef(){function a(){var key="rSet";var arr,reg=new RegExp("(^| )"+key+"=([^;]*)(;|$)");if(arr=document.cookie.match(reg)){return unescape(arr[2])}else{return null}}if(a()){return(a().split("_"))}else{return"1_3_1_14".split("_")}}</script>
+	<script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="map.min" src="http://rcode.zongheng.com/v2018/js/map.min.js"></script>
+	<script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="zongheng" src="http://rcode.zongheng.com/v2018/js/zongheng.min.js?v=20181022_001"></script>
+	<script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="widget" src="http://rcode.zongheng.com/v2018/js/mod/widget.min.js?v=20181022_001"></script>
+	<script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="chapter.min" src="http://rcode.zongheng.com/v2018/js/chapter.min.js?v=20181022_001"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="bad" src="http://rcode.zongheng.com/v2018/js/mod/bad.min.js?v=20181022_001"></script>
+	<script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="stater" src="http://static.zongheng.com/v2_0/js/tongji.js?v=20181022_001"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="sidebar" src="http://rcode.zongheng.com/v2018/js/mod/sidebar.min.js?v=20181022_001"></script>
+	<script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="aclick" src="http://rcode.zongheng.com/v2018/js/mod/aclick.min.js?v=20181022_001"></script>
+	<script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="logger" src="http://rcode.zongheng.com/v2018/js/mod/logger.min.js?v=20181022_001"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="donate" src="http://rcode.zongheng.com/v2018/js/mod/donate.min.js?v=20181022_001"></script>
+	<script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="reader" src="http://rcode.zongheng.com/v2018/js/mod/reader.min.js?v=20181022_001"></script>
+	<script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="forumsChapter" src="http://rcode.zongheng.com/v2018/js/mod/forumschapter.min.js?v=20181022_001"></script><script type="text/javascript" src=" http://w.cnzz.com/c.php?id=30037065"></script>-->
+</head>
+<body scriptsign="chapter" monkeyid="zongheng-chapter" forumid="160116" bookid="672340" bookname="剑来" authorid="" authorname="" level="" tomeid="1482169" chapterid="36898237" chapterlevel="0" lastchapterid="38705697" nextchapterid="36907398" chaptername="第一章 惊蛰" ismemberbook="false" ismonthorderbook="" isuserdonate="true" userfactor="5" vipuserfactor="3" currentuserfactor="5" _pgid="88" chapterdelayrelease="false" reader="chapter" donaterate="1" logger="8000:/click/1031/3/672340/j/36898237/166130/2017-06-01/0/chapter" class="rb_1">
+<script>document.body.className="rb_"+rSetDef()[0]</script>
+
+<div class="head-fixed-reader head-simple">
+<div class="wrap">
+       <div class="head-top clearfix">
+           <div class="logo imgbox fl"><a href="http://www.zongheng.com"><img src="http://rcode.zongheng.com/v2018/images/logo.png" alt="logo"></a></div>
+        <form name="searchForm" method="get" action="http://search.zongheng.com/s" target="_blank">
+           <div class="search-box">
+          <input class="search-text fl" name="keyword" type="text" placeholder="雪中悍刀行" autocomplete="off" disableautocomplete="" value="">
+          <input type="submit" class="search-btn fr">
+           </div>
+        </form>
+           <div class="pay fr"><a class="user_pay" href="http://pay.zongheng.com" target="_blank">充值</a></div>
+           <div class="menu clearfix">
+               <a href="http://www.zongheng.com">首页</a>
+               <div class="cate tabA">
+                   <a href="##">分类<em class="icon"></em></a>
+                   <div class="tabA-float cate-cell">
+                       <ul>
+                       	<li><a href="http://www.zongheng.com/category/1.html">奇幻玄幻</a></li>
+                        <li><a href="http://www.zongheng.com/category/3.html">武侠仙侠</a></li>
+                        <li><a href="http://www.zongheng.com/category/6.html">历史军事</a></li>
+                        <li><a href="http://www.zongheng.com/category/9.html">都市娱乐</a></li>
+                        <li><a href="http://www.zongheng.com/category/21.html">竞技同人</a></li>
+                        <li><a href="http://www.zongheng.com/category/15.html">科幻游戏</a></li>
+                        <li><a href="http://www.zongheng.com/category/18.html">悬疑灵异</a></li>
+                        <li><a href="http://www.zongheng.com/category/40.html">二次元</a></li>
+                       </ul>
+                   </div>
+               </div>
+               <a href="http://www.zongheng.com/rank.html">排行</a>
+               <a href="http://www.zongheng.com/store.html">书库</a>
+               <a href="http://www.zongheng.com/store/c0/c0/b0/u0/p1/v9/s1/t0/u0/i1/ALL.html">完本</a>
+               <a href="http://author.zongheng.com" target="_blank">作者专区</a>
+           </div>
+            
+<div class="right-wrap-login ud_userTox">
+    <div class="unlogin ud_unlogin clearfix">
+        <div class="login fl"><a class="user_login" href="https://passport.zongheng.com"><span th:text="${session.user.nickname}">登录</span></a></div>
+        <div class="regist fl"><span th:if="${session.user} eq  null"><a class="user_register" href="user/preadd">注册</a></span></div>
+        <div class="regist fl"><span th:if="${session.user} ne  null"></span></div>
+    </div>
+    <div class="logon ud_loged clearfix" style="display:none;">
+        <div class="user tabA imgbox">
+        <img class="ud_avatar ud_goUsrCenter" src="http://rcode.zongheng.com/v2018/images/book.png" alt="" target="_blank">
+            <div class="user-blank tabA-float">
+                <a href="javascript:void(0);" class="quit ud_logout">退出</a>
+                <div class="user-name ud_goUsrCenter"><span class="ud_nickName"></span><em class="icon"></em></div>
+                <div class="user-info clearfix">
+                    <div class="user-info-cell ud_money">
+                        <span class="item_loading"></span>
+                    </div>
+                    <div class="user-info-cell ud_ticket">
+                        <span class="item_loading"></span>
+                    </div>
+                    <div class="user-info-cell ud_mticket">
+                        <span class="item_loading"></span>
+                    </div>
+                </div>
+                <a href="http://pay.zongheng.com" class="btn" target="_blank">立即充值</a>
+            </div>
+        </div>
+        <div class="message">
+            <a href="http://home.zongheng.com/msgIn.do" class="mes" target="_blank">消息(<span class="ud_umessage"></span>)</a>
+        </div>
+        <div class="shelf"><a href="http://home.zongheng.com/favoritesBook.do" target="_blank">书架</a></div>
+        <div class="foot-mark tabA">
+            <span class="mark clearfix">历史<em class="icon"></em></span>
+            <div class="tabA-float float-mark clearfix">
+                <!-- loading -->
+                <div class="ud_hisloading">
+                        <span class="item_loading"></span>
+                </div>
+                <!-- 没有记录 -->
+                <div class="ud_noHistory" style="display: none">
+                  <h2>亲爱的书友，您暂时没有阅读记录~</h2>
+                  <div class="tips">阅读记录只保存最近阅读的5本小说</div>
+                  <div class="enter"><a href="http://home.zongheng.com/favoritesBook.do" target="_blank">进入我的书架</a></div>
+                </div>
+                <!-- 有记录 -->
+                <div class="ud_hasHistory" style="display: none"><ul class="mark-list"></ul></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+        </div>
+    </div>
+</div>
+<!-- 大包 -->
+<div class="readerPageWrap">
+    <div class="h20-blank"></div>
+    <!-- 推广层 -->
+    <div class="goodgame"><a href="http://www.zongheng.com" target="_blank"></a></div>
+    <!-- 主内容 -->
+    <div class="rw_3" id="reader_warp">
+        <script>document.getElementById("reader_warp").className = "rw_" + rSetDef()[1];</script>
+        <!-- 1.	阅读器头部推荐位 -->
+		<div class="com-recbox">
+       	 <script type="text/javascript" src="http://static.zongheng.com/upload/hzds/column/240517642449.js"></script>
+        </div>
+        <!-- 阅读页start -->
+        <div class="reader_crumb">当前位置： <a href="http://www.zongheng.com"> 首页 </a>&gt; <a href="http://www.zongheng.com/category/3.html">武侠仙侠 </a> &gt; <a href="http://book.zongheng.com/book/672340.html">剑来</a> &gt; 第一卷 笼中雀</div> 
+
+        <!-- 包裹层 -->
+        <div class="rft_1" id="readerFt" style="font-size: 14px;">
+            <script>document.getElementById("readerFt").className = "rft_" + rSetDef()[2];document.getElementById("readerFt").style.fontSize = rSetDef()[3] + "px";</script>
+            <!-- 内容主盒 -->
+            <div class="reader_box" style="-moz-user-select:none;-webkit-user-select:none;" unselectable="on" onselectstart="return false;">
+                <div class="marker " tomeid="1482169" chapterid="36898237"></div>
+                <div class="title">
+                    <div class="iconbox">
+                        <em class=""></em>
+                    </div>
+                    <div class="title_txtbox" th:text="${readChapter.chapterName}"></div>
+                </div>
+                <div class="bookinfo">
+                        作者：<a href="/">烽火戏诸侯</a>&nbsp;&nbsp;|&nbsp;&nbsp;字数：<span th:text="${readChapter.chapterWords}"></span>&nbsp;&nbsp;|&nbsp;&nbsp;更新时间：<span th:text="${readChapter.chapterCreatetime}"></span>
+                    <a th:href="@{'/readChapter?id='+${readChapter.chapterId}}" class="reader_lnkbtn">翻页阅读</a>
+                </div>
+
+                <div class="reader_line"></div>
+                <div style="display:none;">
+                <span id="path" th:text="${path}"></span>
+                <span id="bookName" th:text="${name}"/></span>
+                <span id="chapterId" th:text="${readChapter.chapterId}"></span>
+                </div>
+                <div id="textContent">
+                    <div class="content" id="contentInfo" itemprop="acticleBody" >
+                        <!--<iframe th:src="@{show/{path}(path=${path},name=${name})}"></iframe>-->
+                    </div>
+                    <div id="contentInfo1" class="content">
+
+                    </div>
+                </div>
+                <!-- 订阅盒 -->
+                
+
+                <!-- 作者的话 -->
+                
+
+                <!-- 捧场按钮 -->
+                
+                <a href="javascript:void(0)" class="big_donate"><em></em><p>捧场</p></a>
+                <div class="space_h80"></div>
+                
+
+                <!-- 操作区 -->
+                <div class="chap_btnbox">
+                    <a th:href="@{'/book/showChapter?id='+${readChapter.chapterBookId}}">目录</a>
+                    
+                    <a th:href="@{'/lastChapter?id='+${readChapter.chapterId}}">上一章</a>
+                    
+                    
+                    <a th:href="@{'/nextChapter?id='+${readChapter.chapterId}}" class="nextchapter">下一章</a>
+                    
+                </div>
+
+                <div class="ctrl_tips">按“键盘左键←”返回上一章&nbsp;&nbsp;&nbsp;按“键盘右键→”进入下一章&nbsp;&nbsp;&nbsp;按“空格键”向下滚动</div>
+
+                <!-- 章评盒 -->
+                <!--<div id="reader-chapterforum-wrap" class="chapter_forum">-->
+                    <!--<div class="chapter_forum_tit">-->
+                        <!--<h3>章节评论</h3>-->
+                        <!--<a href="javascript:void(0)" class="chapter_forum_btn">发表章评</a>-->
+                    <!--</div>-->
+                    <!--<div class="chapter_thread_list">-->
+                        <!--<div class="chapter_thread">-->
+                                <!--<ul class="forums-list" id="JthreadList"></ul> -->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <!--<div class="chapter_morethread">-->
+                        <!---->
+                    <!--</div>-->
+                <!--</div>-->
+                <!-- /章评盒 -->
+            </div>
+            <!-- /内容主盒 -->
+        </div>
+        <!-- /包裹层 -->
+    </div>
+
+    <!-- 控制手柄 -->
+    <div class="gamepad" style="display: block;">
+        <!-- 阅读手柄，左侧目录弹出列表层 -->
+        <div id="uiGPReaderAct" style="margin-left: -550px; position: absolute; top: 113px;">
+            <div class="gpd_btnpal">
+                <a class="chapterList" href="http://book.zongheng.com/showchapter/672340.html" target="_blank">目录</a>
+                
+                 <a class="bookShelf" href="javascript:void(0)">书架</a>
+                 
+                <a class="bookDetail" href="http://book.zongheng.com/book/672340.html" target="_blank">书页</a>
+                <a class="readerSetting" href="javascript:void(0)">设置</a>
+            </div>
+            <div class="gpd_flt_chapterlist"></div>
+            <!-- 控制面板 -->
+            <div class="gpd_flt_setting" data-pname="readerSetting">
+                <h4>设置</h4>
+                <div class="gpd_setLine gpd_setstyle">
+                    <div class="gpd_setName">阅读背景</div>
+                    <div class="gpd_setcon">
+                        <a class="sbs_1 active" href="javascript:void(0)" data-style="1"></a>
+                        <a class="sbs_2" href="javascript:void(0)" data-style="2"></a>
+                        <a class="sbs_3" href="javascript:void(0)" data-style="3"></a>
+                        <a class="sbs_4" href="javascript:void(0)" data-style="4"></a>
+                        <a class="sbs_5" href="javascript:void(0)" data-style="5"></a>
+                        <a class="sbs_6" href="javascript:void(0)" data-style="6"></a>
+                        <a class="sbs_7" href="javascript:void(0)" data-style="7"></a>
+                        <a class="sbs_8" href="javascript:void(0)" data-style="8"></a>
+                    </div>
+                </div>
+                <div class="gpd_setLine gpd_setfont">
+                    <div class="gpd_setName">正文字体</div>
+                    <div class="gpd_setcon">
+                        <a href="javascript:void(0)" class="sbf_1 active" data-font="1">宋体</a>
+                        <a href="javascript:void(0)" class="sbf_2" data-font="2">黑体</a>
+                        <a href="javascript:void(0)" class="sbf_3" data-font="3">微软雅黑</a>
+                        <a href="javascript:void(0)" class="sbf_4" data-font="4">楷体</a>
+                    </div>
+                </div>
+                <div class="gpd_setLine gpd_setsize">
+                    <div class="gpd_setName">字体大小</div>
+                    <div class="gpd_setcon">
+                        <div class="sbw_font">
+                            <a data-size="small" class="setfont" href="javascript:void(0)">A-</a>
+                            <div class="nowfont">14</div>
+                            <a data-size="big" class="setfont" href="javascript:void(0)">A+</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="gpd_setLine gpd_setwidth">
+                    <div class="gpd_setName">页面宽度</div>
+                    <div class="gpd_setcon">
+                        <a href="javascript:void(0)" class="sbw_1" data-width="1">640</a>
+                        <a href="javascript:void(0)" class="sbw_2" data-width="2">800</a>
+                        <a href="javascript:void(0)" class="sbw_3 active" data-width="3">默认</a>
+                        <a href="javascript:void(0)" class="sbw_4" data-width="4">1280</a>
+                    </div>
+                </div>
+                <div class="gpd_btnLine">
+                    <button class="confirm">保存设置</button>
+                    <button class="reset">恢复默认</button>
+                </div>
+                <a class="gpd_close ui_widget_close"></a>
+            </div>
+        </div>
+        <!-- 阅读手柄，右侧下控制按钮 -->
+        <div id="uiGPUserAct" style="margin-left: 490px; position: fixed; bottom: 0px; top: auto;">
+            <div class="gpd_btnpal">
+            
+                <a class="donate" href="javascript:void(0)">捧场</a>
+                <a class="monthTicket" href="javascript:void(0)">投票</a>
+            
+                <a class="chapterForum" href="http://forum.zongheng.com/160116.html" target="_blank">圈子</a>
+                <a href="#top" class="returntop">顶部</a>
+            </div>
+        </div>
+    </div>
+    <div class="h20-blank"></div>
+    <form action="/seckill/seckill" method="post" id="form1">
+        <input type="hidden" id="inp" value="" name="content">
+    </form>
+    <form action="/user/log" method="post" id="form2"></form>
+<!-- /大包 -->
+</div>
+
+<script type="text/javascript" src="http://cdn-hangzhou.goeasy.io/goeasy.js"></script>
+<script type="text/javascript" src="http://rcode.zongheng.com/v2018/js/lib/require.min.js" defer="" async="" data-main="http://rcode.zongheng.com/v2018/js/map.min"></script>
+<script type="text/javascript">
+    var goEasy = new GoEasy({
+        appkey: 'BC-58a22e706d3342ecafd6bd784c07d335'
+    });
+    goEasy.subscribe({
+        channel:'seckill',
+        onMessage: function(message){
+            var content = message.content;
+            if(confirm(content)==true){
+                document.getElementById("inp").value = content;
+                $.post("/seckill/preseckill",{},function (data) {
+                    if(data == "000"){
+                        $("#form1").submit();
+                    }else {
+                        $("#form2").submit();
+                    }
+                });
+            }
+        }
+    });
+//    var src = "/showImg";
+//    $("#logo").attr("src",src);
+    //用来加载小说章节
+    var path= $("#path").text();
+    var name= $("#bookName").text();
+//    var chapterId= $("#chapterId").text();
+
+    window.onload=function readContent() {
+//        var path= $("#path").text();
+//        var name= $("#bookName").text();
+        $.get("/read",{imgPath:path,name:name}, function (data){
+            $("#contentInfo").html(data);
+        });
+
+    }
+
+    //实现滚轮到底部自动加载章节
+    $(window).scroll(
+        function() {
+            var scrollTop = $(this).scrollTop();
+            var scrollHeight = $(document).height();
+            var windowHeight = $(this).height();
+            if (scrollTop + windowHeight == scrollHeight) {
+// 此处是滚动条到底部时候触发的事件，在这里写要加载的数据，或者是拉动滚动条的操作
+                var pathArr=path.split(".");
+                var b =parseInt(pathArr[0])+1;
+                var c = b+"."+pathArr[1];
+                alert(c);
+//                var divContent = document.createElement("div");
+//                var d = 1;
+//                var e= d++;
+//                var divName ="#contentInfo"+e;
+//                divContent.attr("id",);
+                $.get("/read",{imgPath:c,name:name}, function (data){
+
+                    $("#contentInfo1").html(data);
+                });
+
+            }
+        });
+</script>
+
+
+<style type="text/css">#index_right_bottom_piclnk{position:fixed;right:0px;bottom:0px;_position:absolute;_top:expression(documentElement.scrollTop+documentElement.clientHeight-250);_left:expression(documentElement.clientWidth-250);width: 250px; height: 250px;overflow:hidden;padding-top:15px;z-index:66666;}#index_right_bottom_piclnk .close{background:url(//static.zongheng.com/v2012/images/fullclose.gif) no-repeat 0 center;cursor:pointer;color:#636363;padding:0 5px 0 15px;height:15px;line-height:15px;position:absolute;top:0px;right:0px;}</style><div id="index_right_bottom_piclnk" style="display: none;"><div class="close" data-hook="closeParent">关闭</div><script type="text/javascript" src="//static.zongheng.com/upload/fpbds/column/100800075182.js"></script><a href="http://game.zongheng.com/static/gamestart.html?source=ms&amp;zone=13" target="_blank" class="adClickCss" adposition="100800075182" adgroup="59"><img src="https://static.zongheng.com/upload/hzds/fodder/201807/236599833115.jpg" width="250" height="250" border="0"></a></div><style>.donated_con{padding:25px 35px}.donated_con_tit{ont-size: 12px;color: #A11313;}.donated_con_tr{background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAALCAYAAAExaSyOAAAAAXNSR0IArs4c6QAAAHZJREFUGBmNUMENgDAIBOIYfnUY/XfHdiR96h4ITUCimNik5TiOgxRrrYyIJygAPQ4CAsCb7qr4ZCWKAsOpyYskosU6POqM1PM/+RrUzbPlfaqA1toq9xiMlGRj5slyjfKDeyllFrMxXSiKrNEdtdPILH46PsUXfyw0fhTBNFsAAAAASUVORK5CYII=) no-repeat left center;padding-left:15px;color:#A9A9A9}.donated_con_t{clear:both;height:45px;}.donated_con_tr a{color:#A9A9A9}.donated_con_tit span{font-weight:bold}.donated_con_selbox{height:150px;position:relative}.donated_con_selbox ul{width:500px;position:absolute}.donated_con_selbox ul li{float:left;width:148px;height:64px;border: 1px solid #F0F0F0;border-radius: 2px;margin:0 14px 14px 0;text-align:center;cursor:pointer;position: relative;overflow:hidden}.donated_con_selbox ul li.active{border: 1px solid #D32F2F;}.donated_con_selbox ul li.active:after{content:"";width:16px;height:16px;background: url(//rcode.zongheng.com/v2018/images/donate_rb.png) center #D32F2F;border-radius: 5px 0 0 0;position: absolute;right: 0;bottom: 0;}.donated_con_selbox ul li p{font-size:16px;color:#333;padding-top:12px;line-height:22px}.donated_con_selbox ul li span{color:#A9A9A9;line-height:20px}.donated_con_selbox ul li div{color:#333;display:inline-block;line-height:64px;font-size:16px;}.donated_con_selbox ul li input{color:#333;display:inline-block;line-height:64px;font-size:16px;border:0;text-align:center;width:148px;cursor:pointer;height:64px;}.donated_con_selbox ul li input::-webkit-input-placeholder{color:#333;line-height:64px;font-size:16px}.donated_con_selbox ul li input.inputing::-webkit-input-placeholder{color:#f1f1f1;line-height:64px;font-size:16px}.donated_con_selbox ul li input::-ms-clear{display:none;}.donated_con_selbox ul li input::-moz-placeholder{color:#333;line-height:64px;font-size:16px}.donated_con_selbox ul li input:-moz-placeholder{color:#333;line-height:64px;font-size:16px}.donated_con_selbox ul li input:-ms-input-placeholder{color:#333;line-height:64px;font-size:16px}.donated_con_selbox ul li span.placeholder{color:#333;line-height:64px;font-size:16px;position:absolute;left:0;top:0;width:148px;height:64px;display:block}.donated_btnbox{text-align:center}.donated_btnbox p{color:#A9A9A9;line-height:55px}.donated_btnbox p a{color:#A9A9A9;}.donated_submit{background: #D32F2F;border-radius: 3px;width:150px;height:44px;line-height:44px;color:#fff;font-size:16px;margin:auto;text-align:center;cursor:pointer;display:inline-block}.donated_submit:hover{background: #E84848;}.donated_submit.unclick{background: #eee;color:#A9A9A9;cursor:inherit;}</style><div id="donateDetailDialog" class="ui_widget_section"><div class="ui_shadow"></div><div class="ui_widget_box" style="width: 550px; height: 400px; margin-left: -275px; margin-top: -200px;" data-tabindex="1"><div class="ui_widget_tab"><span>捧场</span><span>月票</span><span>推荐票</span></div><div class="ui_widget_tab_con"><div><div class="donated_con"><div class="donated_con_t"><div class="fl donated_con_tit">账户余额 <span class="dd_ul_money">?</span> 个纵横币</div><div class="fr donated_con_tr"><a href="//home.zongheng.com/billing/donateRecord.do" target="_blank">查看我的捧场记录</a></div></div><div class="donated_con_selbox"><ul class="selecter" data-type="money"><li class="active" data-amount="100"><p>100 纵横币</p><span>抽月票</span></li><li data-amount="500"><p>500 纵横币</p><span>1 张月票</span></li><li data-amount="5000"><p>5000 纵横币</p><span>10+1 张月票</span></li><li data-amount="10000"><p>10,000 纵横币</p><span>20+2 张月票</span></li><li data-amount="100000"><p>100,000 纵横币</p><span>200+20 张月票</span></li><li data-amount="1000000"><p>1,000,000 纵横币</p><span>2000+200 张月票</span></li></ul></div><div class="donated_btnbox"><p id="DD_info_donateInfo">本次打赏100纵横币，随机抽取1张月票</p><a data-action="donate" class="donated_submit">确定捧场</a></div></div></div><div><div class="donated_con"><div class="donated_con_t"><div class="fl donated_con_tit">目前剩余月票 <span class="dd_ul_mtn">?</span> 张</div><div class="fr donated_con_tr"><a href="//home.zongheng.com/footprint/monthVote.do" target="_blank">查看我的投月票记录</a></div></div><div class="donated_con_selbox"><ul class="selecter" data-type="monthTicket"><li data-ticketnum="1" class="active"><div><b style="font-size:18px;vertical-align: bottom;">1</b> <b style="letter-spacing:1px">张月票</b></div></li><li data-ticketnum="0" class="dd_ul_mtn_data"><div>剩余全<b style="letter-spacing:1px">部月票</b></div></li><li data-ticketnum="0" class="customnum"><input type="text" data-type="monthTicket"><span class="placeholder">自定义</span></li></ul></div><div class="donated_btnbox"><a data-action="voteMonthTickets" class="donated_submit">投月票</a><p><a class="t_gary" href="//www.zongheng.com/rank/ypb.html" target="_blank">月票规则 &gt;</a></p></div></div></div><div><div class="donated_con"><div class="donated_con_t"><div class="fl donated_con_tit">目前剩余推荐票 <span class="dd_ul_rtn">?</span> 张</div><div class="fr donated_con_tr"><a href="//home.zongheng.com/myOperate.do" target="_blank">查看我的投推荐票记录</a></div></div><div class="donated_con_selbox"><ul class="selecter" data-type="recommendTicket"><li data-ticketnum="1" class="active"><div><b style="font-size:18px;vertical-align: bottom;">1</b> <b style="letter-spacing:1px">张推荐票</b></div></li><li data-ticketnum="0" class="dd_ul_rtn_data"><div>剩余全<b style="letter-spacing:1px">部推荐票</b></div></li><li data-ticketnum="0" class="customnum"><input type="text" data-type="recommendTicket"><span class="placeholder">自定义</span></li></ul></div><div class="donated_btnbox"><a data-action="voteRecommendTicket" class="donated_submit">投推荐票</a><p><a class="t_gary" href="//www.zongheng.com/help/zh93.html" target="_blank">推荐票规则 &gt;</a></p></div></div></div></div><div class="ui_widget_close"></div><div class="ui_widget_tabloading"></div></div></div><div id="OrderConfirmDialog" class="ui_widget_section"><div class="ui_shadow"></div><div class="ui_widget_box"><div class="ui_widget_tit">订阅VIP章节</div><div class="ui_widget_con clearfix"><style>.orderWin_wrap{padding:20px;}.orderWin_wrap .orderInfo{border-bottom: 1px dotted #ccc;height:110px;line-height: 45px;}.orderWin_wrap .orderInfo ul li{background:url(../images/dot_li.png) no-repeat left center;padding-left:12px}.orderWin_wrap .ordernum{font-size: 14px;color:#4a4a4a}.orderWin_wrap .orderpaynum{font-size: 16px;font-weight:bold;color:#4a4a4a}.orderWin_wrap .ordernum b{color:#000;font-weight:bold}.orderWin_wrap .orderwn_usermoney b,.orderWin_wrap .orderpaynum b{color:#A11313;font-weight:bold}.orderWin_wrap .ordertips{line-height: 26px;padding:10px 0;height:60px;}.orderWin_wrap .ordertips .orderError em{width:12px;height:12px;background: url(//rcode.zongheng.com/v2018/images/order_ico.png) -30px 0 no-repeat;margin-right:5px;float: left;margin-top:7px;}.orderWin_wrap .ordertips .orderopt{position: relative;}.orderWin_wrap .ordertips .orderopt em{top:7px;}.orderWin_wrap .ordertips .orderopt input{margin-right:7px;}</style><div class="orderWin_wrap"><div class="orderInfo"><ul>   <li class="ordernum">仅订阅本章   </li><li class="orderpaynum">本次订阅将消耗 <b id="order-data-money">--</b> 纵横币</li></ul></div><div class="ordertips"><div class="orderError" id="order-tip-error"><em></em>余额不足</div><div id="order-tip-money" class="orderwn_usermoney"></div></div><div class="ui_widget_conbtn clearfix">   <button class="confirm" id="order-btn-charge" data-cb="confirm">去充值</button></div></div></div><div class="ui_widget_close" id="OrderConfirmDialog_close" data-cb="close"></div><div class="ui_widget_customloading"></div></div></div></body></html>

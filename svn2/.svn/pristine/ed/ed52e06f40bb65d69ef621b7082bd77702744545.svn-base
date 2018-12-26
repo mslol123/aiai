@@ -1,0 +1,62 @@
+package com.jxky.bgxs.service.wx;
+
+import com.jxky.bgxs.dao.AuthorDAO;
+import com.jxky.bgxs.dao.ChapterDAO;
+import com.jxky.bgxs.entity.Author;
+import com.jxky.bgxs.entity.Chapter;
+import com.jxky.bgxs.util.MinMonthHelper;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import javax.annotation.Resource;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+@Service
+@Transactional
+public class HouseService {
+    @Autowired
+    private AuthorDAO authorDAO;
+    @Resource
+    private MinMonthHelper monthHelper;
+    @Resource
+    private ChapterDAO chapterDAO;
+
+
+    public List<Author> findPayAuthor(){
+        List<Author> all = authorDAO.findAll();
+        List<Author> list = new ArrayList<>();
+        System.out.println(monthHelper.getLastFrom());
+        System.out.println(monthHelper.getLastTo());
+        if(null!=all){
+            for (Author author:all){
+                if (null!=author.getAuthorPay()){
+                    List<Chapter> chapters = chapterDAO.findLastByDate(author.getAuthorId(),monthHelper.getLastFrom(),monthHelper.getLastTo());
+                    //按章节算
+                    if (author.getAuthorPay()==2){
+                        System.out.println(chapters.size()+",2");
+                        author.setAuthorMoney(100*chapters.size()+1500);
+                        authorDAO.update(author);
+                        list.add(author);
+                    }else if(author.getAuthorPay()==1){
+                        System.out.println(chapters.size());
+                        //按天算
+                        List<Date> list2 = new ArrayList<>();
+                        for (Chapter chapter:chapters) {
+                            Date date1 = chapter.getChapterCreatetime();
+                            if (!list2.contains(date1)) {
+                                list2.add(date1);
+                            }
+                        }
+                        author.setAuthorMoney(list2.size()*150+1500);
+                        authorDAO.update(author);
+                        list.add(author);
+                    }
+                }
+            }
+        }
+        return list;
+    }
+}

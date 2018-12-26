@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jxky.bgxs.dao.ChapterDAO">
+    <resultMap id="chapterMap" type="com.jxky.bgxs.entity.Chapter">
+        <id property="chapterId" column="chapter_id"></id>
+        <result property="chapterName" column="chapter_name"></result>
+        <result property="chapterPath" column="chapter_path"></result>
+        <result property="chapterBookId" column="chapter_book_id"></result>
+        <result property="chapterCreatetime" column="chapter_createtime"></result>
+        <result property="chapterMessage" column="chapter_message"></result>
+        <result property="chapterWords" column="chapter_words"></result>
+        <result property="chapterGivenum" column="chapter_givenum"></result>
+        <result property="chapterReleaseModel" column="chapter_release_model"></result>
+        <result property="chapterReleaseMode" column="chapter_release_mode"></result>
+        <result property="chapterMoney" column="chapter_money"></result>
+        <result property="chapterAuthorId" column="chapter_author_id"></result>
+        <result property="chapterStatus" column="chapter_status"></result>
+        <result property="publishTime" column="chapter_publish_time"></result>
+    </resultMap>
+
+    <select id="findAllChapter" resultMap="chapterMap">
+        SELECT
+        chapter.chapter_id,
+        chapter.chapter_path,
+        chapter.chapter_author_id,
+        chapter.chapter_book_id,
+        chapter.chapter_name,
+        chapter.chapter_createtime,
+        chapter.chapter_message,
+        chapter.chapter_words,
+        chapter.chapter_givenum,
+        chapter.chapter_release_model,
+        chapter.chapter_release_mode,
+        chapter.chapter_money,
+        chapter.chapter_status
+        FROM `chapter`
+    </select>
+
+    <select id="findChapterByPath" resultMap="chapterMap">
+        SELECT
+        chapter.chapter_id,
+        chapter.chapter_path,
+        chapter.chapter_author_id,
+        chapter.chapter_book_id,
+        chapter.chapter_name,
+        chapter.chapter_createtime,
+        chapter.chapter_message,
+        chapter.chapter_words,
+        chapter.chapter_givenum,
+        chapter.chapter_release_model,
+        chapter.chapter_release_mode,
+        chapter.chapter_money
+        FROM `chapter`
+        WHERE chapter.chapter_path = #{chapterPath}
+    </select>
+
+    <insert id="insert">
+        INSERT INTO chapter
+        <trim prefix="(" suffixOverrides=",">
+            <if test="chapterId!=null">
+                chapter_id,
+            </if>
+            <if test="chapterName!=null">
+                chapter_name,
+            </if>
+            <if test="chapterPath!=null">
+                chapter_path,
+            </if>
+            <if test="chapterBookId!=null">
+                chapter_book_id,
+            </if>
+            <if test="chapterCreatetime!=null">
+                chapter_createtime,
+            </if>
+            <if test="chapterMessage != null">
+                chapter_message,
+            </if>
+            <if test="chapterWords!=null">
+                chapter_words,
+            </if>
+            <if test="chapterGivenum!=null">
+                chapter_givenum,
+            </if>
+            <if test="chapterReleaseModel!=null">
+                chapter_release_model,
+            </if>
+            <if test="chapterReleaseMode!=null">
+                chapter_release_mode,
+            </if>
+            <if test="chapterMoney!=null">
+                chapter_money,
+            </if>
+            <if test="chapterAuthorId!=null">
+                chapter_author_id,
+            </if>
+            <if test="chapterStatus!=null">
+                chapter_status,
+            </if>
+            <if test="publishTime!=null">
+                chapter_publish_time,
+            </if>
+        </trim>
+        <trim prefix=") VALUES (" suffixOverrides="," suffix=")">
+            <if test="chapterId!=null">
+                #{chapterId},
+            </if>
+            <if test="chapterName!=null">
+                #{chapterName},
+            </if>
+            <if test="chapterPath!=null">
+                #{chapterPath},
+            </if>
+            <if test="chapterBookId!=null">
+                #{chapterBookId},
+            </if>
+            <if test="chapterCreatetime!=null">
+                #{chapterCreatetime},
+            </if>
+            <if test="chapterMessage != null">
+                #{chapterMessage},
+            </if>
+            <if test="chapterWords!=null">
+                #{chapterWords},
+            </if>
+            <if test="chapterGivenum!=null">
+                #{chapterGivenum},
+            </if>
+            <if test="chapterReleaseModel!=null">
+                #{chapterReleaseModel},
+            </if>
+            <if test="chapterReleaseMode!=null">
+                #{chapterReleaseMode},
+            </if>
+            <if test="chapterMoney!=null">
+                #{chapterMoney},
+            </if>
+            <if test="chapterAuthorId!=null">
+                #{chapterAuthorId},
+            </if>
+            <if test="chapterStatus!=null">
+                #{chapterStatus},
+            </if>
+            <if test="publishTime!=null">
+                #{publishTime},
+            </if>
+        </trim>
+    </insert>
+
+    <select id="findById" resultMap="chapterMap">
+        SELECT
+        chapter.chapter_id,
+        chapter.chapter_path,
+        chapter.chapter_author_id,
+        chapter.chapter_book_id,
+        chapter.chapter_name,
+        chapter.chapter_createtime,
+        chapter.chapter_message,
+        chapter.chapter_words,
+        chapter.chapter_givenum,
+        chapter.chapter_release_model,
+        chapter.chapter_release_mode,
+        chapter.chapter_money,
+        chapter.chapter_status
+        FROM chapter
+        WHERE chapter.chapter_id = #{chapterId}
+    </select>
+
+    <select id="findChapterByBookId" resultMap="chapterMap">
+        SELECT
+        chapter.chapter_id,
+        chapter.chapter_path,
+        chapter.chapter_author_id,
+        chapter.chapter_book_id,
+        chapter.chapter_name,
+        chapter.chapter_createtime,
+        chapter.chapter_message,
+        chapter.chapter_words,
+        chapter.chapter_givenum,
+        chapter.chapter_release_model,
+        chapter.chapter_release_mode,
+        chapter.chapter_money,
+        chapter.chapter_status,
+        chapter.chapter_publish_time
+        FROM chapter
+        WHERE chapter_book_id=#{chapterBookId}
+    </select>
+
+    <update id="update">
+        UPDATE chapter
+        <set>
+            <!--<if test="id != null">-->
+            <!--chapter_id = #{id},-->
+            <!--</if>-->
+            <if test="chapterName != null">
+                chapter_name = #{chapterName},
+            </if>
+            <if test="chapterPath != null">
+                chapter_path = #{chapterPath},
+            </if>
+            <if test="chapterAuthorId != null">
+                chapter_author_id = #{chapterAuthorId},
+            </if>
+            <if test="chapterBookId != null">
+                chapter_book_id = #{chapterBookId},
+            </if>
+            <if test="chapterCreatetime != null">
+                chapter_createtime = #{chapterCreatetime},
+            </if>
+            <if test="chapterMessage != null">
+                chapter_message = #{chapterMessage},
+            </if>
+            <if test="chapterWords != null">
+                chapter_words = #{chapterWords},
+            </if>
+            <if test="chapterGivenum != null">
+                chapter_givenum = #{chapterGivenum},
+            </if>
+            <if test="chapterReleaseModel != null">
+                chapter_release_model = #{chapterReleaseModel},
+            </if>
+            <if test="chapterReleaseMode != null">
+                chapter_release_mode = #{chapterReleaseMode},
+            </if>
+            <if test="chapterMoney != null">
+                chapter_money = #{chapterMoney},
+            </if>
+            <if test="chapterStatus != null">
+                chapter_status = #{chapterStatus},
+            </if>
+            <if test="publishTime!=null">
+                chapter_publish_time = #{publishTime},
+            </if>
+        </set>
+        WHERE chapter_id= #{chapterId}
+    </update>
+
+    <delete id="delete">
+        DELETE FROM chapter WHERE chapter_id=#{chapterId}
+    </delete>
+
+    <select id="findChapterByDate" resultMap="chapterMap">
+SELECT
+chapter.chapter_id,
+chapter.chapter_path,
+chapter.chapter_author_id,
+chapter.chapter_book_id,
+chapter.chapter_name,
+chapter.chapter_createtime,
+chapter.chapter_message,
+chapter.chapter_words,
+chapter.chapter_givenum,
+chapter.chapter_release_model,
+chapter.chapter_release_mode,
+chapter.chapter_money
+FROM
+chapter
+WHERE
+chapter.chapter_book_id = #{id}
+and
+chapter_createtime
+BETWEEN #{date}
+and NOW()
+    </select>
+
+    <select id="findCountByDate" resultType="java.lang.Integer">
+        SELECT
+        count(1)
+        FROM
+        chapter
+        WHERE
+        chapter.chapter_book_id = #{id}
+        and
+        chapter_createtime
+        BETWEEN #{date}
+        and NOW()
+    </select>
+
+</mapper>
+
+
+
+

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jxky.bgxs.dao.LatelyReadDAO">
+    <resultMap id="LatelyReadMap" type="com.jxky.bgxs.entity.LatelyRead">
+        <result property="userId" column="user_id"></result>
+        <result property="chapterId" column="chapter_id"></result>
+        <result property="bookId" column="book_id"></result>
+    </resultMap>
+
+    <insert id="firstRead" >
+        INSERT INTO latelyread
+        (user_id,chapter_id,book_id)
+        VALUES (#{userId},#{chapterId},#{bookId})
+    </insert>
+
+    <update id="updateRead" >
+        UPDATE latelyread
+        SET chapter_id=#{chapterId}
+        WHERE user_id=#{userId} AND book_id=#{bookId};
+    </update>
+
+    <select id="findByUserIdAndBookId" resultMap="LatelyReadMap">
+        SELECT user_id,chapter_id,book_id
+        FROM latelyread
+        WHERE user_id=#{userId} AND book_id=#{bookId}
+    </select>
+
+    <select id="findAllByUserId" resultMap="LatelyReadMap">
+        SELECT user_id,chapter_id,book_id
+        FROM  latelyread
+        WHERE user_id=#{userId}
+    </select>
+</mapper>
+
+
+
+

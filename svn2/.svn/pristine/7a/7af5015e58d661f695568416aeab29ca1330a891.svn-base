@@ -1,0 +1,18 @@
+package com.jxky.bgxs.controller.wx;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+@RequestMapping("/pay")
+public class PayController {
+
+    @RequestMapping("/prePay/{id}")
+    public String prePay(@PathVariable("id")Integer id){
+
+
+        return null;
+    }
+}
+

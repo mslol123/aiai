@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jxky.bgxs.dao.InfoDAO">
+    <resultMap id="InfoMap" type="com.jxky.bgxs.entity.Info">
+        <id property="id" column="user_id"></id>
+        <result property="nickname" column="info_nickname"></result>
+        <result property="sex" column="info_sex"></result>
+        <result property="address" column="info_address"></result>
+        <result property="birthday" column="info_birthday"></result>
+        <result property="qq" column="info_QQ"></result>
+        <result property="mailbox" column="info_mailbox"></result>
+        <result property="introduce" column="info_introduce"></result>
+        <result property="image" column="info_image"></result>
+    </resultMap>
+
+    <sql id="infocolumn">
+        user_id,info_nickname,info_sex,info_address,info_birthday,info_QQ,info_mailbox,info_introduce,info_image
+    </sql>
+
+    <select id="findById" resultMap="InfoMap">
+      SELECT <include refid="infocolumn"></include> FROM user_info WHERE user_id=#{id}
+    </select>
+
+    <insert id="insert">
+        INSERT INTO  user_info
+        <trim prefix="(" suffixOverrides=",">
+            <if test="id !=null">
+                user_id,
+            </if>
+            <if test="nickname!=null">
+                info_nickname,
+            </if>
+            <if test="sex!=null">
+                info_sex,
+            </if>
+            <if test="address!=null">
+                info_address,
+             </if>
+            <if test="birthday!=null">
+                info_birthday,
+            </if>
+            <if test="qq!=null">
+                info_QQ,
+            </if>
+            <if test="mailbox!=null">
+                info_mailbox,
+            </if>
+            <if test="introduce!=null">
+                info_introduce,
+            </if>
+            <if test="image!=null">
+                info_image,
+            </if>
+        </trim>
+        <trim prefix=")values(" suffixOverrides="," suffix=")">
+            <if test="id !=null">
+                #{id},
+            </if>
+            <if test="nickname!=null">
+                #{nickname},
+            </if>
+            <if test="sex!=null">
+                #{sex},
+            </if>
+            <if test="address!=null">
+                #{address},
+            </if>
+            <if test="birthday!=null">
+                #{birthday},
+            </if>
+            <if test="qq!=null">
+                #{qq},
+            </if>
+            <if test="mailbox!=null">
+                #{mailbox},
+            </if>
+            <if test="introduce!=null">
+                #{introduce},
+            </if>
+            <if test="image!=null">
+                #{image},
+            </if>
+        </trim>
+    </insert>
+
+<update id="update">
+    UPDATE user_info
+    <set>
+        <if test="nickname!=null">
+            info_nickname=#{nickname},
+        </if>
+        <if test="sex!=null">
+            info_sex=#{sex},
+        </if>
+        <if test="address!=null">
+            info_address=#{address},
+        </if>
+        <if test="birthday!=null">
+            info_birthday=#{birthday},
+        </if>
+        <if test="qq!=null">
+            info_QQ=#{qq},
+        </if>
+        <if test="mailbox!=null">
+            info_mailbox=#{mailbox},
+        </if>
+        <if test="introduce!=null">
+            info_introduce=#{introduce},
+        </if>
+        <if test="image!=null">
+            info_image=#{image},
+        </if>
+    </set>
+    WHERE user_id=#{id}
+</update>
+
+
+</mapper>
+
+
+
+

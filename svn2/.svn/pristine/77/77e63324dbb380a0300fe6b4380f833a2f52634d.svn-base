@@ -1,0 +1,302 @@
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>作者专区-创建书籍</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<link rel="stylesheet" type="text/css"  href="http://static.zongheng.com/author/v2015/style/public.css">
+<link rel="stylesheet" type="text/css"  href="http://static.zongheng.com/author/v2015/style/modify.css">
+</head>
+<body bookid = >
+
+
+
+
+
+
+
+
+
+
+
+<div class="au_nav">
+	<div class="au_box" id="loginSign">
+	 <div class="au_nav_a">
+		<a href="http://www.zongheng.com"  target="_blank">纵横首页</a>|
+		<a href="/nzh/editors"  target="_blank">编辑介绍</a>|
+		<a href="http://www.zongheng.com/company/author.html"  target="_blank"  class="goodluck">作者福利</a>
+		
+		        |<span th:text="${book.author.authorTruename}"></span>|
+		        <a  href="http://author.zongheng.com/loginout">退出</a>
+		   
+	 </div>
+	 <a href="http://author.zongheng.com" class="au_logo"></a>
+	 <script src="http://author.zongheng.com/nzh/header/notice"></script>
+
+	</div>
+  </div>
+<!--<form id="frm" method="post" enctype="multipart/form-data" action="add">-->
+<div class="au_create">
+	<div class="au_box">
+    	<div class="au_c_con">
+        	<div class="au_c_tit">
+            	<a href="/book/notice" target="_blank" class="note pub_ico">投稿须知</a>
+                <span class="focus">作品信息</span>
+            </div>
+            <div class="au_c_form">
+                <ul>
+                    <li class="clear">
+                        <div class="au_c_t fl"><em>*</em>书名：</div>
+                        <div class="au_c_c fl">
+                            <p class="clear"><input type="text" th:value="${book.bookName}" readonly="readonly" class="au_text bookvalue fl" maxlength="12" name="bookName" value=''/><em class="pub_ico through fl"></em></p>
+                            <p class="au_error"><em class="ico_err pub_ico"></em>您输入的书名格式有误</p>
+                            <p class="au_tip">1-12个字符</p>
+                        </div>
+                    </li>
+
+                    <li class="clear">
+                        <div class="au_c_t fl"><em>*</em>选择站点：</div>
+                        <div class="au_c_c fl radio_dom">
+
+                            <a href="javascript:;" class="focus label"><em class="pub_ico au_pointer"></em>纵横中文网</a>
+                            <a href="javascript:;" class="label"><em class="pub_ico au_pointer"></em>花语女生网</a>
+                        </div>
+                    </li>
+                    <li class="clear selli">
+                        <div class="au_c_t fl"><em>*</em>类别：</div>
+                        <div class="au_c_c fl">
+                            <!--<select name="bookType.typeId" class="">-->
+                                <!--<div th:each="item:${bookTypes}">-->
+                                    <!--<option th:value="${item.typeId}"><p th:text="${item.typeName}"></p></option>-->
+                                <!--</div>-->
+                            <!--</select>-->
+                            <input type="text" th:value="${book.bookType.typeName}" readonly="readonly" class="au_text bookvalue fl" maxlength="12" name="" value=''/><em class="pub_ico through fl"></em>
+                            <!--<div class="au_select fl kindlist_ul">-->
+                                <!--<div class="au_s_nav select_nav"><span class="pub_ico arr_select fr"></span><span class="au_s_val sel_con">奇幻玄幻</span></div>-->
+                                <!--<ul class="au_s_list option" style="display:none;"></ul>-->
+                            <!--</div>-->
+                            <!--<div class="au_select fl select_dom kindlist_li">-->
+                                <!--<div class="au_s_nav select_nav"><span class="pub_ico arr_select fr"></span><span class="au_s_val sel_con">奇幻玄幻</span></div>-->
+                                <!--<ul class="au_s_list option " style="display:none;"></ul>-->
+                            <!--</div>-->
+                        </div>
+                    </li>
+                    <li class="clear">
+                        <div class="au_c_t fl"><em>*</em>作品首字母：</div>
+                        <div class="au_c_c fl">
+                            <input type="text" placeholder="作品首字母" readonly="readonly" class="au_text bookstr" maxlength="1" name="bookFirstLetter"  th:value='${book.bookFirstletter}'/>
+                            <p class="au_error"><em class="ico_err pub_ico"></em>您输入的作品首字母有误</p>
+                            <p class="au_tip">1位字母a-zA-Z</p>
+                        </div>
+                    </li>
+                    <li class="clear">
+                        <div class="au_c_t fl"><em>*</em>作品关键字：</div>
+                        <input type="text" th:value="${book.bookKeyword}" readonly="readonly" class="au_text bookvalue fl" maxlength="12" name="" /><em class="pub_ico through fl"></em></p>
+                        <!--<div class="au_c_c fl">-->
+                            <!--<div class="au_key"><a href="javascript:;" class="add_btn greenbtn">添加</a></div>-->
+                            <!--<div class="au_keys" style="display:none;">-->
+                                <!--<em class="pub_ico closekey"></em>-->
+                                <!--<p>选择关键字：</p>-->
+                                <!--<div class="akeys clear"><a href="javascript:;" class="keyword"><input type="text" name="bookKeyword" placeholder="自定义关键字" class="custom" title="输入自定义关键字" maxlength="6" /><em class="addkey pub_ico" title="添加"></em></a>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                            <!--<p class="au_tip">1-5个关键词，单个关键词1-6位字符</p>-->
+                        <!--</div>-->
+                    </li>
+                    <li class="clear">
+                        <div class="au_c_t fl">封面：</div>
+                        <br class="au_c_c fl">
+                            <!--<a href="javascript:;" class="upload greenbtn" id="uploadbtn">点击上传</a>-->
+                            <!--<div class="uploadarea">-->
+                                <!--<div class="uploading">-->
+                                    <!--<img class="loadimg" />-->
+                                    <!--<div class="auloading"></div>-->
+                                <!--</div>-->
+                                <!--<div class="uploaderror">-->
+                                    <!--<p class="au_error" style="display:block;"><em class="ico_err pub_ico"></em><em class="error_font">图片大小不要超过100K</em></p>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                            <!--<input type="file" style="color: blue" name="file" value="" onchange="selImage(this)">-->
+                            <img width="100px" id="img" th:src="@{/show/{type}(type=${book.bookImage})}">
+
+                            <!--<p class="au_cor_gay">1、只能上传规格为240*320像素的小于100K的JPG图片</p>-->
+                            <!--<p class="au_cor_gay">2、禁止上传任何有黄色、暴力、血腥、恐怖、广告宣传或者不适合公众欣赏的封面，一经发现即做禁书处理</p>-->
+                            <!--<p class="au_cor_gay">3、作品封面由用户个人制作并上传，基于此产生的法律责任本站不承担连带责任。</p>-->
+                        </div>
+                    </li>
+
+                    <li class="clear">
+                        <div class="au_c_t fl"><em>*</em>内容简介：</div>
+                        <div class="au_c_c fl">
+                            <div class="textarea">
+                                <p th:text="${book.bookContent}"></p>
+                                <!--<textarea th:value="${book.bookContent}" readonly="readonly" class="bookintro" maxlength="400" name="bookContent"></textarea>-->
+                                <!--<em class="au_cor_gay">1/400</em>-->
+                                <!--<p class="au_tip">1-400位字符</p>-->
+                            </div>
+                        </div>
+                    </li>
+            <div style="height: 20px">
+
+            </div>
+                     <li class="clear">
+                        <div class="au_c_t fl">作品寄语：</div>
+                        <div class="au_c_c fl">
+                            <div class="textarea">
+                                <p th:text="${book.bookWord}"></p>
+                                <!--<textarea th:value="${book.bookWord}" readonly="readonly" class="bookintro"  maxlength="20" name=""></textarea>-->
+                                <!--<em class="au_cor_gay">1/20</em>-->
+                                <!--<p class="au_tip">1-20位字符</p>-->
+                            </div>
+
+                            <div class="submitintro">
+                                <a th:href="'/house/agreen/'+${book.bookId}" class="nextstep greenbtn fl">同意</a>
+                                <a onclick="fun();" class="addstore fl">拒绝</a>
+
+                                <!--<a href="javascript:;" class="addstore fl">添加到作品库</a>-->
+                            </div>
+                            <div style="display: none;" id="refluse">
+                                <textarea class="bookintro" minlength="23" maxlength="250" onkeyup="checkLength(this)" id="refluseW"></textarea>
+                                <span id="subjectchk">最少输入23个字符，已输入
+                                <strong id="checklen" style="color: #FF0000">0</strong>
+                                    /250
+                                </span>
+                                <input type="button" onclick="fn2();" value="确认">
+                            </div>
+                            <p class="au_wan"><em class="ico_err pub_ico"></em>说明</p>
+                            <p class="au_cor_gay">1、作品名字应与内容相符，不具有文学性、故意夸大其词的广告性、政治性、恶搞性或淫亵性作品名将会被删除。</p>
+                            <p class="au_cor_gay">2、上传的作品内容必须与符合纵横收录标准，不符合收录标准的作品将被禁阅或删除。</p>
+                            <p class="au_cor_gay">3、新作品将在48小时内审核完毕（节假日顺延），请建立完后立即上传章节，凡章节低于三章或少于3000字一般不会通过审核。</p>
+                            <p class="au_cor_gay">4、纵横中文网有权将该作品推荐给合作伙伴宣传或转载，以便为作者寻找更多带来收益的机会，不另行专门告知。</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!--</form>-->
+<form action="/house/disAgreen" id="frm" method="post">
+    <input type="hidden" name="bookId" th:value="${book.bookId}">
+    <input type="hidden" name="refuseWord" id="refuse" value="">
+</form>
+ 
+<div class="footer">
+	<div class="au_box">
+		<p>
+			Copyright<em>©</em>2008-2010 www.zongheng.com All Rights Reserved
+		</p>
+		<p>版权所有 北京幻想纵横网络技术有限公司</p>
+	</div>
+</div>
+<script  type="text/javascript"  src="http://static.zongheng.com/v2_0/js/tongji.js"></script>
+
+<script type="text/javascript">
+var cateJson=[{"cateList":[{"cateId":1008,"cateName":"王朝争霸"},{"cateId":1009,"cateName":"吸血传奇"},{"cateId":1001,"cateName":"西方奇幻"},{"cateId":1003,"cateName":"异世大陆"},{"cateId":1002,"cateName":"东方玄幻"},{"cateId":1005,"cateName":"异术超能"},{"cateId":1004,"cateName":"转世重生"},{"cateId":1007,"cateName":"魔法校园"},{"cateId":1006,"cateName":"上古神话"},{"cateId":3116,"cateName":"变身情缘"}],"cateId":1,"cateName":"奇幻玄幻"},{"cateList":[{"cateId":1032,"cateName":"现代修真"},{"cateId":1033,"cateName":"新派武侠"},{"cateId":1034,"cateName":"传统武侠"},{"cateId":1031,"cateName":"古典仙侠"},{"cateId":3117,"cateName":"奇幻修真"}],"cateId":3,"cateName":"武侠仙侠"},{"cateList":[{"cateId":1064,"cateName":"历史传记"},{"cateId":1062,"cateName":"穿越历史"},{"cateId":1063,"cateName":"架空历史"}],"cateId":6,"cateName":"历史军事"},{"cateList":[{"cateId":1096,"cateName":"都市重生"},{"cateId":1097,"cateName":"都市异能"},{"cateId":1098,"cateName":"都市生活"},{"cateId":1099,"cateName":"青春校园"},{"cateId":1095,"cateName":"江湖情仇"},{"cateId":1090,"cateName":"职场商战"}],"cateId":9,"cateName":"都市娱乐"},{"cateList":[{"cateId":1150,"cateName":"科技时代"},{"cateId":1153,"cateName":"末世危机"},{"cateId":1152,"cateName":"穿梭时空"},{"cateId":1154,"cateName":"进化变异"},{"cateId":1157,"cateName":"星际争霸"},{"cateId":3121,"cateName":"游戏设定"},{"cateId":3120,"cateName":"游戏评论"},{"cateId":1332,"cateName":"虚拟网游"},{"cateId":3118,"cateName":"游戏攻略"},{"cateId":3119,"cateName":"游戏小说"}],"cateId":15,"cateName":"科幻游戏"},{"cateList":[{"cateId":1180,"cateName":"推理悬念"},{"cateId":1182,"cateName":"恐怖惊悚"},{"cateId":1183,"cateName":"灵异神怪"},{"cateId":1337,"cateName":"神秘文化"},{"cateId":1184,"cateName":"探险异闻"}],"cateId":18,"cateName":"悬疑灵异"},{"cateList":[{"cateId":1122,"cateName":"电子竞技"},{"cateId":1123,"cateName":"体育竞技"},{"cateId":1210,"cateName":"动漫同人"},{"cateId":1211,"cateName":"影视同人"},{"cateId":1212,"cateName":"小说同人"},{"cateId":1213,"cateName":"游戏同人"}],"cateId":21,"cateName":"竞技同人"},{"cateList":[{"cateId":1240,"cateName":"个人文集"},{"cateId":1241,"cateName":"集体创作"}],"cateId":24,"cateName":"评论文集"},{"cateList":[{"cateId":4005,"cateName":"变身入替"},{"cateId":4004,"cateName":"游戏世界"},{"cateId":4006,"cateName":"奇妙物语"},{"cateId":4001,"cateName":"原生幻想"},{"cateId":4003,"cateName":"动漫衍生"},{"cateId":4002,"cateName":"青春日常"}],"cateId":40,"cateName":"二次元"}];
+var mmCateJson=[{"cateList":[{"cateId":3123,"cateName":"豪门总裁"},{"cateId":3122,"cateName":"都市重生"},{"cateId":3106,"cateName":"青春校园"},{"cateId":3107,"cateName":"婚恋家庭"},{"cateId":3109,"cateName":"白领职场"}],"cateId":31,"cateName":"都市言情"},{"cateList":[{"cateId":3402,"cateName":"同人耽美"},{"cateId":3403,"cateName":"影视动漫"},{"cateId":3114,"cateName":"原创耽美"}],"cateId":34,"cateName":"耽美同人"},{"cateList":[{"cateId":3501,"cateName":"散文诗歌"},{"cateId":3502,"cateName":"小说文集"}],"cateId":35,"cateName":"短篇美文"},{"cateList":[{"cateId":3103,"cateName":"穿越时空"},{"cateId":3102,"cateName":"历史传奇"},{"cateId":3104,"cateName":"架空历史"}],"cateId":32,"cateName":"古代言情"},{"cateList":[{"cateId":3302,"cateName":"武侠仙侠"},{"cateId":3101,"cateName":"奇幻玄幻"},{"cateId":3112,"cateName":"科幻游戏"},{"cateId":3110,"cateName":"灵异悬疑"}],"cateId":33,"cateName":"幻想时空"}];
+var zhKeyWordJson = ["热血","爽文","穿越","升级","异世","重生","争霸","搞笑","生活","法宝","末世","魔兽","救亡","推理","网游","同人","养成","生化","种田","机甲","盗墓","轻小说","技术流","废柴流","无限流","扮猪吃虎","古典仙侠","英雄无敌","丹药升级"];
+var mmKeyWordJson = ["虐恋情深","情有独钟","欢喜冤家","豪门世家","宫廷斗争","花季雨季","青梅竹马","江湖恩怨","神仙妖精","重生宅斗","穿越种田","布衣生活","魔法校园","黑帮情仇","惊悚悬疑","三教九流","西方罗曼","民国旧影"];
+</script>
+<script type="text/javascript" src="http://static.zongheng.com/author/v2015/js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="http://static.zongheng.com/author/v2015/js/public.dialog.js"></script>
+<script type="text/javascript" src="http://static.zongheng.com/author/v2015/js/public.js"></script>
+<script type="text/javascript" src="http://static.zongheng.com/author/v2015/js/creatbook.js"></script>
+<script src="http://static.zongheng.com/author/v2015/js/load/plupload.full.min.js"></script>
+<script src="http://static.zongheng.com/author/v2015/js/load/upload.js"></script>
+<script type="text/javascript" src="js/jquery-2.1.0.js"></script>
+<script type="text/javascript">
+    function fun() {
+        $("#refluse").show();
+
+
+    }
+
+    function fn2() {
+        var value1 = document.getElementById("refluseW").value;
+        var refuse = document.getElementById("refuse");
+        refuse.value = value1;
+        var frm = document.getElementById("frm");
+//        alert(refuse.value.length)
+        if(refuse.value.length<23){
+            confirm("多输点吧，又少不了一块肉")
+        }else {
+            frm.submit();
+        }
+    }
+
+    function selImage(o) {
+        document.getElementById("img").src = getFullPath(o);
+    }
+
+function getFullPath(node) {
+    var imgURL = "";
+    try {
+        var file = null;
+        if (node.files && node.files[0]) {
+            file = node.files[0];
+        } else if (node.files && node.files.item(0)) {
+            file = node.files.item(0);
+        }
+        //Firefox 因安全性问题已无法直接通过input[file].value 获取完整的文件路径
+        try {
+            //Firefox7.0
+            imgURL = file.getAsDataURL();
+            //alert("//Firefox7.0"+imgRUL);
+        } catch (e) {
+            //Firefox8.0以上
+            imgURL = window.URL.createObjectURL(file);
+            //alert("//Firefox8.0以上"+imgRUL);
+        }
+    } catch (e) {
+        //支持html5的浏览器,比如高版本的firefox、chrome、ie10
+        if (node.files && node.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                imgURL = e.target.result;
+            };
+            reader.readAsDataURL(node.files[0]);
+        }
+    }
+    return imgURL;
+}
+    //获取字符串长度（汉字算两个字符，字母数字算一个）
+    function getByteLen(val) {
+        var len = 0;
+        for (var i = 0; i < val.length; i++) {
+            var a = val.charAt(i);
+            if (a.match(/[^\x00-\xff]/ig) != null) {
+                len += 1;
+            }
+            else {
+                len += 1;
+            }
+        }
+        return len;
+    }
+    // 只要键盘一抬起就验证编辑框中的文字长度，最大字符长度可以根据需要设定
+    function checkLength(obj) {
+        var maxChars = 250;//最多字符数
+        var curr = maxChars - getByteLen(obj.value);
+        var burr = getByteLen(obj.value)
+        if (curr > 0) {
+            document.getElementById("checklen").innerHTML = burr.toString();
+        } else {
+            document.getElementById("checklen").innerHTML = '0';
+            document.getElementById("subject").readOnly = true;
+        }
+    }
+</script>
+
+</body>
+</html>

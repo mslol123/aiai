@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jxky.bgxs.dao.NoticeDAO">
+    <resultMap id="NoticeMap" type="com.jxky.bgxs.entity.Notice">
+        <id property="id" column="id"></id>
+        <result property="matter" column="matter"></result>
+        <result property="createtime" column="createtime"></result>
+        <result property="mattertype" column="mattertype"></result>
+    </resultMap>
+
+    <sql id="noticeColumn">
+      id,matter,createtime,mattertype
+    </sql>
+
+    <insert id="save">
+        INSERT INTO notice (matter,createtime,mattertype) VALUES (#{matter},#{createtime},#{mattertype})
+    </insert>
+
+    <select id="findAllNotice" resultMap="NoticeMap">
+      SELECT
+      <include refid="noticeColumn"></include>
+      FROM notice
+    </select>
+
+    <select id="findByType" resultMap="NoticeMap">
+        SELECT
+        <include refid="noticeColumn"></include>
+        FROM notice WHERE mattertype = #{mattertype}
+    </select>
+</mapper>

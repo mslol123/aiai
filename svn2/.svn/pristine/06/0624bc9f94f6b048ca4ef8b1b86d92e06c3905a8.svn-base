@@ -1,0 +1,53 @@
+package com.jxky.bgxs.controller.zsy;
+
+import com.jxky.bgxs.entity.BookData;
+import com.jxky.bgxs.entity.BookMessage;
+import com.jxky.bgxs.entity.Chapter;
+import com.jxky.bgxs.service.gz.BookDataService;
+import com.jxky.bgxs.service.wt.ChapterService;
+import com.jxky.bgxs.service.wx.BookMessageService;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import javax.annotation.Resource;
+import java.util.List;
+
+@Controller
+@RequestMapping("/book")
+public class ReadBookController {
+
+    @Resource
+    private BookMessageService bookMessageService;
+    @Resource
+    private BookDataService bookDataService;
+    @Resource
+    private ChapterService chapterService;
+
+    /**
+     * author:zsy
+     * 测试用，通过访问url：localhost：8080/book/detail来跳转到书籍详情用
+     * 根据选择的书籍id查询对应的书籍信息到详情页面
+     */
+    @RequestMapping("/detail")
+    public String detail(Integer id, Model model){
+        BookMessage bookMessage = bookMessageService.findById(id);
+        BookData bookData = bookDataService.findByBookId(id);
+        model.addAttribute("bookMessage",bookMessage);
+        model.addAttribute("bookData",bookData);
+        return "books/book";
+    }
+
+    /**
+     * author:zsy
+     * 查询书籍的章节目录
+     */
+    @RequestMapping("/showChapter")
+    public String showChapterByBookId(Integer id,Model model){
+        List<Chapter> chapterList = chapterService.findChapterByBookId(id);
+        BookMessage bookMessage = bookMessageService.findById(id);
+        model.addAttribute("bookMessage",bookMessage);
+        model.addAttribute("chapterList",chapterList);
+        return "books/showChapter";
+    }
+}

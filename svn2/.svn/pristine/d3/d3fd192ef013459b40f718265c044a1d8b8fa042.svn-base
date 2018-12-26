@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jxky.bgxs.dao.IndentDAO">
+    <resultMap id="IndentMap" type="com.jxky.bgxs.entity.Indent">
+        <id property="number" column="indent_number"></id>
+        <result property="userId" column="indent_user_id"></result>
+        <result property="time" column="indent_time"></result>
+        <result property="name" column="indent_commodity_name"></result>
+        <result property="price" column="indent_price"></result>
+        <result property="state" column="indent_state"></result>
+    </resultMap>
+    <sql id="columns">
+        indent_number,indent_user_id,indent_time,indent_commodity_name,indent_price,indent_state
+    </sql>
+    <insert id="insert">
+        INSERT INTO indent
+        <trim prefix="(" suffixOverrides=",">
+            <if test="number !=null">
+                indent_number,
+            </if>
+            <if test="userId!=null">
+                indent_user_id,
+            </if>
+            <if test="time!=null">
+                indent_time,
+            </if>
+            <if test="name!=null">
+                indent_commodity_name,
+            </if>
+            <if test="price!=null">
+                indent_price,
+            </if>
+            <if test="state!=null">
+                indent_state,
+            </if>
+        </trim>
+        <trim prefix=")values(" suffixOverrides="," suffix=")">
+            <if test="number !=null">
+                #{number},
+            </if>
+            <if test="userId!=null">
+                #{userId},
+            </if>
+            <if test="time!=null">
+                #{time},
+            </if>
+            <if test="name!=null">
+                #{name},
+            </if>
+            <if test="price!=null">
+                #{price},
+            </if>
+            <if test="state!=null">
+                #{state},
+            </if>
+        </trim>
+    </insert>
+</mapper>

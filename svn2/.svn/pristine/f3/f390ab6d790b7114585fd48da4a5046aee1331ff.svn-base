@@ -1,0 +1,623 @@
+﻿
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="copyright" content="本页版权 www.zongheng.com 纵横中文网所有。All Rights Reserved">
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<link rel="shortcut icon" href="https://static.zongheng.com/favicon.ico" />
+<title>小说排行榜，最新热门小说排行榜，各类原创小说排行榜，纵横中文小说网</title>
+<meta name="keywords" content="小说,排行榜,小说排行榜,热门小说排行榜,网络小说排行榜,经典小说排行,免费小说排行榜,精品小说推荐榜">
+<meta name="description" content="纵横中文网小说排行榜提供最新、流行、经典、精品原创小说排行榜，包括：奇幻小说排行榜,武侠小说排行榜,言情小说排行榜,都市小说排行榜,历史小说排行榜,军事小说排行榜,科幻小说排行榜,网游小说排行榜,灵异小说排行榜,竞技小说排行榜,同人小说排行榜，全本小说排行榜。">
+<link rel="stylesheet" href="https://rcode.zongheng.com/v2018/css/basic.min.css" />
+<link rel="stylesheet" href="https://rcode.zongheng.com/v2018/css/rank.min.css" />
+</head>
+<body scriptSign="rank" _pgid="2">
+<ul th:each="b:${bookDataList}"><p th:text="${b.bookTicket}"></p></ul>
+<div class="head-fixed head-simple">
+
+<div class="wrap">
+       <div class="head-top clearfix">
+           <div class="logo imgbox fl"><a href="http://www.zongheng.com"><img src="http://rcode.zongheng.com/v2018/images/logo.png" alt="logo"></a></div>
+        <form name="searchForm" method="get" action="http://search.zongheng.com/s" target="_blank">
+           <div class="search-box">
+          <input class="search-text fl" name="keyword" type="text" placeholder="雪中悍刀行" autocomplete="off" disableautocomplete value="">
+          <input type="submit" class="search-btn fr" >
+           </div>
+        </form>
+           <div class="pay fr"><a class="user_pay" href="http://pay.zongheng.com" target="_blank">充值</a></div>
+           <div class="menu clearfix">
+               <a href="http://www.zongheng.com">首页</a>
+               <div class="cate tabA">
+                   <a href="##">分类<em class="icon"></em></a>
+                   <div class="tabA-float cate-cell">
+                       <ul>
+                       	<li><a href="http://www.zongheng.com/category/1.html">奇幻玄幻</a></li>
+                        <li><a href="http://www.zongheng.com/category/3.html">武侠仙侠</a></li>
+                        <li><a href="http://www.zongheng.com/category/6.html">历史军事</a></li>
+                        <li><a href="http://www.zongheng.com/category/9.html">都市娱乐</a></li>
+                        <li><a href="http://www.zongheng.com/category/21.html">竞技同人</a></li>
+                        <li><a href="http://www.zongheng.com/category/15.html">科幻游戏</a></li>
+                        <li><a href="http://www.zongheng.com/category/18.html">悬疑灵异</a></li>
+                        <li><a href="http://www.zongheng.com/category/40.html">二次元</a></li>
+                       </ul>
+                   </div>
+               </div>
+               <a href="http://www.zongheng.com/rank.html">排行</a>
+               <a href="http://www.zongheng.com/store.html" >书库</a>
+               <a href="http://www.zongheng.com/store/c0/c0/b0/u0/p1/v9/s1/t0/u0/i1/ALL.html">完本</a>
+               <a href="http://author.zongheng.com" target="_blank">作者专区</a>
+           </div>
+            
+<div class="right-wrap-login ud_userTox">
+    <div class="unlogin ud_unlogin clearfix">
+        <div class="login fl"><a class="user_login" href="https://passport.zongheng.com">登录</a></div>
+        <div class="regist fl"><a class="user_register" href="https://passport.zongheng.com/webreg">注册</a></div>
+    </div>
+    <div class="logon ud_loged clearfix" style="display:none;">
+        <div class="user tabA imgbox">
+        <img  class="ud_avatar ud_goUsrCenter" src="http://rcode.zongheng.com/v2018/images/book.png" alt="" target="_blank">
+            <div class="user-blank tabA-float">
+                <a href="javascript:void(0);" class="quit ud_logout">退出</a>
+                <div class="user-name ud_goUsrCenter"><span class="ud_nickName"></span><em class="icon"></em></div>
+                <div class="user-info clearfix">
+                    <div class="user-info-cell ud_money">
+                        <span class="item_loading"></span>
+                    </div>
+                    <div class="user-info-cell ud_ticket">
+                        <span class="item_loading"></span>
+                    </div>
+                    <div class="user-info-cell ud_mticket">
+                        <span class="item_loading"></span>
+                    </div>
+                </div>
+                <a href="http://pay.zongheng.com" class="btn" target="_blank">立即充值</a>
+            </div>
+        </div>
+        <div class="message">
+            <a href="http://home.zongheng.com/msgIn.do" class="mes" target="_blank">消息(<span class="ud_umessage"></span>)</a>
+        </div>
+        <div class="shelf"><a href="http://home.zongheng.com/favoritesBook.do" target="_blank">书架</a></div>
+        <div class="foot-mark tabA">
+            <span class="mark clearfix">历史<em class="icon"></em></span>
+            <div class="tabA-float float-mark clearfix">
+                <!-- loading -->
+                <div class="ud_hisloading">
+                        <span class="item_loading"></span>
+                </div>
+                <!-- 没有记录 -->
+                <div class="ud_noHistory" style="display: none">
+                  <h2>亲爱的书友，您暂时没有阅读记录~</h2>
+                  <div class="tips">阅读记录只保存最近阅读的5本小说</div>
+                  <div class="enter"><a href="http://home.zongheng.com/favoritesBook.do" target="_blank">进入我的书架</a></div>
+                </div>
+                <!-- 有记录 -->
+                <div class="ud_hasHistory" style="display: none"><ul class="mark-list"></ul></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+        </div>
+    </div>
+</div>
+<div class="wrap">
+	
+
+<div class="head">
+	<div class="head-top clearfix">
+		<div class="logo imgbox fl">
+			<a href="http://www.zongheng.com"><img
+				src="http://rcode.zongheng.com/v2018/images/logo.png" alt="logo"></a>
+		</div>
+		<form id="commSearch" name="searchForm" method="get"
+			action="http://search.zongheng.com/s" target="_blank">
+			<div class="search-box fl" data-hook="searchSuggest">
+				<input class="search-text fl" name="keyword" type="text"
+					placeholder="雪中悍刀行" autocomplete="off" disableautocomplete /> <input
+					type="submit" class="search-btn fr" />
+			</div>
+		</form>
+		<div class="pay fr">
+			<a class="user_pay" href="http://pay.zongheng.com" target="_blank">充值</a>
+		</div>
+		
+<div class="right-wrap-login ud_userTox">
+    <div class="unlogin ud_unlogin clearfix">
+        <div class="login fl"><a class="user_login" href="https://passport.zongheng.com">登录</a></div>
+        <div class="regist fl"><a class="user_register" href="https://passport.zongheng.com/webreg">注册</a></div>
+    </div>
+    <div class="logon ud_loged clearfix" style="display:none;">
+        <div class="user tabA imgbox">
+        <img  class="ud_avatar ud_goUsrCenter" src="http://rcode.zongheng.com/v2018/images/book.png" alt="" target="_blank">
+            <div class="user-blank tabA-float">
+                <a href="javascript:void(0);" class="quit ud_logout">退出</a>
+                <div class="user-name ud_goUsrCenter"><span class="ud_nickName"></span><em class="icon"></em></div>
+                <div class="user-info clearfix">
+                    <div class="user-info-cell ud_money">
+                        <span class="item_loading"></span>
+                    </div>
+                    <div class="user-info-cell ud_ticket">
+                        <span class="item_loading"></span>
+                    </div>
+                    <div class="user-info-cell ud_mticket">
+                        <span class="item_loading"></span>
+                    </div>
+                </div>
+                <a href="http://pay.zongheng.com" class="btn" target="_blank">立即充值</a>
+            </div>
+        </div>
+        <div class="message">
+            <a href="http://home.zongheng.com/msgIn.do" class="mes" target="_blank">消息(<span class="ud_umessage"></span>)</a>
+        </div>
+        <div class="shelf"><a href="http://home.zongheng.com/favoritesBook.do" target="_blank">书架</a></div>
+        <div class="foot-mark tabA">
+            <span class="mark clearfix">历史<em class="icon"></em></span>
+            <div class="tabA-float float-mark clearfix">
+                <!-- loading -->
+                <div class="ud_hisloading">
+                        <span class="item_loading"></span>
+                </div>
+                <!-- 没有记录 -->
+                <div class="ud_noHistory" style="display: none">
+                  <h2>亲爱的书友，您暂时没有阅读记录~</h2>
+                  <div class="tips">阅读记录只保存最近阅读的5本小说</div>
+                  <div class="enter"><a href="http://home.zongheng.com/favoritesBook.do" target="_blank">进入我的书架</a></div>
+                </div>
+                <!-- 有记录 -->
+                <div class="ud_hasHistory" style="display: none"><ul class="mark-list"></ul></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+	</div>
+	<div class="nav clearfix">
+		<div class="menu-left fl">
+			<a 
+				href="http://www.zongheng.com">首页<em></em></a> <a
+				
+				href="store.html">书库<em></em></a> <a
+				class="active"
+				href="rank.html">排行<em></em></a> <a
+				
+				href="store/c0/c0/b0/u0/p1/v9/s1/t0/u0/i1/ALL.html">完本<em></em></a>
+			<a href="http://huayu.baidu.com" target="_blank">花语女生网<em></em></a>
+			<div class="app-menu tabA">
+				<a href="" class="phone">移动端</a>
+				<div class="app-float tabA-float">
+					<div class="tit">纵横小说 原创精品</div>
+					<div class="imgbox tabC_wap">
+						<div class="tabC" style="display: block;">
+							<img src="http://rcode.zongheng.com/v2018/images/ad-float.png"
+								alt="">
+						</div>
+						<div class="tabC">
+							<img src="http://rcode.zongheng.com/v2018/images/ios-float.png"
+								alt="">
+						</div>
+						<div class="tabC">
+							<img src="http://rcode.zongheng.com/v2018/images/wx-float.png"
+								alt="">
+						</div>
+					</div>
+					<div class="tabT_wap app-down">
+						<span class="tabT ad active"></span> <span class="tabT ios"></span>
+						<span class="tabT wx"></span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="menu-right fr">
+			<a href="http://author.zongheng.com" class="author_zone" target="_blank">作者专区<em></em></a>
+			<a href="http://game.zongheng.com" class="game_center" target="_blank">游戏中心<em></em></a>
+		</div>
+	</div>
+</div>
+	<!-- 1.	排行头部广告位 -->
+	
+<div class="com-recbox">
+	<script type="text/javascript"src="http://static.zongheng.com/upload/hzds/column/240517642431.js"></script>
+</div>
+<div class="h15-blank"></div>
+	
+	<div class="rank_wrap clearfix">
+	
+
+<div class="rank_menu"> 
+    <div class="borderE6 rank_side">
+        <h3><a href="http://www.zongheng.com/rank.html" class="rank_active">人气榜单</a></h3>
+        <div class="borderB_e6"></div>
+        <h3>作品榜单</h3>
+        <p><a href="http://www.zongheng.com/rank/details.html?rt=1&d=1&i=2" >月票榜</a></p>
+        <p><a href="http://www.zongheng.com/rank/details.html?rt=3&d=1" >24小时畅销榜</a></p>
+        <p><a href="http://www.zongheng.com/rank/details.html?rt=4&d=1" >新书榜</a></p>
+        <p><a href="http://www.zongheng.com/rank/details.html?rt=5&d=1" >点击榜</a></p>
+        <p><a href="http://www.zongheng.com/rank/details.html?rt=6&d=1" >推荐榜</a></p>
+        <p><a href="http://www.zongheng.com/rank/details.html?rt=7&d=1" >捧场榜</a></p>
+        <p><a href="http://www.zongheng.com/rank/details.html?rt=8&d=1" >完结榜</a></p>
+        <p><a href="http://www.zongheng.com/rank/details.html?rt=9&d=1" >新书订阅榜</a></p>
+        <p><a href="http://www.zongheng.com/rank/details.html?rt=10&d=1" >24小时更新榜</a></p>   
+        <div class="borderB_e6 margin_t10_b5"></div>    
+        <h3>用户榜单</h3>
+        <p><a href="http://www.zongheng.com/rank/details.html?rt=11" >读者消费榜</a></p>  
+        <div class="borderB_e6 margin_t9_b1"></div>   
+        <h3>作者榜单</h3>
+        <p><a href="http://www.zongheng.com/rank/details.html?rt=12" >作者人气榜</a></p>   
+    </div>
+    <div class="borderE6 margin_t9_b40">
+        <a href="http://news.zongheng.com/subject/mt/index" target="_blank" class="rank_a_crown"><em class=" rank_ico_crown"></em>月票冠军 · 新星作品</a>
+    </div>
+    <!-- 2.	排行左侧导航下方广告位：此处广告位置宽度固定，但是不限制广告样式的高度 -->
+</div>
+
+	<div class="rank_main">
+	 <div class="rank_banner">
+	     <div class="rank_i_title_name"><span class="active">人气榜单</span></div>
+	 </div>
+	 
+	 <ul class="rank_i_lists">
+	     <!--月票榜-->
+	     <div class="rank_i_p_list">
+	         <div class="rank_i_p_tit">月票榜</div>
+	         
+	         			<div class="borderB_c_dsh rank_i_li rank_i_li1 clearfix">
+			             <div class="rank_i_num fl">1</div>
+			             <div class="rank_i_bname fl">
+							 <a th:href="@{'/book/detail?id='+${bookData1.bookMessage.bookId}}" target="_blank" class="rank_i_l_a_book"><span th:text="${bookData1.bookMessage.bookName}"></span></a>
+							 <span href="http://home.zongheng.com/show/userInfo/1185346.html" target="_blank" class="rank_i_l_a_author" th:text="${bookData1.bookMessage.author.user.nickname}"></span></a>
+							 <a href="http://www.zongheng.com/category/6.html" target="_blank" class="rank_i_l_a_category"><span  th:text="${bookData1.bookMessage.bookType.typeName}"></span></a>
+							 <div class="rank_i_l_font"><span th:text="${bookData1.bookTicket}"></span>&nbsp;月票数</div>
+			             </div>
+			             <div class="rank_i_bcount fr">
+			                 <a href="book/751819.html" target="_blank"><img src="http://static.zongheng.com/upload/cover/da/df/dadf3f130bdc7d9dc666fb20622902bb.jpeg" alt="长宁帝军"></a>
+			             </div>
+			           </div>
+	         		
+	         			<div class="borderB_c_dsh rank_i_li rank_i_li2 clearfix">
+			             <div class="rank_i_num fl">2</div>
+			             <div class="rank_i_bname fl">
+							 <ul th:each="b:${bookDataList2}"><a th:href="@{'/book/detail?id='+${b.bookMessage.bookId}}" target="_blank"><p th:text="${b.bookMessage.bookName}"></p></ul></a>
+			             </div>
+			             <div class="rank_i_bcount fr"><ul th:each="b:${bookDataList2}"><p th:text="${b.bookTicket}"></p></ul></div>
+			           </div>
+
+	         			<div class="borderB_c_dsh rank_i_li rank_i_li3 clearfix">
+			             <div class="rank_i_num fl">3</div>
+			             <div class="rank_i_bname fl">
+							 <ul th:each="b:${bookDataList3}"><a th:href="@{'/book/detail?id='+${b.bookMessage.bookId}}" target="_blank"><p th:text="${b.bookMessage.bookName}"></p></ul></a>
+			             </div>
+			             <div class="rank_i_bcount fr"><ul th:each="b:${bookDataList3}"><p th:text="${b.bookTicket}"></p></ul></div>
+			           </div>
+			 <ul th:each="b:${bookDataList4}">
+				 <div class="borderB_c_dsh rank_i_li rank_i_li-1 clearfix" >
+					 <div class="rank_i_num fl">█</div>
+					 <div class="rank_i_bname fl">
+						 <a th:href="@{'/book/detail?id='+${b.bookMessage.bookId}}" target="_blank"><p th:text="${b.bookMessage.bookName}"></p></a>
+						 <div class="rank_i_bcount fr"><p th:text="${b.bookTicket}"></p></div>
+					 </div>
+				 </div>
+			 </ul>
+
+	         <div class="rank_i_more">
+	             <a th:href="@{'/book/rankdetail?id='+${bookData1.bookMessage.bookId}}" class="rank_i_more_a">更多</a>
+	         </div>
+	     </div>
+	     <!--24小时畅销榜-->
+	     <div class="rank_i_p_list">
+	         <div class="rank_i_p_tit">24小时畅销榜</div>
+	         			<div class="borderB_c_dsh rank_i_li rank_i_li1 clearfix">
+			             <div class="rank_i_num fl">1</div>
+			             <div class="rank_i_bname fl">
+			                 <a th:href="@{'/book/detail?id='+${bookDatas1.bookMessage.bookId}}" target="_blank" class="rank_i_l_a_book"><span th:text="${bookDatas1.bookMessage.bookName}"></span></a>
+			                 <a href="http://home.zongheng.com/show/userInfo/166130.html" target="_blank" class="rank_i_l_a_author" th:text="${bookDatas1.bookMessage.author.user.nickname}">烽火戏诸侯</a>
+			                 <a href="http://www.zongheng.com/category/3.html" target="_blank" class="rank_i_l_a_category"><span  th:text="${bookDatas1.bookMessage.bookType.typeName}"></span></a>
+			                 <div class="rank_i_l_font"><span th:text="${bookDatas1.bookWords}"></span>万&nbsp;字</div>
+			             </div>
+			             <div class="rank_i_bcount fr">
+			                 <a href="book/672340.html" target="_blank"><img src="http://static.zongheng.com/upload/cover/2017/05/1496234539057.JPG" alt="剑来"></a>
+			             </div>
+			           </div>
+	         			<div class="borderB_c_dsh rank_i_li rank_i_li2 clearfix">
+			             <div class="rank_i_num fl">2</div>
+			             <div class="rank_i_bname fl">
+							 <ul th:each="b:${bookDataLists2}"><a th:href="@{'/book/detail?id='+${b.bookMessage.bookId}}" target="_blank"><p th:text="${b.bookMessage.bookName}"></p></ul></a>
+			             </div>
+			             <div class="rank_i_bcount fr">
+			             烈焰滔滔
+			             </div>
+			           </div>
+	         		
+	         			<div class="borderB_c_dsh rank_i_li rank_i_li3 clearfix">
+			             <div class="rank_i_num fl">3</div>
+			             <div class="rank_i_bname fl">
+							 <ul th:each="b:${bookDataLists3}"><a th:href="@{'/book/detail?id='+${b.bookMessage.bookId}}" target="_blank"><p th:text="${b.bookMessage.bookName}"></p></ul></a>
+			             </div>
+			             <div class="rank_i_bcount fr">
+			             烽火戏诸侯
+			             </div>
+			           </div>
+			 <ul th:each="b:${bookDataLists4}">
+	         			<div class="borderB_c_dsh rank_i_li rank_i_li-1 clearfix">
+			             <div class="rank_i_num fl">㊣</div>
+			             <div class="rank_i_bname fl">
+			                 <a th:href="@{'/book/detail?id='+${b.bookMessage.bookId}}" target="_blank"><p th:text="${b.bookMessage.bookName}"></p></a>
+			             </div>
+			             <div class="rank_i_bcount fr">
+			             火星引力
+			             </div>
+			           </div>
+			 </ul>
+	         <div class="rank_i_more">
+	             <a href="http://www.zongheng.com/rank/details.html?rt=3&d=1" class="rank_i_more_a" target="_blank">更多</a>
+	         </div>
+	     </div>
+	     <!--新书榜-->
+	     <div class="rank_i_p_list">
+	         <div class="rank_i_p_tit">新书榜</div>
+	         
+	         			<div class="borderB_c_dsh rank_i_li rank_i_li1 clearfix">
+			             <div class="rank_i_num fl">1</div>
+			             <div class="rank_i_bname fl">
+			                 <a th:href="@{'/book/detail?id='+${bookDataw1.bookMessage.bookId}}" class="rank_i_l_a_book"><span th:text="${bookDataw1.bookMessage.bookName}"></span></a>
+			                 <a href="http://home.zongheng.com/show/userInfo/4725692.html" target="_blank" class="rank_i_l_a_author">梁不凡</a>
+			                 <a href="http://www.zongheng.com/category/9.html" target="_blank" class="rank_i_l_a_category"><span  th:text="${bookDataw1.bookMessage.bookType.typeName}"></span></a>
+			                 <div class="rank_i_l_font"><span th:text="${bookDataw1.bookTicket}"></span>&nbsp;人气数</div>
+			             </div>
+			             <div class="rank_i_bcount fr">
+			                 <a href="book/777173.html" target="_blank"><img src="http://static.zongheng.com/upload/cover/30/ec/30ecae9752beb2dcd14137148a151e96.jpeg" alt="王牌大高手"></a>
+			             </div>
+			           </div>
+	         		
+	         			<div class="borderB_c_dsh rank_i_li rank_i_li2 clearfix">
+			             <div class="rank_i_num fl">2</div>
+			             <div class="rank_i_bname fl">
+							 <ul th:each="b:${bookDataListw2}"><a th:href="@{'/book/detail?id='+${b.bookMessage.bookId}}" target="_blank"><p th:text="${b.bookMessage.bookName}"></p></ul></a>
+			             </div>
+			             <div class="rank_i_bcount fr"><ul th:each="b:${bookDataListw2}"><p th:text="${b.bookTicket}"></p></ul></div>
+			           </div>
+	         		
+	         			<div class="borderB_c_dsh rank_i_li rank_i_li3 clearfix">
+			             <div class="rank_i_num fl">3</div>
+			             <div class="rank_i_bname fl">
+							 <ul th:each="b:${bookDataListw3}"><a th:href="@{'/book/detail?id='+${b.bookMessage.bookId}}" target="_blank"><p th:text="${b.bookMessage.bookName}"></p></ul></a>
+			             </div>
+			             <div class="rank_i_bcount fr"><ul th:each="b:${bookDataListw3}"><p th:text="${b.bookTicket}"></p></ul></div>
+			           </div>
+			 <ul th:each="b:${bookDataListw4}">
+	         			<div class="borderB_c_dsh rank_i_li rank_i_li-1 clearfix">
+			             <div class="rank_i_num fl">▲</div>
+			             <div class="rank_i_bname fl">
+			                 <a th:href="@{'/book/detail?id='+${b.bookMessage.bookId}}" target="_blank"><p th:text="${b.bookMessage.bookName}"></p></a>
+			             </div>
+			             <div class="rank_i_bcount fr"><p th:text="${b.bookTicket}"></p></div>
+			           </div>
+			 </ul>
+	         <div class="rank_i_more">
+	             <a href="http://www.zongheng.com//rank/details.html?rt=4&d=1" class="rank_i_more_a" target="_blank">更多</a>
+	         </div>
+	     </div>
+	     <!--新书订阅榜-->
+	     <div class="rank_i_p_list">
+	         <div class="rank_i_p_tit">新书订阅榜</div>
+	         
+	         			<div class="borderB_c_dsh rank_i_li rank_i_li1 clearfix">
+			             <div class="rank_i_num fl">1</div>
+			             <div class="rank_i_bname fl">
+			                 <a th:href="@{'/book/detail?id='+${bookDataa1.bookMessage.bookId}}" target="_blank" class="rank_i_l_a_book"><span th:text="${bookDataa1.bookMessage.bookName}"></span></a>
+			                 <a href="http://home.zongheng.com/show/userInfo/42409559.html" target="_blank" class="rank_i_l_a_author">超爽黑啤</a>
+			                 <a href="http://www.zongheng.com/category/9.html" target="_blank" class="rank_i_l_a_category"><span  th:text="${bookDataa1.bookMessage.bookType.typeName}"></span></a>
+			                 <div class="rank_i_l_font"><span th:text="${bookDataa1.bookWords}"></span>万&nbsp;字</div>
+			             </div>
+			             <div class="rank_i_bcount fr">
+			                 <a href="book/772277.html" target="_blank"><img src="http://static.zongheng.com/upload/cover/2a/67/2a67880397cda67d2e8cb4f41bb25b38.jpeg" alt="重生之奶爸医圣"></a>
+			             </div>
+			           </div>
+	         		
+	         			<div class="borderB_c_dsh rank_i_li rank_i_li2 clearfix">
+			             <div class="rank_i_num fl">2</div>
+			             <div class="rank_i_bname fl">
+							 <ul th:each="b:${bookDataLista2}"><a th:href="@{'/book/detail?id='+${b.bookMessage.bookId}}" target="_blank"><p th:text="${b.bookMessage.bookName}"></p></ul></a>
+			             </div>
+			             <div class="rank_i_bcount fr">
+			             	
+			             			<div class="rank_i_arrow_up"></div>
+			             		
+			             </div>
+			           </div>
+	         		
+	         			<div class="borderB_c_dsh rank_i_li rank_i_li3 clearfix">
+			             <div class="rank_i_num fl">3</div>
+			             <div class="rank_i_bname fl">
+							 <ul th:each="b:${bookDataLista3}"><a th:href="@{'/book/detail?id='+${b.bookMessage.bookId}}" target="_blank"><p th:text="${b.bookMessage.bookName}"></p></ul></a>
+			             </div>
+			             <div class="rank_i_bcount fr">
+			             	
+			             			<div class="rank_i_arrow_up"></div>
+			             		
+			             </div>
+			           </div>
+			 <ul th:each="b:${bookDataLista4}">
+	         			<div class="borderB_c_dsh rank_i_li rank_i_li-1 clearfix">
+			             <div class="rank_i_num fl">★</div>
+			             <div class="rank_i_bname fl">
+			                 <a th:href="@{'/book/detail?id='+${b.bookMessage.bookId}}" target="_blank"><p th:text="${b.bookMessage.bookName}"></p></a>
+			             </div>
+			             <div class="rank_i_bcount fr">
+			             	
+			             			<div class="rank_i_arrow_down"></div>
+			             		
+			             </div>
+			           </div>
+			 </ul>
+	         <div class="rank_i_more">
+	             <a href="http://www.zongheng.com/rank/details.html?rt=9&d=1" class="rank_i_more_a" target="_blank">更多</a>
+	         </div>
+	     </div>
+	     <!--点击榜-->
+	     <div class="rank_i_p_list">
+	         <div class="rank_i_p_tit">点击榜</div>
+	         
+	         			<div class="borderB_c_dsh rank_i_li rank_i_li1 clearfix">
+			             <div class="rank_i_num fl">1</div>
+			             <div class="rank_i_bname fl">
+			                 <a th:href="@{'/book/detail?id='+${bookDatau1.bookMessage.bookId}}" target="_blank" class="rank_i_l_a_book"><span th:text="${bookDatau1.bookMessage.bookName}"></span></a>
+			                 <a href="http://home.zongheng.com/show/userInfo/12369420.html" target="_blank" class="rank_i_l_a_author" th:text="${bookDatau1.bookMessage.author.user.nickname}">覆手</a>
+			                 <a href="http://www.zongheng.com/category/9.html" target="_blank" class="rank_i_l_a_category"><span  th:text="${bookDatau1.bookMessage.bookType.typeName}"></span></a>
+			                 <div class="rank_i_l_font"><span th:text="${bookDatau1.bookClick}"></span>&nbsp;点击数</div>
+			             </div>
+			             <div class="rank_i_bcount fr">
+			                 <a href="book/665301.html" target="_blank"><img src="http://static.zongheng.com/upload/cover/2017/05/1496047229306.jpg" alt="医等狂兵"></a>
+			             </div>
+			           </div>
+	         		
+	         			<div class="borderB_c_dsh rank_i_li rank_i_li2 clearfix">
+			             <div class="rank_i_num fl">2</div>
+			             <div class="rank_i_bname fl">
+							 <ul th:each="b:${bookDataListu2}"><a th:href="@{'/book/detail?id='+${b.bookMessage.bookId}}" target="_blank"><p th:text="${b.bookMessage.bookName}"></p></ul></a>
+			             </div>
+			             <div class="rank_i_bcount fr"><ul th:each="b:${bookDataListu2}"><p th:text="${b.bookClick}"></p></ul></div>
+			           </div>
+	         		
+	         			<div class="borderB_c_dsh rank_i_li rank_i_li3 clearfix">
+			             <div class="rank_i_num fl">3</div>
+			             <div class="rank_i_bname fl">
+							 <ul th:each="b:${bookDataListu3}"><a th:href="@{'/book/detail?id='+${b.bookMessage.bookId}}" target="_blank"><p th:text="${b.bookMessage.bookName}"></p></ul></a>
+			             </div>
+			             <div class="rank_i_bcount fr"><ul th:each="b:${bookDataListu3}"><p th:text="${b.bookClick}"></p></ul></div>
+			           </div>
+			 <ul th:each="b:${bookDataListu4}">
+	         			<div class="borderB_c_dsh rank_i_li rank_i_li-1 clearfix">
+			             <div class="rank_i_num fl">¤</div>
+			             <div class="rank_i_bname fl">
+			                 <a th:href="@{'/book/detail?id='+${b.bookMessage.bookId}}" target="_blank"><p th:text="${b.bookMessage.bookName}"></p></a>
+			             </div>
+			             <div class="rank_i_bcount fr"><p th:text="${b.bookClick}"></p></div>
+			           </div>
+			 </ul>
+	         <div class="rank_i_more">
+	             <a href="http://www.zongheng.com/rank/details.html?rt=5&d=1" class="rank_i_more_a" target="_blank">更多</a>
+	         </div>
+	     </div>
+
+	     <!--推荐榜-->
+	     <div class="rank_i_p_list">
+	         <div class="rank_i_p_tit">推荐榜</div>
+	         
+	         			<div class="borderB_c_dsh rank_i_li rank_i_li1 clearfix">
+			             <div class="rank_i_num fl">1</div>
+			             <div class="rank_i_bname fl">
+			                 <a th:href="@{'/book/detail?id='+${bookDatac1.bookMessage.bookId}}" target="_blank" class="rank_i_l_a_book"><span th:text="${bookDatac1.bookMessage.bookName}"></span></a>
+			                 <a href="http://home.zongheng.com/show/userInfo/9165211.html.html" target="_blank" class="rank_i_l_a_author">十阶浮屠</a>
+			                 <a href="http://www.zongheng.com/category/9.html" target="_blank" class="rank_i_l_a_category"><span  th:text="${bookDatac1.bookMessage.bookType.typeName}"></span></a>
+			                 <div class="rank_i_l_font"><span th:text="${bookDatac1.bookTicket}"></span>&nbsp;推荐票</div>
+			             </div>
+			             <div class="rank_i_bcount fr">
+			                 <a href="book/665301.html" target="_blank"><img src="http://static.zongheng.com/upload/cover/50/9c/509cca03a076f678c3f9c20fe19509ef.jpeg" alt="绝命毒尸"></a>
+			             </div>
+			           </div>
+	         		
+	         			<div class="borderB_c_dsh rank_i_li rank_i_li2 clearfix">
+			             <div class="rank_i_num fl">2</div>
+			             <div class="rank_i_bname fl">
+							 <ul th:each="b:${bookDataListc2}"><a th:href="@{'/book/detail?id='+${b.bookMessage.bookId}}" target="_blank"><p th:text="${b.bookMessage.bookName}"></p></ul></a>
+			             </div>
+			             <div class="rank_i_bcount fr"><ul th:each="b:${bookDataListc2}"><p th:text="${b.bookTicket}"></p></ul></div>
+			           </div>
+	         		
+	         			<div class="borderB_c_dsh rank_i_li rank_i_li3 clearfix">
+			             <div class="rank_i_num fl">3</div>
+			             <div class="rank_i_bname fl">
+							 <ul th:each="b:${bookDataListc3}"><a th:href="@{'/book/detail?id='+${b.bookMessage.bookId}}" target="_blank"><p th:text="${b.bookMessage.bookName}"></p></ul></a>
+			             </div>
+			             <div class="rank_i_bcount fr"><ul th:each="b:${bookDataListc3}"><p th:text="${b.bookTicket}"></p></ul></div>
+			           </div>
+			 <ul th:each="b:${bookDataListc4}">
+	         			<div class="borderB_c_dsh rank_i_li rank_i_li-1 clearfix">
+			             <div class="rank_i_num fl">☎</div>
+			             <div class="rank_i_bname fl">
+			                 <a th:href="@{'/book/detail?id='+${b.bookMessage.bookId}}" target="_blank"><p th:text="${b.bookMessage.bookName}"></p></a>
+			             </div>
+			             <div class="rank_i_bcount fr"><p th:text="${b.bookTicket}"></p></div>
+			           </div>
+			 </ul>
+	         <div class="rank_i_more">
+	             <a href="http://www.zongheng.com/rank/details.html?rt=6&d=1"  target="_blank" class="rank_i_more_a">更多</a>
+	         </div>
+	     </div>
+	 </div>
+	</div>
+  </div>
+</div>
+<div class="footer">
+
+
+<div class="partlink">
+    <div class="wrap">
+        <div class="title">出版合作联系</div>
+        <div class="clearfix">
+            <div class="mail fl">
+                
+                <div>版权合作联系人：许先生<a href="mailto:xubin@zongheng.com">xubin@zongheng.com</a></div>
+                
+                <div>广告合作联系人 : 张女士<a href="mailto:zhangwen@zongheng.com">zhangwen@zongheng.com</a></div>
+                
+            </div>
+           
+            <div class="help-btn">
+                <a class="btn" href="http://www.zongheng.com/help/index.html" target="_blank">帮助中心</a>
+                <p>服务时间：24小时</p>
+            </div>
+            
+            <div class="b1 foot-cell">
+                <div class="tit">客服</div>
+                <div class="qq">965151179</div>
+                <div class="email"><a href="mailto:zhkf@zongheng.com">zhkf@zongheng.com</a></div>
+            </div>
+            <div class="b2 foot-cell">
+                <div class="tit">举报</div>
+                <div class="tel">4006289988</div>
+                <div class="email"><a href="mailto:jubao@zongheng.com">jubao@zongheng.com</a></div>
+            </div>
+           
+            <div class="app foot-blank">
+                <div class="imgbox fl">
+                    <img src="http://rcode.zongheng.com/v2018/images/app.png" alt="">
+                </div>
+                <p>客户端下载</p>
+            </div>
+            
+            <div class="wchat foot-blank">
+                <div class="imgbox fl">
+                    <img src="http://rcode.zongheng.com/v2018/images/wx.png" alt="">
+                </div>
+                <p>微信公众号</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="copyright">
+    <div class="links"><a href="http://www.zongheng.com/company/about.html" target="_blank">关于纵横</a>|<a href="http://www.zhwenxue.com/join" target="_blank">诚聘英才</a>|<a href="http://www.zongheng.com/company/business.html" target="_blank">商务合作</a>|<a href="http://www.zongheng.com/company/copyright.html" target="_blank">法律声明</a>|<a href="http://www.zongheng.com/help/index.html" target="_blank">帮助中心</a>|<a href="http://author.zongheng.com" target="_blank">作者投稿</a>|<a href="http://www.zongheng.com/company/contact.html" target="_blank">联系我们</a>|<a href="http://www.zongheng.com/company/link.html" target="_blank">友情链接</a>|<a href="http://news.zongheng.com/zhuanti/wlqz/index.html" target="_blank">谨防诈骗</a>|<a href="http://www.zongheng.com/company/sitemap.html" target="_blank">网站地图</a></div>
+    <p>Copyright©<a href="http://www.zongheng.com" target="_blank">www.zongheng.com</a>All Rights Reserved 版权所有 北京幻想纵横网络技术有限公司   京ICP证：080527号《网络文化经营许可证》   <a href="http://static.zongheng.com/images/license/publication-license.jpg" target="_blank">京ICP备11009265号</a>   <a href="http://static.zongheng.com/images/license/business-license.jpg" target="_blank">京网文[2015]2368-459号</a></p>
+    <p>新出发京零字第朝130010号  丨  统一社会信用代码91110105678221683F  丨 <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502030124" target="_blank">京公网安备  	11010502030124号</a>  丨 <a href="http://www.cyberpolice.cn/wfjb/" target="_blank">公安部网络违法犯罪举报网站</a></p>
+    <p><a href="http://www.zongheng.com" target="_blank">纵横小说网</a>,提供<a href="http://www.zongheng.com/category/1.html" target="_blank">玄幻小说</a>,<a href="category/9.html" target="_blank">都市小说</a>,<a href="http://huayu.baidu.com" target="_blank">言情小说</a>等<a href="store/c0/c0/b0/u0/p1/v0/s9/t0/u0/i1/ALL.html" target="_blank">免费小说</a>阅读。作者发布小说作品时，请遵守国家互联网信息管理办法规定。</p>
+    <p>本站所收录小说作品、社区话题、书库评论均属其个人行为，不代表本站立场。</p>
+</div>
+	<script type="text/javascript" src="http://cdn-hangzhou.goeasy.io/goeasy.js"></script>
+<script type="text/javascript" src="http://rcode.zongheng.com/v2018/js/lib/require.min.js" defer async data-main="http://rcode.zongheng.com/v2018/js/map.min"></script>
+	<script type="text/javascript">
+        var goEasy = new GoEasy({
+            appkey: 'BC-58a22e706d3342ecafd6bd784c07d335'
+        });
+        goEasy.subscribe({
+            channel:'seckill',
+            onMessage: function(message){
+                alert('收到：'+message.content);
+            }
+        });
+	</script>
+</div>
+</body>
+</html>

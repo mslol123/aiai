@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<link href="/css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/js/jquery.js"></script>
+
+</head>
+
+<body>
+
+	<div class="place">
+    <span>位置：</span>
+    <ul class="placeul">
+    <li><a href="#">首页</a></li>
+    <li><a href="/greenroom/computer">文件管理</a></li>
+    <li><a href="#">列表</a></li>
+    </ul>
+    </div>
+
+    <table class="filetable">
+    
+    <thead>
+    	<tr>
+        <th width="25%">名称</th>
+        <!--<th width="11%">修改日期</th>-->
+        <th width="25%">修改日期</th>
+        <th width="25">审批状态</th>
+        <th width="25%">操作</th>
+        </tr>
+    </thead>
+    
+    <tbody>
+    
+    	<tr th:each="bookMessage:${bookMessageList}">
+            <td th:text="${bookMessage.bookName}"></td>
+            <td th:text="${bookMessage.bookCreattime}"></td>
+            <td th:text="${bookMessage.bookExamineStatus}"></td>
+            <td><a th:href="@{/detail(id=${bookMessage.bookId})}">详情</a></td>
+        </tr>
+    
+    </tbody>
+
+    </table>
+</body>
+</html>

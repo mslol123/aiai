@@ -1,0 +1,13 @@
+user个人信息-消息通知
+
+setting 个人信息-个人资料
+
+bookshelf 个人信息-我的书架
+
+fans 个人信息-我的积分
+
+billing 个人信息-我的账户
+
+books 首页-排行rank和书库bookstore、单本书籍book     PS：完本页面和排行公用
+
+search 首页-搜索

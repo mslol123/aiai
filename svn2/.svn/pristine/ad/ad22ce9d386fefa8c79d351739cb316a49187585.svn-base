@@ -1,0 +1,179 @@
+<!doctype html>
+<!--<html xmlns:th="http://www.thymeleaf.org">-->
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>作品专区-管理章节</title>
+
+<meta name="renderer" content="webkit">
+<!--<link rel="stylesheet" type="text/css" charset="UTF-8" href="../css/public.css">-->
+<!--<link rel="stylesheet" type="text/css" charset="utf-8" href="http://static.zongheng.com/author/v2015/style/manage.css">-->
+    <link rel="stylesheet" type="text/css" th:href=@{/js/jquery.datetimepicker.css}>
+    <script type="text/javascript" th:src="@{/ckeditor/ckeditor.js}"></script>
+</head>
+<body bookId="737631" authorization="3" level="0"
+       serialStatus="0"  draftId=""  isfemale="0">
+<div class="pub_nav_bg creat_add">
+	<div class="au_box">
+    	<div class="mod_tit">
+        	<h2 class="bookname" th:text="${bookMessage.bookName}"></h2>
+            <a href="" class="btn_bg bookstore">作品库</a>
+        </div>
+    </div>
+</div>
+<div>
+    <input type="button" id="but" name="but" th:value="隐藏" onclick="e()">
+    <div id="divi" name="divi">
+        <ul th:each="chapter:${chapterList}">
+            <li><a th:href="'/bookMessage/list/chapter/preUpdate/'+${chapter.chapterId}" th:text="${chapter.chapterName}"></a></li>
+        </ul>
+    </div>
+    <form id="form" method="post" enctype="multipart/form-data" action="/bookMessage/list/chapter/add">
+        <input type="hidden" id="chapterBookId" name="chapterBookId" th:value="${bookMessage.bookId}"/>
+        <input type="hidden" id="bookName" name="bookName" th:value="${bookMessage.bookName}"/>
+        <input type="hidden" id="chapterAuthorId" name="chapterAuthorId" th:value="${bookMessage.Author.authorId}"/>
+        <!--<input type="hidden" id="chapterId" name="chapterId" th:value="${bookMessage.bookId}"/>-->
+        <input type="text" id="chapterName" name="chapterName" placeholder="章节名"><br/>
+        <textarea id="content" name="content"  placeholder="编辑内容"></textarea><br/>
+        <textarea id="chapterMessage" name="chapterMessage" placeholder="作者有话说"></textarea><br/>
+        <input type="radio" id="r1" name="chapterReleaseModel" value="0">免费
+        <input type="radio" id="r2" name="chapterReleaseModel" value="1">VIP<br/>
+        <input type="radio" id="r3" name="chapterReleaseMode" onclick="fn2()" value="0">暂存草稿
+        <input type="radio" id="r4" name="chapterReleaseMode" onclick="fn2()" value="1">立即发布
+        <input type="radio" id="r5" name="chapterReleaseMode" onclick="fn1()" value="2">定时发布<br/>
+        <div style="display: none;" id="divTime">
+            <!--<input type="datetime-local" name="time">-->
+            <input type="text" name="date" id="datepicker">
+            <input type="time" name="time">
+        </div>
+        <!--<input type="submit"  value="上传章节">-->
+        <!--<input type="button" id="bt1" name="bt1" onclick="b()">-->
+        <input type="button" id="bt" name="bt" value="上传章节" onclick="c()">
+    </form>
+</div>
+<script type="text/javascript" src="http://cdn-hangzhou.goeasy.io/goeasy.js"></script>
+<!--<script type="text/javascript" src="../js/jquery-1.8.3.min.js"></script>-->
+<!--<script type="text/javascript" src="../js/public.dialog.js"></script>-->
+<!--<script type="text/javascript" src="../js/public.js"></script>-->
+<!--<script type="text/javascript" src="../js/laydate.js"></script>-->
+<!--<script type="text/javascript" src="../js/editor.js"></script>-->
+<!--<script type="text/javascript" src="../js/tongji.js"></script>-->
+<script type=text/javascript th:src="@{/js/jquery-2.1.0.js}"></script>
+</body>
+</html>
+<!--<script type="text/javascript">-->
+    <!--CKEDITOR.replace('content', {-->
+        <!--"filebrowserUploadUrl" : "<%=request.getContextPath()%>/upload"-->
+    <!--});-->
+<!--</script>-->
+<script type="text/javascript">
+    var goEasy = new GoEasy({
+        appkey: 'BC-58a22e706d3342ecafd6bd784c07d335'
+    });
+    goEasy.subscribe({
+        channel:'seckill',
+        onMessage: function(message){
+            alert('收到：'+message.content);
+        }
+    });
+</script>
+<script type="text/javascript">
+    CKEDITOR.replace('content');
+
+window.onload=function () {
+    setTimeout(b,300000)
+}
+
+    function e() {
+        if ($("#divi").css("display")=="none"){
+            $("#divi").css("display","block");
+            $("#but").val("隐藏");
+        }else {
+            $("#divi").css("display", "none");
+            $("#but").val("显示");
+        }
+    }
+
+    function fn1() {
+        $("#divTime").show();
+    }
+
+    function fn2() {
+        var element = document.getElementById("datepicker");
+        element.value="Tue Nov 13 2018";
+        $("#divTime").hide();
+//        $("#datepicker").value="Tue Nov 13 2018";
+    }
+
+    function a() {
+//        var content = $("#content").val();
+        var content=CKEDITOR.instances.content.getData();
+//        alert(content);
+        $.post("/bookMessage/list/chapter/redis",{content:content},function () {
+//            window.location.href="index4.html";
+        });
+    }
+    function b() {
+        setInterval(a,300000);
+    }
+
+    
+    function c() {
+//        var content =$("#content").val();
+        var content=CKEDITOR.instances.content.getData();
+//        alert(content);
+        var bt=document.getElementById("bt");
+                $.post("/bookMessage/list/chapter/jiance",{content:content},function (data) {
+                    if (data==1) {
+                        var message=confirm("包含非法字符,是否继续提交？");
+                        if(message==true){
+//                            d();
+                            $("#form").submit();
+                        }else {
+                            return false;
+                        }
+                    }else{
+//                        d();
+                        $("#form").submit();
+                    }
+                });
+    }
+
+    function d() {
+        var bookName = $("#bookName").val;
+//        alert(bookName)
+        var chapterName = $("#chapterName").val;
+//        alert(chapterName)
+        $.post("/publish/queue",{bookName:bookName,chapterName:chapterName},function () {
+            alert("新章节已推送");
+        })
+    }
+
+</script>
+
+<link rel="stylesheet" href="http://dbushell.github.com/Pikaday/css/pikaday.css">
+<script src="http://dbushell.github.com/Pikaday/pikaday.js"></script>
+<script>
+    var picker = new Pikaday({ field: $('#datepicker')[0] });
+</script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        var i18n = { // 本地化
+            previousMonth: '上个月',
+            nextMonth: '下个月',
+            months: ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'],
+            weekdays: ['周日', '周一', '周二', '周三', '周四', '周五', '周六'],
+            weekdaysShort: ['日', '一', '二', '三', '四', '五', '六']
+        }
+        var datepicker = new Pikaday({
+            field: jQuery('#datetimepicker')[0],
+            minDate: new Date('2000-01-01 00:00:00'),
+            maxDate: new Date('2020-12-31 00:00:00'),
+            yearRange: [2000, 2025],
+            i18n: i18n,
+            onSelect: function() {
+                var date = document.createTextNode(this.format('YYYY-MM-DD HH:mm:ss') + ' '); //生成的时间格式化成 2013-09-25
+                $('#datepicker').appendChild(date);
+            }
+        });
+    }); </script>

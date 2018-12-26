@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jxky.bgxs.dao.BookShelfDAO">
+    <resultMap id="BookShelfMap" type="com.jxky.bgxs.entity.BookShelf">
+        <collection property="bookMessage" column="book_id" select="com.jxky.bgxs.dao.BookMessageDAO.findById"></collection>
+        <collection property="user" column="user_id" select="com.jxky.bgxs.dao.UserDAO.findById"></collection>
+    </resultMap>
+    <insert id="insert">
+        INSERT INTO bookshelf (book_id, user_id) VALUES (#{bookId},#{id})
+    </insert>
+
+</mapper>
+
+
+
+

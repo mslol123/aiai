@@ -1,0 +1,20 @@
+package com.jxky.bgxs.util;
+
+import org.springframework.stereotype.Component;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
+@Component
+public class MinMonthHelper {
+    public Date getMinMonthDate(Date date) throws ParseException{
+        Calendar calendar = Calendar.getInstance();
+//        DateTimeFormat dft =
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        calendar.setTime(date);
+        calendar.set(Calendar.DAY_OF_MONTH, calendar.getActualMinimum(Calendar.DAY_OF_MONTH));
+        return calendar.getTime();
+    }
+}

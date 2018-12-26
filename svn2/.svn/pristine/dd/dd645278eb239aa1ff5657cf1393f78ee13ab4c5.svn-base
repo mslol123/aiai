@@ -1,0 +1,18 @@
+package com.jxky.bgxs.service.zq;
+
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.authc.AuthenticationToken;
+import org.apache.shiro.authc.UsernamePasswordToken;
+import org.apache.shiro.subject.Subject;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+@Service
+@Transactional
+public class UserService {
+    public void login(String tel,String pwd){
+        Subject subject = SecurityUtils.getSubject();
+        AuthenticationToken token =  new UsernamePasswordToken(tel,pwd);
+        subject.login(token);
+    }
+}

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jxky.bgxs.dao.UserDAO">
+    <resultMap id="UserMap" type="com.jxky.bgxs.entity.User">
+        <id property="id" column="login_id"></id>
+        <result property="tel" column="login_tel"></result>
+        <result property="pwd" column="login_pwd"></result>
+        <result property="nickname" column="login_nickname"></result>
+        <result property="onlynum" column="login_onlynum"></result>
+    </resultMap>
+    <select id="findByNP" resultMap="UserMap">
+        SELECT * FROM user_login WHERE login_tel = #{tel}
+    </select>
+    <select id="findById" resultMap="UserMap">
+        SELECT * FROM user_login WHERE login_id = #{id}
+    </select>
+    <select id="findBytel" resultMap="UserMap">
+        SELECT login_tel FROM user_login WHERE login_tel = #{tel}
+    </select>
+    <insert id="save">
+        INSERT INTO user_login (login_tel,login_pwd,login_nickname,login_onlynum) VALUES (#{tel},#{pwd},#{nickname},#{onlynum})
+    </insert>
+    <select id="findByName" resultMap="UserMap">
+        SELECT login_nickname FROM user_login WHERE login_nickname = #{nickname}
+    </select>
+    <select id="findByTel" resultMap="UserMap">
+        SELECT login_tel,login_nickname,login_onlynum,login_pwd,login_id FROM user_login WHERE login_tel = #{tel}
+    </select>
+    <update id="update">
+        UPDATE user_login
+        <set>
+            <if test="tel!=null">
+                login_tel=#{tel},
+            </if>
+            <if test="pwd!=null">
+                login_pwd=#{pwd},
+            </if>
+            <if test="nickname!=null">
+                login_nickname=#{nickname},
+            </if>
+            <if test="onlynum!=null">
+                login_onlynum=#{onlynum},
+            </if>
+        </set>
+        WHERE login_id=#{id}
+    </update>
+</mapper>
+

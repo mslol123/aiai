@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jxky.bgxs.dao.AuthorDAO">
+    <resultMap id="authorMap" type="com.jxky.bgxs.entity.Author">
+        <id property="authorId" column="author_id"></id>
+        <result property="authorTruename" column="author_truename"></result>
+        <result property="antuorIDnumber" column="author_IDnumber"></result>
+        <result property="authorPost" column="author_post"></result>
+        <result property="anthorPassword" column="author_password"></result>
+    </resultMap>
+
+    <select id="findByUsernameAndPwd" resultMap="authorMap">
+        SELECT admin_id,admin_username,admin_pwd FROM admin WHERE admin_username=#{username} AND admin_pwd=#{password}
+    </select>
+
+    <select id="findById" resultMap="authorMap">
+
+    </select>
+
+</mapper>
+
+
+
+

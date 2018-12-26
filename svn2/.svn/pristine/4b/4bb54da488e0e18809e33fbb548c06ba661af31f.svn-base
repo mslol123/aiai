@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+当前的订单号是: <span th:text="${oid}"></span>
+<img th:src="@{/pay/image}"><br>
+<input id="tel" type="hidden" th:value="${oid}">
+</body>
+<form id="successId" action="/pay/success"></form>
+</html>
+<script type="text/javascript" src="http://static.zongheng.com/v2014/js/lib/jquery.min.js"></script>
+<script type="text/javascript" src="http://cdn-hangzhou.goeasy.io/goeasy.js"></script>
+<script type="text/javascript">
+    var tel = $("#tel").val();
+    var goEasy = new GoEasy({
+        appkey: 'BC-9f6395b045e94368a90769a9cb3549c9'
+    });
+    goEasy.subscribe({
+        channel:'WXpay',
+        onMessage: function(message){
+            var payResult = JSON.parse(message.content)
+            if(payResult.tel == tel){
+                if(payResult.result.code == 0){
+                    $("#successId").submit();
+                }else {
+                    alert("支付失败");
+                }
+            }
+        }
+    });
+</script>

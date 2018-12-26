@@ -1,0 +1,906 @@
+﻿
+
+
+
+
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>纵横中文网</title>
+    <link rel="stylesheet" href="http://rcode.zongheng.com/v2018/css/basic.min.css" />
+    <link rel="stylesheet" href="http://rcode.zongheng.com/v2018/css/search.min.css" />
+</head>
+
+<body scriptSign="search" sort="">
+
+<div class="head-fixed head-simple">
+   
+<div class="wrap">
+       <div class="head-top clearfix">
+           <div class="logo imgbox fl"><img src="http://rcode.zongheng.com/v2018/images/logo.png" alt="logo"></div>
+        <form name="searchForm" method="get" action="s" target="_blank">
+           <div class="search-box">
+          <input class="search-text fl" name="keyword" type="text" placeholder="雪中悍刀行" autocomplete="off" disableautocomplete value="">
+          <input type="submit" class="search-btn fr" >
+           </div>
+        </form>
+
+
+           <div class="pay fr"><a class="user_pay" href="http://pay.zongheng.com">充值</a></div>
+           <div class="menu clearfix">
+               <a href="">首页</a>
+               <div class="cate tabA">
+                   <a href="#">分类<em class="icon"></em></a>
+                   <div class="tabA-float cate-cell">
+                       <ul>
+                       	<li><a href="http://www.zongheng.com/category/1.html">奇幻玄幻</a></li>
+                        <li><a href="http://www.zongheng.com/category/3.html">武侠仙侠</a></li>
+                        <li><a href="http://www.zongheng.com/category/6.html">历史军事</a></li>
+                        <li><a href="http://www.zongheng.com/category/9.html">都市娱乐</a></li>
+                        <li><a href="http://www.zongheng.com/category/21.html">竞技同人</a></li>
+                        <li><a href="http://www.zongheng.com/category/15.html">科幻游戏</a></li>
+                        <li><a href="http://www.zongheng.com/category/18.html">悬疑灵异</a></li>
+                        <li><a href="http://www.zongheng.com/category/40.html">二次元</a></li>
+                       </ul>
+                   </div>
+               </div>
+               <a href="http://www.zongheng.com/rank.html">排行</a>
+               <a href="http://book.zongheng.com/store.html">书库</a>
+               <a href="http://book.zongheng.com/store/c0/c0/b0/u0/p1/v9/s1/t0/u0/i1/ALL.html">完本</a>
+               <a href="http://author.zongheng.com">作者专区</a>
+           </div>
+            
+<div class="right-wrap-login ud_userTox">
+    <div class="unlogin ud_unlogin clearfix">
+        <div class="login fl"><a class="user_login" href="https://passport.zongheng.com">登录</a></div>
+        <div class="regist fl"><a class="user_register" href="https://passport.zongheng.com/webreg">注册</a></div>
+    </div>
+    <div class="logon ud_loged clearfix" style="display:none;">
+        <div class="user tabA imgbox">
+        <img  class="ud_avatar ud_goUsrCenter" src="http://rcode.zongheng.com/v2018/images/book.png" alt="">
+            <div class="user-blank tabA-float">
+                <a href="javascript:void(0);" class="quit ud_logout">退出</a>
+                <div class="user-name ud_goUsrCenter"><span class="ud_nickName"></span><em class="icon"></em></div>
+                <div class="user-info clearfix">
+                    <div class="user-info-cell ud_money">
+                        <span class="item_loading"></span>
+                    </div>
+                    <div class="user-info-cell ud_ticket">
+                        <span class="item_loading"></span>
+                    </div>
+                    <div class="user-info-cell ud_mticket">
+                        <span class="item_loading"></span>
+                    </div>
+                </div>
+                <a href="http://pay.zongheng.com" class="btn">立即充值</a>
+            </div>
+        </div>
+        <div class="message">
+            <a href="http://home.zongheng.com/msgIn.do" class="mes">消息(<span class="ud_umessage"></span>)</a>
+        </div>
+        <div class="shelf"><a href="/home.zongheng.com/favoritesBook.do">书架</a></div>
+        <div class="foot-mark tabA">
+            <span class="mark clearfix">历史<em class="icon"></em></span>
+            <div class="tabA-float float-mark clearfix">
+                <!-- loading -->
+                <div class="ud_hisloading">
+                        <span class="item_loading"></span>
+                </div>
+                <!-- 没有记录 -->
+                <div class="ud_noHistory" style="display: none">
+                  <h2>亲爱的书友，您暂时没有阅读记录~</h2>
+                  <div class="tips">阅读记录只保存最近阅读的5本小说</div>
+                  <div class="enter"><a href="http://home.zongheng.com/favoritesBook.do">进入我的书架</a></div>
+                </div>
+                <!-- 有记录 -->
+                <div class="ud_hasHistory" style="display: none"><ul class="mark-list"></ul></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+        </div>
+    </div>
+</div>
+<div class="wrap">
+
+<div class="head">
+   <div class="head-top clearfix">
+       <div class="logo imgbox fl"><img src="http://rcode.zongheng.com/v2018/images/logo.png" alt="logo"></div>
+      <form id="commSearch" name="searchForm" method="get" action="s" target="_blank">
+       <div class="search-box fl" data-hook="searchSuggest">
+            <input class="search-text fl" name="keyword" type="text" placeholder="雪中悍刀行" autocomplete="off" disableautocomplete />
+            <input type="submit" class="search-btn fr" />
+       </div>
+      </form>
+       <div class="pay fr"><a class="user_pay" href="http://pay.zongheng.com">充值</a></div>
+       
+<div class="right-wrap-login ud_userTox">
+    <div class="unlogin ud_unlogin clearfix">
+        <div class="login fl"><a class="user_login" href="https://passport.zongheng.com">登录</a></div>
+        <div class="regist fl"><a class="user_register" href="https://passport.zongheng.com/webreg">注册</a></div>
+    </div>
+    <div class="logon ud_loged clearfix" style="display:none;">
+        <div class="user tabA imgbox">
+        <img  class="ud_avatar ud_goUsrCenter" src="http://rcode.zongheng.com/v2018/images/book.png" alt="">
+            <div class="user-blank tabA-float">
+                <a href="javascript:void(0);" class="quit ud_logout">退出</a>
+                <div class="user-name ud_goUsrCenter"><span class="ud_nickName"></span><em class="icon"></em></div>
+                <div class="user-info clearfix">
+                    <div class="user-info-cell ud_money">
+                        <span class="item_loading"></span>
+                    </div>
+                    <div class="user-info-cell ud_ticket">
+                        <span class="item_loading"></span>
+                    </div>
+                    <div class="user-info-cell ud_mticket">
+                        <span class="item_loading"></span>
+                    </div>
+                </div>
+                <a href="http://pay.zongheng.com" class="btn">立即充值</a>
+            </div>
+        </div>
+        <div class="message">
+            <a href="http://home.zongheng.com/msgIn.do" class="mes">消息(<span class="ud_umessage"></span>)</a>
+        </div>
+        <div class="shelf"><a href="/home.zongheng.com/favoritesBook.do">书架</a></div>
+        <div class="foot-mark tabA">
+            <span class="mark clearfix">历史<em class="icon"></em></span>
+            <div class="tabA-float float-mark clearfix">
+                <!-- loading -->
+                <div class="ud_hisloading">
+                        <span class="item_loading"></span>
+                </div>
+                <!-- 没有记录 -->
+                <div class="ud_noHistory" style="display: none">
+                  <h2>亲爱的书友，您暂时没有阅读记录~</h2>
+                  <div class="tips">阅读记录只保存最近阅读的5本小说</div>
+                  <div class="enter"><a href="http://home.zongheng.com/favoritesBook.do">进入我的书架</a></div>
+                </div>
+                <!-- 有记录 -->
+                <div class="ud_hasHistory" style="display: none"><ul class="mark-list"></ul></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+   </div>
+   <div class="nav clearfix">
+       <div class="menu-left fl">
+           <a  href="http://www.zongheng.com">首页<em></em></a>
+           <a  href="http://book.zongheng.com/store.html">书库<em></em></a>
+           <a  href="http://book.zongheng.com/rank.html">排行<em></em></a>
+           <a  href="http://book.zongheng.com/store/c0/c0/b0/u0/p1/v9/s1/t0/u0/i1/ALL.html">完本<em></em></a>
+           <a  href="http://huayu.baidu.com">花语女生网<em></em></a>
+           <div  class="app-menu tabA"><a href="" class="phone" >移动端</a>
+               <div class="app-float tabA-float">
+                   <div class="tit">纵横小说 原创精品</div>
+                   <div class="imgbox tabC_wap">
+                       <div class="tabC" style="display:block;"><img src="http://rcode.zongheng.com/v2018/images/ad-float.png" alt=""></div>
+                        <div class="tabC"><img src="http://rcode.zongheng.com/v2018/images/ios-float.png" alt=""></div>
+                        <div class="tabC"><img src="http://rcode.zongheng.com/v2018/images/wx-float.png" alt=""></div>
+                    </div>
+                    <div class="tabT_wap app-down">
+                        <span class="tabT ad active"></span>
+                        <span class="tabT ios"></span>
+                        <span class="tabT wx"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="menu-right fr">
+            <a href="http://author.zongheng.com" class="author_zone">作者专区<em></em></a>
+            <a href="http://game.zongheng.com" class="game_center">游戏中心<em></em></a>
+        </div>
+    </div>
+</div>
+<!-- 搜索主内容 -->
+<div class="h10-blank"></div>
+<div class="search-html-box clearfix">
+    <div class="search-main fl">
+        
+                
+                    <div class="search-tips">共搜索到10804部与“<span id="queryword">雪中悍刀行</span>”相关结果</div>
+                
+                <div class="search-nav">
+                    <a href="?keyword=%E9%9B%AA%E4%B8%AD%E6%82%8D%E5%88%80%E8%A1%8C"><span class="active">默认</span></a>
+                    <a href="?keyword=%E9%9B%AA%E4%B8%AD%E6%82%8D%E5%88%80%E8%A1%8C&sort=totalWord "><span >总字数</span></a>
+                   	<a href="?keyword=%E9%9B%AA%E4%B8%AD%E6%82%8D%E5%88%80%E8%A1%8C&sort=totalRecommend"> <span >总推荐</span></a>
+                    <a href="?keyword=%E9%9B%AA%E4%B8%AD%E6%82%8D%E5%88%80%E8%A1%8C&sort=totalFavorite"><span >总收藏</span></a>
+                    <a href="?keyword=%E9%9B%AA%E4%B8%AD%E6%82%8D%E5%88%80%E8%A1%8C&sort=totalClick"><span >用户总点击</span></a>
+                    <a href="?keyword=%E9%9B%AA%E4%B8%AD%E6%82%8D%E5%88%80%E8%A1%8C&sort=updateTime"><span >更新时间</span></a>
+                </div>
+                <div class="search-tab">
+                    
+                        <div class="search-result-list clearfix">
+                            <div class="imgbox fl se-result-book">
+                                <a href="http://book.zongheng.com/book/189169.html" target="_blank">
+                                    <img style="width: 100px; height: 132px" src="http://static.zongheng.com/upload/cover/03/3b/033bfb691d626e55f78e6c7fef0a9737.jpeg" onerror="this.src='http://static.zongheng.com/upload/fm_big.gif';this.onerror=null;">
+                                </a>
+                            </div>
+                            <div class="fl se-result-infos">
+                                <h2 class="tit"><a href="http://book.zongheng.com/book/189169.html" target="_blank"><font color="RED">雪</font><font color="RED">中</font><font color="RED">悍</font><font color="RED">刀</font><font color="RED">行</font></a></h2>
+
+                                <div class="bookinfo">
+                                    <a href="http://home.zongheng.com/show/userInfo/166130.html" target="_blank">烽火戏诸侯</a>
+                                    <em>|</em><a href="http://www.zongheng.com/category/1.html" target="_blank">奇幻玄幻</a>
+                                    <em>|</em><span>完结</span>
+                                    <em>|</em><span>4616302字</span></div>
+                                <p>————
+开始收官<font color="RED">中</font>。</p>
+                                <div class="key-word">关键词：烽火戏诸侯 热血 玄幻 修真
+								</div>
+                            </div>
+                            <div class="btn">
+                                <a href="http://book.zongheng.com/book/189169.html" target="_blank" class="bkinfo">书籍详情</a>
+                                <a href="javascript:void(0);" class="addshelf" data-bookId="189169">加入书架</a>
+                            </div>
+                        </div>
+                    
+                        <div class="search-result-list clearfix">
+                            <div class="imgbox fl se-result-book">
+                                <a href="http://book.zongheng.com/book/772315.html" target="_blank">
+                                    <img style="width: 100px; height: 132px" src="http://static.zongheng.com/upload/cover/7e/6b/7e6b51c8138d7fa5d324faf9b0798c1d.jpeg" onerror="this.src='http://static.zongheng.com/upload/fm_big.gif';this.onerror=null;">
+                                </a>
+                            </div>
+                            <div class="fl se-result-infos">
+                                <h2 class="tit"><a href="http://book.zongheng.com/book/772315.html" target="_blank"><font color="RED">雪</font><font color="RED">行</font>亭杂记</a></h2>
+
+                                <div class="bookinfo">
+                                    <a href="http://home.zongheng.com/show/userInfo/49919189.html" target="_blank">阮行年</a>
+                                    <em>|</em><a href="http://www.zongheng.com/category/21.html" target="_blank">竞技同人</a>
+                                    <em>|</em><span>连载</span>
+                                    <em>|</em><span>7992字</span></div>
+                                <p>本文算是《<font color="RED">雪</font><font color="RED">中</font><font color="RED">悍</font><font color="RED">刀</font><font color="RED">行</font>》的同人吧。在看过《<font color="RED">雪</font><font color="RED">中</font><font color="RED">悍</font><font color="RED">刀</font><font color="RED">行</font>》之后，渐渐萌生出写点什么的想法。</p>
+                                <div class="key-word">关键词：<font color="RED">雪中悍刀行</font> 同人 杂记
+								</div>
+                            </div>
+                            <div class="btn">
+                                <a href="http://book.zongheng.com/book/772315.html" target="_blank" class="bkinfo">书籍详情</a>
+                                <a href="javascript:void(0);" class="addshelf" data-bookId="772315">加入书架</a>
+                            </div>
+                        </div>
+                    
+                        <div class="search-result-list clearfix">
+                            <div class="imgbox fl se-result-book">
+                                <a href="http://book.zongheng.com/book/626563.html" target="_blank">
+                                    <img style="width: 100px; height: 132px" src="http://static.zongheng.com/upload/cover/17/a1/17a176449bdad04418d578148259b851.jpeg" onerror="this.src='http://static.zongheng.com/upload/fm_big.gif';this.onerror=null;">
+                                </a>
+                            </div>
+                            <div class="fl se-result-infos">
+                                <h2 class="tit"><a href="http://book.zongheng.com/book/626563.html" target="_blank">浮生自凭浮生乱</a></h2>
+
+                                <div class="bookinfo">
+                                    <a href="http://home.zongheng.com/show/userInfo/25487447.html" target="_blank">陌上梓德</a>
+                                    <em>|</em><a href="http://www.zongheng.com/category/3.html" target="_blank">武侠仙侠</a>
+                                    <em>|</em><span>连载</span>
+                                    <em>|</em><span>31517字</span></div>
+                                <p>致：《将夜》、致《<font color="RED">雪</font><font color="RED">中</font><font color="RED">悍</font><font color="RED">刀</font><font color="RED">行</font>》
+致我们这个时代的江湖。</p>
+                                <div class="key-word">关键词：古典仙侠 传统武侠 人世百态 <font color="RED">雪中悍刀行</font> 将夜
+								</div>
+                            </div>
+                            <div class="btn">
+                                <a href="http://book.zongheng.com/book/626563.html" target="_blank" class="bkinfo">书籍详情</a>
+                                <a href="javascript:void(0);" class="addshelf" data-bookId="626563">加入书架</a>
+                            </div>
+                        </div>
+                    
+                        <div class="search-result-list clearfix">
+                            <div class="imgbox fl se-result-book">
+                                <a href="http://book.zongheng.com/book/753256.html" target="_blank">
+                                    <img style="width: 100px; height: 132px" src="http://static.zongheng.com/upload/cover/32/7a/327ac0514bd1cebe2ddd27c69e9255ad.jpeg" onerror="this.src='http://static.zongheng.com/upload/fm_big.gif';this.onerror=null;">
+                                </a>
+                            </div>
+                            <div class="fl se-result-infos">
+                                <h2 class="tit"><a href="http://book.zongheng.com/book/753256.html" target="_blank">江湖<font color="RED">悍刀</font><font color="RED">行</font></a></h2>
+
+                                <div class="bookinfo">
+                                    <a href="http://home.zongheng.com/show/userInfo/49217023.html" target="_blank">头头碰着黑</a>
+                                    <em>|</em><a href="http://www.zongheng.com/category/3.html" target="_blank">武侠仙侠</a>
+                                    <em>|</em><span>连载</span>
+                                    <em>|</em><span>1088字</span></div>
+                                <p>这是<font color="RED">刀</font>剑的世道，是武力的江湖同样是修真的大地，如何崛起变成一方强者成为每人心中的目标。</p>
+                                <div class="key-word">关键词：古典仙侠 丹药升级 江湖
+								</div>
+                            </div>
+                            <div class="btn">
+                                <a href="http://book.zongheng.com/book/753256.html" target="_blank" class="bkinfo">书籍详情</a>
+                                <a href="javascript:void(0);" class="addshelf" data-bookId="753256">加入书架</a>
+                            </div>
+                        </div>
+                    
+                        <div class="search-result-list clearfix">
+                            <div class="imgbox fl se-result-book">
+                                <a href="http://book.zongheng.com/book/753342.html" target="_blank">
+                                    <img style="width: 100px; height: 132px" src="http://static.zongheng.com/upload/cover/80/17/801787b1ad70e8a2cb01aba6ece4365c.jpeg" onerror="this.src='http://static.zongheng.com/upload/fm_big.gif';this.onerror=null;">
+                                </a>
+                            </div>
+                            <div class="fl se-result-infos">
+                                <h2 class="tit"><a href="http://book.zongheng.com/book/753342.html" target="_blank">九幽<font color="RED">悍刀</font><font color="RED">行</font></a></h2>
+
+                                <div class="bookinfo">
+                                    <a href="http://home.zongheng.com/show/userInfo/49389511.html" target="_blank">总有风雨总伴晴</a>
+                                    <em>|</em><a href="http://www.zongheng.com/category/1.html" target="_blank">奇幻玄幻</a>
+                                    <em>|</em><span>连载</span>
+                                    <em>|</em><span>6255字</span></div>
+                                <p>死界轮回主宰掌无尽炼狱，拥轮回生死纹耀。
+　　然，因为一场突变，被炼狱镇压的数位千古大凶逃出生天……
+　　轮回主宰融入天源石，破入人间界，然而异变突起……
+　　“王的罪孽，只能以血终结！”</p>
+                                <div class="key-word">关键词：热血
+								</div>
+                            </div>
+                            <div class="btn">
+                                <a href="http://book.zongheng.com/book/753342.html" target="_blank" class="bkinfo">书籍详情</a>
+                                <a href="javascript:void(0);" class="addshelf" data-bookId="753342">加入书架</a>
+                            </div>
+                        </div>
+                    
+                        <div class="search-result-list clearfix">
+                            <div class="imgbox fl se-result-book">
+                                <a href="http://book.zongheng.com/book/674417.html" target="_blank">
+                                    <img style="width: 100px; height: 132px" src="http://static.zongheng.com/upload/cover/2017/06/1496807085203.jpg" onerror="this.src='http://static.zongheng.com/upload/fm_big.gif';this.onerror=null;">
+                                </a>
+                            </div>
+                            <div class="fl se-result-infos">
+                                <h2 class="tit"><a href="http://book.zongheng.com/book/674417.html" target="_blank">红尘问剑</a></h2>
+
+                                <div class="bookinfo">
+                                    <a href="http://home.zongheng.com/show/userInfo/31878684.html" target="_blank">山野草莽</a>
+                                    <em>|</em><a href="http://www.zongheng.com/category/3.html" target="_blank">武侠仙侠</a>
+                                    <em>|</em><span>连载</span>
+                                    <em>|</em><span>431935字</span></div>
+                                <p>执剑刺我，猛目睁、却敌无须拔<font color="RED">刀</font>。北<font color="RED">雪</font>霸道，独傲天宇下，弹铗惊潮。</p>
+                                <div class="key-word">关键词：争霸 武侠 <font color="RED">雪中悍刀行</font> 烽火戏诸侯  热血
+								</div>
+                            </div>
+                            <div class="btn">
+                                <a href="http://book.zongheng.com/book/674417.html" target="_blank" class="bkinfo">书籍详情</a>
+                                <a href="javascript:void(0);" class="addshelf" data-bookId="674417">加入书架</a>
+                            </div>
+                        </div>
+                    
+                        <div class="search-result-list clearfix">
+                            <div class="imgbox fl se-result-book">
+                                <a href="http://book.zongheng.com/book/689878.html" target="_blank">
+                                    <img style="width: 100px; height: 132px" src="http://static.zongheng.com/upload/cover/cf/9d/cf9de4639d4896a5ad660b5ecde8d424.jpeg" onerror="this.src='http://static.zongheng.com/upload/fm_big.gif';this.onerror=null;">
+                                </a>
+                            </div>
+                            <div class="fl se-result-infos">
+                                <h2 class="tit"><a href="http://book.zongheng.com/book/689878.html" target="_blank">公子出关</a></h2>
+
+                                <div class="bookinfo">
+                                    <a href="http://home.zongheng.com/show/userInfo/44924146.html" target="_blank">北男</a>
+                                    <em>|</em><a href="http://www.zongheng.com/category/3.html" target="_blank">武侠仙侠</a>
+                                    <em>|</em><span>完结</span>
+                                    <em>|</em><span>355332字</span></div>
+                                <p>大央末年，国脉动荡，气运崩乱，江湖纷争，群雄并起。
+西域的蓝皮美人魔想争这气运，一人一圣地的老和尚想争这气运，智力近妖的太平先生想争这气运……
+可这气运都被那浑不吝的曲经年争了去。
+从鲜衣怒马的镇西王世子爷到衣衫褴褛的江湖浪客，他不变的唯有一颗赤子之心。</p>
+                                <div class="key-word">关键词：文青 热血 <font color="RED">雪中悍刀行</font> 妖孽 玄侠
+								</div>
+                            </div>
+                            <div class="btn">
+                                <a href="http://book.zongheng.com/book/689878.html" target="_blank" class="bkinfo">书籍详情</a>
+                                <a href="javascript:void(0);" class="addshelf" data-bookId="689878">加入书架</a>
+                            </div>
+                        </div>
+                    
+                        <div class="search-result-list clearfix">
+                            <div class="imgbox fl se-result-book">
+                                <a href="http://book.zongheng.com/book/655823.html" target="_blank">
+                                    <img style="width: 100px; height: 132px" src="http://static.zongheng.com/upload/cover/17/b2/17b24b25f7067c13a1fd0c781336382a.jpeg" onerror="this.src='http://static.zongheng.com/upload/fm_big.gif';this.onerror=null;">
+                                </a>
+                            </div>
+                            <div class="fl se-result-infos">
+                                <h2 class="tit"><a href="http://book.zongheng.com/book/655823.html" target="_blank">快剑</a></h2>
+
+                                <div class="bookinfo">
+                                    <a href="http://home.zongheng.com/show/userInfo/42781361.html" target="_blank">倾一夏阳光</a>
+                                    <em>|</em><a href="http://www.zongheng.com/category/3.html" target="_blank">武侠仙侠</a>
+                                    <em>|</em><span>连载</span>
+                                    <em>|</em><span>54841字</span></div>
+                                <p>无醇酒与美人，不愿来此人间
+无快剑与挚友，不愿老此江湖
+
+                致敬心中的武侠神书——《<font color="RED">雪</font><font color="RED">中</font><font color="RED">悍</font><font color="RED">刀</font><font color="RED">行</font>》</p>
+                                <div class="key-word">关键词：热血 武侠
+								</div>
+                            </div>
+                            <div class="btn">
+                                <a href="http://book.zongheng.com/book/655823.html" target="_blank" class="bkinfo">书籍详情</a>
+                                <a href="javascript:void(0);" class="addshelf" data-bookId="655823">加入书架</a>
+                            </div>
+                        </div>
+                    
+                        <div class="search-result-list clearfix">
+                            <div class="imgbox fl se-result-book">
+                                <a href="http://book.zongheng.com/book/686391.html" target="_blank">
+                                    <img style="width: 100px; height: 132px" src="http://static.zongheng.com/upload/cover/f1/77/f177dcdabcae709c66c199a9d8e4b372.jpeg" onerror="this.src='http://static.zongheng.com/upload/fm_big.gif';this.onerror=null;">
+                                </a>
+                            </div>
+                            <div class="fl se-result-infos">
+                                <h2 class="tit"><a href="http://book.zongheng.com/book/686391.html" target="_blank"><font color="RED">雪</font><font color="RED">中</font>吟</a></h2>
+
+                                <div class="bookinfo">
+                                    <a href="http://home.zongheng.com/show/userInfo/43844636.html" target="_blank">清风明月佳人</a>
+                                    <em>|</em><a href="http://www.zongheng.com/category/33.html" target="_blank">幻想时空</a>
+                                    <em>|</em><span>连载</span>
+                                    <em>|</em><span>0字</span></div>
+                                <p><font color="RED">雪</font>吟在出生的时候天降异象，碰巧遇到一位道长，被这位道长取名为<font color="RED">雪</font>吟。<font color="RED">雪</font>吟六岁那年，被一群歹徒追杀，失去双亲之后被昆仑的独孤上仙收留。在独孤洵回到昆仑之后，派<font color="RED">雪</font>吟下山一年，渡劫以完成飞升；但独孤却丝毫不知，自己的这个决定已经被卷入一个巨大的阴谋之中。一年之内，<font color="RED">雪</font>吟认识了许多的朋友和敌人，<font color="RED">雪</font>吟经历了人世间的冷暖，开始对凡尘不再留恋，下定决心飞升；成仙之后的她却意外的发现自己喜欢上了自己的师父。后来独孤玉龙嫉妒<font color="RED">雪</font>吟飞升</p>
+                                <div class="key-word">关键词：虐恋情深 江湖恩怨
+								</div>
+                            </div>
+                            <div class="btn">
+                                <a href="http://book.zongheng.com/book/686391.html" target="_blank" class="bkinfo">书籍详情</a>
+                                <a href="javascript:void(0);" class="addshelf" data-bookId="686391">加入书架</a>
+                            </div>
+                        </div>
+                    
+                        <div class="search-result-list clearfix">
+                            <div class="imgbox fl se-result-book">
+                                <a href="http://book.zongheng.com/book/163857.html" target="_blank">
+                                    <img style="width: 100px; height: 132px" src="http://static.zongheng.com/upload/cover/2012/04/1334631437040.jpg" onerror="this.src='http://static.zongheng.com/upload/fm_big.gif';this.onerror=null;">
+                                </a>
+                            </div>
+                            <div class="fl se-result-infos">
+                                <h2 class="tit"><a href="http://book.zongheng.com/book/163857.html" target="_blank"><font color="RED">刀</font><font color="RED">行</font>异世</a></h2>
+
+                                <div class="bookinfo">
+                                    <a href="http://home.zongheng.com/show/userInfo/5603283.html" target="_blank">菜墩</a>
+                                    <em>|</em><a href="http://www.zongheng.com/category/1.html" target="_blank">奇幻玄幻</a>
+                                    <em>|</em><span>连载</span>
+                                    <em>|</em><span>612745字</span></div>
+                                <p>  （纵横三组签约）
+  虚无的飘渺的神氐，在远方注视着他的信徒，享受他们卑微的虔诚。真实存在的强者看着他的族人，维护着最后额尊严！
+   广阔的世界中主导万物到底是神界的神明，还是活着的生灵！
+   跪求点击、收藏、红票！
+  
+  </p>
+                                <div class="key-word">关键词：唐古 叶孤城 穿越 圣主 沉寂万年
+								</div>
+                            </div>
+                            <div class="btn">
+                                <a href="http://book.zongheng.com/book/163857.html" target="_blank" class="bkinfo">书籍详情</a>
+                                <a href="javascript:void(0);" class="addshelf" data-bookId="163857">加入书架</a>
+                            </div>
+                        </div>
+                    
+                        <div class="search-result-list clearfix">
+                            <div class="imgbox fl se-result-book">
+                                <a href="http://book.zongheng.com/book/725959.html" target="_blank">
+                                    <img style="width: 100px; height: 132px" src="http://static.zongheng.com/upload/cover/ab/87/ab87753ae929847dc24e1d95677b54e8.jpeg" onerror="this.src='http://static.zongheng.com/upload/fm_big.gif';this.onerror=null;">
+                                </a>
+                            </div>
+                            <div class="fl se-result-infos">
+                                <h2 class="tit"><a href="http://book.zongheng.com/book/725959.html" target="_blank">梧桐木心</a></h2>
+
+                                <div class="bookinfo">
+                                    <a href="http://home.zongheng.com/show/userInfo/48595532.html" target="_blank">澶渊子双</a>
+                                    <em>|</em><a href="http://www.zongheng.com/category/1.html" target="_blank">奇幻玄幻</a>
+                                    <em>|</em><span>连载</span>
+                                    <em>|</em><span>19767字</span></div>
+                                <p>自<font color="RED">雪</font><font color="RED">中</font><font color="RED">悍</font><font color="RED">刀</font><font color="RED">行</font>后，再无江湖。但仍要写一个脱胎于<font color="RED">雪</font><font color="RED">中</font>却不太一样的江湖故事，有炼金士瑰丽术法，有武夫指极问道，有改革，战争，发展，有一切一切，我们的江湖。</p>
+                                <div class="key-word">关键词：热血 搞笑
+								</div>
+                            </div>
+                            <div class="btn">
+                                <a href="http://book.zongheng.com/book/725959.html" target="_blank" class="bkinfo">书籍详情</a>
+                                <a href="javascript:void(0);" class="addshelf" data-bookId="725959">加入书架</a>
+                            </div>
+                        </div>
+                    
+                        <div class="search-result-list clearfix">
+                            <div class="imgbox fl se-result-book">
+                                <a href="http://book.zongheng.com/book/715194.html" target="_blank">
+                                    <img style="width: 100px; height: 132px" src="http://static.zongheng.com/upload/cover/23/0d/230d6c96e2f7f1dc206300c23e44511f.jpeg" onerror="this.src='http://static.zongheng.com/upload/fm_big.gif';this.onerror=null;">
+                                </a>
+                            </div>
+                            <div class="fl se-result-infos">
+                                <h2 class="tit"><a href="http://book.zongheng.com/book/715194.html" target="_blank"><font color="RED">雪</font><font color="RED">中</font>寒</a></h2>
+
+                                <div class="bookinfo">
+                                    <a href="http://home.zongheng.com/show/userInfo/14447383.html" target="_blank">季翎人</a>
+                                    <em>|</em><a href="http://www.zongheng.com/category/3.html" target="_blank">武侠仙侠</a>
+                                    <em>|</em><span>连载</span>
+                                    <em>|</em><span>0字</span></div>
+                                <p>生和死不是最遥远的距离，而是我试图改变自己去迎合你的时候，你的心却又已经变了。</p>
+                                <div class="key-word">关键词：争霸 养成 古典仙侠 逆袭自强
+								</div>
+                            </div>
+                            <div class="btn">
+                                <a href="http://book.zongheng.com/book/715194.html" target="_blank" class="bkinfo">书籍详情</a>
+                                <a href="javascript:void(0);" class="addshelf" data-bookId="715194">加入书架</a>
+                            </div>
+                        </div>
+                    
+                        <div class="search-result-list clearfix">
+                            <div class="imgbox fl se-result-book">
+                                <a href="http://book.zongheng.com/book/775977.html" target="_blank">
+                                    <img style="width: 100px; height: 132px" src="http://static.zongheng.com/upload/cover/b3/34/b334b7605c684e1ea67b7db415bef804.jpeg" onerror="this.src='http://static.zongheng.com/upload/fm_big.gif';this.onerror=null;">
+                                </a>
+                            </div>
+                            <div class="fl se-result-infos">
+                                <h2 class="tit"><a href="http://book.zongheng.com/book/775977.html" target="_blank">妖<font color="RED">刀</font><font color="RED">行</font></a></h2>
+
+                                <div class="bookinfo">
+                                    <a href="http://home.zongheng.com/show/userInfo/50039096.html" target="_blank">干若离</a>
+                                    <em>|</em><a href="http://www.zongheng.com/category/3.html" target="_blank">武侠仙侠</a>
+                                    <em>|</em><span>连载</span>
+                                    <em>|</em><span>47701字</span></div>
+                                <p>在老人村受教八年，从一个懵懂无知的少年变成一个坚毅血腥的刽子手，他是大秦王朝的最后一根独苗，肩负着十万人的血债，带着三十万人的期盼来到了<font color="RED">刀</font>门，他修道，他学习《两命<font color="RED">刀</font>》，他既不是为了长生不老，也不是为了一生逍遥，只是为了登上不高山，去替那战场上数十万具枯骨、老人村数十万老人、数十万遗孀问一问那天下第四，在修道者的眼中，他们的命算什么？</p>
+                                <div class="key-word">关键词：热血
+								</div>
+                            </div>
+                            <div class="btn">
+                                <a href="http://book.zongheng.com/book/775977.html" target="_blank" class="bkinfo">书籍详情</a>
+                                <a href="javascript:void(0);" class="addshelf" data-bookId="775977">加入书架</a>
+                            </div>
+                        </div>
+                    
+                        <div class="search-result-list clearfix">
+                            <div class="imgbox fl se-result-book">
+                                <a href="http://book.zongheng.com/book/714529.html" target="_blank">
+                                    <img style="width: 100px; height: 132px" src="http://static.zongheng.com/upload/cover/97/15/97150b22f84b4baa3db63130b45133d6.jpeg" onerror="this.src='http://static.zongheng.com/upload/fm_big.gif';this.onerror=null;">
+                                </a>
+                            </div>
+                            <div class="fl se-result-infos">
+                                <h2 class="tit"><a href="http://book.zongheng.com/book/714529.html" target="_blank"><font color="RED">刀</font>歌之<font color="RED">刀</font><font color="RED">行</font>乱世</a></h2>
+
+                                <div class="bookinfo">
+                                    <a href="http://home.zongheng.com/show/userInfo/48307455.html" target="_blank">肆月初九</a>
+                                    <em>|</em><a href="http://www.zongheng.com/category/1.html" target="_blank">奇幻玄幻</a>
+                                    <em>|</em><span>连载</span>
+                                    <em>|</em><span>91049字</span></div>
+                                <p>天地不清，我以我<font color="RED">刀</font>肃之；浊世难存，我以我<font color="RED">刀</font>杀之；乱世不止，我以我<font color="RED">刀</font>灭之。<font color="RED">刀</font><font color="RED">行</font>乱世，唯杀而已，杀一人是罪，屠万人为雄，屠得九百九十万，何人敢不从。</p>
+                                <div class="key-word">关键词：热血 穿越 救亡 生存
+								</div>
+                            </div>
+                            <div class="btn">
+                                <a href="http://book.zongheng.com/book/714529.html" target="_blank" class="bkinfo">书籍详情</a>
+                                <a href="javascript:void(0);" class="addshelf" data-bookId="714529">加入书架</a>
+                            </div>
+                        </div>
+                    
+                        <div class="search-result-list clearfix">
+                            <div class="imgbox fl se-result-book">
+                                <a href="http://book.zongheng.com/book/763608.html" target="_blank">
+                                    <img style="width: 100px; height: 132px" src="http://static.zongheng.com/upload/cover/34/8b/348be2382bc750ad6d2fde197f7db8b3.jpeg" onerror="this.src='http://static.zongheng.com/upload/fm_big.gif';this.onerror=null;">
+                                </a>
+                            </div>
+                            <div class="fl se-result-infos">
+                                <h2 class="tit"><a href="http://book.zongheng.com/book/763608.html" target="_blank"><font color="RED">刀</font><font color="RED">行</font>九州</a></h2>
+
+                                <div class="bookinfo">
+                                    <a href="http://home.zongheng.com/show/userInfo/49655328.html" target="_blank">清寻</a>
+                                    <em>|</em><a href="http://www.zongheng.com/category/1.html" target="_blank">奇幻玄幻</a>
+                                    <em>|</em><span>连载</span>
+                                    <em>|</em><span>6809字</span></div>
+                                <p>无论在边关杀敌，还是去有容国院进修，抑或行走于妖魔横<font color="RED">行</font>的乱世。……
+他是一名<font color="RED">刀</font>客。<font color="RED">刀</font>在手，或<font color="RED">刀</font>放下，都是<font color="RED">刀</font>客。</p>
+                                <div class="key-word">关键词：热血 升级 爽文
+								</div>
+                            </div>
+                            <div class="btn">
+                                <a href="http://book.zongheng.com/book/763608.html" target="_blank" class="bkinfo">书籍详情</a>
+                                <a href="javascript:void(0);" class="addshelf" data-bookId="763608">加入书架</a>
+                            </div>
+                        </div>
+                    
+                        <div class="search-result-list clearfix">
+                            <div class="imgbox fl se-result-book">
+                                <a href="http://book.zongheng.com/book/767019.html" target="_blank">
+                                    <img style="width: 100px; height: 132px" src="http://static.zongheng.com/upload/cover/55/48/5548dfacf0436cb5077a39d845380796.jpeg" onerror="this.src='http://static.zongheng.com/upload/fm_big.gif';this.onerror=null;">
+                                </a>
+                            </div>
+                            <div class="fl se-result-infos">
+                                <h2 class="tit"><a href="http://book.zongheng.com/book/767019.html" target="_blank">青焰狂<font color="RED">刀</font><font color="RED">行</font></a></h2>
+
+                                <div class="bookinfo">
+                                    <a href="http://home.zongheng.com/show/userInfo/49742480.html" target="_blank">一剪梅为伊人</a>
+                                    <em>|</em><a href="http://www.zongheng.com/category/1.html" target="_blank">奇幻玄幻</a>
+                                    <em>|</em><span>连载</span>
+                                    <em>|</em><span>6357字</span></div>
+                                <p>拥有特别青色火焰的使<font color="RED">刀</font>少年和他朋友们一起历险的故事。</p>
+                                <div class="key-word">关键词：热血 法宝 推理 爽文
+								</div>
+                            </div>
+                            <div class="btn">
+                                <a href="http://book.zongheng.com/book/767019.html" target="_blank" class="bkinfo">书籍详情</a>
+                                <a href="javascript:void(0);" class="addshelf" data-bookId="767019">加入书架</a>
+                            </div>
+                        </div>
+                    
+                        <div class="search-result-list clearfix">
+                            <div class="imgbox fl se-result-book">
+                                <a href="http://book.zongheng.com/book/197815.html" target="_blank">
+                                    <img style="width: 100px; height: 132px" src="http://static.zongheng.com/upload/cover/2013/04/1365602491945.jpg" onerror="this.src='http://static.zongheng.com/upload/fm_big.gif';this.onerror=null;">
+                                </a>
+                            </div>
+                            <div class="fl se-result-infos">
+                                <h2 class="tit"><a href="http://book.zongheng.com/book/197815.html" target="_blank">巫也是道</a></h2>
+
+                                <div class="bookinfo">
+                                    <a href="http://home.zongheng.com/show/userInfo/4435824.html" target="_blank"><font color="RED">雪</font><font color="RED">中</font>纵马</a>
+                                    <em>|</em><a href="http://www.zongheng.com/category/3.html" target="_blank">武侠仙侠</a>
+                                    <em>|</em><span>完结</span>
+                                    <em>|</em><span>2256436字</span></div>
+                                <p>得到巫族圣器，有幸成为巫，修洪荒巫术，凝五<font color="RED">行</font>大巫、修九转玄功，成不死之身……唤十二祖巫，重现巫族辉煌！</p>
+                                <div class="key-word">关键词：赤城 圣王 佛本是道 法宝 升级
+								</div>
+                            </div>
+                            <div class="btn">
+                                <a href="http://book.zongheng.com/book/197815.html" target="_blank" class="bkinfo">书籍详情</a>
+                                <a href="javascript:void(0);" class="addshelf" data-bookId="197815">加入书架</a>
+                            </div>
+                        </div>
+                    
+                        <div class="search-result-list clearfix">
+                            <div class="imgbox fl se-result-book">
+                                <a href="http://book.zongheng.com/book/727991.html" target="_blank">
+                                    <img style="width: 100px; height: 132px" src="http://static.zongheng.com/upload/cover/3f/08/3f0855dda65b377bf868ffaee51eb6ca.jpeg" onerror="this.src='http://static.zongheng.com/upload/fm_big.gif';this.onerror=null;">
+                                </a>
+                            </div>
+                            <div class="fl se-result-infos">
+                                <h2 class="tit"><a href="http://book.zongheng.com/book/727991.html" target="_blank">网游之友情岁月</a></h2>
+
+                                <div class="bookinfo">
+                                    <a href="http://home.zongheng.com/show/userInfo/28791554.html" target="_blank"><font color="RED">雪</font><font color="RED">中</font>画鸢</a>
+                                    <em>|</em><a href="http://www.zongheng.com/category/15.html" target="_blank">科幻游戏</a>
+                                    <em>|</em><span>连载</span>
+                                    <em>|</em><span>100785字</span></div>
+                                <p>本书是一部讲述兄弟情义为中心的网游小说。宁晓枫和他的兄弟们本来只是打算享受游戏，却被其姐给强行拉入工作室。一众大佬纷纷登场，群魔乱舞。且看宁晓枫和他的兄弟们如何笑傲人生！</p>
+                                <div class="key-word">关键词：热血 争霸 兄弟情义
+								</div>
+                            </div>
+                            <div class="btn">
+                                <a href="http://book.zongheng.com/book/727991.html" target="_blank" class="bkinfo">书籍详情</a>
+                                <a href="javascript:void(0);" class="addshelf" data-bookId="727991">加入书架</a>
+                            </div>
+                        </div>
+                    
+                        <div class="search-result-list clearfix">
+                            <div class="imgbox fl se-result-book">
+                                <a href="http://book.zongheng.com/book/697185.html" target="_blank">
+                                    <img style="width: 100px; height: 132px" src="http://static.zongheng.com/upload/cover/d3/a0/d3a0bb44457979412ba39df4e6ca5284.jpeg" onerror="this.src='http://static.zongheng.com/upload/fm_big.gif';this.onerror=null;">
+                                </a>
+                            </div>
+                            <div class="fl se-result-infos">
+                                <h2 class="tit"><a href="http://book.zongheng.com/book/697185.html" target="_blank">漠北<font color="RED">雪</font><font color="RED">中</font>剑</a></h2>
+
+                                <div class="bookinfo">
+                                    <a href="http://home.zongheng.com/show/userInfo/47718273.html" target="_blank">楚安歌</a>
+                                    <em>|</em><a href="http://www.zongheng.com/category/3.html" target="_blank">武侠仙侠</a>
+                                    <em>|</em><span>连载</span>
+                                    <em>|</em><span>4861字</span></div>
+                                <p>人头落，<font color="RED">雪</font><font color="RED">中</font>萧萧；剑归鞘，恩怨了了。边塞，漠北之地，一个青年剑客，裹着孤独，踏着风<font color="RED">雪</font>，一剑入关。</p>
+                                <div class="key-word">关键词：武侠 恩怨情仇
+								</div>
+                            </div>
+                            <div class="btn">
+                                <a href="http://book.zongheng.com/book/697185.html" target="_blank" class="bkinfo">书籍详情</a>
+                                <a href="javascript:void(0);" class="addshelf" data-bookId="697185">加入书架</a>
+                            </div>
+                        </div>
+                    
+                        <div class="search-result-list clearfix">
+                            <div class="imgbox fl se-result-book">
+                                <a href="http://book.zongheng.com/book/723385.html" target="_blank">
+                                    <img style="width: 100px; height: 132px" src="http://static.zongheng.com/upload/cover/ee/b1/eeb14987b705ac0ebd1be052e997060b.jpeg" onerror="this.src='http://static.zongheng.com/upload/fm_big.gif';this.onerror=null;">
+                                </a>
+                            </div>
+                            <div class="fl se-result-infos">
+                                <h2 class="tit"><a href="http://book.zongheng.com/book/723385.html" target="_blank">重回2000年</a></h2>
+
+                                <div class="bookinfo">
+                                    <a href="http://home.zongheng.com/show/userInfo/13288031.html" target="_blank">我是250</a>
+                                    <em>|</em><a href="http://www.zongheng.com/category/9.html" target="_blank">都市娱乐</a>
+                                    <em>|</em><span>连载</span>
+                                    <em>|</em><span>32262字</span></div>
+                                <p>妇产科的人流手术室，每年做人流的人次平均破万例，改革开放十几年来，无数个未曾出世的生命在这里无疾而终，形成了一个个生命光团，悬浮于手术室<font color="RED">中</font>，光团一点点的增加，泛着碧绿色的青翠光芒，直到有一天。。。。致敬在我写作路上对我影响深远的作者——烽火戏诸侯
+为你的剑来《<font color="RED">雪</font><font color="RED">中</font><font color="RED">悍</font><font color="RED">刀</font><font color="RED">行</font>》致敬，愿能将你曾经的都市神话续写出新的年华！！</p>
+                                <div class="key-word">关键词：烽火戏诸侯 剑来 逆苍天 无罪 天蚕土豆
+								</div>
+                            </div>
+                            <div class="btn">
+                                <a href="http://book.zongheng.com/book/723385.html" target="_blank" class="bkinfo">书籍详情</a>
+                                <a href="javascript:void(0);" class="addshelf" data-bookId="723385">加入书架</a>
+                            </div>
+                        </div>
+                    
+                    <div class="h20-blank"></div>
+                    <div class="search_d_pagesize">
+                    		
+                    				<a href="javascript:;" class="search_d_pre" disabled="disabled">‹</a>
+                    			
+				        	
+				        		
+				        				<a href="?keyword=%E9%9B%AA%E4%B8%AD%E6%82%8D%E5%88%80%E8%A1%8C&pageNo=1&sort=" class="active">1</a>
+				        			
+				        	
+				        		
+				        				<a href="?keyword=%E9%9B%AA%E4%B8%AD%E6%82%8D%E5%88%80%E8%A1%8C&pageNo=2&sort=" class="">2</a>
+				        			
+				        	
+				        		
+				        				<a href="?keyword=%E9%9B%AA%E4%B8%AD%E6%82%8D%E5%88%80%E8%A1%8C&pageNo=3&sort=" class="">3</a>
+				        			
+				        	
+				        		
+				        				<a href="?keyword=%E9%9B%AA%E4%B8%AD%E6%82%8D%E5%88%80%E8%A1%8C&pageNo=4&sort=" class="">4</a>
+				        			
+				        	
+				        		...
+				        	
+				        		
+				        				<a href="?keyword=%E9%9B%AA%E4%B8%AD%E6%82%8D%E5%88%80%E8%A1%8C&pageNo=541&sort=" class="">541</a>
+				        			
+				        	
+				        	
+				        			<a href="?keyword=%E9%9B%AA%E4%B8%AD%E6%82%8D%E5%88%80%E8%A1%8C&pageNo=2&sort=" class="search_d_next">›</a>
+				        		
+                        	跳转到：
+                        <input type="text" value="1" class="search_d_page_value">/<span id="totalPage">541</span>页
+                        <input type="button" value="确认" class="search_d_page_submit">
+                    	
+                    </div>
+                    <div class="h40-blank"></div>
+                </div>
+            
+    </div>
+    <div class="search-side fr">
+        <div class="search-side-con">
+            <div class="se-side-tit">大家都在搜</div>
+               
+               	<div class="se-side-cell clearfix" data-bookId="672340">
+                       <div class="imgbox fl se-side-book">
+                           <a href="http://book.zongheng.com/book/672340.html" target="_blank">
+                               <img src="http://static.zongheng.com/upload/cover/2017/05/1496234539057.JPG" alt="">
+                           </a>
+                       </div>
+                       <div class="se-side-info fl">
+                           <div class="bookname"><a href="http://book.zongheng.com/book/672340.html" target="_blank">剑来</a></div>
+                           <div class="bookinfo"><a href="http://home.zongheng.com/show/userInfo/166130.html" target="_blank">烽火戏诸侯</a><em>|</em><a href="http://www.zongheng.com/category/3.html" target="_blank">武侠仙侠</a></div>
+                           <p class="b-infos">大千世界，无奇不有。
+我陈平安，唯有一剑，可搬山，倒海，降妖，镇魔，敕神，摘星，断江，摧城，开天！</p>
+                       </div>
+                   </div>
+               
+               	<div class="se-side-cell clearfix" data-bookId="730066">
+                       <div class="imgbox fl se-side-book">
+                           <a href="http://book.zongheng.com/book/730066.html" target="_blank">
+                               <img src="http://static.zongheng.com/upload/cover/2c/1f/2c1fe294306eea58638e7d07a12a7628.jpeg" alt="">
+                           </a>
+                       </div>
+                       <div class="se-side-info fl">
+                           <div class="bookname"><a href="http://book.zongheng.com/book/730066.html" target="_blank">点道为止</a></div>
+                           <div class="bookinfo"><a href="http://home.zongheng.com/show/userInfo/284372.html" target="_blank">梦入神机</a><em>|</em><a href="http://www.zongheng.com/category/9.html" target="_blank">都市娱乐</a></div>
+                           <p class="b-infos">功夫究竟是什么？
+
+花架子还是杀人技？
+
+三千年冷兵器战争和无数民间私斗酝酿出来的把式，究竟是不是骗局？
+
+国术流开创者，功夫小说第一人梦入神机，在本书中为您揭秘。
+
+止戈为武，点到为止。
+
+“你若无敌，将会如何？”
+
+“得饶人处且饶人。”</p>
+                       </div>
+                   </div>
+               
+               	<div class="se-side-cell clearfix" data-bookId="735577">
+                       <div class="imgbox fl se-side-book">
+                           <a href="http://book.zongheng.com/book/735577.html" target="_blank">
+                               <img src="http://static.zongheng.com/upload/cover/ff/83/ff835851b6c6c44d8199839e770447c0.jpeg" alt="">
+                           </a>
+                       </div>
+                       <div class="se-side-info fl">
+                           <div class="bookname"><a href="http://book.zongheng.com/book/735577.html" target="_blank">帝道独尊</a></div>
+                           <div class="bookinfo"><a href="http://home.zongheng.com/show/userInfo/12775608.html" target="_blank">一叶青天</a><em>|</em><a href="http://www.zongheng.com/category/1.html" target="_blank">奇幻玄幻</a></div>
+                           <p class="b-infos">天地初始，宇宙洪荒；奇门九遁，布道星空。
+当地球尘封万古的雪山龙棺移位时刻，诛天大道临世，神魔文明到来，宇宙如同撕裂枷锁的神魔，演化着一个精彩绝伦的修行世界。
+仙命少年从弱小中崛起，一步步踏向宇宙星海，战万界，伐仙穹......
+作者微信公众号“一叶青天”，VIP订阅群：434739889</p>
+                       </div>
+                   </div>
+               
+               	<div class="se-side-cell clearfix" data-bookId="751819">
+                       <div class="imgbox fl se-side-book">
+                           <a href="http://book.zongheng.com/book/751819.html" target="_blank">
+                               <img src="http://static.zongheng.com/upload/cover/da/df/dadf3f130bdc7d9dc666fb20622902bb.jpeg" alt="">
+                           </a>
+                       </div>
+                       <div class="se-side-info fl">
+                           <div class="bookname"><a href="http://book.zongheng.com/book/751819.html" target="_blank">长宁帝军</a></div>
+                           <div class="bookinfo"><a href="http://home.zongheng.com/show/userInfo/1185346.html" target="_blank">知白</a><em>|</em><a href="http://www.zongheng.com/category/6.html" target="_blank">历史军事</a></div>
+                           <p class="b-infos">这个天下大大小小数百国，说到陆地武功宁国近乎无敌，有四疆四库的虎狼横扫六合，陆地延伸到哪儿，宁军就能把战旗插到哪儿，可是海疆之外虎狼不及之处总有些人不服气，于是就有了那少年带刀扬戟，一苇渡江。</p>
+                       </div>
+                   </div>
+               
+               	<div class="se-side-cell clearfix" data-bookId="325639">
+                       <div class="imgbox fl se-side-book">
+                           <a href="http://book.zongheng.com/book/325639.html" target="_blank">
+                               <img src="http://static.zongheng.com/upload/cover/2016/06/1467096066539.jpg" alt="">
+                           </a>
+                       </div>
+                       <div class="se-side-info fl">
+                           <div class="bookname"><a href="http://book.zongheng.com/book/325639.html" target="_blank">星辰之主</a></div>
+                           <div class="bookinfo"><a href="http://home.zongheng.com/show/userInfo/53793.html" target="_blank">减肥专家</a><em>|</em><a href="http://www.zongheng.com/category/15.html" target="_blank">科幻游戏</a></div>
+                           <p class="b-infos">世纪之交，人类懵懂着踏入星空，就此暴露在诸神的视线之下。少年罗南背负着祖父的罪孽，走出实验室，且看他：
+高举燃烧的笔记，脚踏诸神的尸骨；
+书写万物的格式，增删宇宙的星图。
+当知：万物皆备于我；必信：吾心即是宇宙。
+书友群：474391549</p>
+                       </div>
+                   </div>
+               
+        </div>
+    </div>
+</div>
+
+<!-- end搜索主内容 -->
+</div>
+<div class="footer">
+    
+<div class="partlink">
+    <div class="wrap">
+        <div class="title">出版合作联系</div>
+        <div class="clearfix">
+            <div class="mail fl">
+                
+                <div>版权合作联系人：许先生<a href="mailto:xubin@zongheng.com">xubin@zongheng.com</a></div>
+                
+                <div>广告合作联系人 : 张女士<a href="mailto:zhangwen@zongheng.com">zhangwen@zongheng.com</a></div>
+                
+            </div>
+            <div class="help-btn">
+                <a class="btn" href="http://www.zongheng.com/help/index.html"">帮助中心</a>
+                <p>服务时间：24小时</p>
+            </div>
+            <div class="b1 foot-cell">
+                <div class="tit">客服</div>
+                <div class="qq">965151179</div>
+                <div class="email"><a href="mailto:zhkf@zongheng.com">zhkf@zongheng.com</a></div>
+            </div>
+            <div class="b2 foot-cell">
+                <div class="tit">举报</div>
+                <div class="tel">4006289988</div>
+                <div class="email"><a href="mailto:jubao@zongheng.com">jubao@zongheng.com</a></div>
+            </div>
+            <div class="app foot-blank">
+                <div class="imgbox fl">
+                    <img src="http://rcode.zongheng.com/v2018/images/app.png" alt="">
+                </div>
+                <p>客户端下载</p>
+            </div>
+            <div class="wchat foot-blank">
+                <div class="imgbox fl">
+                    <img src="http://rcode.zongheng.com/v2018/images/wx.png" alt="">
+                </div>
+                <p>微信公众号</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="copyright">
+    <div class="links"><a href="http://www.zongheng.com/company/about.html" target="_blank">关于纵横</a>|<a href="http://www.zhwenxue.com/join" target="_blank">诚聘英才</a>|<a href="http://www.zongheng.com/company/business.html" target="_blank">商务合作</a>|<a href="http://www.zongheng.com/company/copyright.html" target="_blank">法律声明</a>|<a href="http://www.zongheng.com/help/index.html" target="_blank">帮助中心</a>|<a href="http://author.zongheng.com" target="_blank">作者投稿</a>|<a href="http://www.zongheng.com/company/contact.html" target="_blank">联系我们</a>|<a href="http://www.zongheng.com/company/link.html" target="_blank">友情链接</a>|<a href="http://news.zongheng.com/zhuanti/wlqz/index.html" target="_blank">谨防诈骗</a>|<a href="http://www.zongheng.com/company/sitemap.html" target="_blank">网站地图</a></div>
+    <p>Copyright©<a href="http://www.zongheng.com" target="_blank">www.zongheng.com</a>All Rights Reserved 版权所有 北京幻想纵横网络技术有限公司   京ICP证：080527号《网络文化经营许可证》   <a href="http://static.zongheng.com/images/license/publication-license.jpg" target="_blank">京ICP备11009265号</a>   <a href="http://static.zongheng.com/images/license/business-license.jpg" target="_blank">京网文[2015]2368-459号</a></p>
+    <p>新出发京零字第朝130010号  丨  统一社会信用代码91110105678221683F  丨 <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502030124" target="_blank">京公网安备  	11010502030124号</a>  丨 <a href="http://www.cyberpolice.cn/wfjb/" target="_blank">公安部网络违法犯罪举报网站</a></p>
+    <p><a href="http://www.zongheng.com" target="_blank">纵横小说网</a>,提供<a href="http://www.zongheng.com/category/1.html" target="_blank">玄幻小说</a>,<a href="http://www.zongheng.com/category/9.html" target="_blank">都市小说</a>,<a href="http://huayu.baidu.com" target="_blank">言情小说</a>等<a href="http://book.zongheng.com/store/c0/c0/b0/u0/p1/v0/s9/t0/u0/i1/ALL.html" target="_blank">免费小说</a>阅读。作者发布小说作品时，请遵守国家互联网信息管理办法规定。</p>
+    <p>本站所收录小说作品、社区话题、书库评论均属其个人行为，不代表本站立场。</p>
+</div>
+
+<script type="text/javascript" src="http://rcode.zongheng.com/v2018/js/lib/require.min.js" defer async data-main="http://rcode.zongheng.com/v2018/js/map.min"></script>
+
+</div>
+</body>
+
+</html>

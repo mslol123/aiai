@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>公告发布</title>
+<link href="/css/style.css" rel="stylesheet" type="text/css" />
+<script type=text/javascript th:src="@{/js/jquery-2.1.0.js}"></script>
+</head>
+
+<body>
+
+	<div class="place">
+    <span>位置：</span>
+    <ul class="placeul">
+    <li><a href="#">首页</a></li>
+    <li><a href="/greenroom/tab">信息管理</a></li>
+    <li><a href="#">发布公告</a></li>
+    </ul>
+    </div>
+    
+    <div class="formbody">
+    
+    <div class="formtitle"><span>公告信息</span></div>
+    
+    <ul class="forminfo">
+    <!--<li><label>文章标题</label><input name="" type="text" class="dfinput" /><i>标题不能超过30个字符</i></li>-->
+    <!--<li><label>关键字</label><input name="" type="text" class="dfinput" /><i>多个关键字用,隔开</i></li>-->
+    <!--<li><label>是否审核</label><cite><input name="" type="radio" value="" checked="checked" />是&nbsp;&nbsp;&nbsp;&nbsp;<input name="" type="radio" value="" />否</cite></li>-->
+    <!--<li><label>引用地址</label><input name="" type="text" class="dfinput" value="http://www.uimaker.com/uimakerhtml/uidesign/" /></li>-->
+    <li><label>公告内容</label><textarea id="matter" cols="" rows="" class="textinput"></textarea></li>
+    <li>
+        <label>&nbsp;</label><input type="button" class="btn" value="确认发布" onclick="notice()"/>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <label>&nbsp;</label><input type="button" class="btn" value="返回" onclick="back()"/>
+    </li>
+    </ul>
+    
+    
+    </div>
+</body>
+</html>
+<script type="text/javascript">
+    function notice() {
+        var matter =$("#matter").val();
+//        var matter = document.getElementById("matter").innerText;
+//        alert(matter);
+        $.post("/publish/queue",{matter:matter},function (data) {
+            if (data==1) {
+                alert("已成功发布公告");
+                window.location.href="/greenroom/form";
+            }else{
+                alert("公告发布失败");
+                window.location.href="/greenroom/form";
+            }
+        });
+    }
+
+    function back() {
+        window.location.href="/greenroom/tab";
+    }
+
+    
+</script>

@@ -1,0 +1,67 @@
+package com.jxky.bgxs.entity;
+
+<<<<<<< .mine
+public class PageBean {
+    //总数量
+    private int totalCount;
+||||||| .r216
+public class PageBean {
+    private int totalCount;
+=======
+import java.io.Serializable;
+
+/*
+* 分页
+* */
+public class PageBean implements Serializable {
+    //一共多少条数据
+    private int count;
+    //当前页数
+    private int currentPage;
+    //一共多少页
+>>>>>>> .r234
+    //总页数
+    private int totalPage;
+<<<<<<< .mine
+    //当前页数
+    private int currentPage;
+    private Object data;
+||||||| .r216
+    private int currentPage;
+    private Object data;
+=======
+>>>>>>> .r234
+
+    @Override
+    public String toString() {
+        return "PageBean{" +
+                "count=" + count +
+                ", currentPage=" + currentPage +
+                ", totalPage=" + totalPage +
+                '}';
+    }
+
+    public int getCount() {
+        return count;
+    }
+
+    public void setCount(int count) {
+        this.count = count;
+    }
+
+    public int getCurrentPage() {
+        return currentPage;
+    }
+
+    public void setCurrentPage(int currentPage) {
+        this.currentPage = currentPage;
+    }
+
+    public int getTotalPage() {
+        return totalPage;
+    }
+
+    public void setTotalPage(int totalPage) {
+        this.totalPage = totalPage;
+    }
+}

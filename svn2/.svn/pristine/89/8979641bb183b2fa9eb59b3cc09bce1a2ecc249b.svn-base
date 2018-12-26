@@ -1,0 +1,15 @@
+package com.jxky.bgxs.configuration;
+
+import com.jxky.bgxs.util.CommonHelper;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+public class ShowConfig {
+    @Bean
+    public CommonHelper getImageDirectory(){
+        CommonHelper commonHelper = new CommonHelper();
+        commonHelper.setImageDirectory("ftp://192.168.54.5/images/");
+        return commonHelper;
+    }
+}

@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<link href="/css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/js/jquery.js"></script>
+
+</head>
+
+<body>
+
+	<div class="place">
+    <span>位置：</span>
+    <ul class="placeul">
+    <li><a href="/greenroom/main">首页</a></li>
+    <li><a href="/greenroom/filelist">后台管理</a></li>
+    <li><a href="#">章节审批列表</a></li>
+    </ul>
+    </div>
+
+    <table class="filetable">
+        <!--<a th:href="@{/test}">详情</a>-->
+    <thead>
+    	<tr>
+        <th width="25%">名称</th>
+        <!--<th width="11%">修改日期</th>-->
+        <th width="25%">创建日期</th>
+        <th width="25">审批状态</th>
+        <th width="25%">操作</th>
+        </tr>
+    </thead>
+    
+    <tbody>
+        <div th:each="chapter:${chapterList}">
+    	<tr>
+            <td th:text="${chapter.chapterName}"></td>
+            <td th:text="${#dates.format(chapter.chapterCreatetime,'yyyy-MM-dd')}"></td>
+            <td th:text="${chapter.chapterStatus}"></td>
+            <td><a th:href="@{/green/detail/{id}(id=${chapter.chapterId})}">详情</a></td>
+        </tr>
+        </div>
+    </tbody>
+
+    </table>
+</body>
+</html>

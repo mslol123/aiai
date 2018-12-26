@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jxky.bgxs.dao.BookExcuseDAO">
+    <resultMap id="excuseMap" type="com.jxky.bgxs.entity.BookExcuse">
+        <id property="id" column="id"></id>
+        <result property="bookId" column="book_id"></result>
+        <result property="creattime" column="creattime"></result>
+        <result property="endtime" column="endtime"></result>
+        <result property="content" column="content"></result>
+        <association property="user" column="user_id" select="com.jxky.bgxs.dao.UserDAO.findById"></association>
+    </resultMap>
+
+    <select id="findUserByBookId" resultMap="excuseMap">
+        SELECT
+        book_excuse.book_id,
+        book_excuse.user_id,
+        book_excuse.id,
+        book_excuse.creattime,
+        book_excuse.content,
+        book_excuse.endtime
+        FROM
+        book_excuse
+        WHERE
+        book_id = #{bookId}
+    </select>
+
+    <delete id="delete">
+        DELETE FROM book_excuse WHERE id = #{id}
+    </delete>
+
+    <insert id="add">
+        INSERT INTO book_excuse
+        <trim prefix="(" suffixOverrides=",">
+            <if test="bookId != null">
+                book_id,
+            </if>
+            <if test="user != null and user.id!=null">
+                user_id,
+            </if>
+            <if test="creattime != null">
+                creattime,
+            </if>
+            <if test="content != null">
+                content,
+            </if>
+            <if test="endtime != null">
+                endtime,
+            </if>
+        </trim>
+        <trim prefix=") VALUES (" suffix=")" suffixOverrides=",">
+            <if test="bookId != null">
+                #{bookId},
+            </if>
+            <if test="user != null and user.id!=null">
+                #{user.id},
+            </if>
+            <if test="creattime != null">
+                #{creattime},
+            </if>
+            <if test="content != null">
+                #{content},
+            </if>
+            <if test="endtime != null">
+                #{endtime},
+            </if>
+        </trim>
+    </insert>
+
+
+</mapper>
+
+
+
+

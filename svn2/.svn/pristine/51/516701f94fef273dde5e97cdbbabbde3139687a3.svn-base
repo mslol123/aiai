@@ -1,0 +1,811 @@
+﻿
+
+
+
+
+
+
+
+
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:shiro="http://www.pollix.at/thymeleaf/shiro"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+	
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="本页版权 www.zongheng.com 纵横中文网所有。All Rights Reserved"/>
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<link rel="shortcut icon" href="https://static.zongheng.com/favicon.ico" />
+	<title>巴哥中文小说网</title>
+    <link rel="stylesheet" href="http://rcode.zongheng.com/v2018/css/basic.min.css" />
+    <link rel="stylesheet" href="http://rcode.zongheng.com/v2018/css/book.min.css" />
+</head>
+<body>
+
+
+<div class="head-fixed head-simple">
+
+<div class="wrap">
+       <div class="head-top clearfix">
+           <div class="logo imgbox fl"><a href="http://www.zongheng.com"><img src="http://rcode.zongheng.com/v2018/images/logo.png" alt="logo"></a></div>
+        <form name="searchForm" method="get" action="http://search.zongheng.com/s" target="_blank">
+           <div class="search-box">
+          <input class="search-text fl" name="keyword" type="text" placeholder="雪中悍刀行" autocomplete="off" disableautocomplete value="">
+          <input type="submit" class="search-btn fr" >
+           </div>
+        </form>
+           <div class="pay fr"><a class="user_pay" href="http://pay.zongheng.com" target="_blank">充值</a></div>
+           <div class="menu clearfix">
+               <a href="http://www.zongheng.com">首页</a>
+               <div class="cate tabA">
+                   <a href="##">分类<em class="icon"></em></a>
+                   <div class="tabA-float cate-cell">
+                       <ul>
+                       	<li><a href="http://www.zongheng.com/category/1.html">奇幻玄幻</a></li>
+                        <li><a href="http://www.zongheng.com/category/3.html">武侠仙侠</a></li>
+                        <li><a href="http://www.zongheng.com/category/6.html">历史军事</a></li>
+                        <li><a href="http://www.zongheng.com/category/9.html">都市娱乐</a></li>
+                        <li><a href="http://www.zongheng.com/category/21.html">竞技同人</a></li>
+                        <li><a href="http://www.zongheng.com/category/15.html">科幻游戏</a></li>
+                        <li><a href="http://www.zongheng.com/category/18.html">悬疑灵异</a></li>
+                        <li><a href="http://www.zongheng.com/category/40.html">二次元</a></li>
+                       </ul>
+                   </div>
+               </div>
+               <a href="http://www.zongheng.com/rank.html">排行</a>
+               <a href="http://www.zongheng.com/store.html" >书库</a>
+               <a href="http://www.zongheng.com/store/c0/c0/b0/u0/p1/v9/s1/t0/u0/i1/ALL.html">完本</a>
+               <a href="http://author.zongheng.com" target="_blank">作者专区</a>
+           </div>
+            
+<div class="right-wrap-login ud_userTox">
+    <div class="login fl">
+        <shiro:guest>
+            <a href="/user/log">登录</a>
+            <a class="user_register" href="user/preadd">注册</a>
+        </shiro:guest>
+        <shiro:user>
+            <a href="/user/book"><shiro:principal property="nickname"/></a>
+        </shiro:user>
+    </div>
+    <div class="logon ud_loged clearfix" style="display:none;">
+        <div class="user tabA imgbox">
+        <img  class="ud_avatar ud_goUsrCenter" src="http://rcode.zongheng.com/v2018/images/book.png" alt="" target="_blank">
+            <div class="user-blank tabA-float">
+                <a href="javascript:void(0);" class="quit ud_logout">退出</a>
+                <div class="user-name ud_goUsrCenter"><span class="ud_nickName"></span><em class="icon"></em></div>
+                <div class="user-info clearfix">
+                    <div class="user-info-cell ud_money">
+                        <span class="item_loading"></span>
+                    </div>
+                    <div class="user-info-cell ud_ticket">
+                        <span class="item_loading"></span>
+                    </div>
+                    <div class="user-info-cell ud_mticket">
+                        <span class="item_loading"></span>
+                    </div>
+                </div>
+                <a href="http://pay.zongheng.com" class="btn" target="_blank">立即充值</a>
+            </div>
+        </div>
+        <div class="message">
+            <a href="http://home.zongheng.com/msgIn.do" class="mes" target="_blank">消息(<span class="ud_umessage"></span>)</a>
+        </div>
+        <div class="shelf"><a href="http://home.zongheng.com/favoritesBook.do" target="_blank">书架</a></div>
+        <div class="foot-mark tabA">
+            <span class="mark clearfix">历史<em class="icon"></em></span>
+            <div class="tabA-float float-mark clearfix">
+                <!-- loading -->
+                <div class="ud_hisloading">
+                        <span class="item_loading"></span>
+                </div>
+                <!-- 没有记录 -->
+                <div class="ud_noHistory" style="display: none">
+                  <h2>亲爱的书友，您暂时没有阅读记录~</h2>
+                  <div class="tips">阅读记录只保存最近阅读的5本小说</div>
+                  <div class="enter"><a href="http://home.zongheng.com/favoritesBook.do" target="_blank">进入我的书架</a></div>
+                </div>
+                <!-- 有记录 -->
+                <div class="ud_hasHistory" style="display: none"><ul class="mark-list"></ul></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+        </div>
+    </div>
+</div>
+    <div class="wrap">
+        
+
+
+
+
+
+
+
+<div class="head">
+	<div class="head-top clearfix">
+		<div class="logo imgbox fl">
+			<a href="http://www.zongheng.com"><img
+				src="http://rcode.zongheng.com/v2018/images/logo.png" alt="logo"></a>
+		</div>
+		<form id="commSearch" name="searchForm" method="get"
+			action="http://search.zongheng.com/s" target="_blank">
+			<div class="search-box fl" data-hook="searchSuggest">
+				<input class="search-text fl" name="keyword" type="text"
+					placeholder="雪中悍刀行" autocomplete="off" disableautocomplete /> <input
+					type="submit" class="search-btn fr" />
+			</div>
+		</form>
+		<div class="pay fr">
+			<a class="user_pay" href="http://pay.zongheng.com" target="_blank">充值</a>
+		</div>
+		
+<div class="right-wrap-login ud_userTox">
+    <div class="unlogin ud_unlogin clearfix">
+        <div class="login fl"><a class="user_login" href="https://passport.zongheng.com">登录</a></div>
+        <div class="regist fl"><a class="user_register" href="https://passport.zongheng.com/webreg">注册</a></div>
+    </div>
+    <div class="logon ud_loged clearfix" style="display:none;">
+        <div class="user tabA imgbox">
+        <img  class="ud_avatar ud_goUsrCenter" src="http://rcode.zongheng.com/v2018/images/book.png" alt="" target="_blank">
+            <div class="user-blank tabA-float">
+                <a href="javascript:void(0);" class="quit ud_logout">退出</a>
+                <div class="user-name ud_goUsrCenter"><span class="ud_nickName"></span><em class="icon"></em></div>
+                <div class="user-info clearfix">
+                    <div class="user-info-cell ud_money">
+                        <span class="item_loading"></span>
+                    </div>
+                    <div class="user-info-cell ud_ticket">
+                        <span class="item_loading"></span>
+                    </div>
+                    <div class="user-info-cell ud_mticket">
+                        <span class="item_loading"></span>
+                    </div>
+                </div>
+                <a href="http://pay.zongheng.com" class="btn" target="_blank">立即充值</a>
+            </div>
+        </div>
+        <div class="message">
+            <a href="http://home.zongheng.com/msgIn.do" class="mes" target="_blank">消息(<span class="ud_umessage"></span>)</a>
+        </div>
+        <div class="shelf"><a href="http://home.zongheng.com/favoritesBook.do" target="_blank">书架</a></div>
+        <div class="foot-mark tabA">
+            <span class="mark clearfix">历史<em class="icon"></em></span>
+            <div class="tabA-float float-mark clearfix">
+                <!-- loading -->
+                <div class="ud_hisloading">
+                        <span class="item_loading"></span>
+                </div>
+                <!-- 没有记录 -->
+                <div class="ud_noHistory" style="display: none">
+                  <h2>亲爱的书友，您暂时没有阅读记录~</h2>
+                  <div class="tips">阅读记录只保存最近阅读的5本小说</div>
+                  <div class="enter"><a href="http://home.zongheng.com/favoritesBook.do" target="_blank">进入我的书架</a></div>
+                </div>
+                <!-- 有记录 -->
+                <div class="ud_hasHistory" style="display: none"><ul class="mark-list"></ul></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+	</div>
+	<div class="nav clearfix">
+		<div class="menu-left fl">
+			<a 
+				href="http://www.zongheng.com">首页<em></em></a> <a
+				
+				href="http://book.zongheng.com/store.html">书库<em></em></a> <a
+				
+				href="http://book.zongheng.com/rank.html">排行<em></em></a> <a
+				
+				href="http://book.zongheng.com/store/c0/c0/b0/u0/p1/v9/s1/t0/u0/i1/ALL.html">完本<em></em></a>
+			<!--<div class="app-menu tabA">-->
+				<!--<div class="app-float tabA-float">-->
+					<!--<div class="tit">巴哥小说 原创精品</div>-->
+					<!--<div class="imgbox tabC_wap">-->
+						<!--<div class="tabC" style="display: block;">-->
+							<!--<img src="http://rcode.zongheng.com/v2018/images/ad-float.png"-->
+								<!--alt="">-->
+						<!--</div>-->
+						<!--<div class="tabC">-->
+							<!--<img src="http://rcode.zongheng.com/v2018/images/ios-float.png"-->
+								<!--alt="">-->
+						<!--</div>-->
+						<!--<div class="tabC">-->
+							<!--<img src="http://rcode.zongheng.com/v2018/images/wx-float.png"-->
+								<!--alt="">-->
+						<!--</div>-->
+					<!--</div>-->
+					<!--<div class="tabT_wap app-down">-->
+						<!--<span class="tabT ad active"></span> <span class="tabT ios"></span>-->
+						<!--<span class="tabT wx"></span>-->
+					<!--</div>-->
+				<!--</div>-->
+			<!--</div>-->
+		</div>
+		<div class="menu-right fr">
+			<a href="http://author.zongheng.com" class="author_zone" target="_blank">作者专区<em></em></a>
+			<a href="http://game.zongheng.com" class="game_center" target="_blank">游戏中心<em></em></a>
+		</div>
+	</div>
+</div>
+        <!-- 1.	书封页头部广告位 -->
+        <div class="com-recbox">
+        <script type="text/javascript" src="http://static.zongheng.com/upload/hzds/column/240517642435.js"></script>
+        </div>
+	<div class="h20-blank"></div>
+        <!-- 书封页start -->
+        <div class="crumb">当前位置： <a href="/"> 首页 </a>> <a href="/category/3.html" th:text="${bookMessage.bookType.typeName}" > </a> ><span th:text="${bookMessage.bookName}"></span></div>
+
+        <div class="book-html-box clearfix">
+            <!-- 书籍详细信息 -->
+            <div class="book-top clearfix">
+                <div class="book-main fl">
+                    <div class="book-detail clearfix">
+                        <div class="book-img fl">
+                        
+                        <em class="mta"></em>
+							<!-- 小说封面-->
+	                        <img th:src="@{/show/{Path}(Path=${bookMessage.bookImage})}" alt="剑来" width="200" height="264">
+                        </div>
+                        <div class="book-info">
+                            <div class="book-name" ><span th:text="${bookMessage.bookName}"></span><em class="sign"></em><em class="vip"></em></div>
+                            <div class="book-label">
+	                        <a href="http://www.zongheng.com/store/c0/c0/b0/u0/p1/v9/s0/t0/u0/i0/ALL.html" class="state" target="_blank" th:text="${bookMessage.bookIsEnd}"></a>
+                            <a href="http://www.zongheng.com/store/c3/c0/b0/u0/p1/v9/s9/t0/u0/i0/ALL.html" class="label" target="_blank" th:text="${bookMessage.bookType.typeName}"></a>
+                            </div>
+                            <div class="nums"><span>字数 <i> <span th:text="${bookData.bookWords}"></span>万</i> </span> <span>总推荐 <i >445.4万</i> </span> <span>总点击 <i><span th:text="${bookData.bookClick}"></span>万</i> </span> <span>周推荐 <i>5580</i> </span></div>
+                            <div class="book-dec Jbook-dec hide">
+                            <p th:text="${bookMessage.bookContent}"></p>
+                            </div>
+                            <div class="btn-group">
+                                <a class="btn read-btn" target="_blank" th:href="@{'/readChapter?id='+${firstChapter.chapterId}}">开始阅读</a>
+                            	<!--<a class="btn read-btn" target="_blank"  href="http://book.zongheng.com/chapter/672340/38656195.html">继续阅读</a>-->
+                            	<a th:href="'javascript:funAddShelf('+${bookMessage.bookId}+');'"><div class="btn store-btn Jaddshelf">加入书架</div></a>
+                                <div class="fr link-group">
+                                   <a class="all-catalog" target="_blank" th:href="@{'/book/showChapter?id='+${bookMessage.bookId}}"><em></em>全部目录</a>
+                                   <a class="vote" href="javascript:void(0);" id="bookDonate_openRecTicket"><em></em>投推荐票</a>
+                                   
+				   					<a class="orderlink" href="http://book.zongheng.com/orderchapter?bookId=672340&frcid=38704886&frType=chapter" target="_blank"><em></em>章节订阅</a>
+				   					 
+				</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="book-new-chapter">
+                        <h4>最新章节</h4>
+                        <div class="tit"><a th:href="@{'/book/showChapter?id='+${bookMessage.bookId}}" target="_blank" th:text="${lastChapter.chapterName}"></a><em></em></div>
+                        <div class="con">（就像莲花小人儿的结局一样，这一卷《小夫子》的主线和结局，都是从第一卷开始，就已经想好了的...</div>
+                        <div class="time">
+                            · 12小时前<br/>
+                            · 今日更新1章
+                        </div>
+                    </div>
+                </div>
+                <div class="book-side fr">
+                    <div class="book-author">
+                        <div class="au-head">
+                            <a href="http://home.zongheng.com/show/userInfo/166130.html" target="_blank"><img  src="http://static.zongheng.com/userimage/2012/6/29/166130_120_120.jpg" alt="烽火戏诸侯" width="60" height="60" /></a>
+                            <em>签约作家</em>
+                           
+                        </div>
+                        <div class="au-name"><a href="http://home.zongheng.com/show/userInfo/166130.html" >烽火戏诸侯</a></div>
+                        <div class="au-words">
+                            <span>作品总数<i>6</i></span>
+                            <span>累计字数<i>1009.0万</i></span>
+                            <span>本月更新<i>4天</i></span>
+                        </div>
+                        <div class="au-says">
+                            <h4>作者有话说</h4>
+                            
+                            	<div class="con empty">作者大大正在奋力码字哦~~~</div>
+                            
+                        </div>
+                    </div>
+                    <div class="app-in clearfix">
+                        <div class="ewm" data-url="http://dl.zongheng.com/src/apk?bookId=672340&bookName=%E5%89%91%E6%9D%A5"><img src="http://rcode.zongheng.com/v2018/images/wx_book.png" alt="" width="80" height="79" ></div>
+                        <div class="txt">
+                            <h3>手机看纵横</h3>
+                            <p>新用户免费看7天</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 书籍详细信息 end-->
+            <!-- 2.	一屏下广告位：双倍月票期间可以放置或者其他活动 -->
+            <div class="com-recbox">
+        <script type="text/javascript" src="http://static.zongheng.com/upload/hzds/column/240517642436.js"></script>
+        </div>
+	<div class="h20-blank"></div>
+            <div class="book-main fl">
+            	
+                <!-- 捧场送月票start -->
+                	
+
+
+
+
+
+
+
+<div class="book-donate clearfix">
+    <h3 class="h3-tit">捧场送月票 <a href="//news.zongheng.com/news/5146.html" target="_blank" class="span_r ad flymillion" ><em class="pl_icon"></em> 捧场百万纵横币  包机拉横幅~</a></h3>
+    <div class="clearfix">
+        <div class="donate-l fl">
+            <div class="cel rank clearfix">
+                <h4 class="fl">月票榜排名<a href="http://www.zongheng.com/rank/details.html?rt=1&d=1"><em class="rk_ic"></em></a></h4>
+                <div class="fr rank-r">
+                    <span>第 <i class="a1">4</i> 名</span><br/>
+                    <span>共 <i class="a2">6107</i> 票</span>
+                    <a href="http://www.zongheng.com/rank/ypb.html" class="tip"></a>
+                </div>
+            </div>
+            <div class="cel honor clearfix">
+	            
+		               	   <h4 class="fl">本书荣誉<em class="ho_ic"></em></h4>
+		                    <div class="fr honor-r " >
+		                	<span><i> 10月月票榜</i> 第 <i class="a1">2 </i> 名</span><br/> 
+		                  	<span><i>9月月票榜</i> 第 <i class="a1">2 </i> 名</span>
+		                </div>
+		                
+            </div>
+        </div>
+        <div class="donate-r fr">
+            <h4> 捧场 
+                <div class="more fr"><a class="more-link" id="bookDonate_openMore" href="javascript:void(0);">更多捧场<em></em></a></div>
+            </h4>
+            <ul class="donate-list" id="bookdetail_donate" data-rate="1">
+                <a th:href="'javascript:ticketFn('+${bookMessage.bookId}+','+${1}+')'">
+                    <li data-type="donate" data-ticket="1" data-zhUnit="500">
+                        <div class="li-box clearfix">
+                            <span class="fl">捧</span>
+                            <span class="fl"> <i>1</i> 张月票</span>
+                        </div>
+                        <div class="txt">500纵横币</div>
+                    </li>
+                </a>
+                <a th:href="'javascript:ticketFn('+${bookMessage.bookId}+','+${22}+')'">
+                    <li data-type="donate" data-ticket="22" data-zhUnit="10000">
+                        <div class="li-box clearfix">
+                            <span class="fl">赏</span>
+                            <span class="fl"> <i>22</i> 张月票</span>
+                        </div>
+                        <div class="txt">10000纵横币</div>
+                    </li>
+                </a>
+                <a th:href="'javascript:ticketFn('+${bookMessage.bookId}+','+${220}+')'">
+                    <li data-type="donate" data-ticket="220" data-zhUnit="100000">
+                        <div class="li-box clearfix">
+                            <span class="fl">盟</span>
+                            <span class="fl"> <i>220</i> 张月票</span>
+                        </div>
+                        <div class="txt">100000纵横币</div>
+                    </li>
+                </a>
+                <a th:href="'javascript:ticketFn('+${bookMessage.bookId}+','+${2200}+')'">
+                    <li data-type="donate" data-ticket="2200" data-zhUnit="1000000">
+                        <div class="li-box clearfix">
+                            <span class="fl">壕</span>
+                            <span class="fl"><i>2200</i>张月票</span>
+                        </div>
+                        <div class="txt">1000000纵横币</div>
+                    </li>
+                </a>
+                <a th:href="'javascript:randomTicketFn('+${bookMessage.bookId}+','+${0}+')'">
+                    <li data-type="donate" data-ticket="" data-zhUnit="100">
+                        <div class="li-box clearfix">
+                            <span class="fl">RP</span>
+                            <span class="fl">人品月票</span>
+                        </div>
+                        <div class="txt">100纵横币抽月票</div>
+                    </li>
+                </a>
+                <li data-type="voteDetail">
+                    <div class="li-box clearfix">
+                        <span class="fl">月</span>
+                        <span class="fl"> 投月票 </span>
+                    </div>
+                    <div class="txt" id="bd_user_monthvotenum">
+                    	
+                    	
+                    		剩余月票 <span id="_leavemt">0</span> 张
+                    	
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+   <div class="book-donate-voice Jvoicelist">
+       <em></em> 
+       <ul>
+       </ul> 
+   </div>
+</div>
+                <!-- 捧场送月票end -->
+                
+                <!-- 精彩推荐start -->
+                <div class="book-recommend">
+                    <h3 class="h3-tit">精彩推荐 <span class="span_r exc" id="guess_change"><em class="exc_icon"></em> 换一换</span></h3>
+                    <ul class="book-recommend-list clearfix Jrecommend">
+                    </ul>
+                </div>
+                <!-- 精彩推荐end -->
+                <!-- 圈子start -->
+                <div class="book-forums">
+                        <h3 class="h3-tit clearfix">
+                        <a class="btn fr Jpostbtn" th:href="@{/comment/preadd/{id}(id=${bookMessage.bookId})}">我要发帖</a><span th:text="${bookMessage.bookName}"></span> 圈子
+                        <a class="all-in" href="http://forum.zongheng.com/160116.html" target="_blank">全部帖子<i id="JthreadNum"></i><em class="arrow-r"></em></a>
+                        </h3>
+                         
+		                        <div class="forums-host" id="JleaderList" style="display:none">
+		                            <!-- <i>暂无圈主</i>  -->
+		                            <i>圈主：</i>
+		                        </div>
+		                        <div class="forums-txt" id="Jforums-txt">
+		                                
+		                        </div>
+                        	
+                    </div>
+                <div >
+
+
+                    <div  th:each="comment:${commentList}">
+
+                        <ul class="forums-list" id="JthreadList">
+                            <li data-forumsid="160116" data-threadid="17376598" data-nickname="鄂那飞" data-userid="49081647">
+                                <div class="user-head"><a href="//home.zongheng.com/show/userInfo/49081647.html" target="_blank">
+                                    <img th:src="@{/show/{image}(image=${comment.image})}"  onerror="this.src='http://static.zongheng.com/userimage/default/image_120_120.gif?r=1541421981068'" alt="" width="50" height="50"><em class="lv2"></em><span><
+<i class="star star4"></i></span></a></div><div class="for-rp-con">
+                                <div class="name" th:text="${comment.name}">鄂那飞</div><div class="dec clearfix hide">
+                                <a class="aLabel"  target="_blank"  th:text="${comment.commentTheme}"></a>
+                                <a class="aLabe1"  target="_blank" th:text="${comment.commentContent}">
+                                </a><div class="show-more"><a href="//forum.zongheng.com/160116/17376598.html" target="_blank">详情<em class="arrow-r"></em></a></div></div>
+                                <div class="other">
+                                    <div class="date fl" th:text="${#dates.format(comment.creattime,'yyyy-MM-dd')}">刚刚</div>
+                                    <div class="fr for-list"><a href="javascript:void(0)" class="for-praise for-le  ">
+                                        <em></em>15</a><a href="//forum.zongheng.com/160116/17376598.html" target="_blank" class="for-comment for-le"><em></em>87</a></div> </div></div></li>
+                        </ul>
+                    </div>
+
+
+                </div>
+                 <!-- 圈子end -->
+            </div>
+
+            <div class="book-side fr">
+            	
+	                <div class="tab-lists">
+	                    <div class="top-title clearfix">
+	                        <div class="title fl">粉丝星值榜</div>
+	                        <div class="mz fr">盟主<i> 434</i> </div>
+	                    </div>
+	                    <div class="lists">
+	                    	
+	                        
+	                        	<ul >
+	                        		
+	                        			<li class="list-a" >
+	                        			 
+				                                <span class="star star16"></span>
+				                                
+				                                 
+				                                <em class="list_icon top1">1</em>
+				                                
+			                                <a href="http://home.zongheng.com/show/userInfo/37382133.html" target="_blank" title="《剑来》星值积分：6917533 星值等级：至尊">其实很简单丶</a>
+			                            </li>
+	                        		
+	                        			<li class="list-a" >
+	                        			 
+				                                <span class="star star16"></span>
+				                                
+				                                 
+				                                <em class="list_icon top2">2</em>
+				                                
+			                                <a href="http://home.zongheng.com/show/userInfo/48423248.html" target="_blank" title="《剑来》星值积分：5008552 星值等级：至尊">草长莺飞少年郎</a>
+			                            </li>
+	                        		
+	                        			<li class="list-a" >
+	                        			 
+				                                <span class="star star16"></span>
+				                                
+				                                 
+				                                <em class="list_icon top3">3</em>
+				                                
+			                                <a href="http://home.zongheng.com/show/userInfo/49288036.html" target="_blank" title="《剑来》星值积分：2729271 星值等级：至尊">王校长123</a>
+			                            </li>
+	                        		
+	                        			<li class="list-a" >
+	                        			 
+				                                <span class="star star16"></span>
+				                                
+				                                 
+				                                <em class="list_icon ">4</em>
+				                                
+			                                <a href="http://home.zongheng.com/show/userInfo/13505651.html" target="_blank" title="《剑来》星值积分：2552210 星值等级：至尊">部落甲天下</a>
+			                            </li>
+	                        		
+	                        			<li class="list-a" >
+	                        			 
+				                                <span class="star star16"></span>
+				                                
+				                                 
+				                                <em class="list_icon ">5</em>
+				                                
+			                                <a href="http://home.zongheng.com/show/userInfo/35653505.html" target="_blank" title="《剑来》星值积分：2506352 星值等级：至尊">吊大的陈十一</a>
+			                            </li>
+	                        		
+	                        			<li class="list-a" >
+	                        			 
+				                                <span class="star star16"></span>
+				                                
+				                                 
+				                                <em class="list_icon ">6</em>
+				                                
+			                                <a href="http://home.zongheng.com/show/userInfo/918549.html" target="_blank" title="《剑来》星值积分：2106945 星值等级：至尊">一直很D调</a>
+			                            </li>
+	                        		
+	                        			<li class="list-a" >
+	                        			 
+				                                <span class="star star16"></span>
+				                                
+				                                 
+				                                <em class="list_icon ">7</em>
+				                                
+			                                <a href="http://home.zongheng.com/show/userInfo/23977366.html" target="_blank" title="《剑来》星值积分：1665745 星值等级：至尊">叶长江</a>
+			                            </li>
+	                        		
+	                        			<li class="list-a" >
+	                        			 
+				                                <span class="star star16"></span>
+				                                
+				                                 
+				                                <em class="list_icon ">8</em>
+				                                
+			                                <a href="http://home.zongheng.com/show/userInfo/48408820.html" target="_blank" title="《剑来》星值积分：1657036 星值等级：至尊">Ssssssmy</a>
+			                            </li>
+	                        		
+	                        			<li class="list-a" >
+	                        			 
+				                                <span class="star star16"></span>
+				                                
+				                                 
+				                                <em class="list_icon ">9</em>
+				                                
+			                                <a href="http://home.zongheng.com/show/userInfo/4283463.html" target="_blank" title="《剑来》星值积分：1634916 星值等级：至尊">阿喀琉斯123</a>
+			                            </li>
+	                        		
+	                        			<li class="list-a" >
+	                        			 
+				                                <span class="star star16"></span>
+				                                
+				                                 
+				                                <em class="list_icon ">10</em>
+				                                
+			                                <a href="http://home.zongheng.com/show/userInfo/3518970.html" target="_blank" title="《剑来》星值积分：1606945 星值等级：至尊">小志本尊</a>
+			                            </li>
+	                        		
+	                        			<li class="list-a" >
+	                        			 
+				                                <span class="star star16"></span>
+				                                
+				                                 
+				                                <em class="list_icon ">11</em>
+				                                
+			                                <a href="http://home.zongheng.com/show/userInfo/16485258.html" target="_blank" title="《剑来》星值积分：1457594 星值等级：至尊">筱陌尘</a>
+			                            </li>
+	                        		
+	                        			<li class="list-a" >
+	                        			 
+				                                <span class="star star16"></span>
+				                                
+				                                 
+				                                <em class="list_icon ">12</em>
+				                                
+			                                <a href="http://home.zongheng.com/show/userInfo/30652631.html" target="_blank" title="《剑来》星值积分：1336945 星值等级：至尊">纤云弄巧丶</a>
+			                            </li>
+	                        		
+	                        			<li class="list-a" >
+	                        			 
+				                                <span class="star star16"></span>
+				                                
+				                                 
+				                                <em class="list_icon ">13</em>
+				                                
+			                                <a href="http://home.zongheng.com/show/userInfo/47975386.html" target="_blank" title="《剑来》星值积分：1307124 星值等级：至尊">总总001</a>
+			                            </li>
+	                        		
+	                        			<li class="list-a" >
+	                        			 
+				                                <span class="star star16"></span>
+				                                
+				                                 
+				                                <em class="list_icon ">14</em>
+				                                
+			                                <a href="http://home.zongheng.com/show/userInfo/19734975.html" target="_blank" title="《剑来》星值积分：1306997 星值等级：至尊">黄庆之丶</a>
+			                            </li>
+	                        		
+	                        			<li class="list-a" >
+	                        			 
+				                                <span class="star star16"></span>
+				                                
+				                                 
+				                                <em class="list_icon ">15</em>
+				                                
+			                                <a href="http://home.zongheng.com/show/userInfo/48686996.html" target="_blank" title="《剑来》星值积分：1305165 星值等级：至尊">人间路窄酒杯宽丶</a>
+			                            </li>
+	                        		
+	                        	</ul>
+		                        <div class="more star-more">
+		                            <a class="more-link" href="http://www.zongheng.com/bookfans/672340.html" target="_blank">查看更多<em></em></a>
+		                        </div>
+	                        
+	                    </div>
+	                    <div class="star-first clearfix Jstar-first">
+	                        
+	                    </div>
+	                </div>
+                
+                <!-- 此处月票榜 -->
+                <!-- 月票榜start -->
+                <div class="tab-lists">
+                        <div class="top-title clearfix">
+                            <div class="title fl">月票榜</div>
+                            <div class="more fr">
+                                <a class="more-link" href="http://www.zongheng.com/rank/details.html?rt=1&d=1" target="_blank">更多<em></em></a>
+                            </div>
+                        </div>
+                        <div class="lists">
+                            <ul id="monthTicketRankList">
+                                
+                            </ul>
+                        </div>
+                    </div>
+            </div>
+        </div>
+        <!-- 3.	书封页右下角（月票榜下）：宽度固定，高度不限制 -->
+        <!-- 书封end -->
+    </div>
+    <div class="footer">
+  	
+
+
+
+
+
+
+
+<div class="partlink">
+    <div class="wrap">
+        <div class="title">出版合作联系</div>
+        <div class="clearfix">
+            <div class="mail fl">
+                
+                <div>版权合作联系人：许先生<a href="mailto:xubin@zongheng.com">xubin@zongheng.com</a></div>
+                
+                <div>广告合作联系人 : 张女士<a href="mailto:zhangwen@zongheng.com">zhangwen@zongheng.com</a></div>
+                
+            </div>
+           
+            <div class="help-btn">
+                <a class="btn" href="http://www.zongheng.com/help/index.html" target="_blank">帮助中心</a>
+                <p>服务时间：24小时</p>
+            </div>
+            
+            <div class="b1 foot-cell">
+                <div class="tit">客服</div>
+                <div class="qq">965151179</div>
+                <div class="email"><a href="mailto:zhkf@zongheng.com">zhkf@zongheng.com</a></div>
+            </div>
+            <div class="b2 foot-cell">
+                <div class="tit">举报</div>
+                <div class="tel">4006289988</div>
+                <div class="email"><a href="mailto:jubao@zongheng.com">jubao@zongheng.com</a></div>
+            </div>
+           
+            <div class="app foot-blank">
+                <div class="imgbox fl">
+                    <img src="http://rcode.zongheng.com/v2018/images/app.png" alt="">
+                </div>
+                <p>客户端下载</p>
+            </div>
+            
+            <div class="wchat foot-blank">
+                <div class="imgbox fl">
+                    <img src="http://rcode.zongheng.com/v2018/images/wx.png" alt="">
+                </div>
+                <p>微信公众号</p>
+            </div>
+        </div>
+    </div>
+</div>
+        <form action="/user/log" method="post" id="loginForm">
+
+        </form>
+<div class="copyright">
+    <div class="links"><a href="http://www.zongheng.com/company/about.html" target="_blank">关于纵横</a>|<a href="http://www.zhwenxue.com/join" target="_blank">诚聘英才</a>|<a href="http://www.zongheng.com/company/business.html" target="_blank">商务合作</a>|<a href="http://www.zongheng.com/company/copyright.html" target="_blank">法律声明</a>|<a href="http://www.zongheng.com/help/index.html" target="_blank">帮助中心</a>|<a href="http://author.zongheng.com" target="_blank">作者投稿</a>|<a href="http://www.zongheng.com/company/contact.html" target="_blank">联系我们</a>|<a href="http://www.zongheng.com/company/link.html" target="_blank">友情链接</a>|<a href="http://news.zongheng.com/zhuanti/wlqz/index.html" target="_blank">谨防诈骗</a>|<a href="http://www.zongheng.com/company/sitemap.html" target="_blank">网站地图</a></div>
+    <p>Copyright©<a href="http://www.zongheng.com" target="_blank">www.zongheng.com</a>All Rights Reserved 版权所有 北京幻想纵横网络技术有限公司   京ICP证：080527号《网络文化经营许可证》   <a href="http://static.zongheng.com/images/license/publication-license.jpg" target="_blank">京ICP备11009265号</a>   <a href="http://static.zongheng.com/images/license/business-license.jpg" target="_blank">京网文[2015]2368-459号</a></p>
+    <p>新出发京零字第朝130010号  丨  统一社会信用代码91110105678221683F  丨 <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502030124" target="_blank">京公网安备  	11010502030124号</a>  丨 <a href="http://www.cyberpolice.cn/wfjb/" target="_blank">公安部网络违法犯罪举报网站</a></p>
+    <p><a href="http://www.zongheng.com" target="_blank">纵横小说网</a>,提供<a href="http://www.zongheng.com/category/1.html" target="_blank">玄幻小说</a>,<a href="/category/9.html" target="_blank">都市小说</a>,<a href="http://huayu.baidu.com" target="_blank">言情小说</a>等<a href="http://book.zongheng.com/store/c0/c0/b0/u0/p1/v0/s9/t0/u0/i1/ALL.html" target="_blank">免费小说</a>阅读。作者发布小说作品时，请遵守国家互联网信息管理办法规定。</p>
+    <p>本站所收录小说作品、社区话题、书库评论均属其个人行为，不代表本站立场。</p>
+    <form action="/seckill/seckill" method="post" id="form1">
+        <input type="hidden" id="inp" value="" name="content">
+    </form>
+    <form action="/user/log" method="post" id="form2"></form>
+</div>
+        <script type="text/javascript" src="http://cdn-hangzhou.goeasy.io/goeasy.js"></script>
+        <script type="text/javascript" src="http://static.zongheng.com/v2014/js/lib/jquery.min.js"></script>
+        <script type="text/javascript">
+            var goEasy = new GoEasy({
+                appkey: 'BC-58a22e706d3342ecafd6bd784c07d335'
+            });
+            goEasy.subscribe({
+                channel:'seckill',
+                onMessage: function(message){
+                    var content = message.content;
+                    if(confirm(content)==true){
+                        document.getElementById("inp").value = content;
+                        $.post("/seckill/preseckill",{},function (data) {
+                            if(data == "000"){
+                                $("#form1").submit();
+                            }else {
+                                $("#form2").submit();
+                            }
+                        });
+                    }
+                }
+            });
+            function ticketFn(bookId,num) {
+                $.post("/click/add",{bookId:bookId,num:num},function (data) {
+                    if(data.code == 2){
+                        alert(data.msg);
+                        $("#loginForm").submit();
+                    }else if (data.code == 1){
+                        alert(data.msg)
+                    }else if (data.code == 0){
+                        alert(data.msg)
+                    }
+                })
+            }
+            function randomTicketFn(bookId,num) {
+                num = Math.round(Math.random());
+                $.post("/click/add",{bookId:bookId,num:num},function (data) {
+                    if(data.code == 2){
+                        alert(data.msg);
+                        $("#loginForm").submit();
+                    }else if (data.code == 1){
+                        if (num == 0){
+                            alert("RP太差");
+                        }else {
+                            alert("成功送出一张月票 "+data.msg);
+                        }
+                    }else if (data.code == 0){
+                        alert(data.msg);
+                    }
+                })
+            }
+            function funAddShelf(id) {
+                $.post("/shelf/addShelf",{id:id},function (data) {
+                    if(data.code == 0){
+                        alert(data.msg)
+                    }else if(data.code == 1){
+                        alert(data.msg)
+                    }else if(data.code == 2){
+                        alert(data.msg)
+                        $("#loginFrm").submit()
+                    }
+                })
+            }
+
+        </script>
+<!--去除页面弹出的请求失败的窗口 -->
+<!--<script type="text/javascript" src="http://rcode.zongheng.com/v2018/js/lib/require.min.js" defer async data-main="http://rcode.zongheng.com/v2018/js/map.min"></script>-->
+
+    </div>
+</body>
+
+</html>

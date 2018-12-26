@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Thymeleaf template</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<p th:text="${chapterList}"></p>
+<div th:each="chapter:${chapterList}">
+    <h1 th:text="${chapter}"></h1>
+</div>
+</body>
+</html>

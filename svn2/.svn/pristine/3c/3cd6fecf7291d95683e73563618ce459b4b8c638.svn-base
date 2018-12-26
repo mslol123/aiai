@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jxky.bgxs.dao.BookDataDAO">
+    <resultMap id="BookDataMap" type="com.jxky.bgxs.entity.BookData">
+        <id property="bookId" column="book_id"></id>
+        <result property="bookSales" column="book_sales"></result>
+        <result property="bookTicket" column="book_ticket"></result>
+        <result property="bookClick" column="book_click"></result>
+        <result property="bookCollection" column="book_collection"></result>
+        <result property="bookWords" column="book_words"></result>
+        <result property="bookMoney" column="book_money"></result>
+        <result property="bookSubscribe" column="book_subscribe"></result>
+        <association property="bookType" column="book_type" select="com.jxky.bgxs.dao.BookTypeDAO.findById"></association>
+        <association property="bookMessage" column="book_id" select="com.jxky.bgxs.dao.BookMessageDAO.findById"></association>
+    </resultMap>
+
+    <sql id="bookDatacolumn">
+        book_id,book_sales,book_ticket,book_click,book_collection,book_words,book_money,book_subscribe
+    </sql>
+
+    <select id="findByBookId" resultMap="BookDataMap">
+        SELECT <include refid="bookDatacolumn"></include> FROM book_data WHERE book_id=#{bookId}
+    </select>
+    <select id="findAll" resultMap="BookDataMap">
+        SELECT <include refid="bookDatacolumn"></include> FROM book_data ORDER BY book_ticket DESC
+    </select>
+    <select id="findAll1" resultMap="BookDataMap">
+        SELECT <include refid="bookDatacolumn"></include> FROM book_data ORDER BY book_click DESC
+    </select>
+    <!--按总点赞数排序1-->
+    <select id="findByBookClick1" resultMap="BookDataMap">
+        SELECT <include refid="bookDatacolumn"></include> FROM book_data ORDER BY book_click DESC limit 1
+    </select>
+    <!--按总点赞数排序2-->
+    <select id="findByBookClick2" resultMap="BookDataMap">
+        SELECT <include refid="bookDatacolumn"></include> FROM book_data ORDER BY book_click DESC limit 1,1
+    </select>
+    <!--按总点赞数排序3-->
+    <select id="findByBookClick3" resultMap="BookDataMap">
+        SELECT <include refid="bookDatacolumn"></include> FROM book_data ORDER BY book_click DESC limit 2,1
+    </select>
+    <!--按总点赞数排序4-->
+    <select id="findByBookClick4" resultMap="BookDataMap">
+        SELECT <include refid="bookDatacolumn"></include> FROM book_data ORDER BY book_click DESC limit 3,7
+    </select>
+    <!--按总字数排序1-->
+    <select id="findByBookWords1" resultMap="BookDataMap">
+        SELECT <include refid="bookDatacolumn"></include> FROM book_data ORDER BY book_words DESC limit 1
+    </select>
+    <!--按总字数排序2-->
+    <select id="findByBookWords2" resultMap="BookDataMap">
+        SELECT <include refid="bookDatacolumn"></include> FROM book_data ORDER BY book_words DESC limit 1,1
+    </select>
+    <!--按总字数排序3-->
+    <select id="findByBookWords3" resultMap="BookDataMap">
+        SELECT <include refid="bookDatacolumn"></include> FROM book_data ORDER BY book_words DESC limit 2,1
+    </select>
+    <!--按总字数排序4-->
+    <select id="findByBookWords4" resultMap="BookDataMap">
+        SELECT <include refid="bookDatacolumn"></include> FROM book_data ORDER BY book_words DESC limit 3,7
+    </select>
+    <!--按总收藏数排序1-->
+    <select id="findByBookCollection1" resultMap="BookDataMap">
+        SELECT <include refid="bookDatacolumn"></include> FROM book_data ORDER BY book_collection DESC limit 1
+    </select>
+    <!--按总收藏数排序2-->
+    <select id="findByBookCollection2" resultMap="BookDataMap">
+        SELECT <include refid="bookDatacolumn"></include> FROM book_data ORDER BY book_collection DESC limit 1,1
+    </select>
+    <!--按总收藏数排序3-->
+    <select id="findByBookCollection3" resultMap="BookDataMap">
+        SELECT <include refid="bookDatacolumn"></include> FROM book_data ORDER BY book_collection DESC limit 2,1
+    </select>
+    <!--按总收藏数排序4-->
+    <select id="findByBookCollection4" resultMap="BookDataMap">
+        SELECT <include refid="bookDatacolumn"></include> FROM book_data ORDER BY book_collection DESC limit 3,7
+    </select>
+    <!--按照月票数排序1-->
+    <select id="findByBookTicket1" resultMap="BookDataMap">
+        SELECT <include refid="bookDatacolumn"></include> FROM book_data ORDER BY book_ticket DESC limit 1
+    </select>
+    <!--按照月票数排序2-->
+    <select id="findByBookTicket2" resultMap="BookDataMap">
+    SELECT <include refid="bookDatacolumn"></include> FROM book_data ORDER BY book_ticket DESC limit 1,1
+</select>
+    <!--按照月票数排序3-->
+    <select id="findByBookTicket3" resultMap="BookDataMap">
+        SELECT <include refid="bookDatacolumn"></include> FROM book_data ORDER BY book_ticket DESC limit 2,1
+    </select>
+    <!--按照月票数排序4-->
+    <select id="findByBookTicket4" resultMap="BookDataMap">
+        SELECT <include refid="bookDatacolumn"></include> FROM book_data ORDER BY book_ticket DESC limit 3,7
+    </select>
+    <select id="findByBookSales" resultMap="BookDataMap">
+        SELECT <include refid="bookDatacolumn"></include> FROM book_data ORDER BY book_sales DESC
+    </select>
+    <!--按照书籍金额（每个章节金额的总和）排序-->
+    <select id="findByBookMoney" resultMap="BookDataMap">
+        SELECT <include refid="bookDatacolumn"></include> FROM book_data ORDER BY book_money DESC
+    </select>
+    <!--按照书籍订阅数排序1-->
+    <select id="findByBookSubscribe1" resultMap="BookDataMap">
+        SELECT <include refid="bookDatacolumn"></include> FROM book_data ORDER BY book_subscribe DESC limit 1
+    </select>
+    <!--按照书籍订阅数排序2-->
+    <select id="findByBookSubscribe2" resultMap="BookDataMap">
+        SELECT <include refid="bookDatacolumn"></include> FROM book_data ORDER BY book_subscribe DESC limit 1,1
+    </select>
+    <!--按照书籍订阅数排序3-->
+    <select id="findByBookSubscribe3" resultMap="BookDataMap">
+        SELECT <include refid="bookDatacolumn"></include> FROM book_data ORDER BY book_subscribe DESC limit 2,1
+    </select>
+    <!--按照书籍订阅数排序4-->
+    <select id="findByBookSubscribe4" resultMap="BookDataMap">
+        SELECT <include refid="bookDatacolumn"></include> FROM book_data ORDER BY book_subscribe DESC limit 3,7
+    </select>
+    <!--按照书的销售数排序1-->
+    <select id="findByBookSales1" resultMap="BookDataMap">
+        SELECT <include refid="bookDatacolumn"></include> FROM book_data ORDER BY book_sales DESC limit 1
+    </select>
+    <!--按照书的销售数排序2-->
+    <select id="findByBookSales2" resultMap="BookDataMap">
+        SELECT <include refid="bookDatacolumn"></include> FROM book_data ORDER BY book_sales DESC limit 1,1
+    </select>
+    <!--按照书的销售数排序3-->
+    <select id="findByBookSales3" resultMap="BookDataMap">
+        SELECT <include refid="bookDatacolumn"></include> FROM book_data ORDER BY book_sales DESC limit 2,1
+    </select>
+    <!--按照书的销售数排序4-->
+    <select id="findByBookSales4" resultMap="BookDataMap">
+        SELECT <include refid="bookDatacolumn"></include> FROM book_data ORDER BY book_sales DESC limit 3,7
+    </select>
+    <update id="update">
+        UPDATE book_data
+        <set>
+            <if test="bookSales != null">
+                book_sales = #{bookSales},
+            </if>
+            <if test="bookTicket != null">
+                book_ticket = #{bookTicket},
+            </if>
+            <if test="bookClick != null">
+                book_click = #{bookClick},
+            </if>
+            <if test="bookCollection != null">
+                book_collection = #{bookCollection},
+            </if>
+            <if test="bookWords != null">
+                book_words = #{bookWords},
+            </if>
+            <if test="bookMoney != null">
+                book_money = #{bookMoney},
+            </if>
+            <if test="bookSubscribe != null">
+                book_subscribe = #{bookSubscribe},
+            </if>
+            <if test="bookType != null and bookType.typeId != null">
+                book_type = #{bookType.typeId},
+            </if>
+            <if test="bookMessage != null and bookMessage.bookId != null">
+                book_id = #{bookMessage.bookId},
+            </if>
+        </set>
+        WHERE book_id = #{bookId}
+    </update>
+    <insert id="add">
+        INSERT INTO book_data
+        <trim prefix="(" suffixOverrides=",">
+            <if test="bookId != null">
+                book_id,
+            </if>
+            <if test="bookSales != null">
+                book_sales,
+            </if>
+            <if test="bookTicket != null">
+                book_ticket,
+            </if>
+            <if test="bookClick != null">
+                book_click,
+            </if>
+            <if test="bookCollection != null">
+                book_collection,
+            </if>
+            <if test="bookWords != null">
+                book_words,
+            </if>
+            <if test="bookMoney != null">
+                book_money,
+            </if>
+            <if test="bookSubscribe != null">
+                book_subscribe,
+            </if>
+            <if test="bookType != null and bookType.typeId != null">
+                book_type,
+            </if>
+        </trim>
+        <trim prefix=") VALUES (" suffix=")" suffixOverrides=",">
+            <if test="bookId != null">
+                #{bookId},
+            </if>
+            <if test="bookSales != null">
+                #{bookSales},
+            </if>
+            <if test="bookTicket != null">
+                #{bookTicket},
+            </if>
+            <if test="bookClick != null">
+                #{bookClick},
+            </if>
+            <if test="bookCollection != null">
+                #{bookCollection},
+            </if>
+            <if test="bookWords != null">
+                #{bookWords},
+            </if>
+            <if test="bookMoney != null">
+                #{bookMoney},
+            </if>
+            <if test="bookSubscribe != null">
+                #{bookSubscribe},
+            </if>
+            <if test="bookType != null and bookType.typeId != null">
+                #{bookType.typeId},
+            </if>
+        </trim>
+    </insert>
+
+    <delete id="delete">
+        DELETE FROM book_data WHERE book_id=#{bookId}
+    </delete>
+</mapper>
+
+
+
+

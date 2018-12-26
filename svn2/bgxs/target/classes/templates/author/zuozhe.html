@@ -1,0 +1,188 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>作者专区-首页</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/><link rel="stylesheet" type="text/css"  href="http://static.zongheng.com/author/v2015/style/public.css" />
+	<link rel="stylesheet" type="text/css"  href="http://static.zongheng.com/author/v2015/style/author.css" />
+</head>
+<body type="index"  _pgid="138"  serialStatus = >
+<div class="au_nav">
+	<div class="au_box" id="loginSign">
+	 <div class="au_nav_a">
+		<a href="/user/index"  target="_blank">巴哥小说</a>|
+		<a href="/nzh/editors"  target="_blank">编辑介绍</a>|
+		<a href="http://www.zongheng.com/company/author.html"  target="_blank"  class="goodluck">作者福利</a>
+		
+		        |<span>尼奥</span>|
+		        <a  href="http://author.zongheng.com/loginout">退出</a>
+		   
+	 </div>
+	 <a href="http://author.zongheng.com" class="au_logo"></a>
+	 <script src="http://author.zongheng.com/nzh/header/notice"></script>
+
+	</div>
+  </div>
+
+	<div class="au_head">
+	 <div class="au_box">
+		<div class="au_pic">
+		    <img src="http://static.zongheng.com/upload/default_user.jpg" />
+			<div class="pic_shade"></div>
+		</div>
+		<div class="au_intro">
+			<div class="au_name">
+				<span>尼奥</span> <a href="/home"title="修改资料" class="auico btn_changename"></a>
+				
+						<a href="/fun/list/1" title="作者信箱" class="auico btn_email"></a>
+					
+			</div>
+			<p><em class="auico buy"></em>昨日订阅:<span>0.0</span></p>
+			<p><em class="auico allow"></em>作者已审核</p>
+			</div>
+			<a th:href="@{/bookMessage/preAdd}" title="创建新书" class="buildbook">创建新书</a>
+		</div>
+	</div>
+	<div class="au_box content">
+		<div class="con_nav">
+			<a href="/author/announce" class="fr voice"><em class="auico warn"></em>网站公告</a> 
+			<a href="/bookMessage/list/1"><span class="focus">作品库</span> </a>
+			<a href="/pay/prePay/1"><span >稿酬查询</span> </a>
+		</div>
+		<div class="con">
+		   <div class="radios">
+				<!--<span class="label focus"><em class="auico mn_radio"></em>全部</span> -->
+				<!--<span class="label"><em  class="auico mn_radio"></em>已完结</span> -->
+				<!--<span class="label"><em class="auico mn_radio"></em>连载中</span>-->
+		  </div>
+	     
+			<div class="booklist">
+			<ul>
+				<!--<div th:each="book:${list}>-->
+			        <li th:each="item:${list}">
+
+
+				<div class="bookmanage fr">
+					<div class="book_tj">
+					</div>
+					<div class="btn_manage">
+						<a th:href="'/bookMessage/list/chapter/preAdd/'+${item.bookId}"><em class="auico manage_a"></em>章节管理</a>
+						<a th:href="'/fun/draft/'+${item.bookId}"><em class="auico manage_b"></em>存稿箱
+
+						<em class="auico paper" th:text="${item.num}" ></em>
+
+						</a> 
+						<a th:href="'/moder/list/'+${item.bookId}"><em  class="auico manage_c"></em>书评管理</a>
+						<a href="/book/updateinfo/show?bookId=737631"><em  class="auico manage_d"></em>更新情况</a> 
+						<a href="/book/data/show?bookId=737631"><em  class="auico manage_e"></em>作品数据</a>
+						<a href="/fun/fuli"><em  class="auico manage_f"></em>福利申请</a>
+					</div>
+					</div>
+					<div class="bookinfo">
+					  
+				        <a href="http://book.zongheng.com/book/737631.html" target="_blank">
+						<img th:src="@{/show/{type}(type=${item.bookImage})}"  class="booklink" />
+						</a>
+						<!--<p th:text="'show/img/'+${item.image}"></p>-->
+					  
+						<h2><h2 th:text="${item.bookName}"></h2>
+							<em class="number"><h4 th:text="${item.bookExamineStatus}"></h4></em>
+							<em class="number"><h6 th:text="${item.bookContent}"></h6></em>
+						</h2>
+						<div class="lastchapter">
+						</div>
+						<!--<div class="bookstate state_blur" th:switch="${item.eaxmineStatus}">-->
+								<!--<p th:case="0">初始化</p>-->
+								<!--<p th:case="1">User is a manager</p>-->
+								<!--<p th:case="2">User is some other thing</p>-->
+						<!--</div>-->
+						
+						<div class="book_btns">
+						 <a th:href="'/bookMessage/preUpdate/'+${item.bookId}" class="edit">
+						 编辑
+						 </a>
+							<a th:href="'/bookMessage/delete/'+${item.bookId}" class="delbook">删除</a>
+						 
+						</div>
+					</div>
+
+					</li>
+				<!--</div>-->
+			</ul>
+			</div>
+			<!--<p th:text="${pageBean.currentPage}"></p>-->
+			<!--<p th:text="${pageBean.totalPage}"></p>-->
+			<div class="pagenumber">总共<span th:text="${pageBean.count}"></span>条记录<a th:onclick="'fn2('+${pageBean.currentPage}+')'" class="page_prev">上一页</a>
+				<span th:each="page:${pages}">
+				<span th:switch="${page}">
+				<a th:href="'/bookMessage/list/1'+'?page='+${page}" class="now" th:case="${pageBean.currentPage}"><span th:text="${page}"></span></a>
+				<a th:href="'/bookMessage/list/1'+'?page='+${page}" th:case="*"><span th:text="${page}"></span></a>
+				</span>
+				</span>
+				<a th:onclick="'fn3('+${pageBean.currentPage}+','+${pageBean.totalPage}+')'" class="page_next">下一页</a>&nbsp;&nbsp;至第<input type="text" id="toPage" name="toPage" value="1" size="3" />页&nbsp;<input type="button" onclick="fn1()" value="跳转"/>
+			</div>
+			<form id="frm" action="/bookMessage/list/1">
+				<input type="hidden" id="page" name="page" value="">
+			</form>
+
+		</div>
+	</div>
+	
+<div class="footer">
+	<div class="au_box">
+		<p>
+			Copyright<em>©</em>2008-2010 www.zongheng.com All Rights Reserved
+		</p>
+		<p>版权所有 北京幻想巴哥网络技术有限公司</p>
+	</div>
+</div>
+<script type="text/javascript" src="http://cdn-hangzhou.goeasy.io/goeasy.js"></script>
+<script  type="text/javascript"  src="http://static.zongheng.com/v2_0/js/tongji.js"></script>
+
+	<script type="text/javascript" src="http://static.zongheng.com/author/v2015/js/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="http://static.zongheng.com/author/v2015/js/public.dialog.js"></script>
+	<script type="text/javascript" src="http://static.zongheng.com/author/v2015/js/pagenumber.js"></script>
+<script type="text/javascript">
+    var goEasy = new GoEasy({
+        appkey: 'BC-58a22e706d3342ecafd6bd784c07d335'
+    });
+    goEasy.subscribe({
+        channel:'seckill',
+        onMessage: function(message){
+            alert('收到：'+message.content);
+        }
+    });
+
+    function fn1() {
+		var element = document.getElementById("toPage").value;
+		var page = document.getElementById("page");
+		alert(element)
+		page.value=element;
+		var form = document.getElementById("frm");
+		form.submit();
+    }
+
+    function fn2(p) {
+        if (p==1){
+            alert("前面没有页码了")
+		}else {
+            var page = document.getElementById("page");
+            page.value=parseInt(p)-1;
+            var form = document.getElementById("frm");
+            form.submit();
+		}
+    }
+
+    function fn3(p,k) {
+		if (p==k){
+		    alert("后面没有页码了")
+		}else {
+            var page = document.getElementById("page");
+            page.value=parseInt(p)+1
+            var form = document.getElementById("frm");
+            form.submit();
+		}
+    }
+</script>
+</body>
+</html>

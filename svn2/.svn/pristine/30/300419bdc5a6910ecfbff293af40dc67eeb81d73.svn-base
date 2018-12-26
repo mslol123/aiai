@@ -1,0 +1,145 @@
+package com.jxky.bgxs.controller.wjt;
+
+import com.jxky.bgxs.entity.BookData;
+import com.jxky.bgxs.entity.BookSearch;
+import com.jxky.bgxs.entity.PageBean;
+import com.jxky.bgxs.service.gz.BookDataService;
+import com.jxky.bgxs.service.wjt.SearchService;
+import com.jxky.bgxs.service.wx.BookMessageService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.SessionAttribute;
+import org.springframework.web.bind.annotation.SessionAttributes;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+
+@Controller
+@RequestMapping("/bookMessage")
+@SessionAttributes(names = {"bookMessageList"})
+public class SearchController {
+    @Autowired
+    private BookDataService bookDataService;
+    @Autowired
+    private BookMessageService bookMessageService;
+    @Autowired
+    private SearchService searchService;
+    @RequestMapping("/search")
+    public String search(String keyword, Model model,Integer pageNo){
+        PageBean pageBean = new PageBean();
+        List<BookSearch> bookMessageList = searchService.findAllSearch(keyword);
+        pageBean.setCount(bookMessageList.size());
+        if( pageNo == null || pageNo <= 0){
+            pageNo = 1;
+        }
+        pageBean.setCurrentPage(pageNo);
+        int pageNoLast = pageNo*2;
+        if(pageNoLast>bookMessageList.size()){
+            pageNoLast = bookMessageList.size();
+        }
+        List<BookSearch> bookSearches = bookMessageList.subList((pageNo - 1)*2, pageNoLast);
+        int totalPage = bookMessageList.size()%2==0 ? bookMessageList.size()/2 : bookMessageList.size()/2+1;
+        pageBean.setTotalPage(totalPage);
+        model.addAttribute("pageBean",pageBean);
+        model.addAttribute("bookMessageList",bookSearches);
+        model.addAttribute("keyword",keyword);
+        return "/search/search";
+    }
+    @RequestMapping("/searchByCode")
+    public String searchByWords(@SessionAttribute("bookMessageList") List<BookSearch> bookMessageList,
+                                int code, Model model){
+        List<BookSearch> bookMessage = getBookMessage(bookMessageList,code);
+        model.addAttribute("bookMessageList",bookMessage);
+        model.addAttribute("code",code);
+        return "/search/search";
+    }
+
+    public List<BookSearch> getBookMessage(List<BookSearch> bookMessageList,int code){
+        List<BookData> listData = new ArrayList<>();
+        for (BookSearch bookSearch : bookMessageList) {
+            BookData bookData = bookDataService.findByBookId(Integer.parseInt(bookSearch.getBookId()));
+            if(bookData != null){
+                listData.add(bookData);
+            }
+        }
+        if(code == 1){
+            Collections.sort(listData, new Comparator<BookData>() {
+                @Override
+                public int compare(BookData book1, BookData book2) {
+
+                    if(book1.getBookWords()>book2.getBookWords()){
+                        return -1;
+                    }else if(book1.getBookWords() == book2.getBookWords()){
+                        return 0;
+                    }
+                    return 1;
+                }
+            });
+        } else if (code == 2){
+            Collections.sort(listData, new Comparator<BookData>() {
+                @Override
+                public int compare(BookData book1, BookData book2) {
+
+                    if(book1.getBookTicket()>book2.getBookTicket()){
+                        return -1;
+                    }else if(book1.getBookTicket() == book2.getBookTicket()){
+                        return 0;
+                    }
+                    return 1;
+                }
+            });
+        }else if (code == 3){
+            Collections.sort(listData, new Comparator<BookData>() {
+                @Override
+                public int compare(BookData book1, BookData book2) {
+
+                    if(book1.getBookCollection()>book2.getBookCollection()){
+                        return -1;
+                    }else if(book1.getBookCollection() == book2.getBookCollection()){
+                        return 0;
+                    }
+                    return 1;
+                }
+            });
+        }else if(code == 4){
+            Collections.sort(listData, new Comparator<BookData>() {
+                @Override
+                public int compare(BookData book1, BookData book2) {
+
+                    if(book1.getBookClick()>book2.getBookClick()){
+                        return -1;
+                    }else if(book1.getBookClick() == book2.getBookClick()){
+                        return 0;
+                    }
+                    return 1;
+                }
+            });
+        }else if(code == 5){
+            Collections.sort(listData, new Comparator<BookData>() {
+                @Override
+                public int compare(BookData book1, BookData book2) {
+
+                    if(book1.getBookTicket()>book2.getBookTicket()){
+                        return -1;
+                    }else if(book1.getBookTicket() == book2.getBookTicket()){
+                        return 0;
+                    }
+                    return 1;
+                }
+            });
+        }
+        List<BookSearch> newBookMessage = new ArrayList<>();
+        for (BookData bookData : listData) {
+            for (BookSearch bookSearch : bookMessageList) {
+                if(bookSearch.getBookId().equals(String.valueOf(bookData.getBookId()))){
+                    newBookMessage.add(bookSearch);
+                }
+            }
+        }
+        return newBookMessage;
+    }
+}

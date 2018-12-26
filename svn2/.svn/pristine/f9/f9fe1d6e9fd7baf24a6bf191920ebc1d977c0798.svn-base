@@ -1,0 +1,406 @@
+﻿
+
+
+
+
+
+
+
+
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:shiro="http://www.pollix.at/thymeleaf/shiro"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+    
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="本页版权 www.zongheng.com 纵横中文网所有。All Rights Reserved"/>
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<link rel="shortcut icon" href="https://static.zongheng.com/favicon.ico" />
+
+    <title>纵横中文网</title>
+    <link rel="stylesheet" href="http://rcode.zongheng.com/v2018/css/basic.min.css" />
+    <link rel="stylesheet" href="http://rcode.zongheng.com/v2018/css/book.min.css" />
+</head>
+<body scriptSign="post"  bookId="672340" forumId="160116">
+   
+   
+<div class="head-fixed head-simple">
+   
+
+
+
+
+
+
+
+<div class="wrap">
+       <div class="head-top clearfix">
+           <div class="logo imgbox fl"><a href="http://www.zongheng.com"><img src="http://rcode.zongheng.com/v2018/images/logo.png" alt="logo"></a></div>
+        <form name="searchForm" method="get" action="http://search.zongheng.com/s" target="_blank">
+           <div class="search-box">
+          <input class="search-text fl" name="keyword" type="text" placeholder="雪中悍刀行" autocomplete="off" disableautocomplete value="">
+          <input type="submit" class="search-btn fr" >
+           </div>
+        </form>
+           <div class="pay fr"><a class="user_pay" href="http://pay.zongheng.com" target="_blank">充值</a></div>
+           <div class="menu clearfix">
+               <a href="http://www.zongheng.com">首页</a>
+               <div class="cate tabA">
+                   <a href="##">分类<em class="icon"></em></a>
+                   <div class="tabA-float cate-cell">
+                       <ul>
+                       	<li><a href="http://www.zongheng.com/category/1.html">奇幻玄幻</a></li>
+                        <li><a href="http://www.zongheng.com/category/3.html">武侠仙侠</a></li>
+                        <li><a href="http://www.zongheng.com/category/6.html">历史军事</a></li>
+                        <li><a href="http://www.zongheng.com/category/9.html">都市娱乐</a></li>
+                        <li><a href="http://www.zongheng.com/category/21.html">竞技同人</a></li>
+                        <li><a href="http://www.zongheng.com/category/15.html">科幻游戏</a></li>
+                        <li><a href="http://www.zongheng.com/category/18.html">悬疑灵异</a></li>
+                        <li><a href="http://www.zongheng.com/category/40.html">二次元</a></li>
+                       </ul>
+                   </div>
+               </div>
+               <a href="http://www.zongheng.com/rank.html">排行</a>
+               <a href="http://www.zongheng.com/store.html">书库</a>
+               <a href="http://www.zongheng.com/store/c0/c0/b0/u0/p1/v9/s1/t0/u0/i1/ALL.html">完本</a>
+               <a href="http://author.zongheng.com" target="_blank">作者专区</a>
+           </div>
+            
+<div class="right-wrap-login ud_userTox">
+    <div class="login fl">
+        <shiro:guest>
+            <a href="/user/log">登录</a>
+            <a class="user_register" href="user/preadd">注册</a>
+        </shiro:guest>
+        <shiro:user>
+            <a href="/user/book"><shiro:principal property="nickname"/></a>
+        </shiro:user>
+    </div>
+    <div class="logon ud_loged clearfix" style="display:none;">
+        <div class="user tabA imgbox">
+        <img  class="ud_avatar ud_goUsrCenter" src="http://rcode.zongheng.com/v2018/images/book.png" alt="">
+            <div class="user-blank tabA-float">
+                <a href="javascript:void(0);" class="quit ud_logout">退出</a>
+                <div class="user-name ud_goUsrCenter"><span class="ud_nickName"></span><em class="icon"></em></div>
+                <div class="user-info clearfix">
+                    <div class="user-info-cell ud_money">
+                        <span class="item_loading"></span>
+                    </div>
+                    <div class="user-info-cell ud_ticket">
+                        <span class="item_loading"></span>
+                    </div>
+                    <div class="user-info-cell ud_mticket">
+                        <span class="item_loading"></span>
+                    </div>
+                </div>
+                <a href="http://pay.zongheng.com" class="btn" target="_blank">立即充值</a>
+            </div>
+        </div>
+        <div class="message">
+            <a href="http://home.zongheng.com/msgIn.do" class="mes" target="_blank">消息(<span class="ud_umessage"></span>)</a>
+        </div>
+        <div class="shelf"><a href="http://home.zongheng.com/favoritesBook.do" target="_blank">书架</a></div>
+        <div class="foot-mark tabA">
+            <span class="mark clearfix">历史<em class="icon"></em></span>
+            <div class="tabA-float float-mark clearfix">
+                <!-- loading -->
+                <div class="ud_hisloading">
+                        <span class="item_loading"></span>
+                </div>
+                <!-- 没有记录 -->
+                <div class="ud_noHistory" style="display: none">
+                  <h2>亲爱的书友，您暂时没有阅读记录~</h2>
+                  <div class="tips">阅读记录只保存最近阅读的5本小说</div>
+                  <div class="enter"><a href="http://home.zongheng.com/favoritesBook.do" target="_blank">进入我的书架</a></div>
+                </div>
+                <!-- 有记录 -->
+                <div class="ud_hasHistory" style="display: none"><ul class="mark-list"></ul></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+        </div>
+    </div>
+</div>
+    <div class="wrap">
+         
+
+
+
+
+
+
+
+<div class="head">
+	<div class="head-top clearfix">
+		<div class="logo imgbox fl">
+			<a href="http://www.zongheng.com"><img
+				src="http://rcode.zongheng.com/v2018/images/logo.png" alt="logo"></a>
+		</div>
+		<form id="commSearch" name="searchForm" method="get"
+			action="http://search.zongheng.com/s" target="_blank">
+			<div class="search-box fl" data-hook="searchSuggest">
+				<input class="search-text fl" name="keyword" type="text"
+					placeholder="雪中悍刀行" autocomplete="off" disableautocomplete /> <input
+					type="submit" class="search-btn fr" />
+			</div>
+		</form>
+		<div class="pay fr">
+			<a class="user_pay" href="http://pay.zongheng.com" target="_blank">充值</a>
+		</div>
+		
+<div class="right-wrap-login ud_userTox">
+    <div class="unlogin ud_unlogin clearfix">
+        <div class="login fl"><a class="user_login" href="https://passport.zongheng.com">登录</a></div>
+        <div class="regist fl"><a class="user_register" href="https://passport.zongheng.com/webreg">注册</a></div>
+    </div>
+    <div class="logon ud_loged clearfix" style="display:none;">
+        <div class="user tabA imgbox">
+        <img  class="ud_avatar ud_goUsrCenter" src="http://rcode.zongheng.com/v2018/images/book.png" alt="">
+            <div class="user-blank tabA-float">
+                <a href="javascript:void(0);" class="quit ud_logout">退出</a>
+                <div class="user-name ud_goUsrCenter"><span class="ud_nickName"></span><em class="icon"></em></div>
+                <div class="user-info clearfix">
+                    <div class="user-info-cell ud_money">
+                        <span class="item_loading"></span>
+                    </div>
+                    <div class="user-info-cell ud_ticket">
+                        <span class="item_loading"></span>
+                    </div>
+                    <div class="user-info-cell ud_mticket">
+                        <span class="item_loading"></span>
+                    </div>
+                </div>
+                <a href="http://pay.zongheng.com" class="btn" target="_blank">立即充值</a>
+            </div>
+        </div>
+        <div class="message">
+            <a href="http://home.zongheng.com/msgIn.do" class="mes" target="_blank">消息(<span class="ud_umessage"></span>)</a>
+        </div>
+        <div class="shelf"><a href="http://home.zongheng.com/favoritesBook.do" target="_blank">书架</a></div>
+        <div class="foot-mark tabA">
+            <span class="mark clearfix">历史<em class="icon"></em></span>
+            <div class="tabA-float float-mark clearfix">
+                <!-- loading -->
+                <div class="ud_hisloading">
+                        <span class="item_loading"></span>
+                </div>
+                <!-- 没有记录 -->
+                <div class="ud_noHistory" style="display: none">
+                  <h2>亲爱的书友，您暂时没有阅读记录~</h2>
+                  <div class="tips">阅读记录只保存最近阅读的5本小说</div>
+                  <div class="enter"><a href="http://home.zongheng.com/favoritesBook.do" target="_blank">进入我的书架</a></div>
+                </div>
+                <!-- 有记录 -->
+                <div class="ud_hasHistory" style="display: none"><ul class="mark-list"></ul></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+	</div>
+	<div class="nav clearfix">
+		<div class="menu-left fl">
+			<a 
+				href="http://www.zongheng.com">首页<em></em></a> <a
+				
+				href="http://www.zongheng.com/store.html">书库<em></em></a> <a
+				
+				href="http://www.zongheng.com/rank.html">排行<em></em></a> <a
+				
+				href="http://www.zongheng.com/store/c0/c0/b0/u0/p1/v9/s1/t0/u0/i1/ALL.html">完本<em></em></a>
+			<a href="http://huayu.baidu.com" target="_blank">花语女生网<em></em></a>
+			<a href="http://www.zongheng.com/comic.html" target="_blank">漫画<em></em></a>
+			<div class="app-menu tabA">
+				<a href="" class="phone">移动端</a>
+				<div class="app-float tabA-float">
+					<div class="tit">纵横小说 原创精品</div>
+					<div class="imgbox tabC_wap">
+						<div class="tabC" style="display: block;">
+							<img src="http://rcode.zongheng.com/v2018/images/ad-float.png"
+								alt="">
+						</div>
+						<div class="tabC">
+							<img src="http://rcode.zongheng.com/v2018/images/ios-float.png"
+								alt="">
+						</div>
+						<div class="tabC">
+							<img src="http://rcode.zongheng.com/v2018/images/wx-float.png"
+								alt="">
+						</div>
+					</div>
+					<div class="tabT_wap app-down">
+						<span class="tabT ad active"></span> <span class="tabT ios"></span>
+						<span class="tabT wx"></span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="menu-right fr">
+			<a href="http://author.zongheng.com" class="author_zone" target="_blank">作者专区<em></em></a>
+			<a href="http://game.zongheng.com" class="game_center" target="_blank">游戏中心<em></em></a>
+		</div>
+	</div>
+</div>
+        
+        <!-- 搜索主内容 -->
+        <div class="crumb"><a href="http://book.zongheng.com/book/672340.html" th:text="${bookMessage.bookName}">剑来</a> > 发表新帖</div>
+        <div class="forums-html-box clearfix">
+            <div class="book-main fl">
+                <div class="user-head"> <img th:src="@{/show/{image}(image=${session.info.image})}"  onerror="this.src='http://static.zongheng.com/userimage/default/image_120_120.gif?r=1541421981068'"alt="" width="50" height="50"></div>
+                <form method="post" action="/comment/add" id="form">
+                    <input type="hidden" name="bookMessageId" th:value="${bookMessage.bookId}">
+                    <input type="hidden" name="bookName" th:value="${bookMessage.bookName}">
+                <div class="post-input">
+                    <div class="form-ipt"><input type="text" placeholder="标题（文字30字，可选填）" name="commentTheme" id="JpostIpt"></div>
+                    <div class="form-text"><textarea name="commentContent" cols="30" rows="10" placeholder="想说什么就大胆说出来吧……" id="JpostTextarea"  data-maxlen="5000"></textarea></div>
+                    <div class="thr-publish  clearfix">
+                        <div class="fl post-code" id="Jcode">
+                            <input type="text">
+                            <div class="code">
+			    	<img src="https://passport.zongheng.com/imgcapt?flag=pc" alt="">
+				<em class="refresh"></em>
+			    </div>
+                        </div>
+                        <div class="fr">
+                            <div class="emoji" id="Jemoji">
+                                <div class="emoji-popup">
+					<i class="arrow-t"></i>
+                                        <em class="emoji_em emoji_01" data-tit="[白眼]"></em>
+	                                <em class="emoji_em emoji_02" data-tit="[高兴]"></em>
+	                                <em class="emoji_em emoji_03" data-tit="[汗]"></em>
+	                                <em class="emoji_em emoji_04" data-tit="[呵呵]"></em>
+	                                <em class="emoji_em emoji_05" data-tit="[花花]"></em>
+	                                <em class="emoji_em emoji_06" data-tit="[滑稽]"></em>
+	                                <em class="emoji_em emoji_07  last" data-tit="[哭]"></em>
+	                                <em class="emoji_em emoji_08" data-tit="[困]"></em>
+	                                <em class="emoji_em emoji_09" data-tit="[冷笑]"></em>
+	                                <em class="emoji_em emoji_10" data-tit="[懵]"></em>
+	                                <em class="emoji_em emoji_11" data-tit="[亲亲]"></em>
+	                                <em class="emoji_em emoji_12" data-tit="[生气]"></em>
+	                                <em class="emoji_em emoji_13" data-tit="[受惊]"></em>
+	                                <em class="emoji_em emoji_14 last" data-tit="[调皮]"></em>
+	                                <em class="emoji_em emoji_15 " data-tit="[委屈]"></em>
+	                                <em class="emoji_em emoji_16" data-tit="[笑哭]"></em>
+	                                <em class="emoji_em emoji_17" data-tit="[桃心]"></em>
+	                                <em class="emoji_em emoji_18" data-tit="[鼓掌]"></em>
+	                                <em class="emoji_em emoji_19" data-tit="[抠鼻]"></em>
+	                                <em class="emoji_em emoji_20" data-tit="[偷笑]"></em>
+                                </div>
+                            </div>
+                            <span id="Jwords"><i>0</i>/5000</span>
+                            <div class="btn gray" style="background-color: #b01f2e"  onclick="fun1();">发表</div>
+                        </div>
+
+                    </div>
+
+                </div>
+                </form>
+            </div>
+            <div class="book-side post-r fr">
+                <p>· 经营许可证编号: 京ICP证080527号</p>
+                    
+                <p>· 尊重网上道德，遵守《全国人大常委会关于维护互联网安全的决定》及中华人民共和国其他各项有关法律法规</p>
+                    
+                <p>· 严禁发表危害国家安全，破坏民族团结、国家宗教政策和社会稳定，含侮辱、诽谤、教唆、淫秽等内容的作品</p>
+                    
+                <p>· 承担一切因您的行为而直接或间接导致的民事或刑事法律责任</p>
+                    
+                <p>· 您在纵横书评区发表的作品，纵横中文网有权在网站内保留、转载、引用或者删除</p>
+                    
+                <p>· 参与本评论即表明您已经阅读并接受上述条款</p>
+            </div>
+            
+        </div>
+
+        <!-- end搜索主内容 -->
+    </div>
+  <div class="footer">
+      
+
+<div class="partlink">
+    <div class="wrap">
+        <div class="title">出版合作联系</div>
+        <div class="clearfix">
+            <div class="mail fl">
+                
+                <div>版权合作联系人：许先生<a href="mailto:xubin@zongheng.com">xubin@zongheng.com</a></div>
+                
+                <div>广告合作联系人 : 张女士<a href="mailto:zhangwen@zongheng.com">zhangwen@zongheng.com</a></div>
+                
+             </div>   
+            <div class="help-btn">
+                <a class="btn" href="http://www.zongheng.com/help/index.html" target="_blank">帮助中心</a>
+                <p>服务时间：24小时</p>
+            </div>
+            
+            <div class="b1 foot-cell">
+                <div class="tit">客服</div>
+                <div class="qq">965151179</div>
+                <div class="email"><a href="mailto:zhkf@zongheng.com">zhkf@zongheng.com</a></div>
+            </div>
+            <div class="b2 foot-cell">
+                <div class="tit">举报</div>
+                <div class="tel">4006289988</div>
+                <div class="email"><a href="mailto:jubao@zongheng.com">jubao@zongheng.com</a></div>
+            </div>
+            <div class="app foot-blank">
+                <div class="imgbox fl">
+                    <img src="http://rcode.zongheng.com/v2018/images/app.png" alt="">
+                </div>
+                <p>客户端下载</p>
+            </div>
+            
+            <div class="wchat foot-blank">
+                <div class="imgbox fl">
+                    <img src="http://rcode.zongheng.com/v2018/images/wx.png" alt="">
+                </div>
+                <p>微信公众号</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="copyright">
+    <div class="links"><a href="http://www.zongheng.com/company/about.html" target="_blank">关于纵横</a>|<a href="http://www.zhwenxue.com/join" target="_blank">诚聘英才</a>|<a href="http://www.zongheng.com/company/business.html" target="_blank">商务合作</a>|<a href="http://www.zongheng.com/company/copyright.html" target="_blank">法律声明</a>|<a href="http://www.zongheng.com/help/index.html" target="_blank">帮助中心</a>|<a href="http://author.zongheng.com" target="_blank">作者投稿</a>|<a href="http://www.zongheng.com/company/contact.html" target="_blank">联系我们</a>|<a href="http://www.zongheng.com/company/link.html" target="_blank">友情链接</a>|<a href="http://news.zongheng.com/zhuanti/wlqz/index.html" target="_blank">谨防诈骗</a>|<a href="http://www.zongheng.com/company/sitemap.html" target="_blank">网站地图</a></div>
+    <p>Copyright©<a href="http://www.zongheng.com" target="_blank">www.zongheng.com</a>All Rights Reserved 版权所有 北京幻想纵横网络技术有限公司   京ICP证：080527号《网络文化经营许可证》   <a href="http://static.zongheng.com/images/license/publication-license.jpg" target="_blank">京ICP备11009265号</a>   <a href="http://static.zongheng.com/images/license/business-license.jpg" target="_blank">京网文[2015]2368-459号</a></p>
+    <p>新出发京零字第朝130010号  丨  统一社会信用代码91110105678221683F  丨 <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502030124" target="_blank">京公网安备  	11010502030124号</a>  丨 <a href="http://www.cyberpolice.cn/wfjb/" target="_blank">公安部网络违法犯罪举报网站</a></p>
+    <p><a href="http://www.zongheng.com" target="_blank">纵横小说网</a>,提供<a href="http://www.zongheng.com/category/1.html" target="_blank">玄幻小说</a>,<a href="/category/9.html" target="_blank">都市小说</a>,<a href="http://huayu.baidu.com" target="_blank">言情小说</a>等<a href="http://book.zongheng.com/store/c0/c0/b0/u0/p1/v0/s9/t0/u0/i1/ALL.html" target="_blank">免费小说</a>阅读。作者发布小说作品时，请遵守国家互联网信息管理办法规定。</p>
+    <p>本站所收录小说作品、社区话题、书库评论均属其个人行为，不代表本站立场。</p>
+    <form action="/seckill/seckill" method="post" id="form1">
+        <input type="hidden" id="inp" value="" name="content">
+    </form>
+    <form action="/user/log" method="post" id="form2"></form>
+</div>
+
+<script type="text/javascript" src="http://rcode.zongheng.com/v2018/js/lib/require.min.js" defer async data-main="http://rcode.zongheng.com/v2018/js/map.min"></script>
+
+    </div>
+</body>
+</body>
+<script>
+    var goEasy = new GoEasy({
+        appkey: 'BC-58a22e706d3342ecafd6bd784c07d335'
+    });
+    goEasy.subscribe({
+        channel:'seckill',
+        onMessage: function(message){
+            var content = message.content;
+            if(confirm(content)==true){
+                document.getElementById("inp").value = content;
+                $.post("/seckill/preseckill",{},function (data) {
+                    if(data == "000"){
+                        $("#form1").submit();
+                    }else {
+                        $("#form2").submit();
+                    }
+                });
+            }
+        }
+    });
+    function fun1(){
+    $("#form").submit();}
+</script>
+</html>

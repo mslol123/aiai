@@ -1,0 +1,125 @@
+
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>作者专区-作者信箱</title>
+
+    <meta name="renderer" content="webkit">
+    <link rel="stylesheet" type="text/css" charset="utf-8" href="http://static.zongheng.com/author/v2015/style/public.css"/>
+</head>
+<body class="body_f">
+
+
+
+
+
+
+
+
+
+
+
+<div class="au_nav">
+    <div class="au_box" id="loginSign">
+        <div class="au_nav_a">
+            <a href="http://www.zongheng.com"  target="_blank">纵横首页</a>|
+            <a href="/nzh/editors"  target="_blank">编辑介绍</a>|
+            <a href="http://www.zongheng.com/company/author.html"  target="_blank"  class="goodluck">作者福利</a>
+
+            |<span>尼奥</span>|
+            <a  href="http://author.zongheng.com/loginout">退出</a>
+
+        </div>
+        <a href="http://author.zongheng.com" class="au_logo"></a>
+        <script src="http://author.zongheng.com/nzh/header/notice"></script>
+
+    </div>
+</div>
+
+
+<div class="au_box">
+    <div class="au_mail">
+        <div class="mail_nav">
+            <span class="focus">作者信箱</span>
+        </div>
+
+        <div class="inline tr clear">
+            <div class="td msg_con">留言内容</div>
+            <div class="td msg_type">留言类型</div>
+            <div class="td msg_time">留言时间</div>
+            <div class="td msg_manage">管理留言</div>
+        </div>
+        <ul class="table"  th:each="message:${messages}">
+
+
+            <li class="tr clear" th:id="${message.bookId}">
+
+                <div class="td msg_con">
+                    <div class="msg_side">
+                        <div class="sidemsg"><span th:text="${#strings.substring(message.refuseWord,0,23)}"></span><a href="javascript:;" class="allmsg">【展开全部】</a></div>
+                    </div>
+                    <div class="msg_wide">
+                        <div class="widemsg"><span th:text="${message.refuseWord}"></span><a href="javascript:;" class="onemsg">【收起内容】</a></div>
+                    </div>
+                </div>
+                <div class="td msg_type">
+                    审核意见
+                </div>
+                <div class="td msg_time"><p th:text="${#dates.format(message.examineTime,'yyyy-MM-dd HH:mm:ss')}"></p></div>
+                <div class="td msg_manage"><a th:onclick="'fun('+${message.bookId}+')'" class="delmsg">删除留言</a></div>
+            </li>
+
+
+            <!--<li class="tr clear">-->
+
+                <!--<div class="td msg_con">-->
+                    <!--<div class="msg_side">-->
+                        <!--<div class="sidemsg">你好，作品注意分段！分段！单一章节最好不要少于20<a href="javascript:;" class="allmsg">【展开全部】</a></div>-->
+                    <!--</div>-->
+                    <!--<div class="msg_wide">-->
+                        <!--<div class="widemsg">你好，作品注意分段！分段！单一章节最好不要少于2000字，3000字最佳，加油！<a href="javascript:;" class="onemsg">【收起内容】</a></div>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="td msg_type">-->
+                    <!--咨询回复-->
+                <!--</div>-->
+                <!--<div class="td msg_time">2018-03-15 17:42:53</div>-->
+                <!--<div class="td msg_manage"><a href="/author/messagedelete?messageId=596716&pageNo=1" class="delmsg">删除留言</a></div>-->
+            <!--</li>-->
+
+        </ul>
+
+
+        <div class="pagenumber">总计2记录<a href="javascript:;"  class="page_prev last">上一页</a><a href="/author/messagelist?pageNo=1" class="now">1</a><a href="javascript:;" class="page_prev last">下一页</a>&nbsp;&nbsp;至第<input type="text" id="toPage" name="toPage" value="1" size="3" />页&nbsp;<input type="button" class="submit"  onclick="appointPage('/author/messagelist?pageNo=', 1)" value="跳转"/></div>
+    </div>
+</div>
+
+<div class="footer">
+    <div class="au_box">
+        <p>
+            Copyright<em>©</em>2008-2010 www.zongheng.com All Rights Reserved
+        </p>
+        <p>版权所有 北京幻想纵横网络技术有限公司</p>
+    </div>
+</div>
+<script  type="text/javascript"  src="http://static.zongheng.com/v2_0/js/tongji.js"></script>
+
+<script type="text/javascript" src="http://static.zongheng.com/author/v2015/js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="http://static.zongheng.com/author/v2015/js/public.dialog.js"></script>
+<script type="text/javascript" src="http://static.zongheng.com/author/v2015/js/pagenumber.js"></script>
+<script type="text/javascript" src="http://static.zongheng.com/author/v2015/js/msgdraft.js"></script>
+</body>
+<script type=text/javascript th:src="@{/js/jquery-2.1.0.js}"></script>
+
+</html>
+<script type="text/javascript">
+    function fun(p) {
+//        $("#p").hidden;
+        var element = document.getElementById(p);
+        element.setAttribute("style","display:none");
+        $.post("/fun/delete/"+p,function (data) {
+
+        });
+    }
+</script>

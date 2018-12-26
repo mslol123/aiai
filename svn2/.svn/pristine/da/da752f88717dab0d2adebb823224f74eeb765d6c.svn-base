@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table id="mytable">
+    <tr>
+        <th>订单号</th>
+        <th>用户</th>
+        <th>订单时间</th>
+        <th>商品名字</th>
+        <th>商品价格</th>
+        <th>订单状态</th>
+    </tr>
+    <tr th:each="ls:${list}">
+        <td th:text="${ls.number}"></td>
+        <td th:text="${ls.userId}"></td>
+        <td th:text="${#dates.format(ls.time,'yyyy-MM-dd')}"></td>
+        <td th:text="${ls.name}"></td>
+        <td th:text="${ls.price}"></td>
+        <td><input type="button" th:value="${ls.state}" id="bt" onclick="bt()"></td>
+    </tr>
+</table>
+</body>
+</html>
+<script type="text/javascript" src="/js/jquery-2.1.0.js"></script>
+<script type="text/javascript">
+    var value = document.getElementById("bt").value;
+    if(value == "已支付"){
+        $("#bt").attr("disabled", true);
+    }
+    function bt (number) {
+//        $.post("/pay/payTest",{price:price,body:body},function () {
+//
+//        });
+    }
+</script>

@@ -1,0 +1,39 @@
+package com.jxky.bgxs.controller.gzx;
+
+import com.jxky.bgxs.entity.BookMessage;
+import com.jxky.bgxs.service.wx.BookMessageService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import java.util.List;
+
+@Controller
+@RequestMapping("/green")
+public class FileListController {
+    @Autowired
+    private BookMessageService bookMessageService;
+
+    @RequestMapping("filelist")
+    public String filelist(Model model){
+        List<BookMessage> bookMessageList=bookMessageService.findBookByStatus("待审核");
+        model.addAttribute("bookMessageList",bookMessageList);
+        return "/greenroom/filelist";
+    }
+
+    @RequestMapping("detail/{id}")
+    public String fileDetail(@PathVariable("id")Integer id, Model model){
+        BookMessage bookMessage = bookMessageService.findById(id);
+        model.addAttribute("bookMessage",bookMessage);
+        return "/greenroom/detail";
+    }
+
+    @RequestMapping("shenpi")
+    public String shenpi(BookMessage bookMessage){
+        bookMessage.setBookExamineStatus("审核通过");
+        bookMessageService.updateBookMessage(bookMessage);
+        return "redirect:filelist";
+    }
+}

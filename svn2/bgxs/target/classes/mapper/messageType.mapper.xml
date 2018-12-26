@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jxky.bgxs.dao.MessageTypeDAO">
+    <resultMap id="MessageTypeMap" type="com.jxky.bgxs.entity.MessageType">
+        <id property="typeId" column="type_id"></id>
+        <result property="typeName" column="type_name"></result>
+    </resultMap>
+
+    <select id="findById" resultMap="MessageTypeMap">
+        SELECT type_id,type_name FROM message_type WHERE type_id = #{id}
+    </select>
+
+    <select id="findAll" resultMap="MessageTypeMap">
+        SELECT * FROM message_type
+    </select>
+</mapper>
+
+
+
+

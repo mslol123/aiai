@@ -1,0 +1,253 @@
+﻿
+
+
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>个人门户--纵横中文网</title>
+<link href="http://static.zongheng.com/v2014/style/basic.css" rel="stylesheet" type="text/css"/>
+<link href="http://static.zongheng.com/v2014/style/author.css" rel="stylesheet" type="text/css"/>
+</head>
+<body scriptSign="author">
+<!-- 头部 -->
+
+
+
+
+
+
+
+
+<!-- 登录部分 -->
+<div class="logonbox" id="topnavbar">
+	<div class="close" id="hidetbar"></div>
+	<div class="wrap">
+		<div class="default_wrap">
+        	<p><a href="#" class="homemark">收藏本站</a>|<a href="http://static.zongheng.com/m/index.html" target="_blank">手机看纵横</a>|<a href="http://www.zongheng.com/">纵横首页</a></p>
+		</div>
+		<div class="searchbar fl">
+			<div class="search">
+				<form name="searchForm" method="get" action="http://search.zongheng.com" target="_blank" id="582455024">
+				<input name="searchType" type="hidden" value="all">
+				<span class="select">综合<em></em></span>
+				<span class="input_text"><input name="keyword" type="text" defaultdatavalue="不败战神" autocomplete="off" disableautocomplete="" value=""></span>
+				<input type="button" class="sousuo" value="搜&nbsp;索">
+				<div class="listpanel" style="display: none;">
+					<ul class="selecttext">
+						<li><a href="javascript:void(0)" type="all">综合</a></li>
+						<li><a href="javascript:void(0)" type="bookName">书名</a></li>
+						<li><a href="javascript:void(0)" type="authorName">作者</a></li>
+						<li><a href="javascript:void(0)" type="keyword">关键字</a></li>
+						<li><a href="javascript:void(0)" type="description">描述</a></li>
+					</ul>
+				</div>
+				</form>
+			</div>
+		</div>
+		<!--已登录部分 结束 -->
+		<div id="ui_top_nav_dialog" class="d_menu_detail" style="display: none;">
+			<div class="con">
+				<h3>站点分类</h3>
+				<p><a class="fred" href="http://www.zongheng.com">纵横首页</a>|<a href="http://big5.zongheng.com">繁体版</a>|<a href="http://m.zongheng.com">手机版</a>|<a href="http://www.mmzh.com">女生</a>|<a href="http://comic.zongheng.com">动漫</a>|<a href="http://game.zongheng.com">游戏中心</a></p>
+				<div class="cl5"></div>
+				<div class="spline"></div>
+				<div class="cl5"></div>
+				<h3>分类频道</h3>
+				<p><a href="http://book.zongheng.com/category/1.html" target="_blank">奇幻·玄幻</a>|<a href="http://book.zongheng.com/category/3.html" target="_blank">武侠·仙侠</a>|<a href="http://book.zongheng.com/category/6.html" target="_blank">历史·军事</a>|<a href="http://book.zongheng.com/category/9.html" target="_blank">都市·娱乐</a>|<a href="http://book.zongheng.com/category/21.html" target="_blank">竞技·同人</a>|<a href="http://book.zongheng.com/category/15.html" target="_blank">科幻·游戏</a>|<a href="http://book.zongheng.com/category/18.html" target="_blank">悬疑·灵异</a>|<a href="http://pub.zongheng.com" target="_blank">图书频道</a></p>
+				<div class="cl5"></div>
+				<div class="spline"></div>
+				<div class="cl5"></div>
+				<h3>互动功能</h3>
+				<p><a class="current" href="http://book.zongheng.com/vip.html" target="_blank" rel="nofollow">会员</a>|<a href="http://book.zongheng.com/store.html" target="_blank">书库</a>|<a href="http://book.zongheng.com/rank.html" target="_blank">排行榜</a>|<a href="http://news.zongheng.com" target="_blank">资讯</a>|<a href="http://bbs.zongheng.com" target="_blank">社区</a>|<a href="http://www.zongheng.com/xiu.html" target="_blank" rel="nofollow">美女秀场</a></p>
+				<p><a class="user_register" href="javascript:void(0)" target="_blank" rel="nofollow">注册帐户</a>|<a class="forgot" href="javascript:void(0)" target="_blank" rel="nofollow">找回密码</a>|<a href="http://www.zongheng.com/help/index.html" target="_blank" rel="nofollow">帮助中心</a></p>
+				<div class="cl10"></div>
+			</div>
+		</div>
+		<div id="topbar_main">
+			<a id="ui_top_nav_button" class="mail d_menu fr" mail_hover="true" href="javascript:void(0);">导航<em class="whitesj"></em></a>
+			<div id="top-user-nav-bar">
+				<div class="right_wrap_unlogin">
+					<div class="login"><a class="user_login" href="javascript:void(0);">登录</a></div>
+					<div class="regist"><a class="user_register" href="javascript:void(0);">注册</a></div>
+				</div>
+			</div>
+		</div>
+		<div class="cl0"></div>
+	</div>
+	<div class="blackline"></div>
+</div>
+<!-- 登录部分 结束 -->
+<!--header -->
+<div class="header" id="zh_header">
+	<div class="wrap">
+		<div class="nav_left">
+			<p>&mdash; 百 度 文 学 旗 下  &mdash;</p>
+			<div><a href="http://www.zongheng.com"><img src="http://static.zongheng.com/v2014/images/logo.png"></a></div>
+		</div>
+		<div class="top_gg"><script type="text/javascript" src="http://static.zongheng.com/upload/hzds/column/137092332882.js"></script></div>
+		<div class="cl10"></div>
+		<div class="menu">
+            <a href="http://www.zongheng.com" rel="nofollow">首页</a>
+            <a href="http://book.zongheng.com/store.html">书库</a>
+            <a href="http://book.zongheng.com/rank.html">小说排行榜</a>
+            <a href="http://huayu.baidu.com" target="_blank">花语女生</a>
+            <a href="http://beta.author.zongheng.com" target="_blank" rel="nofollow">作者专区</a>
+            <a href="http://home.zongheng.com" target="_blank" rel="nofollow" class="current">个人中心</a>
+            <a class="fred" href="http://www.zongheng.com/vip/charge.html" target="_blank">充值￥</a>
+            <a class="gamecenter fred" href="http://game.zongheng.com/index.html" target="_blank">游戏中心</a>
+            <a class="girl fred" href="http://www.zongheng.com/xiu.html" target="_blank">美女秀场</a>
+        </div>
+		<div class="secondary">
+            <a class="fb" href="http://www.zongheng.com/mianfei/">免费小说</a>
+            <a class="fb" href="http://book.zongheng.com/quanben/c0/c0/b9/u1/p1/v9/s1/t0/ALL.html">全本小说</a>
+            <a href="http://www.zongheng.com/category/1.html">奇幻·玄幻</a>
+            <a href="http://www.zongheng.com/category/3.html">武侠·仙侠</a>
+            <a href="http://www.zongheng.com/category/6.html">历史·军事</a>
+            <a href="http://www.zongheng.com/category/9.html">都市·娱乐</a>
+            <a href="http://www.zongheng.com/category/21.html">竞技·同人</a>
+            <a href="http://www.zongheng.com/category/15.html">科幻·游戏</a>
+            <a href="http://www.zongheng.com/category/18.html">悬疑·灵异</a>
+        </div>
+	</div>
+</div>
+<!--header 结束 -->
+<div class="cl20"></div>
+<!-- 头部 结束 -->
+<!--三栏中间-->
+
+
+
+
+
+<div class="wrap">
+	<div class="box">
+    	
+
+
+
+<script type="text/javascript">
+function levelIcons(level){
+	var isun = "<em class='level_sun'></em>";
+	var imoon = "<em class='level_moon'></em>";
+	var istar = "<em class='level_star'></em>";
+	var icons = "";
+	var sunNum = Math.floor(level/16);
+	if(sunNum > 0){for(i=0;i<sunNum;i++){icons += isun;}}
+	var moonNum = Math.floor((level-sunNum*16)/4);
+	if(moonNum > 0){for(i=0;i<moonNum;i++){icons += imoon;}}
+	var starNum = level-sunNum*16-moonNum*4;
+	if(starNum > 0){for(i=0;i<starNum;i++){icons += istar;}}
+	document.write(icons);
+}
+</script>
+<div id="bdbind" class="author_info clear">
+			<input type="hidden" id="userLevel" value="2"/>
+        	<div class="author_pic"><span class="edit_head"><em></em><a href="/setting/userAvatar.do">编辑头像</a></span>
+        	 <img th:src="@{/show/{image}(image=${session.info.image})}"  onerror="this.src='http://static.zongheng.com/userimage/default/image_120_120.gif?r=1541421981068'" width="120" height="120">
+        	</div>
+            <div class="author_msg">
+            	<div class="au_head clear"><a class="au_edit" href="/setting/info"><b></b>个人资料修改</a><h3 class="name" th:text="${session.user.nickname}"></h3>
+            	<em class="male"></em>
+            	<script type="text/javascript">
+					var userLevel = 2;
+					levelIcons(userLevel);
+				</script><span class="t_sub">(秀才)</span>
+            	<span class="vip_0"></span></div>
+                <p>暂无简介</p>
+                <div class="author_data">
+					<div>纵横币：<em class="zh_money"></em><span th:text="${session.account.accountNum}">0</span><b>[<a href="http://pay.zongheng.com" class="fred" target="_blank">充值</a>]</b></div>
+					<div>月票：<span th:text="${session.account.monthticket}">0</span>张</div>
+					<div>推荐票：<span th:text="${session.account.recomticket}">0</span>张</div>
+					<div>自动订阅：<span>0</span>本<b>[<a href="/billing/autoChapters.do" class="fred">查看</a>]</b></div>
+					<div>
+
+					</div>
+                </div>
+            </div>
+        </div>
+        <div class="myBlock clear">
+        	
+<div class="myMenu">
+    <ul class="list">
+        <li ><em class="bookshelf"></em><a href="/user/book">我的书架</a></li>
+        <li class="active"><em class="account"></em><a href="/billing/account">我的账户</a></li>
+        <li ><em class="my_info"></em><a href="/setting/info">个人资料</a></li>
+        <li ><em class="megs"></em><a href="/message/notice">消息通知</a></li>
+        <li ><em class="footsteps"></em><a href="/comment/list">我的足迹</a></li>
+        <li ><em class="fans_score"></em><a href="/fans/bookFansScore.do">我的积分</a></li>
+   </ul>
+</div>
+            <div class="myMain">
+            	<div class="new_chapter">
+                    <div class="tab">
+                        <span><a href="/billing/account">账户信息</a><em class="triangle_down"></em></span>|<span class="active"><a href="/billing/consumption.do">消费记录</a><em class="triangle_down"></em></span>|<span><a href="/billing/chargeRecord.do">充值记录</a><em class="triangle_down"></em></span>|<span><a href="/billing/autoChapters.do">自动订阅</a><em class="triangle_down"></em></span>
+                    </div>
+                	<div class="cl20"></div>
+                    <div class="second_tab">
+                        <div class="sort fr">
+                        	<form id="searchForm" action="/billing/consumption.do" method="post">
+	                    		<span class="fl">时间：</span>
+	                    		<select id="month" name="month" selectMonth="">
+	                    		</select>
+	                    	</form>
+                        </div>
+                        <a class="active" href="/billing/consumption.do">全部消费</a><a  href="/billing/chapterRecord.do">订阅消费</a><a  href="/billing/donateRecord.do">捧场消费</a><a  href="/billing/propRecord.do">道具消费</a>
+                    </div>
+                    <div class="cl15"></div>
+                    <div class="blank">
+                        <div class="tabpane">
+                            <div class="con">
+                                <div class="head">
+									<span class="gone" >消费去向</span>
+                                    <span class="payway">消费方式</span> 
+                                    <span class="sum">消费金额</span> 
+                                    <span class="hour">消费时间</span>
+                                </div>
+                                <ul class="head" th:each="consume:${consumeList}">
+									<span class="gone" th:if="${consume.consumeType eq 1}">订阅消费</span>
+									<span class="gone" th:if="${consume.consumeType eq 2}">捧场消费</span>
+									<span class="gone" th:if="${consume.consumeType eq 3}">道具消费</span>
+									<span class="payway" th:text="${consume.consumeMode}">消费方式</span>
+									<span class="sum" th:text="${consume.consumeMoney}">消费金额</span>
+									<span class="hour" th:text="${#dates.format(consume.consumeTime,'yyyy-MM-dd')}">消费时间</span>
+                                </ul>
+                            </div>
+                            <div class="pagenumber clear">
+								<div class="fl"><span>每页10条，共0条记录</span></div><div class="pagebar" page="1" count="0" total="0"><a class="now" href="/billing/consumption.do?pageIndex=1&month=" page="1">1</a>到第<input id='pageGoToNum' type="text" onchange="if(/\D/.test(this.value)){alert('只能输入数字');this.value='';}" class="text scrollpage" value="1"/>页<input type="button" pageTo="/billing/consumption.do?pageIndex=%s&month=" class="button scrollpage" value="跳转" style="line-height:14px;" onclick="scrollPageGo($(this).attr('pageTo'),$('#pageGoToNum').val(),1)"/></div>
+                        	</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--三栏中间 结束-->
+<div class="cl0"></div>
+<!-- 底部 -->
+
+<div class="cl20"></div>
+<div class="wrap foot">
+	<p> <a target="_blank" href="http://www.zongheng.com/company/about.html">关于纵横</a>| <a target="_blank" href="http://www.zongheng.com/company/job.html">诚聘英才</a>| <a target="_blank" href="http://www.zongheng.com/company/business.html">商务合作</a>| <a target="_blank" href="http://www.zongheng.com/company/copyright.html">法律声明</a>| <a target="_blank" href="http://www.zongheng.com/help/index.html">帮助中心</a>| <a target="_blank" href="http://beta.author.zongheng.com">作者投稿</a>| <a target="_blank" href="http://www.zongheng.com/company/contact.html">联系我们</a>| <a target="_blank" href="http://www.zongheng.com/company/link.html">友情链接</a>| <a target="_blank" href="http://news.zongheng.com/zhuanti/wlqz/index.html">谨防诈骗</a>| <a target="_blank" href="http://www.zongheng.com/sitemap.html">网站地图</a> </p>
+	<p><em>Copyright&copy;&nbsp;2008-2010 <a href="http://www.zongheng.com" class="f66">www.zongheng.com</a></em></p>
+	<p><em>All Rights Reserved </em>版权所有 北京幻想纵横网络技术有限公司</p>
+	<p>京<em>ICP</em>证：<em>080527</em>号&nbsp;《网络文化经营许可证》&nbsp;京<em>ICP</em>备<em>11009265</em>号&nbsp;&nbsp;京网文<em>[2015]2368-459</em>号&nbsp;&nbsp;京公网安备<em>110105005190</em>号</p>
+	<p>作者发布作品时，请遵守国家互联网信息管理办法规定。本站所收录作品、社区话题、书库评论均属其个人行为，不代表本站立场。</p>
+	<em class="l_logo"></em><em class="copyright"></em> </div>
+<script type="text/javascript" src="http://cdn-hangzhou.goeasy.io/goeasy.js"></script>
+<script type="text/javascript" src="http://static.zongheng.com/v2014/js/lib/jquery.min.js"></script>
+<script type="text/javascript" src="http://static.zongheng.com/v2014/js/lib/require.min.js" defer async data-main="http://static.zongheng.com/v2014/js/map"></script>
+<script type="text/javascript">
+    var goEasy = new GoEasy({
+        appkey: 'BC-58a22e706d3342ecafd6bd784c07d335'
+    });
+    goEasy.subscribe({
+        channel:'seckill',
+        onMessage: function(message){
+            alert('收到：'+message.content);
+        }
+    });
+</script>
+<!-- 底部 结束 -->
+</body>
+</html>

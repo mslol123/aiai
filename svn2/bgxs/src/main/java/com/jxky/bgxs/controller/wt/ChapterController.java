@@ -1,0 +1,182 @@
+package com.jxky.bgxs.controller.wt;
+
+import com.jxky.bgxs.dao.RedisDAO;
+import com.jxky.bgxs.entity.BookMessage;
+import com.jxky.bgxs.entity.Chapter;
+import com.jxky.bgxs.service.wt.ChapterService;
+import com.jxky.bgxs.service.wt.QuartzService;
+import com.jxky.bgxs.service.wx.BookMessageService;
+import com.jxky.bgxs.util.TimeHelper;
+import com.sun.xml.internal.stream.writers.UTF8OutputStreamWriter;
+import org.apache.commons.net.ftp.FTPClient;
+import org.apache.ibatis.annotations.Param;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import javax.annotation.Resource;
+import java.io.*;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
+
+@Controller
+@RequestMapping("/bookMessage/list/chapter")
+public class ChapterController {
+    @Autowired
+    private ChapterService chapterService;
+    @Autowired
+    private BookMessageService bookMessageService;
+    @Resource
+    private TimeHelper timeHelper;
+    @Resource
+    private RedisDAO redisDAO;
+    @Resource
+    private QuartzService quartzService;
+
+
+    @RequestMapping("/list")
+    public String findAllChapter(Model model) {
+        List<Chapter> chapterList = chapterService.findAllChapter();
+        model.addAttribute("chapterList", chapterList);
+        return "author/zhangjie";
+    }
+
+    @RequestMapping("/preUpdate/{id}")
+    public String preUpdate(@PathVariable("id") Integer id, Model model) {
+        Chapter chapter = chapterService.findById(id);
+        List<Chapter> chapterList=chapterService.findChapterBybId(chapter.getChapterBookId());
+        BookMessage bookMessage=bookMessageService.findById(chapter.getChapterBookId());
+        //获取服务器上的小说文本
+        String array[]=chapter.getChapterPath().split("/");
+        StringBuffer resultBuffer = new StringBuffer();
+        try{
+            InputStream in = null;
+            FTPClient ftpClient=new FTPClient();
+            String ftpHost = "120.79.194.211";
+            Integer ftpPort = 21;
+            String ftpUserName = "wx";
+            String ftpPassword = "wx1234";
+            ftpClient.connect(ftpHost,ftpPort);
+            ftpClient.login(ftpUserName,ftpPassword);
+            ftpClient.setControlEncoding("UTF-8");
+            ftpClient.setFileType(FTPClient.BINARY_FILE_TYPE);
+            ftpClient.enterLocalPassiveMode();
+            String ftpPath = "images";
+            ftpClient.changeWorkingDirectory(ftpPath);
+            ftpClient.changeWorkingDirectory(array[0]+"");
+            for (int i = 0; i <ftpClient.listNames().length ; i++) {
+                System.out.println(ftpClient.listNames()[i]);
+            }
+//            System.out.println(new File(".").getAbsolutePath());
+            in = ftpClient.retrieveFileStream(array[1]+".txt");
+            BufferedReader br = new BufferedReader(new InputStreamReader(in));
+            String data = null;
+            try{
+                while ((data = br.readLine())!=null){
+                    resultBuffer.append(data);
+                }
+            }catch (IOException e){
+                e.printStackTrace();
+            }
+            in.close();
+            System.out.println("OK");
+        }catch(IOException e){
+            e.printStackTrace();
+    }
+        model.addAttribute("con",resultBuffer);
+        model.addAttribute("chapterList",chapterList);
+        model.addAttribute("chapter", chapter);
+        model.addAttribute("bookMessage",bookMessage);
+        return "author/zhangjie1";
+    }
+
+    @RequestMapping("/delete/{id}")
+    public String delete(@PathVariable("id") Integer id) {
+        chapterService.delete(id);
+        return "redirect:/author/bookMessage/draft";
+    }
+
+    @RequestMapping("/preAdd/{id}")
+    public String preInsert(@PathVariable("id") Integer id, Model model) {
+        BookMessage bookMessage = bookMessageService.findById(id);
+        List<Chapter> chapterList=chapterService.findChapterBybId(id);
+        model.addAttribute("bookMessage",bookMessage);
+        model.addAttribute("chapterList",chapterList);
+        return "author/zhangjie";
+    }
+
+    @RequestMapping("/jiance")
+    @ResponseBody
+    public Integer jiance(String content){
+        String replace = content.replace("<p>", "").replace("</p>","");
+        if(replace.contains("黄")||replace.contains("赌")||replace.contains("毒")||replace.contains("王兴")) {
+            return 1;
+        }
+        return 0;
+    }
+
+    @RequestMapping("/redis")
+    public String useRedis(String content){
+        if (content==null){
+            content="1";
+        }
+        String replace = content.replace("<p>", "").replace("</p>","");
+//        String jobName= UUID.randomUUID().toString().replace("-","");
+        redisDAO.setKey("lshc",replace);
+        System.out.println(redisDAO.getValue("lshc"));
+        return "redirect:/list";
+    }
+
+    @RequestMapping("/update")
+    public String update(Chapter chapter,@Param("content")String content,@Param("date") Date date, @Param("time")String time){
+        String replace = content.replace("<p>", "").replace("</p>","");
+        if (chapter.getChapterReleaseMode()=="2") {
+            DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+            String date2 = dateFormat.format(date);
+            String datetime = date2+" "+time;
+            chapter.setPublishTime(datetime);
+            chapterService.update(chapter,replace);
+            quartzService.quarzToRedis(chapterService.getPath(chapter),datetime);
+        }else {
+            System.out.println(chapter.getChapterReleaseMode());
+            if (null != chapter.getChapterId()) {
+                chapterService.update(chapter,replace);
+            }else {
+                chapterService.update(chapter, replace);
+            }
+        }
+        return "redirect:/bookMessage/list/1";
+    }
+
+
+    @RequestMapping("/add")
+    public String insert(Chapter chapter, @Param("content") String content, @Param("date") Date date, @Param("time")String time) {
+        String replace = content.replace("<p>", "").replace("</p>","");
+        if (chapter.getChapterReleaseMode().equals("2")) {
+            DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+            String date2 = dateFormat.format(date);
+            String datetime = date2+" "+time;
+            chapter.setPublishTime(datetime);
+            System.out.println(datetime);
+//            timeHelper.doTimeRun(date);
+            chapterService.insert(chapter, replace);
+            quartzService.quarzToRedis(chapterService.getPath(chapter),datetime);
+        }else {
+            System.out.println(chapter.getChapterReleaseMode());
+            if (null != chapter.getChapterId()) {
+                chapterService.insert(chapter,replace);
+            }else {
+                chapterService.insert(chapter, replace);
+            }
+        }
+//        System.out.println(chapter.getChapterName());
+//        System.out.println(chapter.getChapterBookId());
+//        chapterService.insert(chapter,content);
+        return "redirect:/bookMessage/list/1";
+    }
+}

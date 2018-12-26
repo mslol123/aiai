@@ -1,0 +1,294 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<link href="/css/style.css" rel="stylesheet" type="text/css" />
+<link href="/css/select.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/js/jquery.js"></script>
+<script type="text/javascript" src="/js/jquery.idTabs.min.js"></script>
+<script type="text/javascript" src="/js/select-ui.min.js"></script>
+<!--<script type="text/javascript" src="/editor/kindeditor.js"></script>-->
+
+<!--<script type="text/javascript">-->
+    <!--KE.show({-->
+        <!--id : 'content',-->
+        <!--cssPath : './index.css'-->
+    <!--});-->
+  <!--</script>-->
+  
+<script type="text/javascript">
+$(document).ready(function(e) {
+    $(".select1").uedSelect({
+		width : 345			  
+	});
+	$(".select2").uedSelect({
+		width : 167  
+	});
+	$(".select3").uedSelect({
+		width : 100
+	});
+});
+</script>
+</head>
+
+<body>
+
+	<div class="place">
+    <span>位置：</span>
+    <ul class="placeul">
+    <li><a href="#">首页</a></li>
+    <li><a href="#">信息管理</a></li>
+    </ul>
+    </div>
+    
+    <div class="formbody">
+    
+    
+    <div id="usual1" class="usual"> 
+    
+    <div class="itab">
+  	<ul>
+    <li><a href="#tab1" class="selected">发布秒杀</a></li>
+    <li><a href="/greenroom/form">发布公告</a></li>
+    <li><a href="#tab2">历史信息</a></li>
+  	</ul>
+    </div> 
+    
+  	<div id="tab1" class="tabson">
+    
+    <div class="formtext">Hi，<b>admin</b>，欢迎您使用信息发布功能！</div>
+    
+    <ul class="forminfo">
+    <li>
+        <label>书籍名称<b>*</b></label><input id="bookname" type="text" class="dfinput" value="请填写书籍名称"  style="width:518px;"/>
+    </li>
+    <li>
+        <label id="result2" style="display: none;">抱歉书库中暂缺</label>
+    </li>
+    <li>
+        <label id="result1" style="display: none;">书库中拥有该书</label>
+    </li>
+        <label>&nbsp;</label><input type="button" class="btn" value="查找书籍" onclick="findbook()"/>
+    <li><label>秒杀类型<b>*</b></label>
+
+    <div class="vocation">
+    <select class="select1" id="type">
+    <option value="1">秒杀福利</option>
+    <option value="2">发放优惠券</option>
+    <!--<option>前端设计师</option>-->
+    <!--<option>网页设计师</option>-->
+    <!--<option>Flash动画</option>-->
+    <!--<option>视觉设计师</option>-->
+    <!--<option>插画设计师</option>-->
+    <!--<option>美工</option>-->
+    <!--<option>其他</option>-->
+    </select>
+    </div>
+    
+    </li>
+    
+    <li>
+    <!--<label>薪资待遇<b>*</b></label>-->
+    <!---->
+    <!--<div class="vocation">-->
+    <!--<select class="select1">-->
+    <!--<option>3000-5000</option>-->
+    <!--<option>5000-8000</option>-->
+    <!--<option>8000-10000</option>-->
+    <!--<option>10000-15000</option>-->
+    <!--</select>-->
+    <!--</div>-->
+    
+    
+    
+    </li>
+    <!--<li><label>工作地点<b>*</b></label>-->
+    <!---->
+    <!--<div class="usercity">-->
+    <!---->
+    <!--<div class="cityleft">-->
+    <!--<select class="select2">-->
+    <!--<option>江苏</option>-->
+    <!--<option>湖南</option>-->
+    <!--<option>广东</option>-->
+    <!--<option>北京</option>-->
+    <!--<option>湖北</option>-->
+    <!--</select>-->
+    <!--</div>-->
+    <!---->
+    <!--<div class="cityright">-->
+    <!--<select class="select2">-->
+    <!--<option>南京</option>-->
+    <!--<option>无锡</option>-->
+    <!--<option>盐城</option>-->
+    <!--<option>徐州</option>-->
+    <!--<option>连云港</option>-->
+    <!--</select>-->
+    <!--</div>-->
+    <!---->
+    <!--</div>-->
+    <!---->
+    <!---->
+    <!---->
+    <!--</li>-->
+    <li><label>秒杀数量<b>*</b></label>
+        <div class="usercity">
+            <div class="cityleft">
+                <select class="select2" id="count">
+                    <option value="10" selected>10</option>
+                    <option value="20">20</option>
+                    <option value="50">50</option>
+                </select>
+            </div>
+        </div>
+    
+
+    <!--<textarea id="content" name="content" style="width:700px;height:250px;visibility: visible"></textarea>-->
+    
+    </li>
+    <li><label>&nbsp;</label><input id="publish" type="button" class="btn" style="display: none;" value="马上发布" onclick="publish()"/></li>
+    </ul>
+    
+    </div> 
+    
+    
+  	<div id="tab2" class="tabson">
+    
+    
+    <ul class="seachform">
+    
+    <li>
+        <label>综合查询</label>
+        <!--<input name="" type="text" class="scinput" />-->
+        <select class="select2" id="noticeType">
+        <option value="2" selected>福利发布</option>
+        <option value="1">公告发布</option>
+        <!--<option>盐城</option>-->
+        <!--<option>徐州</option>-->
+        <!--<option>连云港</option>-->
+        </select>
+    </li>
+    <!--<li><label>指派</label>  -->
+    <!--<div class="vocation">-->
+    <!--<select class="select3">-->
+    <!--<option>全部</option>-->
+    <!--<option>其他</option>-->
+    <!--</select>-->
+    <!--</div>-->
+    <!--</li>-->
+    
+    <!--<li><label>重点客户</label>  -->
+    <!--<div class="vocation">-->
+    <!--<select class="select3">-->
+    <!--<option>全部</option>-->
+    <!--<option>其他</option>-->
+    <!--</select>-->
+    <!--</div>-->
+    <!--</li>-->
+
+    <li><label>&nbsp;</label><input name="" type="button" class="scbtn" value="查询" onclick="find()"/></li>
+    
+    </ul>
+    
+    
+    <table class="tablelist">
+    	<thead>
+    	<tr>
+        <!--<th><input name="" type="checkbox" value="" checked="checked"/></th>-->
+        <th>编号<i class="sort"><img src="/images/px.gif" /></i></th>
+        <th>内容</th>
+        <th>发布者</th>
+        <!--<th>籍贯</th>-->
+        <th>发布时间</th>
+        <!--<th>是否审核</th>-->
+        <!--<th>操作</th>-->
+        </tr>
+        </thead>
+        <tbody>
+        <!--<tr>-->
+        <!--&lt;!&ndash;<td><input name="" type="checkbox" value="" /></td>&ndash;&gt;-->
+        <!--<td id="noticeId"></td>-->
+        <!--<td id="noticeMatter"></td>-->
+        <!--<td>admin</td>-->
+        <!--&lt;!&ndash;<td>江苏南京</td>&ndash;&gt;-->
+        <!--<td id="noticeTime"></td>-->
+        <!--&lt;!&ndash;<td>已审核</td>&ndash;&gt;-->
+        <!--&lt;!&ndash;<td><a href="#" class="tablelink">查看</a>     <a href="#" class="tablelink"> 删除</a></td>&ndash;&gt;-->
+        <!--</tr> -->
+
+        </tbody>
+    </table>
+    
+   
+  
+    
+    </div>  
+       
+	</div> 
+ 
+	<script type="text/javascript"> 
+      $("#usual1 ul").idTabs(); 
+    </script>
+    
+    <script type="text/javascript">
+	$('.tablelist tbody tr:odd').addClass('odd');
+	</script>
+    
+    
+    
+    
+    
+    </div>
+
+</body>
+</html>
+<script type="text/javascript">
+    function find() {
+        var type = $("#noticeType").val();
+        $.post("/greenroom/find",{mattertype:type},function (data){
+            var item;
+            $(".result1").empty();
+            $.each(data,function(i,result){
+                var date111 = result['createtime'].replace("T06:00:00.000+0000","");
+                item= "<tr class='result1'><td>"+result['id']+"</td><td>"+result['matter']+"</td><td>admin</td><td>"+date111+"</td></tr>";
+                $(".tablelist").append(item);
+            })
+        })
+    }
+
+
+    function findbook() {
+        var bookname = $("#bookname").val();
+        $.post("/greenroom/findbook",{bookname:bookname},function (data) {
+            if(data == 4){
+                $("#result1").hide();
+                $("#publish").hide();
+                $("#result2").show();
+            }else if(data==5){
+                $("#result2").hide();
+                $("#result1").show();
+                $("#publish").show();
+            }
+        })
+    }
+
+
+    function publish() {
+        var bookname = $("#bookname").val();
+        var count = $("#count").val();
+
+//        var matter = document.getElementById("matter").innerText;
+//        alert(matter);
+        $.post("/publish/queue",{bookname:bookname,count:count},function (data) {
+            if (data==1) {
+                alert("已成功发布公告");
+                window.location.href="/greenroom/tab";
+            }else{
+                alert("公告发布失败");
+                window.location.href="/greenroom/tab";
+            }
+        });
+    }
+
+</script>

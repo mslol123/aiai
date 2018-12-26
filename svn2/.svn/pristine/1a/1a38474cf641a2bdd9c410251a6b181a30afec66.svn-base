@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jxky.bgxs.dao.ChapterDAO">
+    <resultMap id="chapterMap" type="com.jxky.bgxs.entity.Chapter">
+        <id property="chapterId" column="chapter_id"></id>
+        <result property="chapterName" column="chapter_name"></result>
+        <result property="chapterPath" column="chapter_path"></result>
+        <result property="bookId" column="chapter_book_id"></result>
+        <result property="createtime" column="chapter_createtime"></result>
+        <result property="message" column="chapter_message"></result>
+        <result property="words" column="chapter_words"></result>
+        <result property="giveNum" column="chapter_givenum"></result>
+        <result property="releaseModel" column="chapter_release_model"></result>
+        <result property="releaseMode" column="chapter_release_mode"></result>
+        <result property="money" column="chapter_money"></result>
+        <result property="talk" column="chapter_talk"></result>
+        <result property="authorId" column="chapter_author_id"></result>
+    </resultMap>
+
+    <select id="findAllChapter" resultMap="chapterMap">
+        SELECT
+        chapter.chapter_id,
+        chapter.chapter_path,
+        chapter.chapter_author_id,
+        chapter.chapter_book_id,
+        chapter.chapter_name,
+        chapter.chapter_createtime,
+        chapter.chapter_message,
+        chapter.chapter_words,
+        chapter.chapter_givenum,
+        chapter.chapter_release_model,
+        chapter.chapter_release_mode,
+        chapter.chapter_money,
+        chapter.chapter_talk
+        FROM `chapter`
+    </select>
+
+    <insert id="insert">
+        INSERT INTO chapter(chapter_name,chapter_path,chapter_release_model,chapter_release_mode,chapter_talk) VALUES (#{name},#{path},#{releaseModel},#{releaseMode},#{talk})
+    </insert>
+
+    <select id="findById">
+        SELECT
+        chapter.chapter_id,
+        chapter.chapter_path,
+        chapter.chapter_author_id,
+        chapter.chapter_book_id,
+        chapter.chapter_name,
+        chapter.chapter_createtime,
+        chapter.chapter_message,
+        chapter.chapter_words,
+        chapter.chapter_givenum,
+        chapter.chapter_release_model,
+        chapter.chapter_release_mode,
+        chapter.chapter_money,
+        chapter.chapter_talk
+        FROM
+        chapter
+        WHERE
+        chapter.chapter_id = #{chapter_id}
+    </select>
+
+    <select id="findChapterByBookId" resultMap="chapterMap">
+        SELECT
+        chapter.chapter_id,
+        chapter.chapter_path,
+        chapter.chapter_author_id,
+        chapter.chapter_book_id,
+        chapter.chapter_name,
+        chapter.chapter_createtime,
+        chapter.chapter_message,
+        chapter.chapter_words,
+        chapter.chapter_givenum,
+        chapter.chapter_release_model,
+        chapter.chapter_release_mode,
+        chapter.chapter_money,
+        chapter.chapter_talk
+        FROM
+        chapter
+        WHERE
+        chapter_book_id=#{bookId}
+    </select>
+
+    <update id="update">
+        UPDATE
+        <set>
+            <!--<if test="id != null">-->
+            <!--chapter_id = #{id},-->
+            <!--</if>-->
+            <if test="name != null">
+                chapter_name = #{name},
+            </if>
+            <if test="path != null">
+                chapter_path = #{path},
+            </if>
+            <if test="authorId != null">
+                chapter_author_id = #{authorId},
+            </if>
+            <if test="bookId != null">
+                chapter_book_id = #{bookId},
+            </if>
+            <if test="createtime != null">
+                chapter_createtime = #{createtime},
+            </if>
+            <if test="message != null">
+                chapter_message = #{message},
+            </if>
+            <if test="words != null">
+                chapter_words = #{words},
+            </if>
+            <if test="givenum != null">
+                chapter_givenum = #{givenum},
+            </if>
+            <if test="release_model != null">
+                chapter_release_model = #{release_model},
+            </if>
+            <if test="release_mode != null">
+                chapter_release_mode = #{release_mode},
+            </if>
+            <if test="money != null">
+                chapter_money = #{money},
+            </if>
+            <if test="talk != null">
+                chapter_talk = #{talk},
+            </if>
+        </set>
+    </update>
+
+    <delete id="delete">
+        DELETE
+        chapter.chapter_id,
+        chapter.chapter_path,
+        chapter.chapter_author_id,
+        chapter.chapter_book_id,
+        chapter.chapter_name,
+        chapter.chapter_createtime,
+        chapter.chapter_message,
+        chapter.chapter_words,
+        chapter.chapter_givenum,
+        chapter.chapter_release_model,
+        chapter.chapter_release_mode,
+        chapter.chapter_money,
+        chapter.chapter_talk
+        FROM chapter WHERE chapter_id=#{id}
+    </delete>
+
+</mapper>
+
+
+
+

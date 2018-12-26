@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<!-- saved from url=(0030)http://author.zongheng.com/pay -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>作者专区-稿酬查询</title>
+
+<meta name="renderer" content="webkit">
+<link rel="stylesheet" type="text/css" href="./作者专区-稿酬查询_files/public.css">
+<link rel="stylesheet" type="text/css" href="./作者专区-稿酬查询_files/author.css">
+<script charset="utf-8" src="./作者专区-稿酬查询_files/x.js.下载"></script><script type="text/javascript" async="" charset="utf-8" src="./作者专区-稿酬查询_files/core.php"></script><script type="text/javascript" src="./作者专区-稿酬查询_files/c.php"></script></head>
+<body type="index" _pgid="138" signbookcount="0">
+    
+
+
+
+
+
+
+
+
+
+
+<div class="au_nav">
+	<div class="au_box" id="loginSign">
+	 <div class="au_nav_a">
+		<a href="http://www.zongheng.com/" target="_blank">纵横首页</a>|
+		<a href="http://author.zongheng.com/nzh/editors" target="_blank">编辑介绍</a>|
+		<a href="http://www.zongheng.com/company/author.html" target="_blank" class="goodluck">作者福利</a>
+		
+		        |<span>尼奥</span>|
+		        <a href="http://author.zongheng.com/loginout">退出</a>
+		   
+	 </div>
+	 <a href="http://author.zongheng.com/" class="au_logo"></a>
+	 <script src="./作者专区-稿酬查询_files/hm.js.下载"></script><script src="./作者专区-稿酬查询_files/notice"></script><style>.header_link{font-size: 16px;margin-top:30px;margin-left:30px;background-image: url(http://static.zongheng.com/author/v2015/images/toplink.gif);background-position:right 2px;background-repeat:no-repeat;padding-right:20px;float: left;}.header_link a{color:#e74c3c;}</style><div class="header_link"><a target="_blank" href="http://author.zongheng.com/pay"></a></div>
+
+	</div>
+  </div>
+ 
+
+	<div class="au_head">
+	 <div class="au_box">
+		<div class="au_pic">
+		    <img src="./作者专区-稿酬查询_files/default_user.jpg">
+			<div class="pic_shade"></div>
+		</div>
+		<div class="au_intro">
+			<div class="au_name">
+				<span>尼奥</span> <a href="http://author.zongheng.com/home" title="修改资料" class="auico btn_changename"></a>
+				
+						<a href="http://author.zongheng.com/author/messagelist" title="作者信箱" class="auico btn_email"></a>
+					
+			</div>
+			<p><em class="auico buy"></em>昨日订阅:<span>0.0</span></p>
+			<p><em class="auico allow"></em>作者已审核</p>
+			</div>
+			<a href="http://author.zongheng.com/book/add" title="创建新书" class="buildbook">创建新书</a>
+		</div>
+	</div>
+	<div class="au_box content">
+		<div class="con_nav">
+			<a href="http://author.zongheng.com/author/announce" class="fr voice"><em class="auico warn"></em>网站公告</a> 
+			<a href="http://author.zongheng.com/"><span>作品库</span> </a>
+			<a href="http://author.zongheng.com/pay"><span class="focus">稿酬查询</span> </a>
+		</div>
+		<div class="con paylist" style="min-height: 109px;">
+        	<div class="payloading" style="display: none;">稿酬查询中，请稍后···</div>
+            <div class="paynone" style="">
+                <p>很抱歉，您目前还没有签约的作品，</p>
+                <p>暂无稿酬</p>
+            </div>
+            <div class="payinfo" style="display:none;">
+                <div class="pay_search clear">
+                    <div class="chooseyear fl">
+                        <div class="select_nav"><em class="pub_ico arr_select fr"></em><em class="sel_con">----年</em></div>
+                        <ul class="option" style="max-height: 426px;"></ul>
+                    </div>
+                    <div class="choosemon fl">
+                        <div class="select_nav"><em class="pub_ico arr_select fr"></em><em class="sel_con">--月</em></div>
+                        <ul class="option" style="max-height: 426px;"></ul>
+                    </div>
+                    <div class="choosebook fl">
+                        <div class="select_nav"><em class="pub_ico arr_select fr"></em><em class="sel_con">全部作品</em></div>
+                         <ul class="option" style="max-height: 426px;"></ul>
+                    </div>
+                    
+                    <div class="choose_submit btn_bg fl" title="查询" type="pay">查询</div>
+                </div>
+                <div class="pay_source"></div>
+            </div>
+    	</div>
+    </div>
+	
+<div class="footer">
+	<div class="au_box">
+		<p>
+			Copyright<em>©</em>2008-2010 www.zongheng.com All Rights Reserved
+		</p>
+		<p>版权所有 北京幻想纵横网络技术有限公司</p>
+	</div>
+</div>
+<script type="text/javascript" src="http://cdn-hangzhou.goeasy.io/goeasy.js"></script>
+<script type="text/javascript" src="./作者专区-稿酬查询_files/tongji.js.下载"></script>
+
+	<script type="text/javascript" src="./作者专区-稿酬查询_files/jquery-1.8.3.min.js.下载"></script>
+    <script type="text/javascript" src="./作者专区-稿酬查询_files/public.dialog.js.下载"></script><div class="mdialog" id="publicDialog" style="display: none; top: 76px;">
+	<h2><a href="javascript:;" title="关闭" class="pub_ico btn_close md_close fr"></a><span class="md_tit">保存到草稿箱</span></h2>
+  <div class="mdchange mdlist">
+  	<div class="md_tips">操作错误提示信息</div>
+      <p align="center"><span class="btn_c_g btn_move btnSure">确定</span></p>
+  </div>
+  <div class="mdconfirm mdlist">
+  	<div class="md_tips">您好，您刚刚编辑的章节还没有保存，是否保存到草稿箱？</div>
+      <div class="md_btn"><span class="btn_c_g md_sure btnSure" btntype="save">确定</span><span class="btn_c_g md_cancel btnCancel">取消</span></div>
+  </div>
+  <div class="mdmove mdlist">
+ 	  <div class="volume select_dom">
+     	<p class="select_nav"><em class="cor_gary">分卷</em><em class="voname sel_con"></em></p>
+      <div class="option" style="max-height: 410px;"></div>
+    </div>
+    <div class="mdchapter clear">
+  	<div class="chaptername select_dom fl">
+        	<em class="cor_gary">章节</em>
+          <p class="select_nav"><em class="sel_con"></em></p>
+          <div class="option" style="max-height: 60px;"></div>
+      </div>
+      <div class="chapterps select_dom fr">
+         	<em class="cor_gary">位置</em>
+          <p class="select_nav"><em class="sel_con">章节之前</em></p>
+          <ul class="option"><li>章节之前</li><li>卷末</li></ul>
+      </div>
+    </div>
+    <p align="center" class="align"><a href="javascript:;" class="btn_c_g btn_move btnSure">移动</a></p>
+  </div>
+</div>
+<div id="publicDialogbg" style="height: 1003px;"></div>
+
+	<script type="text/javascript" src="./作者专区-稿酬查询_files/pagenumber.js.下载"></script>
+    <script type="text/javascript" src="./作者专区-稿酬查询_files/author.pay.js.下载"></script>
+<script type="text/javascript">
+    var goEasy = new GoEasy({
+        appkey: 'BC-58a22e706d3342ecafd6bd784c07d335'
+    });
+    goEasy.subscribe({
+        channel:'seckill',
+        onMessage: function(message){
+            alert('收到：'+message.content);
+        }
+    });
+</script>
+</body></html>

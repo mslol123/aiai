@@ -1,0 +1,173 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>作者专区-作者信箱</title>
+
+<meta name="renderer" content="webkit">
+<link rel="stylesheet" type="text/css" charset="utf-8" href="./作者专区-作者信箱_files/public.css">
+<script charset="utf-8" src="./作者专区-作者信箱_files/x.js.下载"></script><script type="text/javascript" async="" charset="utf-8" src="./作者专区-作者信箱_files/core.php"></script><script type="text/javascript" src="./作者专区-作者信箱_files/c.php"></script></head>
+<body class="body_f">
+
+
+
+
+
+
+
+
+
+
+
+<div class="au_nav">
+	<div class="au_box" id="loginSign">
+	 <div class="au_nav_a">
+		<a href="http://www.zongheng.com/" target="_blank">纵横首页</a>|
+		<a href="http://author.zongheng.com/nzh/editors" target="_blank">编辑介绍</a>|
+		<a href="http://www.zongheng.com/company/author.html" target="_blank" class="goodluck">作者福利</a>
+		
+		        |<span>尼奥</span>|
+		        <a href="http://author.zongheng.com/loginout">退出</a>
+		   
+	 </div>
+	 <a href="http://author.zongheng.com/"  class="au_logo"></a>
+	 <script src="./作者专区-作者信箱_files/hm.js.下载"></script><script src="./作者专区-作者信箱_files/notice"></script><style>.header_link{font-size: 16px;margin-top:30px;margin-left:30px;background-image: url(http://static.zongheng.com/author/v2015/images/toplink.gif);background-position:right 2px;background-repeat:no-repeat;padding-right:20px;float: left;}.header_link a{color:#e74c3c;}</style><div class="header_link"><a target="_blank" href="http://author.zongheng.com/author/messagelist"></a></div>
+
+	</div>
+  </div>
+ 
+
+<div class="au_box">
+	<div class="au_mail" style="min-height: 297px;">
+    	<div class="mail_nav">
+        	<span class="focus">作者信箱</span>
+        <a style="float:right; font-size:14px; color:#1abc9c; letter-spacing:1px;font-family:&#39;Microsoft YaHei&#39;;line-height:40px;"><a onclick="history.back()">返回</a><em style="letter-spacing:-2px; padding-left:2px;">&gt;&gt;</em></a></div>
+        
+           <div class="inline tr clear">
+            <div class="td msg_con">留言内容</div>
+            <div class="td msg_type">留言类型</div>
+            <div class="td msg_time">留言时间</div>
+            <div class="td msg_manage">管理留言</div>
+        </div>
+        <ul class="table">
+          
+            
+                  <li class="tr clear" th:each="message:${messages}">
+                
+            	<div class="td msg_con">
+                	<div class="msg_side" style="display: block;">
+                    	<div class="sidemsg">您好，新书初次上传提交审核，请提交不低于2000字<a href="javascript:;" class="allmsg">【展开全部】</a></div>
+                    </div>
+                    <div class="msg_wide" style="display: none;">
+                    	<div class="widemsg"><p th:text="${message.refuseWord}"></p><a href="javascript:;" class="onemsg">【收起内容】</a></div>
+                    </div>
+                </div>
+                <div class="td msg_type">
+                   审核意见
+                </div>
+                      <div class="td msg_time"><p th:text="${#dates.format(message.examineTime,'yyyy-MM-dd HH:mm:ss')}"></p>/div>
+                <div class="td msg_manage"><a href="http://author.zongheng.com/author/messagedelete?messageId=629431&amp;pageNo=1" class="delmsg">删除留言</a></div>
+            </li>
+            
+            
+                  <!--<li class="tr clear">-->
+                <!---->
+            	<!--<div class="td msg_con">-->
+                	<!--<div class="msg_side">-->
+                    	<!--<div class="sidemsg">你好，作品注意分段！分段！单一章节最好不要少于20<a href="javascript:;" class="allmsg">【展开全部】</a></div>-->
+                    <!--</div>-->
+                    <!--<div class="msg_wide">-->
+                    	<!--<div class="widemsg">你好，作品注意分段！分段！单一章节最好不要少于2000字，3000字最佳，加油！<a href="javascript:;" class="onemsg">【收起内容】</a></div>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="td msg_type">-->
+                   <!--咨询回复-->
+                <!--</div>-->
+                <!--<div class="td msg_time">2018-03-15 17:42:53</div>-->
+                <!--<div class="td msg_manage"><a href="http://author.zongheng.com/author/messagedelete?messageId=596716&amp;pageNo=1" class="delmsg">删除留言</a></div>-->
+            <!--</li>-->
+            <!---->
+            <!---->
+                  <!--<li class="tr clear">-->
+                <!---->
+            	<!--<div class="td msg_con">-->
+                	<!--<div class="msg_side">-->
+                    	<!--<div class="sidemsg">您的作品因排版的问题导致没有通过审核，排版不正确一<a href="javascript:;" class="allmsg">【展开全部】</a></div>-->
+                    <!--</div>-->
+                    <!--<div class="msg_wide">-->
+                    	<!--<div class="widemsg">您的作品因排版的问题导致没有通过审核，排版不正确一般是指没有合理的安排章节、章节字数、标点符号、换行和分割段落，段落的字数最好不要超过五百字。另外，单一章节最好不少于2000字，感谢您对纵横中文网的支持！祝写作顺！<a href="javascript:;" class="onemsg">【收起内容】</a></div>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="td msg_type">-->
+                   <!--审核意见-->
+                <!--</div>-->
+                <!--<div class="td msg_time">2018-03-14 11:09:31</div>-->
+                <!--<div class="td msg_manage"><a href="http://author.zongheng.com/author/messagedelete?messageId=596517&amp;pageNo=1" class="delmsg">删除留言</a></div>-->
+            <!--</li>-->
+            
+        </ul>
+          
+         
+	    <div class="pagenumber">总计3记录<a href="javascript:;" class="page_prev last">上一页</a><a href="http://author.zongheng.com/author/messagelist?pageNo=1" class="now">1</a><a href="javascript:;" class="page_prev last">下一页</a>&nbsp;&nbsp;至第<input type="text" id="toPage" name="toPage" value="1" size="3">页&nbsp;<input type="button" class="submit" onclick="appointPage(&#39;/author/messagelist?pageNo=&#39;, 1)" value="跳转"></div> 
+    </div>
+</div>
+
+<div class="footer">
+	<div class="au_box">
+		<p>
+			Copyright<em>©</em>2008-2010 www.zongheng.com All Rights Reserved
+		</p>
+		<p>版权所有 北京幻想纵横网络技术有限公司</p>
+	</div>
+</div>
+<script type="text/javascript" src="http://cdn-hangzhou.goeasy.io/goeasy.js"></script>
+<script type="text/javascript" src="./作者专区-作者信箱_files/tongji.js.下载"></script>
+
+<script type="text/javascript" src="./作者专区-作者信箱_files/jquery-1.8.3.min.js.下载"></script>
+<script type="text/javascript" src="./作者专区-作者信箱_files/public.dialog.js.下载"></script><div class="mdialog" id="publicDialog" style="display: none; top: 8.5px;">
+	<h2><a href="javascript:;" title="关闭" class="pub_ico btn_close md_close fr"></a><span class="md_tit">保存到草稿箱</span></h2>
+  <div class="mdchange mdlist">
+  	<div class="md_tips">操作错误提示信息</div>
+      <p align="center"><span class="btn_c_g btn_move btnSure">确定</span></p>
+  </div>
+  <div class="mdconfirm mdlist">
+  	<div class="md_tips">您好，您刚刚编辑的章节还没有保存，是否保存到草稿箱？</div>
+      <div class="md_btn"><span class="btn_c_g md_sure btnSure" btntype="save">确定</span><span class="btn_c_g md_cancel btnCancel">取消</span></div>
+  </div>
+  <div class="mdmove mdlist">
+ 	  <div class="volume select_dom">
+     	<p class="select_nav"><em class="cor_gary">分卷</em><em class="voname sel_con"></em></p>
+      <div class="option" style="max-height: 410.5px;"></div>
+    </div>
+    <div class="mdchapter clear">
+  	<div class="chaptername select_dom fl">
+        	<em class="cor_gary">章节</em>
+          <p class="select_nav"><em class="sel_con"></em></p>
+          <div class="option" style="max-height: 60.5px;"></div>
+      </div>
+      <div class="chapterps select_dom fr">
+         	<em class="cor_gary">位置</em>
+          <p class="select_nav"><em class="sel_con">章节之前</em></p>
+          <ul class="option"><li>章节之前</li><li>卷末</li></ul>
+      </div>
+    </div>
+    <p align="center" class="align"><a href="javascript:;" class="btn_c_g btn_move btnSure">移动</a></p>
+  </div>
+</div>
+<div id="publicDialogbg" style="height: 826px;"></div>
+
+<script type="text/javascript" src="./作者专区-作者信箱_files/pagenumber.js.下载"></script>
+<script type="text/javascript" src="./作者专区-作者信箱_files/msgdraft.js.下载"></script>
+<script type="text/javascript">
+    var goEasy = new GoEasy({
+        appkey: 'BC-58a22e706d3342ecafd6bd784c07d335'
+    });
+    goEasy.subscribe({
+        channel:'seckill',
+        onMessage: function(message){
+            alert('收到：'+message.content);
+        }
+    });
+</script>
+
+</body></html>

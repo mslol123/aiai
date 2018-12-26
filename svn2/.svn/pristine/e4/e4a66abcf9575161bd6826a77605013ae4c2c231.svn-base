@@ -1,0 +1,78 @@
+package com.jxky.bgxs.controller.xc;
+
+import com.jxky.bgxs.entity.BookMessage;
+import com.jxky.bgxs.entity.Comment;
+import com.jxky.bgxs.entity.Ticket;
+import com.jxky.bgxs.entity.User;
+import com.jxky.bgxs.service.wx.BookMessageService;
+import com.jxky.bgxs.service.wx.CommentService;
+import com.jxky.bgxs.service.xc.TicketService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.SessionAttribute;
+
+import java.util.Date;
+import java.util.List;
+
+@Controller
+@RequestMapping("/comment")
+public class CommentController {
+    @Autowired
+    private CommentService commentService;
+    @Autowired
+    private TicketService ticketService;
+    @Autowired
+    private BookMessageService bookMessageService;
+
+    @RequestMapping("/list")
+    public String findByUserId(Model model, @SessionAttribute("user")User user){
+        List<Comment> list = commentService.findByUserId(user.getId());
+        for (Comment comment : list) {
+            comment.setBookName(bookMessageService.findById(comment.getBookMessageId()).getBookName());
+        }
+        model.addAttribute("list",list);
+        return "user/myDynamic";
+    }
+
+    @RequestMapping("/giveNum")
+    public String ticket(Model model, @SessionAttribute("user")User user) {
+        List<Ticket> ticketList = ticketService.findByUserId(user.getId());
+        for (Ticket ticket : ticketList) {
+            ticket.setBookName(bookMessageService.findById(ticket.getBookId()).getBookName());
+        }
+        model.addAttribute("ticketList",ticketList);
+        return "user/myOperate";
+    }
+
+    @RequestMapping("/ticket")
+    public String giveNum(Model model, @SessionAttribute("user")User user) {
+        List<Ticket> ticketList = ticketService.findByUserId(user.getId());
+        for (Ticket ticket : ticketList) {
+            ticket.setBookName(bookMessageService.findById(ticket.getBookId()).getBookName());
+        }
+        model.addAttribute("ticketList",ticketList);
+        return "user/monthVote";
+    }
+
+    @RequestMapping("/preadd/{id}")
+    public String  preadd(@SessionAttribute("user")User user,Model model, @PathVariable("id")Integer id){
+        if(user==null){
+            return "user/login";
+        }else {
+            BookMessage bookMessage = bookMessageService.findById(id);
+            model.addAttribute("bookMessage",bookMessage);
+            return "books/comment";
+        }
+    }
+
+    @RequestMapping("/add")
+    public  String add(@SessionAttribute("user")User user,Model model,Comment comment){
+        comment.setUserId(user.getId());
+        comment.setCreattime(new Date());
+        commentService.add(comment);
+        return "books/book";
+    }
+}

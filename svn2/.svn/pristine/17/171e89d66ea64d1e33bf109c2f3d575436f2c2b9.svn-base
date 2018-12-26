@@ -1,0 +1,90 @@
+package com.jxky.bgxs.controller.wx;
+
+import com.jxky.bgxs.entity.BookMessage;
+import com.jxky.bgxs.entity.Chapter;
+import com.jxky.bgxs.service.wt.ChapterService;
+import com.jxky.bgxs.service.wx.BookMessageService;
+import com.jxky.bgxs.util.MinMonthHelper;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import javax.annotation.Resource;
+import java.text.ParseException;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+@Controller
+@RequestMapping("/pay")
+public class PayController {
+    @Resource
+    private BookMessageService bookMessageService;
+    @Resource
+    private ChapterService chapterService;
+    @Resource
+    private MinMonthHelper minMonthHelper;
+
+    @RequestMapping("/prePay")
+    public String prePay(Model model) throws ParseException {
+//        List<BookMessage> bookMessages = bookMessageService.findAllByAuthorId(1);
+        List<BookMessage> bookMessages = bookMessageService.findAll();
+        model.addAttribute("bookMessages",bookMessages);
+        Date date = minMonthHelper.getMinMonthDate(new Date());
+        //按章节来算的话
+        if (true){
+            if (null!=bookMessages){
+                for (BookMessage book : bookMessages){
+                    Integer count = chapterService.findCountByDate(book.getBookId(), date);
+                    if (null!=count){
+                        book.setBookPay(count*100);
+                        bookMessageService.updateBookMessage(book);
+                    }
+                }
+            }
+            //按天数算的话
+        }else {
+            if(null!=bookMessages){
+                for (BookMessage book:bookMessages){
+                    List<Chapter> list = chapterService.findChapterByDate(book.getBookId(), date);
+                    List<Date> list2 = new ArrayList<>();
+                    if (null!=list){
+                        for (Chapter chapter:list) {
+                            Date date1 = chapter.getChapterCreatetime();
+                            if (!list2.contains(date1)) {
+                                list2.add(date1);
+                            }
+                        }
+                    }
+                    book.setBookPay(150*list2.size());
+                    bookMessageService.updateBookMessage(book);
+                }
+
+            }
+        }
+        model.addAttribute("books",bookMessages);
+
+        return "author/gaochou";
+    }
+
+    @RequestMapping("/details/{id}")
+    public String details(@PathVariable("id")Integer id,Model model){
+        List<Chapter> list = null;
+        try {
+            list = chapterService.findChapterByDate(id,minMonthHelper.getMinMonthDate(new Date()));
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        model.addAttribute("list",list);
+        List<Chapter> chapters = chapterService.findChapterByBookId(id);
+        for(Chapter chapter:chapters){
+            if (list.contains(chapter)){
+                chapters.remove(chapter);
+            }
+        }
+        model.addAttribute("chapters",chapters);
+        return "author/details";
+    }
+}
+
